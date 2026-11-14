@@ -97,7 +97,7 @@ numba==0.68.1 # Compila funções Python em código de máquina otimizado com JI
 
 numpy>=2.5,<3 # Fornece suporte a matrizes multidimensionais e computação numérica de alta performance.
 
-nvidia-nccl-cu13==2.32.6 # Fornece primitivas de comunicação coletiva otimizadas para GPUs NVIDIA.
+nvidia-nccl-cu13==2.32.6; sys_platform == "linux" and platform_machine == "x86_64" # Fornece primitivas de comunicação coletiva otimizadas para GPUs NVIDIA.
 
 packaging==26.3 # Gerencia e compara versões de pacotes em conformidade com PEP 440.
 
