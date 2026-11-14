@@ -165,7 +165,7 @@ def converter_grs_elementos() -> None:
         destino = BASE / "ambiente_recursos" / f"grs_{elemento}_5deg.tif"
         valores = np.full(n_lat * n_lon, np.nan, dtype="float32")
         with origem.open() as fh:
-            for i, linha in enumerate(fh):
+            for linha in fh:
                 partes = linha.split()
                 if len(partes) < 3:
                     continue
