@@ -40,7 +40,7 @@ interface PanelInfo {
   place: string;
   pct: number;
   desc: string;
-  
+  sections: { title: string; body: string }[];
   values: number[];
 }
 
@@ -50,19 +50,55 @@ const PANELS: Record<Body, PanelInfo> = {
     eyebrow: 'MARS ANALOG',
     place: 'ATACAMA',
     pct: 65,
-    desc: 'Lava and ash field used in astronaut training. Lava and ash field used in astronaut training.',
+    desc: 'Hyper-arid volcanic terrain for rehearsing exploration work in Mars-like surface conditions.',
+    sections: [
+      {
+        title: 'WHERE THE ANALOGY HOLDS',
+        body: 'The Atacama offers extreme aridity, volcanic ground, exposed rock, and sparse vegetation for testing instruments and surface exploration routines.',
+      },
+      {
+        title: 'WHERE IT FALLS SHORT',
+        body: 'Earth still has stronger gravity, a dense atmosphere, and a protective magnetic field. The site cannot reproduce Martian pressure, radiation, dust behavior, or gravity.',
+      },
+      {
+        title: 'MISSION APPLICATIONS',
+        body: 'Rehearse traverse planning, sample collection, instrument deployment, and crew procedures before a mission.',
+      },
+      {
+        title: 'PSYCHOLOGICAL DATA',
+        body: 'Track crew mood, perceived stress, sleep quality, workload, and team cohesion during field exercises. These human-factors measures are separate from terrain similarity.',
+      },
+    ],
     values: [0.85, 0.55, 0.7, 0.8, 0.5, 0.65],
   },
   moon: {
     eyebrow: 'MOON ANALOG',
     place: 'MAUNA KEA',
     pct: 58,
-    desc: 'Volcanic terrain used in astronaut training. Volcanic terrain used in astronaut training.',
+    desc: 'High-altitude volcanic terrain for rehearsing lunar exploration procedures.',
+    sections: [
+      {
+        title: 'WHERE THE ANALOGY HOLDS',
+        body: 'Mauna Kea provides high-altitude volcanic terrain, sparse vegetation, and exposed landscapes for geology, navigation, and equipment field tests.',
+      },
+      {
+        title: 'WHERE IT FALLS SHORT',
+        body: 'It does not reproduce the lunar vacuum, one-sixth gravity, radiation, electrostatic dust, or extreme thermal cycle. Earth air and gravity change every task.',
+      },
+      {
+        title: 'MISSION APPLICATIONS',
+        body: 'Use the terrain to rehearse geological sampling, equipment deployment, and crew procedures, then compare how teams perform across exercises.',
+      },
+      {
+        title: 'PSYCHOLOGICAL DATA',
+        body: 'Track crew mood, perceived stress, sleep quality, workload, and team cohesion during field exercises. These human-factors measures are separate from terrain similarity.',
+      },
+    ],
     values: [0.7, 0.45, 0.8, 0.6, 0.75, 0.55],
   },
 };
 
-const RADAR_LABELS = ['Geologia', 'Temperatura', 'Aridez', 'Relevo', 'Altitude', 'Solo'];
+const RADAR_LABELS = ['Geology', 'Temperature', 'Aridity', 'Relief', 'Altitude', 'Soil'];
 const TIMELINE = Array.from({ length: 22 }, (_, i) => ({ year: 2026 + i }));
 
 function buildRadar(values: number[]) {
