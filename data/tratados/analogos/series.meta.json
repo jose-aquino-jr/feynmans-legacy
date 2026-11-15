@@ -1,0 +1,14 @@
+{
+  "description": "Nota geral mensal de cada par: meses observados e previstos pelo LightGBM.",
+  "tags": [
+    "análogos",
+    "previsão"
+  ],
+  "columns": {
+    "origem": "observada ou prevista."
+  },
+  "source": "src/feynmans_legacy/analog_pairs.py",
+  "metadata": {
+    "meses_climatologia": "202509–202608"
+  }
+}

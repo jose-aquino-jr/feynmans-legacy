@@ -1,0 +1,13 @@
+{
+  "description": "Nota de cada par em cada nicho (térmico, geologia, terreno...).",
+  "tags": [
+    "análogos"
+  ],
+  "columns": {
+    "nota": "Nota 0–100 no nicho; nula sem dados suficientes."
+  },
+  "source": "src/feynmans_legacy/analog_pairs.py",
+  "metadata": {
+    "meses_climatologia": "202509–202608"
+  }
+}

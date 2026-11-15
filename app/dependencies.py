@@ -7,6 +7,7 @@ from typing import Any, cast
 from fastapi import Request
 
 from app.config import Settings
+from app.services.analogos import AnalogRepository
 from app.services.datasets import DatasetRepository
 from app.services.models import ModelRepository
 
@@ -24,6 +25,11 @@ def get_dataset_repository(request: Request) -> DatasetRepository:
 def get_model_repository(request: Request) -> ModelRepository:
     """Recupera o repositório de modelos (um por instância de app)."""
     return cast(ModelRepository, request.app.state.model_repository)
+
+
+def get_analog_repository(request: Request) -> AnalogRepository:
+    """Recupera o repositório de análogos (um por instância de app)."""
+    return cast(AnalogRepository, request.app.state.analog_repository)
 
 
 async def get_current_principal() -> dict[str, Any] | None:

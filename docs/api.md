@@ -338,6 +338,116 @@ curl -i -s "$BASE/api/v1/models/nao_existe"
 # HTTP/1.1 404 Not Found
 ```
 
+## Análogos
+
+Relações prontas entre as bases da Lua e de Marte e locais da Terra, para o
+mapa 3D. As tabelas ficam em `data/tratados/analogos/` (também acessíveis pelas
+rotas genéricas, ex.: `/api/v1/datasets/analogos/pares/records`).
+
+### Como são gerados
+
+```bash
+make analogos                     # ou: python scripts/gerar_analogos.py
+python scripts/nomear_locais.py   # opcional: nomeia locais novos (OpenStreetMap)
+```
+
+1. A Terra usa a média dos últimos 12 meses observados das variáveis mensais e
+   as variáveis estáticas.
+2. Cada base é comparada com todas as células terrestres pelo ranking do
+   Notebook 03 (`recommend`), no perfil completo e em cada nicho.
+3. Para cada base são escolhidos, sem repetir locais a menos de 500 km:
+   - `geral`: as 8 melhores notas gerais;
+   - `especialista`: até 2 locais com nota ≥ 80 em cada nicho, mesmo com nota
+     geral baixa (ex.: ótimo em geologia e ruim em clima);
+   - `destaque`: os locais padrão de `config/locais_destaque.json`, comparados com
+     todas as bases.
+4. Os análogos clássicos de `config/analogos_classicos.json` (Atacama, Dry
+   Valleys, Devon, Islândia, Mojave...) e células cobertas por água ficam fora da
+   seleção automática.
+5. A série mensal da nota usa os meses observados e as previsões do LightGBM
+   (`data/terra/analise_analogos/previsoes.parquet`).
+
+As coordenadas das bases em `config/bases_espaciais.json` são aproximadas (ponto
+representativo do sítio). Longitudes sempre leste, em [-180, 180].
+
+| Tabela | Conteúdo |
+|--------|----------|
+| `bases` | 8 bases (2 Lua, 6 Marte) com ponto e raio no globo |
+| `locais` | locais terrestres com nome, coordenadas e clima médio |
+| `pares` | base ↔ local, tipo, nota geral, pontos fortes e fracos |
+| `pares_nichos` | nota de cada par em cada nicho |
+| `series` | nota geral mensal de cada par (observada e prevista) |
+
+### `GET /api/v1/analogos/bases`
+
+```bash
+curl -s "$BASE/api/v1/analogos/bases?corpo=marte" | python -m json.tool
+```
+
+### `GET /api/v1/analogos/bases/{base_id}`
+
+Rota principal do mapa 3D: a base (alvo) e os locais terrestres (análogos).
+
+```bash
+curl -s "$BASE/api/v1/analogos/bases/MARTE_JEZERO?limit=5" | python -m json.tool
+curl -s "$BASE/api/v1/analogos/bases/MARTE_GALE?forte_em=geologia"
+curl -s "$BASE/api/v1/analogos/bases/LUA_POLO_SUL?destaque=true"
+```
+
+| Parâmetro | Descrição |
+|-----------|-----------|
+| `tipo` | `destaque`, `geral` ou `especialista` |
+| `destaque` | `true` só locais padrão |
+| `forte_em` | nicho (`termico`, `geologia`, `terreno`...) em que o local é forte |
+| `nota_minima` | nota geral mínima (0–100) |
+| `limit` | máximo de pares; `total` traz a contagem antes do limite |
+
+```json
+{
+  "base": {
+    "base_id": "MARTE_JEZERO", "corpo": "marte", "nome": "Cratera Jezero",
+    "latitude": 18.38, "longitude": 77.58, "raio_km": 150.0, "n_pares": 38
+  },
+  "pares": [
+    {
+      "par_id": "MARTE_JEZERO__T042068", "tipo": "destaque", "rank_base": 1,
+      "nota_geral": 83.85, "cobertura": 1.0,
+      "pontos_fortes": ["agua_gelo", "subsuperficie", "biologia_habitabilidade"],
+      "pontos_fracos": ["atmosfera", "termico"],
+      "nichos": {"termico": 20.86, "geologia": 87.5, "terreno": 86.46, "atmosfera": 0.0},
+      "local": {
+        "location_id": "T042068", "nome": "Deserto da Núbia — Sudão",
+        "latitude": 20.75, "longitude": 33.25, "raio_km": 150.0, "destaque": true
+      }
+    }
+  ],
+  "total": 38
+}
+```
+
+### Outras rotas
+
+```bash
+# Locais padrão do software (destaques)
+curl -s "$BASE/api/v1/analogos/locais?destaque=true"
+
+# Todas as bases relacionadas a um local terrestre
+curl -s "$BASE/api/v1/analogos/locais/T042068"
+
+# Par completo com a série mensal (observada + prevista)
+curl -s "$BASE/api/v1/analogos/pares/MARTE_JEZERO__T042068"
+
+# Nomes legíveis dos nichos
+curl -s "$BASE/api/v1/analogos/nichos"
+```
+
+Uso no front (Three.js): `base.latitude/longitude/raio_km` vai no corpo
+(Marte ou Lua) e `pares[].local.latitude/longitude/raio_km` na Terra, no mesmo
+formato `{name, lat, lon, radiusKm}` do `CONFIG` de `mapa.ts`.
+
+Erros: `404 analogs_not_generated` quando as tabelas não existem;
+`404 base_not_found`, `local_not_found` e `pair_not_found` para IDs inválidos.
+
 ## CORS
 
 As origens são configuradas por `FL_CORS_ORIGINS` (lista JSON ou valores

@@ -101,6 +101,15 @@ Endpoints principais:
 | GET | `/api/v1/datasets/{dataset}/aggregations` | `count`, `mean`, `min`, `max`, `sum` + `group_by` |
 | GET | `/api/v1/models` | metadados dos artefatos |
 | GET | `/api/v1/models/{nome}` | metadados de um artefato |
+| GET | `/api/v1/analogos/bases` | bases da Lua e de Marte com o ponto no globo |
+| GET | `/api/v1/analogos/bases/{base_id}` | locais terrestres relacionados, com notas por nicho |
+| GET | `/api/v1/analogos/locais` | locais terrestres (`destaque=true` = padrão do software) |
+| GET | `/api/v1/analogos/locais/{location_id}` | bases relacionadas a um local terrestre |
+| GET | `/api/v1/analogos/pares/{par_id}` | par completo com a nota mensal observada e prevista |
+| GET | `/api/v1/analogos/nichos` | nichos de comparação e nomes legíveis |
+
+Os análogos são gerados por `make analogos` (ou `python scripts/gerar_analogos.py`)
+depois dos notebooks 01 e 02. Veja [`docs/api.md`](docs/api.md#análogos).
 
 A configuração vem de variáveis `FL_*` (veja `.env.example`): diretórios,
 limites de paginação, origens de CORS e nível de log. Se `data/tratados/`

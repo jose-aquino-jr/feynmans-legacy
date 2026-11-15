@@ -1,0 +1,20 @@
+{
+  "description": "Bases de referência na Lua e em Marte com o ponto para o mapa 3D.",
+  "id_column": "base_id",
+  "tags": [
+    "análogos",
+    "lua",
+    "marte"
+  ],
+  "columns": {
+    "latitude": "Latitude planetocêntrica aproximada do sítio (graus).",
+    "longitude": "Longitude leste aproximada do sítio, em [-180, 180].",
+    "raio_km": "Raio sugerido para o destaque no globo.",
+    "n_pares": "Quantidade de locais terrestres relacionados.",
+    "melhor_nota": "Maior nota geral entre os pares (0 a 100)."
+  },
+  "source": "src/feynmans_legacy/analog_pairs.py",
+  "metadata": {
+    "meses_climatologia": "202509–202608"
+  }
+}

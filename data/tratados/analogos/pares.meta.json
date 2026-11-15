@@ -1,0 +1,20 @@
+{
+  "description": "Relação base espacial ↔ local terrestre com notas e pontos fortes/fracos.",
+  "id_column": "par_id",
+  "tags": [
+    "análogos"
+  ],
+  "columns": {
+    "tipo": "destaque (curado), geral (melhor nota geral) ou especialista (um nicho).",
+    "nichos_destaque": "Nichos que motivaram a escolha, separados por vírgula.",
+    "rank_base": "Posição do local entre os pares da mesma base (1 = melhor).",
+    "nota_geral": "Nota 0–100 no perfil completo; nula se cobertura < 0,7.",
+    "cobertura": "Fração do peso do perfil com dados no local.",
+    "pontos_fortes": "Até 3 nichos com nota >= 75, separados por vírgula.",
+    "pontos_fracos": "Até 3 nichos com nota < 50, separados por vírgula."
+  },
+  "source": "src/feynmans_legacy/analog_pairs.py",
+  "metadata": {
+    "meses_climatologia": "202509–202608"
+  }
+}

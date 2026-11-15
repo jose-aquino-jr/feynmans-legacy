@@ -1,7 +1,7 @@
 # Atalhos de desenvolvimento do Feynman's Legacy.
 PYTHON ?= python
 
-.PHONY: help setup api-dev api-test api-lint api-format lint test
+.PHONY: help setup api-dev api-test api-lint api-format analogos lint test
 
 help:
 	@echo "Alvos disponíveis:"
@@ -10,6 +10,7 @@ help:
 	@echo "  api-test    Executa a suíte de testes da API."
 	@echo "  api-lint    Executa Ruff e mypy."
 	@echo "  api-format  Formata app/ e tests/ com Ruff."
+	@echo "  analogos    Gera os pares Terra-Lua/Marte em data/tratados/analogos."
 
 setup:
 	$(PYTHON) -m pip install -r requirements.txt -r requirements-dev.txt
@@ -27,6 +28,9 @@ api-lint:
 
 api-format:
 	$(PYTHON) -m ruff format app tests
+
+analogos:
+	$(PYTHON) scripts/gerar_analogos.py
 
 lint: api-lint
 

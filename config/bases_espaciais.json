@@ -1,0 +1,59 @@
+{
+  "_descricao": "Ponto representativo de cada base de referência na Lua e em Marte, para o mapa 3D. Latitude planetocêntrica e longitude leste em [-180, 180]. Coordenadas aproximadas do sítio citado na descrição da base.",
+  "LUA_POLO_SUL": {
+    "corpo": "lua",
+    "nome": "Polo Sul lunar — borda de Shackleton",
+    "latitude": -89.67,
+    "longitude": 129.78,
+    "raio_km": 100
+  },
+  "LUA_MARE_TUBOS": {
+    "corpo": "lua",
+    "nome": "Marius Hills — poço de tubo de lava",
+    "latitude": 14.09,
+    "longitude": -56.77,
+    "raio_km": 150
+  },
+  "MARTE_JEZERO": {
+    "corpo": "marte",
+    "nome": "Cratera Jezero",
+    "latitude": 18.38,
+    "longitude": 77.58,
+    "raio_km": 150
+  },
+  "MARTE_GALE": {
+    "corpo": "marte",
+    "nome": "Cratera Gale — Monte Sharp",
+    "latitude": -5.4,
+    "longitude": 137.8,
+    "raio_km": 150
+  },
+  "MARTE_MERIDIANI": {
+    "corpo": "marte",
+    "nome": "Meridiani Planum",
+    "latitude": -1.95,
+    "longitude": -5.53,
+    "raio_km": 300
+  },
+  "MARTE_GELO_MEDIAS_LAT": {
+    "corpo": "marte",
+    "nome": "Planícies do norte — sítio da Phoenix",
+    "latitude": 68.22,
+    "longitude": -125.75,
+    "raio_km": 300
+  },
+  "MARTE_THARSIS_TUBOS": {
+    "corpo": "marte",
+    "nome": "Arsia Mons — claraboias de tubos de lava",
+    "latitude": -8.26,
+    "longitude": -120.09,
+    "raio_km": 200
+  },
+  "MARTE_MEDUSAE_YARDANGS": {
+    "corpo": "marte",
+    "nome": "Medusae Fossae",
+    "latitude": -3.2,
+    "longitude": -163.0,
+    "raio_km": 400
+  }
+}
