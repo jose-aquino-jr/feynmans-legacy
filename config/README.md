@@ -31,3 +31,27 @@ referenciais planetários distintos exige uma definição de comparação.
 Para integrar um novo perfil, use o dicionário científico, selecione as bases,
 documente a correspondência e atualize em conjunto o Parquet de perfil,
 `nichos.json` e o catálogo CSV. Execute os notebooks 01 → 02 → 03.
+
+## Valores reais da Lua e de Marte
+
+`valores_reais.csv` registra, por base e variável, o valor real com unidade,
+grandeza, confiança (`alta`, `media`, `baixa`) e fonte (missão, artigo ou
+cálculo). `python scripts/aplicar_valores_reais.py` grava esses alvos em
+`data/lua/lua.parquet` e `data/marte/marte.parquet` e atualiza o catálogo
+(o valor anterior fica em `alvo_proxy`).
+
+Como muitos valores reais estão fora do alcance da Terra (pressão de Marte ≈
+0,7 kPa, Lua ≈ 0 kPa), a tolerância desses alvos é própria de cada base
+(`<variável>__tolerancia` no Parquet): a maior distância entre o alvo e os
+percentis 1 e 99 da Terra. A nota continua `100 × (1 − |valor − alvo| /
+tolerância)`, então o lugar da Terra mais próximo do valor real pontua e os
+demais caem proporcionalmente. Sem essa coluna vale a tolerância de
+`nichos.json`.
+
+| Tipo de alvo | Quando | Exemplos |
+|---|---|---|
+| real | há medida ou cálculo físico com fonte | pressão, temperatura, radiação, altura do Sol, NDVI, chuva, carbono orgânico, vento, pH (Phoenix) |
+| classificação | presença/ausência definida pela geologia do sítio | litologias, permafrost, tubos de lava, solo exposto, terreno plano, albedo |
+| equivalente terrestre | sem medida comparável na mesma escala | relevo, declividade, posição topográfica e elevação (MOLA/LOLA ≠ nível do mar, escala de 0,5°), poeira em µg/m³, temperatura e amplitude no polo lunar |
+
+Depois de aplicar os valores reais, rode `make analogos` para regenerar os pares.

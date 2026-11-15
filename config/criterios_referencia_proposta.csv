@@ -1,223 +1,223 @@
-﻿corpo,base_id,nicho,terra,referencia,alvo,regra_alvo,tolerancia,regra_tolerancia,peso
-lua,LUA_POLO_SUL,termico,temperatura__ar_2m_c,temperatura__ar_2m_c__alvo,-48.45138359069824,percentil 1 da Terra,74.77413845062256,p95 − p5 dos valores terrestres,1.0
-lua,LUA_MARE_TUBOS,termico,temperatura__ar_2m_c,temperatura__ar_2m_c__alvo,26.167428016662598,percentil 90 da Terra,74.77413845062256,p95 − p5 dos valores terrestres,1.0
-lua,LUA_POLO_SUL,termico,temperatura__lst_amplitude_dia_noite_c,temperatura__lst_amplitude_dia_noite_c__alvo,0.15326087176799774,percentil 5 da Terra,18.19565203487873,p95 − p5 dos valores terrestres,1.0
-lua,LUA_MARE_TUBOS,termico,temperatura__lst_amplitude_dia_noite_c,temperatura__lst_amplitude_dia_noite_c__alvo,22.477174758911133,percentil 99 da Terra,18.19565203487873,p95 − p5 dos valores terrestres,1.0
-lua,LUA_POLO_SUL,iluminacao_radiacao,iluminacao_radiacao__elevacao_solar_max_graus,iluminacao_radiacao__elevacao_solar_max_graus__alvo,23.689783096313477,percentil 0 da Terra,63.79226493835449,p95 − p5 dos valores terrestres,1.0
-lua,LUA_MARE_TUBOS,iluminacao_radiacao,iluminacao_radiacao__elevacao_solar_max_graus,iluminacao_radiacao__elevacao_solar_max_graus__alvo,90.0,valor fixo,63.79226493835449,p95 − p5 dos valores terrestres,1.0
-lua,LUA_POLO_SUL,iluminacao_radiacao,iluminacao_radiacao__dias_dia_polar,iluminacao_radiacao__dias_dia_polar__alvo,181.0,percentil 100 da Terra,169.0,p95 − p5 dos valores terrestres,1.0
-lua,LUA_MARE_TUBOS,iluminacao_radiacao,iluminacao_radiacao__dias_dia_polar,iluminacao_radiacao__dias_dia_polar__alvo,0.0,valor fixo,169.0,p95 − p5 dos valores terrestres,1.0
-lua,LUA_POLO_SUL,iluminacao_radiacao,iluminacao_radiacao__radiacao_solar_superficie_wm2,iluminacao_radiacao__radiacao_solar_superficie_wm2__alvo,92.75,percentil 5 da Terra,178.66522827148435,p95 − p5 dos valores terrestres,1.0
-lua,LUA_MARE_TUBOS,iluminacao_radiacao,iluminacao_radiacao__radiacao_solar_superficie_wm2,iluminacao_radiacao__radiacao_solar_superficie_wm2__alvo,285.1504223632812,percentil 99 da Terra,178.66522827148435,p95 − p5 dos valores terrestres,1.0
-lua,LUA_POLO_SUL,agua_gelo,agua_gelo__indice_permafrost,agua_gelo__indice_permafrost__alvo,1.0,valor fixo,1.0,valor fixo,1.0
-lua,LUA_MARE_TUBOS,agua_gelo,agua_gelo__indice_permafrost,agua_gelo__indice_permafrost__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-lua,LUA_POLO_SUL,agua_gelo,agua_gelo__precipitacao_mm_dia,agua_gelo__precipitacao_mm_dia__alvo,0.05811961740255356,percentil 1 da Terra,4.613940495997667,p95 − p5 dos valores terrestres,1.0
-lua,LUA_MARE_TUBOS,agua_gelo,agua_gelo__precipitacao_mm_dia,agua_gelo__precipitacao_mm_dia__alvo,0.05811961740255356,percentil 1 da Terra,4.613940495997667,p95 − p5 dos valores terrestres,1.0
-lua,LUA_POLO_SUL,terreno,relevo__amplitude_relevo_m,relevo__amplitude_relevo_m__alvo,1736.0,percentil 95 da Terra,1697.0,p95 − p5 dos valores terrestres,1.0
-lua,LUA_MARE_TUBOS,terreno,relevo__amplitude_relevo_m,relevo__amplitude_relevo_m__alvo,127.0,percentil 25 da Terra,1697.0,p95 − p5 dos valores terrestres,1.0
-lua,LUA_POLO_SUL,terreno,relevo__indice_posicao_topografica_m,relevo__indice_posicao_topografica_m__alvo,-392.1017510986328,percentil 2 da Terra,476.4531784057617,p95 − p5 dos valores terrestres,1.0
-lua,LUA_MARE_TUBOS,terreno,relevo__indice_posicao_topografica_m,relevo__indice_posicao_topografica_m__alvo,0.0,valor fixo,476.4531784057617,p95 − p5 dos valores terrestres,1.0
-lua,LUA_POLO_SUL,terreno,relevo__declividade_media_graus,relevo__declividade_media_graus__alvo,3.2087391853332528,percentil 90 da Terra,4.476335303857921,p95 − p5 dos valores terrestres,1.0
-lua,LUA_MARE_TUBOS,terreno,relevo__declividade_media_graus,relevo__declividade_media_graus__alvo,0.11914478391408921,percentil 10 da Terra,4.476335303857921,p95 − p5 dos valores terrestres,1.0
-lua,LUA_POLO_SUL,geologia,geologia_superficie__litologia_anortosito,geologia_superficie__litologia_anortosito__alvo,1.0,valor fixo,1.0,valor fixo,1.0
-lua,LUA_MARE_TUBOS,geologia,geologia_superficie__litologia_anortosito,geologia_superficie__litologia_anortosito__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-lua,LUA_POLO_SUL,geologia,geologia_superficie__litologia_impacto,geologia_superficie__litologia_impacto__alvo,1.0,valor fixo,1.0,valor fixo,1.0
-lua,LUA_MARE_TUBOS,geologia,geologia_superficie__litologia_impacto,geologia_superficie__litologia_impacto__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-lua,LUA_POLO_SUL,geologia,geologia_superficie__litologia_basalto,geologia_superficie__litologia_basalto__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-lua,LUA_MARE_TUBOS,geologia,geologia_superficie__litologia_basalto,geologia_superficie__litologia_basalto__alvo,1.0,valor fixo,1.0,valor fixo,1.0
-lua,LUA_POLO_SUL,superficie_poeira,biologia__ndvi,biologia__ndvi__alvo,0.04010000079870224,percentil 1 da Terra,0.7102159224450588,p95 − p5 dos valores terrestres,1.0
-lua,LUA_MARE_TUBOS,superficie_poeira,biologia__ndvi,biologia__ndvi__alvo,0.04010000079870224,percentil 1 da Terra,0.7102159224450588,p95 − p5 dos valores terrestres,1.0
-lua,LUA_POLO_SUL,superficie_poeira,geologia_superficie__albedo,geologia_superficie__albedo__alvo,0.12,valor fixo,0.6620415858924389,p95 − p5 dos valores terrestres,1.0
-lua,LUA_MARE_TUBOS,superficie_poeira,geologia_superficie__albedo,geologia_superficie__albedo__alvo,0.07,valor fixo,0.6620415858924389,p95 − p5 dos valores terrestres,1.0
-lua,LUA_POLO_SUL,superficie_poeira,biologia__carbono_organico_solo,biologia__carbono_organico_solo__alvo,3.484534466266632,percentil 1 da Terra,215.6706202507018,p95 − p5 dos valores terrestres,1.0
-lua,LUA_MARE_TUBOS,superficie_poeira,biologia__carbono_organico_solo,biologia__carbono_organico_solo__alvo,3.484534466266632,percentil 1 da Terra,215.6706202507018,p95 − p5 dos valores terrestres,1.0
-lua,LUA_POLO_SUL,subsuperficie,subsuperficie__potencial_tubos_lava,subsuperficie__potencial_tubos_lava__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-lua,LUA_MARE_TUBOS,subsuperficie,subsuperficie__potencial_tubos_lava,subsuperficie__potencial_tubos_lava__alvo,1.0,valor fixo,1.0,valor fixo,1.0
-lua,LUA_POLO_SUL,subsuperficie,subsuperficie__solo_congelado_indice,subsuperficie__solo_congelado_indice__alvo,1.0,valor fixo,1.0,valor fixo,1.0
-lua,LUA_MARE_TUBOS,subsuperficie,subsuperficie__solo_congelado_indice,subsuperficie__solo_congelado_indice__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-lua,LUA_POLO_SUL,atmosfera,poeira_vento_processos__pressao_estimada_altitude_kpa,poeira_vento_processos__pressao_estimada_altitude_kpa__alvo,49.06071090698242,percentil 0 da Terra,33.5328369140625,p95 − p5 dos valores terrestres,1.0
-lua,LUA_MARE_TUBOS,atmosfera,poeira_vento_processos__pressao_estimada_altitude_kpa,poeira_vento_processos__pressao_estimada_altitude_kpa__alvo,49.06071090698242,percentil 0 da Terra,33.5328369140625,p95 − p5 dos valores terrestres,1.0
-lua,LUA_POLO_SUL,operacoes,operacoes__densidade_populacional,operacoes__densidade_populacional__alvo,0.0,valor fixo,100.0,valor fixo,1.0
-lua,LUA_MARE_TUBOS,operacoes,operacoes__densidade_populacional,operacoes__densidade_populacional__alvo,0.0,valor fixo,100.0,valor fixo,1.0
-lua,LUA_POLO_SUL,operacoes,operacoes__fracao_terreno_plano_lt5graus,operacoes__fracao_terreno_plano_lt5graus__alvo,0.5,valor fixo,1.0,valor fixo,1.0
-lua,LUA_MARE_TUBOS,operacoes,operacoes__fracao_terreno_plano_lt5graus,operacoes__fracao_terreno_plano_lt5graus__alvo,0.9,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_JEZERO,termico,temperatura__ar_2m_c,temperatura__ar_2m_c__alvo,-46.2763786315918,percentil 10 da Terra,74.77413845062256,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_GALE,termico,temperatura__ar_2m_c,temperatura__ar_2m_c__alvo,-46.2763786315918,percentil 10 da Terra,74.77413845062256,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_MERIDIANI,termico,temperatura__ar_2m_c,temperatura__ar_2m_c__alvo,-25.724425792694092,percentil 25 da Terra,74.77413845062256,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_GELO_MEDIAS_LAT,termico,temperatura__ar_2m_c,temperatura__ar_2m_c__alvo,-48.004478454589844,percentil 2 da Terra,74.77413845062256,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_THARSIS_TUBOS,termico,temperatura__ar_2m_c,temperatura__ar_2m_c__alvo,-46.2763786315918,percentil 10 da Terra,74.77413845062256,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_MEDUSAE_YARDANGS,termico,temperatura__ar_2m_c,temperatura__ar_2m_c__alvo,0.07415718957781792,percentil 50 da Terra,74.77413845062256,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_JEZERO,termico,temperatura__lst_amplitude_dia_noite_c,temperatura__lst_amplitude_dia_noite_c__alvo,22.477174758911133,percentil 99 da Terra,18.19565203487873,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_GALE,termico,temperatura__lst_amplitude_dia_noite_c,temperatura__lst_amplitude_dia_noite_c__alvo,22.477174758911133,percentil 99 da Terra,18.19565203487873,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_MERIDIANI,termico,temperatura__lst_amplitude_dia_noite_c,temperatura__lst_amplitude_dia_noite_c__alvo,22.477174758911133,percentil 99 da Terra,18.19565203487873,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_GELO_MEDIAS_LAT,termico,temperatura__lst_amplitude_dia_noite_c,temperatura__lst_amplitude_dia_noite_c__alvo,5.993478298187256,percentil 50 da Terra,18.19565203487873,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_THARSIS_TUBOS,termico,temperatura__lst_amplitude_dia_noite_c,temperatura__lst_amplitude_dia_noite_c__alvo,22.477174758911133,percentil 99 da Terra,18.19565203487873,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_MEDUSAE_YARDANGS,termico,temperatura__lst_amplitude_dia_noite_c,temperatura__lst_amplitude_dia_noite_c__alvo,22.477174758911133,percentil 99 da Terra,18.19565203487873,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_JEZERO,agua_aridez,agua_gelo__precipitacao_mm_dia,agua_gelo__precipitacao_mm_dia__alvo,0.05811961740255356,percentil 1 da Terra,4.613940495997667,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_GALE,agua_aridez,agua_gelo__precipitacao_mm_dia,agua_gelo__precipitacao_mm_dia__alvo,0.05811961740255356,percentil 1 da Terra,4.613940495997667,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_MERIDIANI,agua_aridez,agua_gelo__precipitacao_mm_dia,agua_gelo__precipitacao_mm_dia__alvo,0.05811961740255356,percentil 1 da Terra,4.613940495997667,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_GELO_MEDIAS_LAT,agua_aridez,agua_gelo__precipitacao_mm_dia,agua_gelo__precipitacao_mm_dia__alvo,0.12826093286275864,percentil 10 da Terra,4.613940495997667,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_THARSIS_TUBOS,agua_aridez,agua_gelo__precipitacao_mm_dia,agua_gelo__precipitacao_mm_dia__alvo,0.05811961740255356,percentil 1 da Terra,4.613940495997667,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_MEDUSAE_YARDANGS,agua_aridez,agua_gelo__precipitacao_mm_dia,agua_gelo__precipitacao_mm_dia__alvo,0.05811961740255356,percentil 1 da Terra,4.613940495997667,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_JEZERO,agua_aridez,agua_gelo__umidade_solo_raiz_m3m3,agua_gelo__umidade_solo_raiz_m3m3__alvo,0.05370087295770645,percentil 1 da Terra,0.3033587887883186,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_GALE,agua_aridez,agua_gelo__umidade_solo_raiz_m3m3,agua_gelo__umidade_solo_raiz_m3m3__alvo,0.05370087295770645,percentil 1 da Terra,0.3033587887883186,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_MERIDIANI,agua_aridez,agua_gelo__umidade_solo_raiz_m3m3,agua_gelo__umidade_solo_raiz_m3m3__alvo,0.05370087295770645,percentil 1 da Terra,0.3033587887883186,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_GELO_MEDIAS_LAT,agua_aridez,agua_gelo__umidade_solo_raiz_m3m3,agua_gelo__umidade_solo_raiz_m3m3__alvo,0.26517388224601746,percentil 50 da Terra,0.3033587887883186,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_THARSIS_TUBOS,agua_aridez,agua_gelo__umidade_solo_raiz_m3m3,agua_gelo__umidade_solo_raiz_m3m3__alvo,0.05370087295770645,percentil 1 da Terra,0.3033587887883186,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_MEDUSAE_YARDANGS,agua_aridez,agua_gelo__umidade_solo_raiz_m3m3,agua_gelo__umidade_solo_raiz_m3m3__alvo,0.05370087295770645,percentil 1 da Terra,0.3033587887883186,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_JEZERO,agua_gelo,agua_gelo__indice_permafrost,agua_gelo__indice_permafrost__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_GALE,agua_gelo,agua_gelo__indice_permafrost,agua_gelo__indice_permafrost__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_MERIDIANI,agua_gelo,agua_gelo__indice_permafrost,agua_gelo__indice_permafrost__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_GELO_MEDIAS_LAT,agua_gelo,agua_gelo__indice_permafrost,agua_gelo__indice_permafrost__alvo,1.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_THARSIS_TUBOS,agua_gelo,agua_gelo__indice_permafrost,agua_gelo__indice_permafrost__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_MEDUSAE_YARDANGS,agua_gelo,agua_gelo__indice_permafrost,agua_gelo__indice_permafrost__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_JEZERO,iluminacao_radiacao,iluminacao_radiacao__radiacao_solar_superficie_wm2,iluminacao_radiacao__radiacao_solar_superficie_wm2__alvo,271.41522827148435,percentil 95 da Terra,178.66522827148435,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_GALE,iluminacao_radiacao,iluminacao_radiacao__radiacao_solar_superficie_wm2,iluminacao_radiacao__radiacao_solar_superficie_wm2__alvo,271.41522827148435,percentil 95 da Terra,178.66522827148435,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_MERIDIANI,iluminacao_radiacao,iluminacao_radiacao__radiacao_solar_superficie_wm2,iluminacao_radiacao__radiacao_solar_superficie_wm2__alvo,271.41522827148435,percentil 95 da Terra,178.66522827148435,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_GELO_MEDIAS_LAT,iluminacao_radiacao,iluminacao_radiacao__radiacao_solar_superficie_wm2,iluminacao_radiacao__radiacao_solar_superficie_wm2__alvo,99.73912811279297,percentil 10 da Terra,178.66522827148435,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_THARSIS_TUBOS,iluminacao_radiacao,iluminacao_radiacao__radiacao_solar_superficie_wm2,iluminacao_radiacao__radiacao_solar_superficie_wm2__alvo,271.41522827148435,percentil 95 da Terra,178.66522827148435,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_MEDUSAE_YARDANGS,iluminacao_radiacao,iluminacao_radiacao__radiacao_solar_superficie_wm2,iluminacao_radiacao__radiacao_solar_superficie_wm2__alvo,271.41522827148435,percentil 95 da Terra,178.66522827148435,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_JEZERO,iluminacao_radiacao,iluminacao_radiacao__elevacao_solar_max_graus,iluminacao_radiacao__elevacao_solar_max_graus__alvo,90.0,valor fixo,63.79226493835449,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_GALE,iluminacao_radiacao,iluminacao_radiacao__elevacao_solar_max_graus,iluminacao_radiacao__elevacao_solar_max_graus__alvo,90.0,valor fixo,63.79226493835449,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_MERIDIANI,iluminacao_radiacao,iluminacao_radiacao__elevacao_solar_max_graus,iluminacao_radiacao__elevacao_solar_max_graus__alvo,90.0,valor fixo,63.79226493835449,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_GELO_MEDIAS_LAT,iluminacao_radiacao,iluminacao_radiacao__elevacao_solar_max_graus,iluminacao_radiacao__elevacao_solar_max_graus__alvo,29.189783096313477,percentil 10 da Terra,63.79226493835449,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_THARSIS_TUBOS,iluminacao_radiacao,iluminacao_radiacao__elevacao_solar_max_graus,iluminacao_radiacao__elevacao_solar_max_graus__alvo,90.0,valor fixo,63.79226493835449,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_MEDUSAE_YARDANGS,iluminacao_radiacao,iluminacao_radiacao__elevacao_solar_max_graus,iluminacao_radiacao__elevacao_solar_max_graus__alvo,90.0,valor fixo,63.79226493835449,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_JEZERO,geologia,geologia_superficie__litologia_lacustre_argila,geologia_superficie__litologia_lacustre_argila__alvo,1.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_GALE,geologia,geologia_superficie__litologia_lacustre_argila,geologia_superficie__litologia_lacustre_argila__alvo,1.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_MERIDIANI,geologia,geologia_superficie__litologia_lacustre_argila,geologia_superficie__litologia_lacustre_argila__alvo,0.5,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_GELO_MEDIAS_LAT,geologia,geologia_superficie__litologia_lacustre_argila,geologia_superficie__litologia_lacustre_argila__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_THARSIS_TUBOS,geologia,geologia_superficie__litologia_lacustre_argila,geologia_superficie__litologia_lacustre_argila__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_MEDUSAE_YARDANGS,geologia,geologia_superficie__litologia_lacustre_argila,geologia_superficie__litologia_lacustre_argila__alvo,0.5,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_JEZERO,geologia,geologia_superficie__litologia_carbonato,geologia_superficie__litologia_carbonato__alvo,1.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_GALE,geologia,geologia_superficie__litologia_carbonato,geologia_superficie__litologia_carbonato__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_MERIDIANI,geologia,geologia_superficie__litologia_carbonato,geologia_superficie__litologia_carbonato__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_GELO_MEDIAS_LAT,geologia,geologia_superficie__litologia_carbonato,geologia_superficie__litologia_carbonato__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_THARSIS_TUBOS,geologia,geologia_superficie__litologia_carbonato,geologia_superficie__litologia_carbonato__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_MEDUSAE_YARDANGS,geologia,geologia_superficie__litologia_carbonato,geologia_superficie__litologia_carbonato__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_JEZERO,geologia,geologia_superficie__litologia_evaporito,geologia_superficie__litologia_evaporito__alvo,0.5,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_GALE,geologia,geologia_superficie__litologia_evaporito,geologia_superficie__litologia_evaporito__alvo,1.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_MERIDIANI,geologia,geologia_superficie__litologia_evaporito,geologia_superficie__litologia_evaporito__alvo,1.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_GELO_MEDIAS_LAT,geologia,geologia_superficie__litologia_evaporito,geologia_superficie__litologia_evaporito__alvo,0.5,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_THARSIS_TUBOS,geologia,geologia_superficie__litologia_evaporito,geologia_superficie__litologia_evaporito__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_MEDUSAE_YARDANGS,geologia,geologia_superficie__litologia_evaporito,geologia_superficie__litologia_evaporito__alvo,0.5,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_JEZERO,geologia,geologia_superficie__litologia_basalto,geologia_superficie__litologia_basalto__alvo,0.5,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_GALE,geologia,geologia_superficie__litologia_basalto,geologia_superficie__litologia_basalto__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_MERIDIANI,geologia,geologia_superficie__litologia_basalto,geologia_superficie__litologia_basalto__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_GELO_MEDIAS_LAT,geologia,geologia_superficie__litologia_basalto,geologia_superficie__litologia_basalto__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_THARSIS_TUBOS,geologia,geologia_superficie__litologia_basalto,geologia_superficie__litologia_basalto__alvo,1.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_MEDUSAE_YARDANGS,geologia,geologia_superficie__litologia_basalto,geologia_superficie__litologia_basalto__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_JEZERO,geologia,geologia_superficie__litologia_hidrotermal_ferro,geologia_superficie__litologia_hidrotermal_ferro__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_GALE,geologia,geologia_superficie__litologia_hidrotermal_ferro,geologia_superficie__litologia_hidrotermal_ferro__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_MERIDIANI,geologia,geologia_superficie__litologia_hidrotermal_ferro,geologia_superficie__litologia_hidrotermal_ferro__alvo,1.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_GELO_MEDIAS_LAT,geologia,geologia_superficie__litologia_hidrotermal_ferro,geologia_superficie__litologia_hidrotermal_ferro__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_THARSIS_TUBOS,geologia,geologia_superficie__litologia_hidrotermal_ferro,geologia_superficie__litologia_hidrotermal_ferro__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_MEDUSAE_YARDANGS,geologia,geologia_superficie__litologia_hidrotermal_ferro,geologia_superficie__litologia_hidrotermal_ferro__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_JEZERO,geologia,geologia_superficie__litologia_eolico,geologia_superficie__litologia_eolico__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_GALE,geologia,geologia_superficie__litologia_eolico,geologia_superficie__litologia_eolico__alvo,1.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_MERIDIANI,geologia,geologia_superficie__litologia_eolico,geologia_superficie__litologia_eolico__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_GELO_MEDIAS_LAT,geologia,geologia_superficie__litologia_eolico,geologia_superficie__litologia_eolico__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_THARSIS_TUBOS,geologia,geologia_superficie__litologia_eolico,geologia_superficie__litologia_eolico__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_MEDUSAE_YARDANGS,geologia,geologia_superficie__litologia_eolico,geologia_superficie__litologia_eolico__alvo,1.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_JEZERO,geologia,geologia_superficie__litologia_glacial,geologia_superficie__litologia_glacial__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_GALE,geologia,geologia_superficie__litologia_glacial,geologia_superficie__litologia_glacial__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_MERIDIANI,geologia,geologia_superficie__litologia_glacial,geologia_superficie__litologia_glacial__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_GELO_MEDIAS_LAT,geologia,geologia_superficie__litologia_glacial,geologia_superficie__litologia_glacial__alvo,1.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_THARSIS_TUBOS,geologia,geologia_superficie__litologia_glacial,geologia_superficie__litologia_glacial__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_MEDUSAE_YARDANGS,geologia,geologia_superficie__litologia_glacial,geologia_superficie__litologia_glacial__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_JEZERO,geologia,geologia_superficie__litologia_piroclastico,geologia_superficie__litologia_piroclastico__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_GALE,geologia,geologia_superficie__litologia_piroclastico,geologia_superficie__litologia_piroclastico__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_MERIDIANI,geologia,geologia_superficie__litologia_piroclastico,geologia_superficie__litologia_piroclastico__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_GELO_MEDIAS_LAT,geologia,geologia_superficie__litologia_piroclastico,geologia_superficie__litologia_piroclastico__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_THARSIS_TUBOS,geologia,geologia_superficie__litologia_piroclastico,geologia_superficie__litologia_piroclastico__alvo,0.5,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_MEDUSAE_YARDANGS,geologia,geologia_superficie__litologia_piroclastico,geologia_superficie__litologia_piroclastico__alvo,1.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_JEZERO,terreno,relevo__amplitude_relevo_m,relevo__amplitude_relevo_m__alvo,429.0,percentil 60 da Terra,1697.0,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_GALE,terreno,relevo__amplitude_relevo_m,relevo__amplitude_relevo_m__alvo,1736.0,percentil 95 da Terra,1697.0,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_MERIDIANI,terreno,relevo__amplitude_relevo_m,relevo__amplitude_relevo_m__alvo,62.0,percentil 10 da Terra,1697.0,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_GELO_MEDIAS_LAT,terreno,relevo__amplitude_relevo_m,relevo__amplitude_relevo_m__alvo,62.0,percentil 10 da Terra,1697.0,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_THARSIS_TUBOS,terreno,relevo__amplitude_relevo_m,relevo__amplitude_relevo_m__alvo,1736.0,percentil 95 da Terra,1697.0,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_MEDUSAE_YARDANGS,terreno,relevo__amplitude_relevo_m,relevo__amplitude_relevo_m__alvo,305.0,percentil 50 da Terra,1697.0,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_JEZERO,terreno,relevo__indice_posicao_topografica_m,relevo__indice_posicao_topografica_m__alvo,-221.99767532348633,percentil 5 da Terra,476.4531784057617,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_GALE,terreno,relevo__indice_posicao_topografica_m,relevo__indice_posicao_topografica_m__alvo,-221.99767532348633,percentil 5 da Terra,476.4531784057617,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_MERIDIANI,terreno,relevo__indice_posicao_topografica_m,relevo__indice_posicao_topografica_m__alvo,0.0,valor fixo,476.4531784057617,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_GELO_MEDIAS_LAT,terreno,relevo__indice_posicao_topografica_m,relevo__indice_posicao_topografica_m__alvo,0.0,valor fixo,476.4531784057617,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_THARSIS_TUBOS,terreno,relevo__indice_posicao_topografica_m,relevo__indice_posicao_topografica_m__alvo,254.45550308227538,percentil 95 da Terra,476.4531784057617,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_MEDUSAE_YARDANGS,terreno,relevo__indice_posicao_topografica_m,relevo__indice_posicao_topografica_m__alvo,0.0,valor fixo,476.4531784057617,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_JEZERO,terreno,relevo__elevacao_media_m,relevo__elevacao_media_m__alvo,368.8123321533203,percentil 50 da Terra,3153.1162719726562,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_GALE,terreno,relevo__elevacao_media_m,relevo__elevacao_media_m__alvo,368.8123321533203,percentil 50 da Terra,3153.1162719726562,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_MERIDIANI,terreno,relevo__elevacao_media_m,relevo__elevacao_media_m__alvo,368.8123321533203,percentil 50 da Terra,3153.1162719726562,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_GELO_MEDIAS_LAT,terreno,relevo__elevacao_media_m,relevo__elevacao_media_m__alvo,368.8123321533203,percentil 50 da Terra,3153.1162719726562,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_THARSIS_TUBOS,terreno,relevo__elevacao_media_m,relevo__elevacao_media_m__alvo,4179.328125,percentil 99 da Terra,3153.1162719726562,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_MEDUSAE_YARDANGS,terreno,relevo__elevacao_media_m,relevo__elevacao_media_m__alvo,368.8123321533203,percentil 50 da Terra,3153.1162719726562,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_JEZERO,superficie_poeira,geologia_superficie__albedo,geologia_superficie__albedo__alvo,0.2,valor fixo,0.6620415858924389,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_GALE,superficie_poeira,geologia_superficie__albedo,geologia_superficie__albedo__alvo,0.2,valor fixo,0.6620415858924389,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_MERIDIANI,superficie_poeira,geologia_superficie__albedo,geologia_superficie__albedo__alvo,0.15,valor fixo,0.6620415858924389,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_GELO_MEDIAS_LAT,superficie_poeira,geologia_superficie__albedo,geologia_superficie__albedo__alvo,0.2,valor fixo,0.6620415858924389,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_THARSIS_TUBOS,superficie_poeira,geologia_superficie__albedo,geologia_superficie__albedo__alvo,0.15,valor fixo,0.6620415858924389,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_MEDUSAE_YARDANGS,superficie_poeira,geologia_superficie__albedo,geologia_superficie__albedo__alvo,0.2,valor fixo,0.6620415858924389,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_JEZERO,superficie_poeira,biologia__carbono_organico_solo,biologia__carbono_organico_solo__alvo,3.484534466266632,percentil 1 da Terra,215.6706202507018,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_GALE,superficie_poeira,biologia__carbono_organico_solo,biologia__carbono_organico_solo__alvo,3.484534466266632,percentil 1 da Terra,215.6706202507018,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_MERIDIANI,superficie_poeira,biologia__carbono_organico_solo,biologia__carbono_organico_solo__alvo,3.484534466266632,percentil 1 da Terra,215.6706202507018,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_GELO_MEDIAS_LAT,superficie_poeira,biologia__carbono_organico_solo,biologia__carbono_organico_solo__alvo,3.484534466266632,percentil 1 da Terra,215.6706202507018,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_THARSIS_TUBOS,superficie_poeira,biologia__carbono_organico_solo,biologia__carbono_organico_solo__alvo,3.484534466266632,percentil 1 da Terra,215.6706202507018,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_MEDUSAE_YARDANGS,superficie_poeira,biologia__carbono_organico_solo,biologia__carbono_organico_solo__alvo,3.484534466266632,percentil 1 da Terra,215.6706202507018,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_JEZERO,superficie_poeira,geologia_superficie__ph,geologia_superficie__ph__alvo,7.7,valor fixo,3.387207317352294,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_GALE,superficie_poeira,geologia_superficie__ph,geologia_superficie__ph__alvo,7.7,valor fixo,3.387207317352294,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_MERIDIANI,superficie_poeira,geologia_superficie__ph,geologia_superficie__ph__alvo,4.260371475219727,percentil 1 da Terra,3.387207317352294,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_GELO_MEDIAS_LAT,superficie_poeira,geologia_superficie__ph,geologia_superficie__ph__alvo,7.7,valor fixo,3.387207317352294,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_THARSIS_TUBOS,superficie_poeira,geologia_superficie__ph,geologia_superficie__ph__alvo,7.7,valor fixo,3.387207317352294,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_MEDUSAE_YARDANGS,superficie_poeira,geologia_superficie__ph,geologia_superficie__ph__alvo,7.7,valor fixo,3.387207317352294,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_JEZERO,processos,poeira_vento_processos__vento_superficie_ms,poeira_vento_processos__vento_superficie_ms__alvo,8.799864292144775,percentil 75 da Terra,9.81508356332779,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_GALE,processos,poeira_vento_processos__vento_superficie_ms,poeira_vento_processos__vento_superficie_ms__alvo,8.799864292144775,percentil 75 da Terra,9.81508356332779,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_MERIDIANI,processos,poeira_vento_processos__vento_superficie_ms,poeira_vento_processos__vento_superficie_ms__alvo,8.799864292144775,percentil 75 da Terra,9.81508356332779,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_GELO_MEDIAS_LAT,processos,poeira_vento_processos__vento_superficie_ms,poeira_vento_processos__vento_superficie_ms__alvo,8.799864292144775,percentil 75 da Terra,9.81508356332779,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_THARSIS_TUBOS,processos,poeira_vento_processos__vento_superficie_ms,poeira_vento_processos__vento_superficie_ms__alvo,8.799864292144775,percentil 75 da Terra,9.81508356332779,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_MEDUSAE_YARDANGS,processos,poeira_vento_processos__vento_superficie_ms,poeira_vento_processos__vento_superficie_ms__alvo,15.448532104492188,percentil 99 da Terra,9.81508356332779,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_JEZERO,processos,poeira_vento_processos__poeira_superficie_ugm3,poeira_vento_processos__poeira_superficie_ugm3__alvo,89.59782409667969,percentil 95 da Terra,89.24728062748909,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_GALE,processos,poeira_vento_processos__poeira_superficie_ugm3,poeira_vento_processos__poeira_superficie_ugm3__alvo,89.59782409667969,percentil 95 da Terra,89.24728062748909,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_MERIDIANI,processos,poeira_vento_processos__poeira_superficie_ugm3,poeira_vento_processos__poeira_superficie_ugm3__alvo,89.59782409667969,percentil 95 da Terra,89.24728062748909,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_GELO_MEDIAS_LAT,processos,poeira_vento_processos__poeira_superficie_ugm3,poeira_vento_processos__poeira_superficie_ugm3__alvo,0.44565218687057495,percentil 25 da Terra,89.24728062748909,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_THARSIS_TUBOS,processos,poeira_vento_processos__poeira_superficie_ugm3,poeira_vento_processos__poeira_superficie_ugm3__alvo,89.59782409667969,percentil 95 da Terra,89.24728062748909,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_MEDUSAE_YARDANGS,processos,poeira_vento_processos__poeira_superficie_ugm3,poeira_vento_processos__poeira_superficie_ugm3__alvo,90.0,percentil 99 da Terra,89.24728062748909,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_JEZERO,biologia_habitabilidade,biologia__ndvi,biologia__ndvi__alvo,0.060859044641256334,percentil 2 da Terra,0.7102159224450588,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_GALE,biologia_habitabilidade,biologia__ndvi,biologia__ndvi__alvo,0.060859044641256334,percentil 2 da Terra,0.7102159224450588,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_MERIDIANI,biologia_habitabilidade,biologia__ndvi,biologia__ndvi__alvo,0.060859044641256334,percentil 2 da Terra,0.7102159224450588,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_GELO_MEDIAS_LAT,biologia_habitabilidade,biologia__ndvi,biologia__ndvi__alvo,0.060859044641256334,percentil 2 da Terra,0.7102159224450588,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_THARSIS_TUBOS,biologia_habitabilidade,biologia__ndvi,biologia__ndvi__alvo,0.060859044641256334,percentil 2 da Terra,0.7102159224450588,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_MEDUSAE_YARDANGS,biologia_habitabilidade,biologia__ndvi,biologia__ndvi__alvo,0.060859044641256334,percentil 2 da Terra,0.7102159224450588,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_JEZERO,biologia_habitabilidade,biologia__cobertura_solo_exposto_arido_fracao,biologia__cobertura_solo_exposto_arido_fracao__alvo,1.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_GALE,biologia_habitabilidade,biologia__cobertura_solo_exposto_arido_fracao,biologia__cobertura_solo_exposto_arido_fracao__alvo,1.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_MERIDIANI,biologia_habitabilidade,biologia__cobertura_solo_exposto_arido_fracao,biologia__cobertura_solo_exposto_arido_fracao__alvo,1.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_GELO_MEDIAS_LAT,biologia_habitabilidade,biologia__cobertura_solo_exposto_arido_fracao,biologia__cobertura_solo_exposto_arido_fracao__alvo,0.5,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_THARSIS_TUBOS,biologia_habitabilidade,biologia__cobertura_solo_exposto_arido_fracao,biologia__cobertura_solo_exposto_arido_fracao__alvo,1.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_MEDUSAE_YARDANGS,biologia_habitabilidade,biologia__cobertura_solo_exposto_arido_fracao,biologia__cobertura_solo_exposto_arido_fracao__alvo,1.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_JEZERO,subsuperficie,subsuperficie__potencial_tubos_lava,subsuperficie__potencial_tubos_lava__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_GALE,subsuperficie,subsuperficie__potencial_tubos_lava,subsuperficie__potencial_tubos_lava__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_MERIDIANI,subsuperficie,subsuperficie__potencial_tubos_lava,subsuperficie__potencial_tubos_lava__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_GELO_MEDIAS_LAT,subsuperficie,subsuperficie__potencial_tubos_lava,subsuperficie__potencial_tubos_lava__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_THARSIS_TUBOS,subsuperficie,subsuperficie__potencial_tubos_lava,subsuperficie__potencial_tubos_lava__alvo,1.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_MEDUSAE_YARDANGS,subsuperficie,subsuperficie__potencial_tubos_lava,subsuperficie__potencial_tubos_lava__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_JEZERO,subsuperficie,subsuperficie__solo_congelado_indice,subsuperficie__solo_congelado_indice__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_GALE,subsuperficie,subsuperficie__solo_congelado_indice,subsuperficie__solo_congelado_indice__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_MERIDIANI,subsuperficie,subsuperficie__solo_congelado_indice,subsuperficie__solo_congelado_indice__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_GELO_MEDIAS_LAT,subsuperficie,subsuperficie__solo_congelado_indice,subsuperficie__solo_congelado_indice__alvo,1.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_THARSIS_TUBOS,subsuperficie,subsuperficie__solo_congelado_indice,subsuperficie__solo_congelado_indice__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_MEDUSAE_YARDANGS,subsuperficie,subsuperficie__solo_congelado_indice,subsuperficie__solo_congelado_indice__alvo,0.0,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_JEZERO,atmosfera,poeira_vento_processos__pressao_estimada_altitude_kpa,poeira_vento_processos__pressao_estimada_altitude_kpa__alvo,49.06071090698242,percentil 0 da Terra,33.5328369140625,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_GALE,atmosfera,poeira_vento_processos__pressao_estimada_altitude_kpa,poeira_vento_processos__pressao_estimada_altitude_kpa__alvo,49.06071090698242,percentil 0 da Terra,33.5328369140625,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_MERIDIANI,atmosfera,poeira_vento_processos__pressao_estimada_altitude_kpa,poeira_vento_processos__pressao_estimada_altitude_kpa__alvo,49.06071090698242,percentil 0 da Terra,33.5328369140625,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_GELO_MEDIAS_LAT,atmosfera,poeira_vento_processos__pressao_estimada_altitude_kpa,poeira_vento_processos__pressao_estimada_altitude_kpa__alvo,49.06071090698242,percentil 0 da Terra,33.5328369140625,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_THARSIS_TUBOS,atmosfera,poeira_vento_processos__pressao_estimada_altitude_kpa,poeira_vento_processos__pressao_estimada_altitude_kpa__alvo,49.06071090698242,percentil 0 da Terra,33.5328369140625,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_MEDUSAE_YARDANGS,atmosfera,poeira_vento_processos__pressao_estimada_altitude_kpa,poeira_vento_processos__pressao_estimada_altitude_kpa__alvo,49.06071090698242,percentil 0 da Terra,33.5328369140625,p95 − p5 dos valores terrestres,1.0
-marte,MARTE_JEZERO,operacoes,operacoes__densidade_populacional,operacoes__densidade_populacional__alvo,0.0,valor fixo,100.0,valor fixo,1.0
-marte,MARTE_GALE,operacoes,operacoes__densidade_populacional,operacoes__densidade_populacional__alvo,0.0,valor fixo,100.0,valor fixo,1.0
-marte,MARTE_MERIDIANI,operacoes,operacoes__densidade_populacional,operacoes__densidade_populacional__alvo,0.0,valor fixo,100.0,valor fixo,1.0
-marte,MARTE_GELO_MEDIAS_LAT,operacoes,operacoes__densidade_populacional,operacoes__densidade_populacional__alvo,0.0,valor fixo,100.0,valor fixo,1.0
-marte,MARTE_THARSIS_TUBOS,operacoes,operacoes__densidade_populacional,operacoes__densidade_populacional__alvo,0.0,valor fixo,100.0,valor fixo,1.0
-marte,MARTE_MEDUSAE_YARDANGS,operacoes,operacoes__densidade_populacional,operacoes__densidade_populacional__alvo,0.0,valor fixo,100.0,valor fixo,1.0
-marte,MARTE_JEZERO,operacoes,operacoes__fracao_terreno_plano_lt5graus,operacoes__fracao_terreno_plano_lt5graus__alvo,0.8,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_GALE,operacoes,operacoes__fracao_terreno_plano_lt5graus,operacoes__fracao_terreno_plano_lt5graus__alvo,0.8,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_MERIDIANI,operacoes,operacoes__fracao_terreno_plano_lt5graus,operacoes__fracao_terreno_plano_lt5graus__alvo,0.8,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_GELO_MEDIAS_LAT,operacoes,operacoes__fracao_terreno_plano_lt5graus,operacoes__fracao_terreno_plano_lt5graus__alvo,0.8,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_THARSIS_TUBOS,operacoes,operacoes__fracao_terreno_plano_lt5graus,operacoes__fracao_terreno_plano_lt5graus__alvo,0.4,valor fixo,1.0,valor fixo,1.0
-marte,MARTE_MEDUSAE_YARDANGS,operacoes,operacoes__fracao_terreno_plano_lt5graus,operacoes__fracao_terreno_plano_lt5graus__alvo,0.5,valor fixo,1.0,valor fixo,1.0
+﻿corpo,base_id,nicho,terra,referencia,alvo,regra_alvo,tolerancia,regra_tolerancia,peso,alvo_proxy
+lua,LUA_POLO_SUL,termico,temperatura__ar_2m_c,temperatura__ar_2m_c__alvo,-48.45138359069824,percentil 1 da Terra,74.77413845062256,p95 − p5 dos valores terrestres,1.0,-48.45138359069824
+lua,LUA_MARE_TUBOS,termico,temperatura__ar_2m_c,temperatura__ar_2m_c__alvo,-31.0,"valor real (baixa): LRO Diviner: máx. 387–397 K e mín. ~95 K no equador (Williams et al. 2017, Icarus 283)",60.46666717529297,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,26.167428016662598
+lua,LUA_POLO_SUL,termico,temperatura__lst_amplitude_dia_noite_c,temperatura__lst_amplitude_dia_noite_c__alvo,0.15326087176799774,percentil 5 da Terra,18.19565203487873,p95 − p5 dos valores terrestres,1.0,0.15326087176799774
+lua,LUA_MARE_TUBOS,termico,temperatura__lst_amplitude_dia_noite_c,temperatura__lst_amplitude_dia_noite_c__alvo,295.0,"valor real (alta): LRO Diviner: máx. 387–397 K e mín. ~95 K no equador (Williams et al. 2017, Icarus 283)",295.5999999642372,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,22.477174758911133
+lua,LUA_POLO_SUL,iluminacao_radiacao,iluminacao_radiacao__elevacao_solar_max_graus,iluminacao_radiacao__elevacao_solar_max_graus__alvo,1.87,"valor real (alta): Geometria: 90° − (89,67° − 1,54° de obliquidade lunar)",88.12459075927734,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,23.689783096313477
+lua,LUA_MARE_TUBOS,iluminacao_radiacao,iluminacao_radiacao__elevacao_solar_max_graus,iluminacao_radiacao__elevacao_solar_max_graus__alvo,77.45,"valor real (alta): Geometria: 90° − (14,09° − 1,54° de obliquidade lunar)",53.260216903686526,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,90.0
+lua,LUA_POLO_SUL,iluminacao_radiacao,iluminacao_radiacao__dias_dia_polar,iluminacao_radiacao__dias_dia_polar__alvo,310.0,valor real (media): Picos da borda de Shackleton iluminados ~80–90% do ano (NASA/LROC),310.0,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,181.0
+lua,LUA_MARE_TUBOS,iluminacao_radiacao,iluminacao_radiacao__dias_dia_polar,iluminacao_radiacao__dias_dia_polar__alvo,183.0,"valor real (alta): Dia lunar contínuo de ~14,8 dias a cada 29,5 dias (50% do ano)",183.0,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,0.0
+lua,LUA_POLO_SUL,iluminacao_radiacao,iluminacao_radiacao__radiacao_solar_superficie_wm2,iluminacao_radiacao__radiacao_solar_superficie_wm2__alvo,20.0,valor real (media): Cálculo: 1361 W/m² × sen(~1°) × 85% do tempo iluminado (borda de Shackleton),268.75,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,92.75
+lua,LUA_MARE_TUBOS,iluminacao_radiacao,iluminacao_radiacao__radiacao_solar_superficie_wm2,iluminacao_radiacao__radiacao_solar_superficie_wm2__alvo,420.0,"valor real (alta): Cálculo: 1361 W/m² ÷ π × cos(14,09°), sem atmosfera",341.66666412353516,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,285.1504223632812
+lua,LUA_POLO_SUL,agua_gelo,agua_gelo__indice_permafrost,agua_gelo__indice_permafrost__alvo,1.0,valor fixo,1.0,valor fixo,1.0,1.0
+lua,LUA_MARE_TUBOS,agua_gelo,agua_gelo__indice_permafrost,agua_gelo__indice_permafrost__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+lua,LUA_POLO_SUL,agua_gelo,agua_gelo__precipitacao_mm_dia,agua_gelo__precipitacao_mm_dia__alvo,0.0,valor real (alta): Sem atmosfera (NASA Moon Fact Sheet),7.083895564079285,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,0.05811961740255356
+lua,LUA_MARE_TUBOS,agua_gelo,agua_gelo__precipitacao_mm_dia,agua_gelo__precipitacao_mm_dia__alvo,0.0,valor real (alta): Sem atmosfera (NASA Moon Fact Sheet),7.083895564079285,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,0.05811961740255356
+lua,LUA_POLO_SUL,terreno,relevo__amplitude_relevo_m,relevo__amplitude_relevo_m__alvo,1736.0,percentil 95 da Terra,1697.0,p95 − p5 dos valores terrestres,1.0,1736.0
+lua,LUA_MARE_TUBOS,terreno,relevo__amplitude_relevo_m,relevo__amplitude_relevo_m__alvo,127.0,percentil 25 da Terra,1697.0,p95 − p5 dos valores terrestres,1.0,127.0
+lua,LUA_POLO_SUL,terreno,relevo__indice_posicao_topografica_m,relevo__indice_posicao_topografica_m__alvo,-392.1017510986328,percentil 2 da Terra,476.4531784057617,p95 − p5 dos valores terrestres,1.0,-392.1017510986328
+lua,LUA_MARE_TUBOS,terreno,relevo__indice_posicao_topografica_m,relevo__indice_posicao_topografica_m__alvo,0.0,valor fixo,476.4531784057617,p95 − p5 dos valores terrestres,1.0,0.0
+lua,LUA_POLO_SUL,terreno,relevo__declividade_media_graus,relevo__declividade_media_graus__alvo,3.2087391853332528,percentil 90 da Terra,4.476335303857921,p95 − p5 dos valores terrestres,1.0,3.2087391853332528
+lua,LUA_MARE_TUBOS,terreno,relevo__declividade_media_graus,relevo__declividade_media_graus__alvo,0.11914478391408921,percentil 10 da Terra,4.476335303857921,p95 − p5 dos valores terrestres,1.0,0.11914478391408921
+lua,LUA_POLO_SUL,geologia,geologia_superficie__litologia_anortosito,geologia_superficie__litologia_anortosito__alvo,1.0,valor fixo,1.0,valor fixo,1.0,1.0
+lua,LUA_MARE_TUBOS,geologia,geologia_superficie__litologia_anortosito,geologia_superficie__litologia_anortosito__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+lua,LUA_POLO_SUL,geologia,geologia_superficie__litologia_impacto,geologia_superficie__litologia_impacto__alvo,1.0,valor fixo,1.0,valor fixo,1.0,1.0
+lua,LUA_MARE_TUBOS,geologia,geologia_superficie__litologia_impacto,geologia_superficie__litologia_impacto__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+lua,LUA_POLO_SUL,geologia,geologia_superficie__litologia_basalto,geologia_superficie__litologia_basalto__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+lua,LUA_MARE_TUBOS,geologia,geologia_superficie__litologia_basalto,geologia_superficie__litologia_basalto__alvo,1.0,valor fixo,1.0,valor fixo,1.0,1.0
+lua,LUA_POLO_SUL,superficie_poeira,biologia__ndvi,biologia__ndvi__alvo,0.0,valor real (alta): Superfície sem vegetação,0.8526000380516052,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,0.04010000079870224
+lua,LUA_MARE_TUBOS,superficie_poeira,biologia__ndvi,biologia__ndvi__alvo,0.0,valor real (alta): Superfície sem vegetação,0.8526000380516052,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,0.04010000079870224
+lua,LUA_POLO_SUL,superficie_poeira,geologia_superficie__albedo,geologia_superficie__albedo__alvo,0.12,valor fixo,0.6620415858924389,p95 − p5 dos valores terrestres,1.0,0.12
+lua,LUA_MARE_TUBOS,superficie_poeira,geologia_superficie__albedo,geologia_superficie__albedo__alvo,0.07,valor fixo,0.6620415858924389,p95 − p5 dos valores terrestres,1.0,0.07
+lua,LUA_POLO_SUL,superficie_poeira,biologia__carbono_organico_solo,biologia__carbono_organico_solo__alvo,0.0,valor real (media): Regolito lunar sem matéria orgânica significativa (amostras Apollo),266.5608187866211,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,3.484534466266632
+lua,LUA_MARE_TUBOS,superficie_poeira,biologia__carbono_organico_solo,biologia__carbono_organico_solo__alvo,0.0,valor real (media): Regolito lunar sem matéria orgânica significativa (amostras Apollo),266.5608187866211,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,3.484534466266632
+lua,LUA_POLO_SUL,subsuperficie,subsuperficie__potencial_tubos_lava,subsuperficie__potencial_tubos_lava__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+lua,LUA_MARE_TUBOS,subsuperficie,subsuperficie__potencial_tubos_lava,subsuperficie__potencial_tubos_lava__alvo,1.0,valor fixo,1.0,valor fixo,1.0,1.0
+lua,LUA_POLO_SUL,subsuperficie,subsuperficie__solo_congelado_indice,subsuperficie__solo_congelado_indice__alvo,1.0,valor fixo,1.0,valor fixo,1.0,1.0
+lua,LUA_MARE_TUBOS,subsuperficie,subsuperficie__solo_congelado_indice,subsuperficie__solo_congelado_indice__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+lua,LUA_POLO_SUL,atmosfera,poeira_vento_processos__pressao_estimada_altitude_kpa,poeira_vento_processos__pressao_estimada_altitude_kpa__alvo,0.0,valor real (alta): Exosfera ~3×10⁻¹⁵ bar (NASA Moon Fact Sheet),112.44950103759766,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,49.06071090698242
+lua,LUA_MARE_TUBOS,atmosfera,poeira_vento_processos__pressao_estimada_altitude_kpa,poeira_vento_processos__pressao_estimada_altitude_kpa__alvo,0.0,valor real (alta): Exosfera ~3×10⁻¹⁵ bar (NASA Moon Fact Sheet),112.44950103759766,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,49.06071090698242
+lua,LUA_POLO_SUL,operacoes,operacoes__densidade_populacional,operacoes__densidade_populacional__alvo,0.0,valor fixo,100.0,valor fixo,1.0,0.0
+lua,LUA_MARE_TUBOS,operacoes,operacoes__densidade_populacional,operacoes__densidade_populacional__alvo,0.0,valor fixo,100.0,valor fixo,1.0,0.0
+lua,LUA_POLO_SUL,operacoes,operacoes__fracao_terreno_plano_lt5graus,operacoes__fracao_terreno_plano_lt5graus__alvo,0.5,valor fixo,1.0,valor fixo,1.0,0.5
+lua,LUA_MARE_TUBOS,operacoes,operacoes__fracao_terreno_plano_lt5graus,operacoes__fracao_terreno_plano_lt5graus__alvo,0.9,valor fixo,1.0,valor fixo,1.0,0.9
+marte,MARTE_JEZERO,termico,temperatura__ar_2m_c,temperatura__ar_2m_c__alvo,-55.0,"valor real (media): Perseverance/MEDA, primeiros 250 sóis (Rodriguez-Manfredi et al. 2023, Nature Geoscience 16)",84.46666717529297,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,-46.2763786315918
+marte,MARTE_GALE,termico,temperatura__ar_2m_c,temperatura__ar_2m_c__alvo,-63.0,valor real (baixa): Média de Marte ~210 K (NASA Mars Fact Sheet),92.46666717529297,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,-46.2763786315918
+marte,MARTE_MERIDIANI,termico,temperatura__ar_2m_c,temperatura__ar_2m_c__alvo,-63.0,valor real (baixa): Média de Marte ~210 K (NASA Mars Fact Sheet),92.46666717529297,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,-25.724425792694092
+marte,MARTE_GELO_MEDIAS_LAT,termico,temperatura__ar_2m_c,temperatura__ar_2m_c__alvo,-55.0,"valor real (media): Phoenix MET, sol 1: −80 °C de madrugada a −30 °C à tarde (NASA/CSA 2008)",84.46666717529297,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,-48.004478454589844
+marte,MARTE_THARSIS_TUBOS,termico,temperatura__ar_2m_c,temperatura__ar_2m_c__alvo,-63.0,valor real (baixa): Média de Marte ~210 K (NASA Mars Fact Sheet),92.46666717529297,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,-46.2763786315918
+marte,MARTE_MEDUSAE_YARDANGS,termico,temperatura__ar_2m_c,temperatura__ar_2m_c__alvo,-63.0,valor real (baixa): Média de Marte ~210 K (NASA Mars Fact Sheet),92.46666717529297,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,0.07415718957781792
+marte,MARTE_JEZERO,termico,temperatura__lst_amplitude_dia_noite_c,temperatura__lst_amplitude_dia_noite_c__alvo,80.0,valor real (baixa): Valor de Gale (REMS) aplicado a outra cratera de baixa latitude,80.59999996423721,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,22.477174758911133
+marte,MARTE_GALE,termico,temperatura__lst_amplitude_dia_noite_c,temperatura__lst_amplitude_dia_noite_c__alvo,80.0,valor real (media): Curiosity/REMS: solo com máx. 250–290 K e mín. 170–210 K (Gómez-Elvira et al. 2017),80.59999996423721,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,22.477174758911133
+marte,MARTE_MERIDIANI,termico,temperatura__lst_amplitude_dia_noite_c,temperatura__lst_amplitude_dia_noite_c__alvo,80.0,valor real (baixa): Valor de Gale (REMS) aplicado a outra região de baixa latitude,80.59999996423721,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,22.477174758911133
+marte,MARTE_GELO_MEDIAS_LAT,termico,temperatura__lst_amplitude_dia_noite_c,temperatura__lst_amplitude_dia_noite_c__alvo,50.0,"valor real (baixa): Phoenix MET, sol 1: −80 °C a −30 °C (NASA/CSA 2008)",50.59999996423721,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,5.993478298187256
+marte,MARTE_THARSIS_TUBOS,termico,temperatura__lst_amplitude_dia_noite_c,temperatura__lst_amplitude_dia_noite_c__alvo,80.0,valor real (baixa): Valor de Gale (REMS) aplicado a outra região de baixa latitude,80.59999996423721,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,22.477174758911133
+marte,MARTE_MEDUSAE_YARDANGS,termico,temperatura__lst_amplitude_dia_noite_c,temperatura__lst_amplitude_dia_noite_c__alvo,80.0,valor real (baixa): Valor de Gale (REMS) aplicado a outra região de baixa latitude,80.59999996423721,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,22.477174758911133
+marte,MARTE_JEZERO,agua_aridez,agua_gelo__precipitacao_mm_dia,agua_gelo__precipitacao_mm_dia__alvo,0.0,valor real (alta): Não há chuva em Marte,7.083895564079285,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,0.05811961740255356
+marte,MARTE_GALE,agua_aridez,agua_gelo__precipitacao_mm_dia,agua_gelo__precipitacao_mm_dia__alvo,0.0,valor real (alta): Não há chuva em Marte,7.083895564079285,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,0.05811961740255356
+marte,MARTE_MERIDIANI,agua_aridez,agua_gelo__precipitacao_mm_dia,agua_gelo__precipitacao_mm_dia__alvo,0.0,valor real (alta): Não há chuva em Marte,7.083895564079285,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,0.05811961740255356
+marte,MARTE_GELO_MEDIAS_LAT,agua_aridez,agua_gelo__precipitacao_mm_dia,agua_gelo__precipitacao_mm_dia__alvo,0.0,valor real (alta): Phoenix observou neve que evapora antes do solo (virga),7.083895564079285,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,0.12826093286275864
+marte,MARTE_THARSIS_TUBOS,agua_aridez,agua_gelo__precipitacao_mm_dia,agua_gelo__precipitacao_mm_dia__alvo,0.0,valor real (alta): Não há chuva em Marte,7.083895564079285,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,0.05811961740255356
+marte,MARTE_MEDUSAE_YARDANGS,agua_aridez,agua_gelo__precipitacao_mm_dia,agua_gelo__precipitacao_mm_dia__alvo,0.0,valor real (alta): Não há chuva em Marte,7.083895564079285,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,0.05811961740255356
+marte,MARTE_JEZERO,agua_aridez,agua_gelo__umidade_solo_raiz_m3m3,agua_gelo__umidade_solo_raiz_m3m3__alvo,0.0,valor real (media): Sem água líquida estável na superfície,0.43573667526245086,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,0.05370087295770645
+marte,MARTE_GALE,agua_aridez,agua_gelo__umidade_solo_raiz_m3m3,agua_gelo__umidade_solo_raiz_m3m3__alvo,0.0,valor real (media): Sem água líquida estável na superfície,0.43573667526245086,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,0.05370087295770645
+marte,MARTE_MERIDIANI,agua_aridez,agua_gelo__umidade_solo_raiz_m3m3,agua_gelo__umidade_solo_raiz_m3m3__alvo,0.0,valor real (media): Sem água líquida estável na superfície,0.43573667526245086,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,0.05370087295770645
+marte,MARTE_GELO_MEDIAS_LAT,agua_aridez,agua_gelo__umidade_solo_raiz_m3m3,agua_gelo__umidade_solo_raiz_m3m3__alvo,0.0,valor real (media): Sem água líquida estável na superfície,0.43573667526245086,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,0.26517388224601746
+marte,MARTE_THARSIS_TUBOS,agua_aridez,agua_gelo__umidade_solo_raiz_m3m3,agua_gelo__umidade_solo_raiz_m3m3__alvo,0.0,valor real (media): Sem água líquida estável na superfície,0.43573667526245086,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,0.05370087295770645
+marte,MARTE_MEDUSAE_YARDANGS,agua_aridez,agua_gelo__umidade_solo_raiz_m3m3,agua_gelo__umidade_solo_raiz_m3m3__alvo,0.0,valor real (media): Sem água líquida estável na superfície,0.43573667526245086,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,0.05370087295770645
+marte,MARTE_JEZERO,agua_gelo,agua_gelo__indice_permafrost,agua_gelo__indice_permafrost__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+marte,MARTE_GALE,agua_gelo,agua_gelo__indice_permafrost,agua_gelo__indice_permafrost__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+marte,MARTE_MERIDIANI,agua_gelo,agua_gelo__indice_permafrost,agua_gelo__indice_permafrost__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+marte,MARTE_GELO_MEDIAS_LAT,agua_gelo,agua_gelo__indice_permafrost,agua_gelo__indice_permafrost__alvo,1.0,valor fixo,1.0,valor fixo,1.0,1.0
+marte,MARTE_THARSIS_TUBOS,agua_gelo,agua_gelo__indice_permafrost,agua_gelo__indice_permafrost__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+marte,MARTE_MEDUSAE_YARDANGS,agua_gelo,agua_gelo__indice_permafrost,agua_gelo__indice_permafrost__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+marte,MARTE_JEZERO,iluminacao_radiacao,iluminacao_radiacao__radiacao_solar_superficie_wm2,iluminacao_radiacao__radiacao_solar_superficie_wm2__alvo,133.0,"valor real (baixa): Cálculo: 586 W/m² ÷ π × cos(18,38°) × 0,75 de transmitância (poeira τ≈0,5)",155.75,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,271.41522827148435
+marte,MARTE_GALE,iluminacao_radiacao,iluminacao_radiacao__radiacao_solar_superficie_wm2,iluminacao_radiacao__radiacao_solar_superficie_wm2__alvo,139.0,"valor real (baixa): Cálculo: 586 W/m² ÷ π × cos(5,4°) × 0,75 de transmitância (poeira τ≈0,5)",149.75,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,271.41522827148435
+marte,MARTE_MERIDIANI,iluminacao_radiacao,iluminacao_radiacao__radiacao_solar_superficie_wm2,iluminacao_radiacao__radiacao_solar_superficie_wm2__alvo,140.0,"valor real (baixa): Cálculo: 586 W/m² ÷ π × cos(1,95°) × 0,75 de transmitância (poeira τ≈0,5)",148.75,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,271.41522827148435
+marte,MARTE_GELO_MEDIAS_LAT,iluminacao_radiacao,iluminacao_radiacao__radiacao_solar_superficie_wm2,iluminacao_radiacao__radiacao_solar_superficie_wm2__alvo,70.0,"valor real (baixa): Cálculo: 586 W/m² ÷ π × ~0,5 (fator anual a 68° com obliquidade de 25°) × 0,75 de transmitância",218.75,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,99.73912811279297
+marte,MARTE_THARSIS_TUBOS,iluminacao_radiacao,iluminacao_radiacao__radiacao_solar_superficie_wm2,iluminacao_radiacao__radiacao_solar_superficie_wm2__alvo,138.0,"valor real (baixa): Cálculo: 586 W/m² ÷ π × cos(8,26°) × 0,75 de transmitância (poeira τ≈0,5)",150.75,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,271.41522827148435
+marte,MARTE_MEDUSAE_YARDANGS,iluminacao_radiacao,iluminacao_radiacao__radiacao_solar_superficie_wm2,iluminacao_radiacao__radiacao_solar_superficie_wm2__alvo,140.0,"valor real (baixa): Cálculo: 586 W/m² ÷ π × cos(3,2°) × 0,75 de transmitância (poeira τ≈0,5)",148.75,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,271.41522827148435
+marte,MARTE_JEZERO,iluminacao_radiacao,iluminacao_radiacao__elevacao_solar_max_graus,iluminacao_radiacao__elevacao_solar_max_graus__alvo,90.0,"valor real (alta): Geometria: latitude 18,38° menor que a obliquidade de 25,19°",65.81021690368652,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,90.0
+marte,MARTE_GALE,iluminacao_radiacao,iluminacao_radiacao__elevacao_solar_max_graus,iluminacao_radiacao__elevacao_solar_max_graus__alvo,90.0,"valor real (alta): Geometria: latitude 5,4° menor que a obliquidade de 25,19°",65.81021690368652,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,90.0
+marte,MARTE_MERIDIANI,iluminacao_radiacao,iluminacao_radiacao__elevacao_solar_max_graus,iluminacao_radiacao__elevacao_solar_max_graus__alvo,90.0,"valor real (alta): Geometria: latitude 1,95° menor que a obliquidade de 25,19°",65.81021690368652,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,90.0
+marte,MARTE_GELO_MEDIAS_LAT,iluminacao_radiacao,iluminacao_radiacao__elevacao_solar_max_graus,iluminacao_radiacao__elevacao_solar_max_graus__alvo,46.97,"valor real (alta): Geometria: 90° − (68,22° − 25,19° de obliquidade)",43.024590759277345,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,29.189783096313477
+marte,MARTE_THARSIS_TUBOS,iluminacao_radiacao,iluminacao_radiacao__elevacao_solar_max_graus,iluminacao_radiacao__elevacao_solar_max_graus__alvo,90.0,"valor real (alta): Geometria: latitude 8,26° menor que a obliquidade de 25,19°",65.81021690368652,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,90.0
+marte,MARTE_MEDUSAE_YARDANGS,iluminacao_radiacao,iluminacao_radiacao__elevacao_solar_max_graus,iluminacao_radiacao__elevacao_solar_max_graus__alvo,90.0,"valor real (alta): Geometria: latitude 3,2° menor que a obliquidade de 25,19°",65.81021690368652,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,90.0
+marte,MARTE_JEZERO,geologia,geologia_superficie__litologia_lacustre_argila,geologia_superficie__litologia_lacustre_argila__alvo,1.0,valor fixo,1.0,valor fixo,1.0,1.0
+marte,MARTE_GALE,geologia,geologia_superficie__litologia_lacustre_argila,geologia_superficie__litologia_lacustre_argila__alvo,1.0,valor fixo,1.0,valor fixo,1.0,1.0
+marte,MARTE_MERIDIANI,geologia,geologia_superficie__litologia_lacustre_argila,geologia_superficie__litologia_lacustre_argila__alvo,0.5,valor fixo,1.0,valor fixo,1.0,0.5
+marte,MARTE_GELO_MEDIAS_LAT,geologia,geologia_superficie__litologia_lacustre_argila,geologia_superficie__litologia_lacustre_argila__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+marte,MARTE_THARSIS_TUBOS,geologia,geologia_superficie__litologia_lacustre_argila,geologia_superficie__litologia_lacustre_argila__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+marte,MARTE_MEDUSAE_YARDANGS,geologia,geologia_superficie__litologia_lacustre_argila,geologia_superficie__litologia_lacustre_argila__alvo,0.5,valor fixo,1.0,valor fixo,1.0,0.5
+marte,MARTE_JEZERO,geologia,geologia_superficie__litologia_carbonato,geologia_superficie__litologia_carbonato__alvo,1.0,valor fixo,1.0,valor fixo,1.0,1.0
+marte,MARTE_GALE,geologia,geologia_superficie__litologia_carbonato,geologia_superficie__litologia_carbonato__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+marte,MARTE_MERIDIANI,geologia,geologia_superficie__litologia_carbonato,geologia_superficie__litologia_carbonato__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+marte,MARTE_GELO_MEDIAS_LAT,geologia,geologia_superficie__litologia_carbonato,geologia_superficie__litologia_carbonato__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+marte,MARTE_THARSIS_TUBOS,geologia,geologia_superficie__litologia_carbonato,geologia_superficie__litologia_carbonato__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+marte,MARTE_MEDUSAE_YARDANGS,geologia,geologia_superficie__litologia_carbonato,geologia_superficie__litologia_carbonato__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+marte,MARTE_JEZERO,geologia,geologia_superficie__litologia_evaporito,geologia_superficie__litologia_evaporito__alvo,0.5,valor fixo,1.0,valor fixo,1.0,0.5
+marte,MARTE_GALE,geologia,geologia_superficie__litologia_evaporito,geologia_superficie__litologia_evaporito__alvo,1.0,valor fixo,1.0,valor fixo,1.0,1.0
+marte,MARTE_MERIDIANI,geologia,geologia_superficie__litologia_evaporito,geologia_superficie__litologia_evaporito__alvo,1.0,valor fixo,1.0,valor fixo,1.0,1.0
+marte,MARTE_GELO_MEDIAS_LAT,geologia,geologia_superficie__litologia_evaporito,geologia_superficie__litologia_evaporito__alvo,0.5,valor fixo,1.0,valor fixo,1.0,0.5
+marte,MARTE_THARSIS_TUBOS,geologia,geologia_superficie__litologia_evaporito,geologia_superficie__litologia_evaporito__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+marte,MARTE_MEDUSAE_YARDANGS,geologia,geologia_superficie__litologia_evaporito,geologia_superficie__litologia_evaporito__alvo,0.5,valor fixo,1.0,valor fixo,1.0,0.5
+marte,MARTE_JEZERO,geologia,geologia_superficie__litologia_basalto,geologia_superficie__litologia_basalto__alvo,0.5,valor fixo,1.0,valor fixo,1.0,0.5
+marte,MARTE_GALE,geologia,geologia_superficie__litologia_basalto,geologia_superficie__litologia_basalto__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+marte,MARTE_MERIDIANI,geologia,geologia_superficie__litologia_basalto,geologia_superficie__litologia_basalto__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+marte,MARTE_GELO_MEDIAS_LAT,geologia,geologia_superficie__litologia_basalto,geologia_superficie__litologia_basalto__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+marte,MARTE_THARSIS_TUBOS,geologia,geologia_superficie__litologia_basalto,geologia_superficie__litologia_basalto__alvo,1.0,valor fixo,1.0,valor fixo,1.0,1.0
+marte,MARTE_MEDUSAE_YARDANGS,geologia,geologia_superficie__litologia_basalto,geologia_superficie__litologia_basalto__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+marte,MARTE_JEZERO,geologia,geologia_superficie__litologia_hidrotermal_ferro,geologia_superficie__litologia_hidrotermal_ferro__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+marte,MARTE_GALE,geologia,geologia_superficie__litologia_hidrotermal_ferro,geologia_superficie__litologia_hidrotermal_ferro__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+marte,MARTE_MERIDIANI,geologia,geologia_superficie__litologia_hidrotermal_ferro,geologia_superficie__litologia_hidrotermal_ferro__alvo,1.0,valor fixo,1.0,valor fixo,1.0,1.0
+marte,MARTE_GELO_MEDIAS_LAT,geologia,geologia_superficie__litologia_hidrotermal_ferro,geologia_superficie__litologia_hidrotermal_ferro__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+marte,MARTE_THARSIS_TUBOS,geologia,geologia_superficie__litologia_hidrotermal_ferro,geologia_superficie__litologia_hidrotermal_ferro__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+marte,MARTE_MEDUSAE_YARDANGS,geologia,geologia_superficie__litologia_hidrotermal_ferro,geologia_superficie__litologia_hidrotermal_ferro__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+marte,MARTE_JEZERO,geologia,geologia_superficie__litologia_eolico,geologia_superficie__litologia_eolico__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+marte,MARTE_GALE,geologia,geologia_superficie__litologia_eolico,geologia_superficie__litologia_eolico__alvo,1.0,valor fixo,1.0,valor fixo,1.0,1.0
+marte,MARTE_MERIDIANI,geologia,geologia_superficie__litologia_eolico,geologia_superficie__litologia_eolico__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+marte,MARTE_GELO_MEDIAS_LAT,geologia,geologia_superficie__litologia_eolico,geologia_superficie__litologia_eolico__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+marte,MARTE_THARSIS_TUBOS,geologia,geologia_superficie__litologia_eolico,geologia_superficie__litologia_eolico__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+marte,MARTE_MEDUSAE_YARDANGS,geologia,geologia_superficie__litologia_eolico,geologia_superficie__litologia_eolico__alvo,1.0,valor fixo,1.0,valor fixo,1.0,1.0
+marte,MARTE_JEZERO,geologia,geologia_superficie__litologia_glacial,geologia_superficie__litologia_glacial__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+marte,MARTE_GALE,geologia,geologia_superficie__litologia_glacial,geologia_superficie__litologia_glacial__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+marte,MARTE_MERIDIANI,geologia,geologia_superficie__litologia_glacial,geologia_superficie__litologia_glacial__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+marte,MARTE_GELO_MEDIAS_LAT,geologia,geologia_superficie__litologia_glacial,geologia_superficie__litologia_glacial__alvo,1.0,valor fixo,1.0,valor fixo,1.0,1.0
+marte,MARTE_THARSIS_TUBOS,geologia,geologia_superficie__litologia_glacial,geologia_superficie__litologia_glacial__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+marte,MARTE_MEDUSAE_YARDANGS,geologia,geologia_superficie__litologia_glacial,geologia_superficie__litologia_glacial__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+marte,MARTE_JEZERO,geologia,geologia_superficie__litologia_piroclastico,geologia_superficie__litologia_piroclastico__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+marte,MARTE_GALE,geologia,geologia_superficie__litologia_piroclastico,geologia_superficie__litologia_piroclastico__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+marte,MARTE_MERIDIANI,geologia,geologia_superficie__litologia_piroclastico,geologia_superficie__litologia_piroclastico__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+marte,MARTE_GELO_MEDIAS_LAT,geologia,geologia_superficie__litologia_piroclastico,geologia_superficie__litologia_piroclastico__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+marte,MARTE_THARSIS_TUBOS,geologia,geologia_superficie__litologia_piroclastico,geologia_superficie__litologia_piroclastico__alvo,0.5,valor fixo,1.0,valor fixo,1.0,0.5
+marte,MARTE_MEDUSAE_YARDANGS,geologia,geologia_superficie__litologia_piroclastico,geologia_superficie__litologia_piroclastico__alvo,1.0,valor fixo,1.0,valor fixo,1.0,1.0
+marte,MARTE_JEZERO,terreno,relevo__amplitude_relevo_m,relevo__amplitude_relevo_m__alvo,429.0,percentil 60 da Terra,1697.0,p95 − p5 dos valores terrestres,1.0,429.0
+marte,MARTE_GALE,terreno,relevo__amplitude_relevo_m,relevo__amplitude_relevo_m__alvo,1736.0,percentil 95 da Terra,1697.0,p95 − p5 dos valores terrestres,1.0,1736.0
+marte,MARTE_MERIDIANI,terreno,relevo__amplitude_relevo_m,relevo__amplitude_relevo_m__alvo,62.0,percentil 10 da Terra,1697.0,p95 − p5 dos valores terrestres,1.0,62.0
+marte,MARTE_GELO_MEDIAS_LAT,terreno,relevo__amplitude_relevo_m,relevo__amplitude_relevo_m__alvo,62.0,percentil 10 da Terra,1697.0,p95 − p5 dos valores terrestres,1.0,62.0
+marte,MARTE_THARSIS_TUBOS,terreno,relevo__amplitude_relevo_m,relevo__amplitude_relevo_m__alvo,1736.0,percentil 95 da Terra,1697.0,p95 − p5 dos valores terrestres,1.0,1736.0
+marte,MARTE_MEDUSAE_YARDANGS,terreno,relevo__amplitude_relevo_m,relevo__amplitude_relevo_m__alvo,305.0,percentil 50 da Terra,1697.0,p95 − p5 dos valores terrestres,1.0,305.0
+marte,MARTE_JEZERO,terreno,relevo__indice_posicao_topografica_m,relevo__indice_posicao_topografica_m__alvo,-221.99767532348633,percentil 5 da Terra,476.4531784057617,p95 − p5 dos valores terrestres,1.0,-221.99767532348633
+marte,MARTE_GALE,terreno,relevo__indice_posicao_topografica_m,relevo__indice_posicao_topografica_m__alvo,-221.99767532348633,percentil 5 da Terra,476.4531784057617,p95 − p5 dos valores terrestres,1.0,-221.99767532348633
+marte,MARTE_MERIDIANI,terreno,relevo__indice_posicao_topografica_m,relevo__indice_posicao_topografica_m__alvo,0.0,valor fixo,476.4531784057617,p95 − p5 dos valores terrestres,1.0,0.0
+marte,MARTE_GELO_MEDIAS_LAT,terreno,relevo__indice_posicao_topografica_m,relevo__indice_posicao_topografica_m__alvo,0.0,valor fixo,476.4531784057617,p95 − p5 dos valores terrestres,1.0,0.0
+marte,MARTE_THARSIS_TUBOS,terreno,relevo__indice_posicao_topografica_m,relevo__indice_posicao_topografica_m__alvo,254.45550308227538,percentil 95 da Terra,476.4531784057617,p95 − p5 dos valores terrestres,1.0,254.45550308227538
+marte,MARTE_MEDUSAE_YARDANGS,terreno,relevo__indice_posicao_topografica_m,relevo__indice_posicao_topografica_m__alvo,0.0,valor fixo,476.4531784057617,p95 − p5 dos valores terrestres,1.0,0.0
+marte,MARTE_JEZERO,terreno,relevo__elevacao_media_m,relevo__elevacao_media_m__alvo,368.8123321533203,percentil 50 da Terra,3153.1162719726562,p95 − p5 dos valores terrestres,1.0,368.8123321533203
+marte,MARTE_GALE,terreno,relevo__elevacao_media_m,relevo__elevacao_media_m__alvo,368.8123321533203,percentil 50 da Terra,3153.1162719726562,p95 − p5 dos valores terrestres,1.0,368.8123321533203
+marte,MARTE_MERIDIANI,terreno,relevo__elevacao_media_m,relevo__elevacao_media_m__alvo,368.8123321533203,percentil 50 da Terra,3153.1162719726562,p95 − p5 dos valores terrestres,1.0,368.8123321533203
+marte,MARTE_GELO_MEDIAS_LAT,terreno,relevo__elevacao_media_m,relevo__elevacao_media_m__alvo,368.8123321533203,percentil 50 da Terra,3153.1162719726562,p95 − p5 dos valores terrestres,1.0,368.8123321533203
+marte,MARTE_THARSIS_TUBOS,terreno,relevo__elevacao_media_m,relevo__elevacao_media_m__alvo,4179.328125,percentil 99 da Terra,3153.1162719726562,p95 − p5 dos valores terrestres,1.0,4179.328125
+marte,MARTE_MEDUSAE_YARDANGS,terreno,relevo__elevacao_media_m,relevo__elevacao_media_m__alvo,368.8123321533203,percentil 50 da Terra,3153.1162719726562,p95 − p5 dos valores terrestres,1.0,368.8123321533203
+marte,MARTE_JEZERO,superficie_poeira,geologia_superficie__albedo,geologia_superficie__albedo__alvo,0.2,valor fixo,0.6620415858924389,p95 − p5 dos valores terrestres,1.0,0.2
+marte,MARTE_GALE,superficie_poeira,geologia_superficie__albedo,geologia_superficie__albedo__alvo,0.2,valor fixo,0.6620415858924389,p95 − p5 dos valores terrestres,1.0,0.2
+marte,MARTE_MERIDIANI,superficie_poeira,geologia_superficie__albedo,geologia_superficie__albedo__alvo,0.15,valor fixo,0.6620415858924389,p95 − p5 dos valores terrestres,1.0,0.15
+marte,MARTE_GELO_MEDIAS_LAT,superficie_poeira,geologia_superficie__albedo,geologia_superficie__albedo__alvo,0.2,valor fixo,0.6620415858924389,p95 − p5 dos valores terrestres,1.0,0.2
+marte,MARTE_THARSIS_TUBOS,superficie_poeira,geologia_superficie__albedo,geologia_superficie__albedo__alvo,0.15,valor fixo,0.6620415858924389,p95 − p5 dos valores terrestres,1.0,0.15
+marte,MARTE_MEDUSAE_YARDANGS,superficie_poeira,geologia_superficie__albedo,geologia_superficie__albedo__alvo,0.2,valor fixo,0.6620415858924389,p95 − p5 dos valores terrestres,1.0,0.2
+marte,MARTE_JEZERO,superficie_poeira,biologia__carbono_organico_solo,biologia__carbono_organico_solo__alvo,0.24,"valor real (baixa): Valor de Gale (Stern et al. 2022, PNAS) aplicado a Jezero",266.3208187866211,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,3.484534466266632
+marte,MARTE_GALE,superficie_poeira,biologia__carbono_organico_solo,biologia__carbono_organico_solo__alvo,0.24,"valor real (alta): Curiosity/SAM: 200–273 ppm em lamitos de Yellowknife Bay (Stern et al. 2022, PNAS)",266.3208187866211,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,3.484534466266632
+marte,MARTE_MERIDIANI,superficie_poeira,biologia__carbono_organico_solo,biologia__carbono_organico_solo__alvo,0.24,"valor real (baixa): Valor de Gale (Stern et al. 2022, PNAS) aplicado a Meridiani",266.3208187866211,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,3.484534466266632
+marte,MARTE_GELO_MEDIAS_LAT,superficie_poeira,biologia__carbono_organico_solo,biologia__carbono_organico_solo__alvo,0.24,"valor real (baixa): Valor de Gale (Stern et al. 2022, PNAS) aplicado às planícies do norte",266.3208187866211,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,3.484534466266632
+marte,MARTE_THARSIS_TUBOS,superficie_poeira,biologia__carbono_organico_solo,biologia__carbono_organico_solo__alvo,0.24,"valor real (baixa): Valor de Gale (Stern et al. 2022, PNAS) aplicado a Tharsis",266.3208187866211,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,3.484534466266632
+marte,MARTE_MEDUSAE_YARDANGS,superficie_poeira,biologia__carbono_organico_solo,biologia__carbono_organico_solo__alvo,0.24,"valor real (baixa): Valor de Gale (Stern et al. 2022, PNAS) aplicado a Medusae Fossae",266.3208187866211,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,3.484534466266632
+marte,MARTE_JEZERO,superficie_poeira,geologia_superficie__ph,geologia_superficie__ph__alvo,7.7,valor fixo,3.387207317352294,p95 − p5 dos valores terrestres,1.0,7.7
+marte,MARTE_GALE,superficie_poeira,geologia_superficie__ph,geologia_superficie__ph__alvo,7.7,valor fixo,3.387207317352294,p95 − p5 dos valores terrestres,1.0,7.7
+marte,MARTE_MERIDIANI,superficie_poeira,geologia_superficie__ph,geologia_superficie__ph__alvo,4.260371475219727,percentil 1 da Terra,3.387207317352294,p95 − p5 dos valores terrestres,1.0,4.260371475219727
+marte,MARTE_GELO_MEDIAS_LAT,superficie_poeira,geologia_superficie__ph,geologia_superficie__ph__alvo,7.7,"valor real (alta): Phoenix/WCL: pH 7,7 ± 0,5 (Hecht et al. 2009, Science 325)",3.4396285247802734,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,7.7
+marte,MARTE_THARSIS_TUBOS,superficie_poeira,geologia_superficie__ph,geologia_superficie__ph__alvo,7.7,valor fixo,3.387207317352294,p95 − p5 dos valores terrestres,1.0,7.7
+marte,MARTE_MEDUSAE_YARDANGS,superficie_poeira,geologia_superficie__ph,geologia_superficie__ph__alvo,7.7,valor fixo,3.387207317352294,p95 − p5 dos valores terrestres,1.0,7.7
+marte,MARTE_JEZERO,processos,poeira_vento_processos__vento_superficie_ms,poeira_vento_processos__vento_superficie_ms__alvo,4.0,"valor real (baixa): Perseverance/MEDA: poucos m/s, rajadas de ~10 m/s (NASA 2021)",11.291666984558105,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,8.799864292144775
+marte,MARTE_GALE,processos,poeira_vento_processos__vento_superficie_ms,poeira_vento_processos__vento_superficie_ms__alvo,4.0,valor real (baixa): Ventos típicos de poucos m/s em Marte (REMS/MEDA),11.291666984558105,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,8.799864292144775
+marte,MARTE_MERIDIANI,processos,poeira_vento_processos__vento_superficie_ms,poeira_vento_processos__vento_superficie_ms__alvo,4.0,valor real (baixa): Ventos típicos de poucos m/s em Marte (REMS/MEDA),11.291666984558105,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,8.799864292144775
+marte,MARTE_GELO_MEDIAS_LAT,processos,poeira_vento_processos__vento_superficie_ms,poeira_vento_processos__vento_superficie_ms__alvo,4.0,valor real (baixa): Ventos típicos de poucos m/s em Marte (Phoenix/REMS/MEDA),11.291666984558105,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,8.799864292144775
+marte,MARTE_THARSIS_TUBOS,processos,poeira_vento_processos__vento_superficie_ms,poeira_vento_processos__vento_superficie_ms__alvo,4.0,valor real (baixa): Ventos típicos de poucos m/s em Marte (REMS/MEDA),11.291666984558105,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,8.799864292144775
+marte,MARTE_MEDUSAE_YARDANGS,processos,poeira_vento_processos__vento_superficie_ms,poeira_vento_processos__vento_superficie_ms__alvo,4.0,valor real (baixa): Ventos típicos de poucos m/s em Marte (REMS/MEDA),11.291666984558105,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,15.448532104492188
+marte,MARTE_JEZERO,processos,poeira_vento_processos__poeira_superficie_ugm3,poeira_vento_processos__poeira_superficie_ugm3__alvo,89.59782409667969,percentil 95 da Terra,89.24728062748909,p95 − p5 dos valores terrestres,1.0,89.59782409667969
+marte,MARTE_GALE,processos,poeira_vento_processos__poeira_superficie_ugm3,poeira_vento_processos__poeira_superficie_ugm3__alvo,89.59782409667969,percentil 95 da Terra,89.24728062748909,p95 − p5 dos valores terrestres,1.0,89.59782409667969
+marte,MARTE_MERIDIANI,processos,poeira_vento_processos__poeira_superficie_ugm3,poeira_vento_processos__poeira_superficie_ugm3__alvo,89.59782409667969,percentil 95 da Terra,89.24728062748909,p95 − p5 dos valores terrestres,1.0,89.59782409667969
+marte,MARTE_GELO_MEDIAS_LAT,processos,poeira_vento_processos__poeira_superficie_ugm3,poeira_vento_processos__poeira_superficie_ugm3__alvo,0.44565218687057495,percentil 25 da Terra,89.24728062748909,p95 − p5 dos valores terrestres,1.0,0.44565218687057495
+marte,MARTE_THARSIS_TUBOS,processos,poeira_vento_processos__poeira_superficie_ugm3,poeira_vento_processos__poeira_superficie_ugm3__alvo,89.59782409667969,percentil 95 da Terra,89.24728062748909,p95 − p5 dos valores terrestres,1.0,89.59782409667969
+marte,MARTE_MEDUSAE_YARDANGS,processos,poeira_vento_processos__poeira_superficie_ugm3,poeira_vento_processos__poeira_superficie_ugm3__alvo,90.0,percentil 99 da Terra,89.24728062748909,p95 − p5 dos valores terrestres,1.0,90.0
+marte,MARTE_JEZERO,biologia_habitabilidade,biologia__ndvi,biologia__ndvi__alvo,0.0,valor real (alta): Superfície sem vegetação,0.8526000380516052,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,0.060859044641256334
+marte,MARTE_GALE,biologia_habitabilidade,biologia__ndvi,biologia__ndvi__alvo,0.0,valor real (alta): Superfície sem vegetação,0.8526000380516052,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,0.060859044641256334
+marte,MARTE_MERIDIANI,biologia_habitabilidade,biologia__ndvi,biologia__ndvi__alvo,0.0,valor real (alta): Superfície sem vegetação,0.8526000380516052,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,0.060859044641256334
+marte,MARTE_GELO_MEDIAS_LAT,biologia_habitabilidade,biologia__ndvi,biologia__ndvi__alvo,0.0,valor real (alta): Superfície sem vegetação,0.8526000380516052,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,0.060859044641256334
+marte,MARTE_THARSIS_TUBOS,biologia_habitabilidade,biologia__ndvi,biologia__ndvi__alvo,0.0,valor real (alta): Superfície sem vegetação,0.8526000380516052,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,0.060859044641256334
+marte,MARTE_MEDUSAE_YARDANGS,biologia_habitabilidade,biologia__ndvi,biologia__ndvi__alvo,0.0,valor real (alta): Superfície sem vegetação,0.8526000380516052,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,0.060859044641256334
+marte,MARTE_JEZERO,biologia_habitabilidade,biologia__cobertura_solo_exposto_arido_fracao,biologia__cobertura_solo_exposto_arido_fracao__alvo,1.0,valor fixo,1.0,valor fixo,1.0,1.0
+marte,MARTE_GALE,biologia_habitabilidade,biologia__cobertura_solo_exposto_arido_fracao,biologia__cobertura_solo_exposto_arido_fracao__alvo,1.0,valor fixo,1.0,valor fixo,1.0,1.0
+marte,MARTE_MERIDIANI,biologia_habitabilidade,biologia__cobertura_solo_exposto_arido_fracao,biologia__cobertura_solo_exposto_arido_fracao__alvo,1.0,valor fixo,1.0,valor fixo,1.0,1.0
+marte,MARTE_GELO_MEDIAS_LAT,biologia_habitabilidade,biologia__cobertura_solo_exposto_arido_fracao,biologia__cobertura_solo_exposto_arido_fracao__alvo,0.5,valor fixo,1.0,valor fixo,1.0,0.5
+marte,MARTE_THARSIS_TUBOS,biologia_habitabilidade,biologia__cobertura_solo_exposto_arido_fracao,biologia__cobertura_solo_exposto_arido_fracao__alvo,1.0,valor fixo,1.0,valor fixo,1.0,1.0
+marte,MARTE_MEDUSAE_YARDANGS,biologia_habitabilidade,biologia__cobertura_solo_exposto_arido_fracao,biologia__cobertura_solo_exposto_arido_fracao__alvo,1.0,valor fixo,1.0,valor fixo,1.0,1.0
+marte,MARTE_JEZERO,subsuperficie,subsuperficie__potencial_tubos_lava,subsuperficie__potencial_tubos_lava__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+marte,MARTE_GALE,subsuperficie,subsuperficie__potencial_tubos_lava,subsuperficie__potencial_tubos_lava__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+marte,MARTE_MERIDIANI,subsuperficie,subsuperficie__potencial_tubos_lava,subsuperficie__potencial_tubos_lava__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+marte,MARTE_GELO_MEDIAS_LAT,subsuperficie,subsuperficie__potencial_tubos_lava,subsuperficie__potencial_tubos_lava__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+marte,MARTE_THARSIS_TUBOS,subsuperficie,subsuperficie__potencial_tubos_lava,subsuperficie__potencial_tubos_lava__alvo,1.0,valor fixo,1.0,valor fixo,1.0,1.0
+marte,MARTE_MEDUSAE_YARDANGS,subsuperficie,subsuperficie__potencial_tubos_lava,subsuperficie__potencial_tubos_lava__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+marte,MARTE_JEZERO,subsuperficie,subsuperficie__solo_congelado_indice,subsuperficie__solo_congelado_indice__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+marte,MARTE_GALE,subsuperficie,subsuperficie__solo_congelado_indice,subsuperficie__solo_congelado_indice__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+marte,MARTE_MERIDIANI,subsuperficie,subsuperficie__solo_congelado_indice,subsuperficie__solo_congelado_indice__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+marte,MARTE_GELO_MEDIAS_LAT,subsuperficie,subsuperficie__solo_congelado_indice,subsuperficie__solo_congelado_indice__alvo,1.0,valor fixo,1.0,valor fixo,1.0,1.0
+marte,MARTE_THARSIS_TUBOS,subsuperficie,subsuperficie__solo_congelado_indice,subsuperficie__solo_congelado_indice__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+marte,MARTE_MEDUSAE_YARDANGS,subsuperficie,subsuperficie__solo_congelado_indice,subsuperficie__solo_congelado_indice__alvo,0.0,valor fixo,1.0,valor fixo,1.0,0.0
+marte,MARTE_JEZERO,atmosfera,poeira_vento_processos__pressao_estimada_altitude_kpa,poeira_vento_processos__pressao_estimada_altitude_kpa__alvo,0.72,valor real (media): Perseverance/MEDA: 718 Pa nas primeiras medidas (NASA 2021),111.72950103759766,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,49.06071090698242
+marte,MARTE_GALE,atmosfera,poeira_vento_processos__pressao_estimada_altitude_kpa,poeira_vento_processos__pressao_estimada_altitude_kpa__alvo,0.91,"valor real (media): Cálculo: 0,61 kPa no datum × exp(4,5 km ÷ 11,1 km); compatível com Curiosity/REMS",111.53950103759766,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,49.06071090698242
+marte,MARTE_MERIDIANI,atmosfera,poeira_vento_processos__pressao_estimada_altitude_kpa,poeira_vento_processos__pressao_estimada_altitude_kpa__alvo,0.69,"valor real (media): Cálculo: 0,61 kPa no datum × exp(1,4 km ÷ 11,1 km)",111.75950103759766,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,49.06071090698242
+marte,MARTE_GELO_MEDIAS_LAT,atmosfera,poeira_vento_processos__pressao_estimada_altitude_kpa,poeira_vento_processos__pressao_estimada_altitude_kpa__alvo,0.85,"valor real (media): Phoenix MET, sol 1: 8,5 mbar (NASA/CSA 2008)",111.59950103759766,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,49.06071090698242
+marte,MARTE_THARSIS_TUBOS,atmosfera,poeira_vento_processos__pressao_estimada_altitude_kpa,poeira_vento_processos__pressao_estimada_altitude_kpa__alvo,0.25,"valor real (media): Cálculo: 0,61 kPa × exp(−10 km ÷ 11,1 km); claraboias a 9,1–11 km (Cushing et al. 2007, GRL 34)",112.19950103759766,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,49.06071090698242
+marte,MARTE_MEDUSAE_YARDANGS,atmosfera,poeira_vento_processos__pressao_estimada_altitude_kpa,poeira_vento_processos__pressao_estimada_altitude_kpa__alvo,0.61,valor real (baixa): Pressão média no datum de Marte (NASA Mars Fact Sheet),111.83950103759766,real: maior distância do alvo aos percentis 1 e 99 da Terra,1.0,49.06071090698242
+marte,MARTE_JEZERO,operacoes,operacoes__densidade_populacional,operacoes__densidade_populacional__alvo,0.0,valor fixo,100.0,valor fixo,1.0,0.0
+marte,MARTE_GALE,operacoes,operacoes__densidade_populacional,operacoes__densidade_populacional__alvo,0.0,valor fixo,100.0,valor fixo,1.0,0.0
+marte,MARTE_MERIDIANI,operacoes,operacoes__densidade_populacional,operacoes__densidade_populacional__alvo,0.0,valor fixo,100.0,valor fixo,1.0,0.0
+marte,MARTE_GELO_MEDIAS_LAT,operacoes,operacoes__densidade_populacional,operacoes__densidade_populacional__alvo,0.0,valor fixo,100.0,valor fixo,1.0,0.0
+marte,MARTE_THARSIS_TUBOS,operacoes,operacoes__densidade_populacional,operacoes__densidade_populacional__alvo,0.0,valor fixo,100.0,valor fixo,1.0,0.0
+marte,MARTE_MEDUSAE_YARDANGS,operacoes,operacoes__densidade_populacional,operacoes__densidade_populacional__alvo,0.0,valor fixo,100.0,valor fixo,1.0,0.0
+marte,MARTE_JEZERO,operacoes,operacoes__fracao_terreno_plano_lt5graus,operacoes__fracao_terreno_plano_lt5graus__alvo,0.8,valor fixo,1.0,valor fixo,1.0,0.8
+marte,MARTE_GALE,operacoes,operacoes__fracao_terreno_plano_lt5graus,operacoes__fracao_terreno_plano_lt5graus__alvo,0.8,valor fixo,1.0,valor fixo,1.0,0.8
+marte,MARTE_MERIDIANI,operacoes,operacoes__fracao_terreno_plano_lt5graus,operacoes__fracao_terreno_plano_lt5graus__alvo,0.8,valor fixo,1.0,valor fixo,1.0,0.8
+marte,MARTE_GELO_MEDIAS_LAT,operacoes,operacoes__fracao_terreno_plano_lt5graus,operacoes__fracao_terreno_plano_lt5graus__alvo,0.8,valor fixo,1.0,valor fixo,1.0,0.8
+marte,MARTE_THARSIS_TUBOS,operacoes,operacoes__fracao_terreno_plano_lt5graus,operacoes__fracao_terreno_plano_lt5graus__alvo,0.4,valor fixo,1.0,valor fixo,1.0,0.4
+marte,MARTE_MEDUSAE_YARDANGS,operacoes,operacoes__fracao_terreno_plano_lt5graus,operacoes__fracao_terreno_plano_lt5graus__alvo,0.5,valor fixo,1.0,valor fixo,1.0,0.5

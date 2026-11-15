@@ -23,6 +23,7 @@ def analog_dir(tmp_path: Path) -> Path:
         "nome": ["Cratera Jezero", "Polo Sul lunar"], "descricao": ["paleolago", "polo"],
         "latitude": [18.38, -89.67], "longitude": [77.58, 129.78], "raio_km": [150.0, 100.0],
         "n_pares": [2, 1], "melhor_location_id": ["T1", "T2"], "melhor_nota": [83.0, 70.0],
+        "explicacao": ["Cratera Jezero: 2 análogos na Terra.", None],
     }).to_parquet(folder / "bases.parquet", index=False)
     pd.DataFrame({
         "location_id": ["T1", "T2"], "nome": ["Deserto da Núbia — Sudão", "Peary Land"],
@@ -32,6 +33,8 @@ def analog_dir(tmp_path: Path) -> Path:
         "n_pares": [1, 2], "melhor_nota": [83.0, 70.0], "melhor_custo_beneficio": [28.8, 79.4],
         "nota_logistica": [10.0, 90.0], "distancia_eua_km": [9000.0, 2500.0],
         "distancia_apoio_km": [3000.0, 900.0], "n_apoios_raio": [0, 2],
+        "explicacao": ["Relacionado a 1 base da Lua e de Marte.", None],
+        "usos_recomendados": ["agua_recursos,astrobiologia", ""],
         "temperatura_media_c": [28.2, -18.0], "precipitacao_mm_dia": [0.04, 0.3],
         "elevacao_media_m": [334.0, 600.0], "ndvi": [0.07, float("nan")],
     }).to_parquet(folder / "locais.parquet", index=False)
@@ -48,7 +51,20 @@ def analog_dir(tmp_path: Path) -> Path:
         "custo_beneficio": [28.8, float("nan"), 79.4],
         "rank_custo_beneficio": [1.0, float("nan"), 1.0],
         "top_custo_beneficio": [False, False, True],
+        "explicacao": ["Local padrão com nota 83.", None, "Entre os melhores."],
+        "motivos": ["\n".join(["Local padrão", "Forte em Geologia (90)", "Logística fraca"]),
+                    "", "Top 1"],
     }).to_parquet(folder / "pares.parquet", index=False)
+    pd.DataFrame({
+        "par_id": ["MARTE_JEZERO__T1", "MARTE_JEZERO__T1"],
+        "nicho": ["termico", "geologia"],
+        "variavel": ["temperatura__ar_2m_c", "geologia_superficie__litologia_basalto"],
+        "nome": ["temperatura média do ar", "basalto"], "unidade": ["°C", "0/1"],
+        "valor_terra": [28.2, float("nan")], "alvo": [-46.3, 1.0],
+        "tolerancia": [74.8, 1.0], "peso": [1.0, 1.0], "nota": [0.7, float("nan")],
+        "tipo_alvo": ["real", "classificação"], "confianca": ["media", ""],
+        "fonte": ["MEDA", "Classificação da equipe"],
+    }).to_parquet(folder / "pares_variaveis.parquet", index=False)
     pd.DataFrame({
         "location_id": ["T2", "T2"], "ordem": [1, 2],
         "tipo_rota": ["principal", "alternativa"],
@@ -344,3 +360,28 @@ def test_filter_options(analog_client: TestClient) -> None:
     assert "Centro de campo NASA" in body["categorias_apoio"]
     assert "Nativa NASA" in body["vinculos_apoio"]
     assert body["tipos"] == ["destaque", "geral", "especialista", "custo_beneficio"]
+
+
+def test_explanations_are_served(analog_client: TestClient) -> None:
+    pair = analog_client.get("/api/v1/analogos/pares/MARTE_JEZERO__T1").json()
+    assert pair["par"]["explicacao"] == "Local padrão com nota 83."
+    assert pair["par"]["motivos"] == ["Local padrão", "Forte em Geologia (90)",
+                                      "Logística fraca"]
+    assert [row["variavel"] for row in pair["variaveis"]] == [
+        "temperatura__ar_2m_c", "geologia_superficie__litologia_basalto"]
+    assert pair["variaveis"][0]["unidade"] == "°C"
+    assert pair["variaveis"][0]["tipo_alvo"] == "real"
+    assert pair["variaveis"][0]["fonte"] == "MEDA"
+    assert pair["variaveis"][1]["valor_terra"] is None
+    assert pair["local"]["usos_recomendados"] == ["agua_recursos", "astrobiologia"]
+    assert pair["base"]["explicacao"] == "Cratera Jezero: 2 análogos na Terra."
+
+    base = analog_client.get("/api/v1/analogos/bases/MARTE_JEZERO").json()
+    assert base["pares"][1]["explicacao"] is None
+    assert base["pares"][1]["motivos"] == []
+    site = analog_client.get("/api/v1/analogos/locais/T2").json()
+    assert site["local"]["usos_recomendados"] == []
+    ranking = analog_client.get("/api/v1/analogos/custo-beneficio").json()
+    assert ranking["items"][0]["motivos"] == ["Top 1"]
+    other = analog_client.get("/api/v1/analogos/pares/LUA_POLO_SUL__T2").json()
+    assert other["variaveis"] == []

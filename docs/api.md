@@ -554,6 +554,38 @@ apoio, região e temperatura), `base_id` para limitar aos locais de uma base e
 Filtros inválidos respondem `400` (`invalid_range`, `invalid_nicho` ou
 `invalid_parameter`).
 
+### Explicações das escolhas
+
+Os textos são gerados pelo pipeline (`src/feynmans_legacy/explanations.py`) a
+partir das próprias notas, sem informação externa, e vêm prontos na API:
+
+| Onde | Campo | Conteúdo |
+|------|-------|----------|
+| todo par (`/bases/{id}`, `/pares`, `/custo-beneficio`, `/locais/{id}`, `/pares/{id}`) | `explicacao` | motivo da escolha (`tipo`), nichos parecidos com um exemplo de variável, nichos diferentes com a variável mais distante, dados faltantes, logística e tendência prevista |
+| todo par | `motivos` | frases curtas para etiquetas, ex.: `["Local padrão", "Forte em Geologia (100)", "Fraco em Atmosfera (0)", "Logística excelente", "Previsão estável"]` |
+| `/pares/{par_id}` | `variaveis` | cada variável do perfil: `nome`, `unidade`, `valor_terra`, `alvo`, `tolerancia`, `peso`, `nota` |
+| local | `explicacao`, `usos_recomendados` | bases relacionadas, melhores usos (ids de utilidade com nota ≥ 70), logística, clima |
+| base | `explicacao` | melhores análogos e o que a Terra reproduz bem ou mal (mediana por nicho) |
+
+Exemplo (`MARTE_GALE` ↔ White Sands):
+
+> White Sands — Novo México, EUA é um dos locais padrão do software; com Cratera
+> Gale — Monte Sharp tem nota geral 79. Parecido em Água e gelo (100), Geologia
+> (100) e Subsuperfície (100). Diferente em Atmosfera (0), porque pressão
+> atmosférica: 87,1 kPa aqui contra 49,1 kPa no alvo; Processos de vento e poeira
+> (34), porque poeira no ar: 6,92 µg/m³ aqui contra 89,6 µg/m³ no alvo. Logística
+> excelente (98): 11 km da instalação dos EUA mais próxima; apoio principal em
+> White Sands Complex (STGT/WSGT) – TDRS, a 46 km; 57 bases de apoio a até
+> 2.500 km. Custo-benefício 88. Pela previsão do modelo, a nota tende a ficar
+> estável nos próximos meses (77 → 76).
+
+A nota de cada variável é `100 × (1 − |valor − alvo| / tolerância)`, mínimo 0.
+Cada variável traz `tipo_alvo` (`real`, `classificação` ou `equivalente
+terrestre`), `confianca` e `fonte`. Os alvos reais estão em
+`config/valores_reais.csv` (veja `config/README.md`); quando o alvo é um
+equivalente terrestre, a explicação avisa com "(equivalente terrestre)".
+A tabela também está em `/api/v1/datasets/analogos/pares_variaveis/records`.
+
 ### Outras rotas
 
 ```bash

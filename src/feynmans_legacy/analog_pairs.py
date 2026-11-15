@@ -26,6 +26,7 @@ import numpy as np
 import pandas as pd
 
 from .analog_study import KEY, MIN_COVERAGE, profile_criteria, recommend
+from .explanations import add_explanations
 from .logistics import (
     LogisticsConfig,
     cost_benefit,
@@ -34,6 +35,7 @@ from .logistics import (
     support_routes,
     usable_support,
 )
+from .vocabulario import variable_label
 
 EARTH_RADIUS_KM = 6371.0
 NICHE_MIN_COVERAGE = 0.5
@@ -76,6 +78,7 @@ class AnalogInputs:
     names: Mapping[str, Mapping[str, str]] = field(default_factory=dict)
     support: pd.DataFrame | None = None
     logistics: LogisticsConfig = field(default_factory=LogisticsConfig)
+    target_info: Mapping[tuple[str, str], Mapping[str, str]] = field(default_factory=dict)
 
 
 def haversine_km(
@@ -216,14 +219,21 @@ def build_pairs(
     }
     land = land_locations(inputs.earth)
     logistics = support_logistics(inputs)
+    earth = inputs.earth.set_index(inputs.earth["location_id"].astype(str))
     pair_rows: list[dict[str, Any]] = []
     niche_rows: list[dict[str, Any]] = []
+    variable_rows: list[dict[str, Any]] = []
     base_rows: list[dict[str, Any]] = []
     for body in BODIES:
         niches = niche_names(inputs.niches_path, body)
         for base_id in inputs.references[body]["base_id"]:
             base = inputs.bases[str(base_id)]
             scores = base_scores(inputs, body, str(base_id))
+            niche_criteria = {
+                niche: profile_criteria(inputs.niches_path, body, niche,
+                                        inputs.references[body], str(base_id))
+                for niche in niches
+            }
             scores["nota_logistica"] = logistics["nota_logistica"]
             scores["custo_beneficio"] = cost_benefit(scores["nota_geral"],
                                                      scores["nota_logistica"])
@@ -261,6 +271,10 @@ def build_pairs(
                     "location_id": str(location), "nicho": niche,
                     "nota": row[f"nota_{niche}"], "cobertura": row[f"cobertura_{niche}"],
                 } for niche in niches)
+                variable_rows.extend(compare_variables(
+                    pair_id, earth.loc[str(location)], niche_criteria,
+                    {key[1]: value for key, value in inputs.target_info.items()
+                     if key[0] == str(base_id)}))
             best = chosen.dropna(subset=["nota_geral"])
             value = chosen.dropna(subset=["custo_beneficio"]).sort_values(
                 "custo_beneficio", ascending=False)
@@ -284,6 +298,7 @@ def build_pairs(
         "locais": sites,
         "pares": pairs,
         "pares_nichos": pd.DataFrame(niche_rows),
+        "pares_variaveis": pd.DataFrame(variable_rows),
     }
     if inputs.support is not None:
         support = usable_support(inputs.support, inputs.logistics)
@@ -293,6 +308,32 @@ def build_pairs(
         apoios["usado_na_logistica"] = apoios["apoio_id"].isin(support["apoio_id"])
         tables["apoios"] = apoios
     return tables
+
+
+def compare_variables(
+    pair_id: str, earth_row: pd.Series,
+    niche_criteria: Mapping[str, Mapping[str, tuple[float, float, float]]],
+    target_info: Mapping[str, Mapping[str, str]] | None = None,
+) -> list[dict[str, Any]]:
+    """Earth value, reference target and score of every variable of one pair."""
+    target_info = target_info or {}
+    rows = []
+    for niche, criteria in niche_criteria.items():
+        for variable, (target, tolerance, weight) in criteria.items():
+            value = earth_row.get(variable, np.nan)
+            value = float(value) if pd.notna(value) else np.nan
+            score = (100 * max(0.0, 1 - abs(value - target) / tolerance)
+                     if not np.isnan(value) else np.nan)
+            name, unit = variable_label(variable)
+            rows.append({
+                "par_id": pair_id, "nicho": niche, "variavel": variable,
+                "nome": name, "unidade": unit, "valor_terra": value,
+                "alvo": float(target), "tolerancia": float(tolerance),
+                "peso": float(weight), "nota": score,
+                **{key: target_info.get(variable, {}).get(key)
+                   for key in ("tipo_alvo", "confianca", "fonte")},
+            })
+    return rows
 
 
 def support_logistics(inputs: AnalogInputs) -> pd.DataFrame:
@@ -441,6 +482,7 @@ def load_inputs(root: Path, months: int = CLIMATE_MONTHS) -> tuple[AnalogInputs,
              if names_path.is_file() else {})
     support_path = root / SUPPORT_FILE
     logistics_path = root / "config/custo_beneficio.json"
+    target_info = load_target_info(root)
     inputs = AnalogInputs(
         earth=values,
         coordinates=pd.read_parquet(run / "coordenadas.parquet"),
@@ -454,6 +496,7 @@ def load_inputs(root: Path, months: int = CLIMATE_MONTHS) -> tuple[AnalogInputs,
         support=load_support(support_path) if support_path.is_file() else None,
         logistics=(LogisticsConfig.from_json(logistics_path) if logistics_path.is_file()
                    else LogisticsConfig()),
+        target_info=target_info,
     )
     return inputs, observed
 
@@ -519,6 +562,9 @@ SIDECARS: dict[str, dict[str, Any]] = {
             "custo_beneficio": "raiz(nota_geral × nota_logistica), 0–100.",
             "rank_custo_beneficio": "Posição pelo custo-benefício entre os pares da base.",
             "top_custo_beneficio": "Entre os melhores custo-benefício da base.",
+            "explicacao": "Texto gerado a partir das notas: motivo, semelhanças, diferenças, "
+                          "logística e previsão.",
+            "motivos": "Frases curtas (uma por linha) para exibir como etiquetas.",
             "nichos_destaque": "Nichos que motivaram a escolha, separados por vírgula.",
             "rank_base": "Posição do local entre os pares da mesma base (1 = melhor).",
             "nota_geral": "Nota 0–100 no perfil completo; nula se cobertura < 0,7.",
@@ -531,6 +577,21 @@ SIDECARS: dict[str, dict[str, Any]] = {
         "description": "Nota de cada par em cada nicho (térmico, geologia, terreno...).",
         "tags": ["análogos"],
         "columns": {"nota": "Nota 0–100 no nicho; nula sem dados suficientes."},
+    },
+    "pares_variaveis": {
+        "description": "Comparação variável a variável: valor na Terra, alvo da base e nota.",
+        "tags": ["análogos", "explicação"],
+        "columns": {
+            "valor_terra": "Valor no local (média dos últimos meses ou estático).",
+            "alvo": "Valor de referência da base na Lua ou em Marte.",
+            "tolerancia": "Diferença que zera a nota da variável.",
+            "nota": "100 × (1 − |valor − alvo| / tolerância), mínimo 0.",
+            "unidade": "Vazia = adimensional; 0/1 = presença/ausência.",
+            "tipo_alvo": "real (medida ou cálculo com fonte), classificação da equipe ou "
+                         "equivalente terrestre (percentil da Terra, sem medida comparável).",
+            "confianca": "alta, media ou baixa (só para alvos reais).",
+            "fonte": "Origem do alvo.",
+        },
     },
     "series": {
         "description": "Nota geral mensal de cada par: meses observados e previstos pelo LightGBM.",
@@ -550,6 +611,7 @@ def generate(root: Path, out_dir: Path,
                if column not in static.columns]
     monthly = monthly_values(root, observed, tables["pares"]["location_id"].unique(), dynamic)
     tables["series"] = score_series(monthly, static, inputs, tables["pares"])
+    add_explanations(tables, raio_rotas_km=inputs.logistics.raio_rotas_km)
     out_dir.mkdir(parents=True, exist_ok=True)
     period = f"{observed[0]}–{observed[-1]}"
     for name, frame in tables.items():
@@ -559,6 +621,32 @@ def generate(root: Path, out_dir: Path,
         (out_dir / f"{name}.meta.json").write_text(
             json.dumps(sidecar, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return tables
+
+
+def load_target_info(root: Path) -> dict[tuple[str, str], dict[str, str]]:
+    """Kind, confidence and source of each base target (real, classification, proxy)."""
+    catalog_path = root / "config/criterios_referencia_proposta.csv"
+    if not catalog_path.is_file():
+        return {}
+    catalog = pd.read_csv(catalog_path, encoding="utf-8-sig")
+    real_path = root / "config/valores_reais.csv"
+    real = (pd.read_csv(real_path).set_index(["base_id", "variavel"])
+            if real_path.is_file() else pd.DataFrame())
+    info: dict[tuple[str, str], dict[str, str]] = {}
+    for row in catalog.itertuples(index=False):
+        key = (str(row.base_id), str(row.terra))
+        rule = str(row.regra_alvo)
+        if key in real.index:
+            source = real.loc[key]
+            info[key] = {"tipo_alvo": "real", "confianca": str(source["confianca"]),
+                         "fonte": str(source["fonte"])}
+        elif rule == "valor fixo":
+            info[key] = {"tipo_alvo": "classificação", "confianca": "",
+                         "fonte": "Classificação da equipe a partir da geologia do sítio"}
+        else:
+            info[key] = {"tipo_alvo": "equivalente terrestre", "confianca": "",
+                         "fonte": f"Sem medida equivalente; usa o {rule}"}
+    return info
 
 
 def monthly_values(root: Path, observed: Sequence[int], locations: Iterable[str],

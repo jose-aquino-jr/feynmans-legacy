@@ -65,3 +65,14 @@ def test_min_coverage_must_be_valid(
 ) -> None:
     with pytest.raises(ValueError, match="min_coverage"):
         recommend(values, coordinates, CRITERIA, min_coverage=min_coverage)
+
+
+def test_reference_tolerance_prefers_per_base_column() -> None:
+    from feynmans_legacy.analog_study import reference_tolerance
+
+    mapping = {"terra": "x", "referencia": "x__alvo", "tolerancia": 10.0}
+    assert reference_tolerance(pd.Series({"x__alvo": 1.0, "x__tolerancia": 3.0}),
+                               mapping) == 3.0
+    assert reference_tolerance(pd.Series({"x__alvo": 1.0, "x__tolerancia": np.nan}),
+                               mapping) == 10.0
+    assert reference_tolerance(pd.Series({"x__alvo": 1.0}), mapping) == 10.0

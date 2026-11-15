@@ -32,6 +32,7 @@ from app.schemas.analogos import (
     PontoSerie,
     Rota,
     UtilidadeInfo,
+    VariavelPar,
 )
 from app.services.analog_filters import (
     FOCOS,
@@ -47,6 +48,7 @@ from app.services.analog_filters import (
 from app.services.cache import BoundedCache
 from app.services.dataframe import frame_to_records
 from app.services.errors import ApiError
+from feynmans_legacy.vocabulario import NICHE_LABELS
 
 logger = logging.getLogger("feynmans_legacy.api.analogos")
 
@@ -54,26 +56,18 @@ ANALOG_DIR = "analogos"
 SITE_ORDER = {"nota": "melhor_nota", "custo_beneficio": "melhor_custo_beneficio",
               "logistica": "nota_logistica"}
 LIST_COLUMNS = ("nichos_destaque", "pontos_fortes", "pontos_fracos")
-NICHE_LABELS = {
-    "termico": "Térmico",
-    "iluminacao_radiacao": "Iluminação e radiação",
-    "agua_gelo": "Água e gelo",
-    "agua_aridez": "Água e aridez",
-    "terreno": "Terreno",
-    "geologia": "Geologia",
-    "superficie_poeira": "Superfície e poeira",
-    "processos": "Processos de vento e poeira",
-    "biologia_habitabilidade": "Biologia e habitabilidade",
-    "subsuperficie": "Subsuperfície",
-    "atmosfera": "Atmosfera",
-    "operacoes": "Operações",
-}
+MOTIVOS_SEPARATOR = "\n"
 
 
-def _split(value: Any) -> list[str]:
+def _split(value: Any, separator: str = ",") -> list[str]:
     if not isinstance(value, str):
         return []
-    return [item for item in value.split(",") if item]
+    return [item for item in value.split(separator) if item]
+
+
+def _site(record: dict[str, Any]) -> LocalTerra:
+    record["usos_recomendados"] = _split(record.get("usos_recomendados"))
+    return LocalTerra.model_validate(record)
 
 
 class AnalogRepository:
@@ -134,10 +128,8 @@ class AnalogRepository:
 
     def _sites(self) -> dict[str, LocalTerra]:
         frame = self._table("locais")
-        return {
-            str(record["location_id"]): LocalTerra.model_validate(record)
-            for record in frame_to_records(frame)
-        }
+        return {str(record["location_id"]): _site(record)
+                for record in frame_to_records(frame)}
 
     def _pairs(self, frame: pd.DataFrame) -> list[Par]:
         niches = self._table("pares_nichos")
@@ -149,6 +141,7 @@ class AnalogRepository:
         for record in frame_to_records(frame):
             for column in LIST_COLUMNS:
                 record[column] = _split(record.get(column))
+            record["motivos"] = _split(record.get("motivos"), MOTIVOS_SEPARATOR)
             record["nichos"] = by_pair.get(str(record["par_id"]), {})
             pairs.append(Par.model_validate(record))
         return pairs
@@ -291,7 +284,7 @@ class AnalogRepository:
             frame = frame.sort_values([column, "location_id"], ascending=[False, True],
                                       na_position="last")
         page = frame.iloc[offset: offset + limit]
-        items = [LocalTerra.model_validate(record) for record in frame_to_records(page)]
+        items = [_site(record) for record in frame_to_records(page)]
         return LocalListResponse(items=items, total=len(frame), limit=limit, offset=offset)
 
     def get_site(self, location_id: str) -> LocalDetalhe:
@@ -359,9 +352,14 @@ class AnalogRepository:
         points = [PontoSerie.model_validate(record) for record in frame_to_records(
             series[series["par_id"] == par_id].sort_values("anomes")[
                 ["anomes", "origem", "nota", "cobertura"]])]
+        variables = self._optional_table("pares_variaveis")
+        rows = ([] if variables is None else
+                [VariavelPar.model_validate(record) for record in frame_to_records(
+                    variables[variables["par_id"] == par_id].drop(columns="par_id"))])
         return ParDetalhe(par=pair, base=self._bases()[pair.base_id],
                           local=self._sites()[pair.location_id], serie=points,
-                          rotas=self._routes([pair.location_id]).get(pair.location_id, []))
+                          rotas=self._routes([pair.location_id]).get(pair.location_id, []),
+                          variaveis=rows)
 
 
 def _read(path: Path) -> pd.DataFrame:

@@ -1,0 +1,78 @@
+corpo,base_id,variavel,valor_real,unidade,grandeza_real,confianca,fonte,nota
+lua,LUA_MARE_TUBOS,temperatura__ar_2m_c,-31,°C,temperatura de superfície (não há ar),baixa,"LRO Diviner: máx. 387–397 K e mín. ~95 K no equador (Williams et al. 2017, Icarus 283)",Média entre máximo e mínimo diurnos (242 K); a Lua não tem atmosfera.
+lua,LUA_MARE_TUBOS,temperatura__lst_amplitude_dia_noite_c,295,°C,amplitude da temperatura de superfície,alta,"LRO Diviner: máx. 387–397 K e mín. ~95 K no equador (Williams et al. 2017, Icarus 283)",
+lua,LUA_MARE_TUBOS,agua_gelo__precipitacao_mm_dia,0,mm/dia,precipitação,alta,Sem atmosfera (NASA Moon Fact Sheet),
+lua,LUA_POLO_SUL,agua_gelo__precipitacao_mm_dia,0,mm/dia,precipitação,alta,Sem atmosfera (NASA Moon Fact Sheet),
+lua,LUA_MARE_TUBOS,biologia__ndvi,0,,índice de vegetação,alta,Superfície sem vegetação,
+lua,LUA_POLO_SUL,biologia__ndvi,0,,índice de vegetação,alta,Superfície sem vegetação,
+lua,LUA_MARE_TUBOS,biologia__carbono_organico_solo,0,g/kg,carbono orgânico do regolito,media,Regolito lunar sem matéria orgânica significativa (amostras Apollo),O carbono do vento solar não é orgânico.
+lua,LUA_POLO_SUL,biologia__carbono_organico_solo,0,g/kg,carbono orgânico do regolito,media,Regolito lunar sem matéria orgânica significativa (amostras Apollo),O carbono do vento solar não é orgânico.
+lua,LUA_MARE_TUBOS,iluminacao_radiacao__radiacao_solar_superficie_wm2,420,W/m²,radiação solar média em superfície horizontal,alta,"Cálculo: 1361 W/m² ÷ π × cos(14,09°), sem atmosfera",Média sobre o dia e a noite lunares.
+lua,LUA_POLO_SUL,iluminacao_radiacao__radiacao_solar_superficie_wm2,20,W/m²,radiação solar média em superfície horizontal,media,"Cálculo: 1361 W/m² × sen(~1°) × 85% do tempo iluminado (borda de Shackleton)",Sol sempre rasante; painéis verticais recebem muito mais.
+lua,LUA_MARE_TUBOS,iluminacao_radiacao__elevacao_solar_max_graus,77.45,°,altura máxima do Sol,alta,"Geometria: 90° − (14,09° − 1,54° de obliquidade lunar)",
+lua,LUA_POLO_SUL,iluminacao_radiacao__elevacao_solar_max_graus,1.87,°,altura máxima do Sol,alta,"Geometria: 90° − (89,67° − 1,54° de obliquidade lunar)",
+lua,LUA_MARE_TUBOS,iluminacao_radiacao__dias_dia_polar,183,dias,dias terrestres por ano com Sol 24 h,alta,"Dia lunar contínuo de ~14,8 dias a cada 29,5 dias (50% do ano)",
+lua,LUA_POLO_SUL,iluminacao_radiacao__dias_dia_polar,310,dias,dias terrestres por ano com Sol 24 h,media,"Picos da borda de Shackleton iluminados ~80–90% do ano (NASA/LROC)",Usa 85% de 365 dias.
+lua,LUA_MARE_TUBOS,poeira_vento_processos__pressao_estimada_altitude_kpa,0,kPa,pressão atmosférica,alta,"Exosfera ~3×10⁻¹⁵ bar (NASA Moon Fact Sheet)",
+lua,LUA_POLO_SUL,poeira_vento_processos__pressao_estimada_altitude_kpa,0,kPa,pressão atmosférica,alta,"Exosfera ~3×10⁻¹⁵ bar (NASA Moon Fact Sheet)",
+marte,MARTE_JEZERO,temperatura__ar_2m_c,-55,°C,temperatura do ar,media,"Perseverance/MEDA, primeiros 250 sóis (Rodriguez-Manfredi et al. 2023, Nature Geoscience 16)",
+marte,MARTE_GALE,temperatura__ar_2m_c,-63,°C,temperatura do ar,baixa,"Média de Marte ~210 K (NASA Mars Fact Sheet)",Sem média anual publicada usada para Gale.
+marte,MARTE_MERIDIANI,temperatura__ar_2m_c,-63,°C,temperatura do ar,baixa,"Média de Marte ~210 K (NASA Mars Fact Sheet)",
+marte,MARTE_GELO_MEDIAS_LAT,temperatura__ar_2m_c,-55,°C,temperatura do ar,media,"Phoenix MET, sol 1: −80 °C de madrugada a −30 °C à tarde (NASA/CSA 2008)",Valor de verão (período da missão).
+marte,MARTE_THARSIS_TUBOS,temperatura__ar_2m_c,-63,°C,temperatura do ar,baixa,"Média de Marte ~210 K (NASA Mars Fact Sheet)",Na altitude das claraboias tende a ser mais frio.
+marte,MARTE_MEDUSAE_YARDANGS,temperatura__ar_2m_c,-63,°C,temperatura do ar,baixa,"Média de Marte ~210 K (NASA Mars Fact Sheet)",
+marte,MARTE_GALE,temperatura__lst_amplitude_dia_noite_c,80,°C,amplitude da temperatura do solo,media,"Curiosity/REMS: solo com máx. 250–290 K e mín. 170–210 K (Gómez-Elvira et al. 2017)",
+marte,MARTE_JEZERO,temperatura__lst_amplitude_dia_noite_c,80,°C,amplitude da temperatura do solo,baixa,"Valor de Gale (REMS) aplicado a outra cratera de baixa latitude",
+marte,MARTE_MERIDIANI,temperatura__lst_amplitude_dia_noite_c,80,°C,amplitude da temperatura do solo,baixa,"Valor de Gale (REMS) aplicado a outra região de baixa latitude",
+marte,MARTE_THARSIS_TUBOS,temperatura__lst_amplitude_dia_noite_c,80,°C,amplitude da temperatura do solo,baixa,"Valor de Gale (REMS) aplicado a outra região de baixa latitude",
+marte,MARTE_MEDUSAE_YARDANGS,temperatura__lst_amplitude_dia_noite_c,80,°C,amplitude da temperatura do solo,baixa,"Valor de Gale (REMS) aplicado a outra região de baixa latitude",
+marte,MARTE_GELO_MEDIAS_LAT,temperatura__lst_amplitude_dia_noite_c,50,°C,amplitude da temperatura do ar,baixa,"Phoenix MET, sol 1: −80 °C a −30 °C (NASA/CSA 2008)",Amplitude do ar; a do solo não foi publicada no resumo.
+marte,MARTE_JEZERO,agua_gelo__precipitacao_mm_dia,0,mm/dia,precipitação,alta,Não há chuva em Marte,
+marte,MARTE_GALE,agua_gelo__precipitacao_mm_dia,0,mm/dia,precipitação,alta,Não há chuva em Marte,
+marte,MARTE_MERIDIANI,agua_gelo__precipitacao_mm_dia,0,mm/dia,precipitação,alta,Não há chuva em Marte,
+marte,MARTE_GELO_MEDIAS_LAT,agua_gelo__precipitacao_mm_dia,0,mm/dia,precipitação,alta,"Phoenix observou neve que evapora antes do solo (virga)",
+marte,MARTE_THARSIS_TUBOS,agua_gelo__precipitacao_mm_dia,0,mm/dia,precipitação,alta,Não há chuva em Marte,
+marte,MARTE_MEDUSAE_YARDANGS,agua_gelo__precipitacao_mm_dia,0,mm/dia,precipitação,alta,Não há chuva em Marte,
+marte,MARTE_JEZERO,agua_gelo__umidade_solo_raiz_m3m3,0,m³/m³,água líquida no solo,media,Sem água líquida estável na superfície,
+marte,MARTE_GALE,agua_gelo__umidade_solo_raiz_m3m3,0,m³/m³,água líquida no solo,media,Sem água líquida estável na superfície,
+marte,MARTE_MERIDIANI,agua_gelo__umidade_solo_raiz_m3m3,0,m³/m³,água líquida no solo,media,Sem água líquida estável na superfície,
+marte,MARTE_GELO_MEDIAS_LAT,agua_gelo__umidade_solo_raiz_m3m3,0,m³/m³,água líquida no solo,media,Sem água líquida estável na superfície,O gelo do subsolo entra no índice de solo congelado.
+marte,MARTE_THARSIS_TUBOS,agua_gelo__umidade_solo_raiz_m3m3,0,m³/m³,água líquida no solo,media,Sem água líquida estável na superfície,
+marte,MARTE_MEDUSAE_YARDANGS,agua_gelo__umidade_solo_raiz_m3m3,0,m³/m³,água líquida no solo,media,Sem água líquida estável na superfície,
+marte,MARTE_JEZERO,biologia__ndvi,0,,índice de vegetação,alta,Superfície sem vegetação,
+marte,MARTE_GALE,biologia__ndvi,0,,índice de vegetação,alta,Superfície sem vegetação,
+marte,MARTE_MERIDIANI,biologia__ndvi,0,,índice de vegetação,alta,Superfície sem vegetação,
+marte,MARTE_GELO_MEDIAS_LAT,biologia__ndvi,0,,índice de vegetação,alta,Superfície sem vegetação,
+marte,MARTE_THARSIS_TUBOS,biologia__ndvi,0,,índice de vegetação,alta,Superfície sem vegetação,
+marte,MARTE_MEDUSAE_YARDANGS,biologia__ndvi,0,,índice de vegetação,alta,Superfície sem vegetação,
+marte,MARTE_GALE,biologia__carbono_organico_solo,0.24,g/kg,carbono orgânico total,alta,"Curiosity/SAM: 200–273 ppm em lamitos de Yellowknife Bay (Stern et al. 2022, PNAS)",
+marte,MARTE_JEZERO,biologia__carbono_organico_solo,0.24,g/kg,carbono orgânico total,baixa,"Valor de Gale (Stern et al. 2022, PNAS) aplicado a Jezero",
+marte,MARTE_MERIDIANI,biologia__carbono_organico_solo,0.24,g/kg,carbono orgânico total,baixa,"Valor de Gale (Stern et al. 2022, PNAS) aplicado a Meridiani",
+marte,MARTE_GELO_MEDIAS_LAT,biologia__carbono_organico_solo,0.24,g/kg,carbono orgânico total,baixa,"Valor de Gale (Stern et al. 2022, PNAS) aplicado às planícies do norte",
+marte,MARTE_THARSIS_TUBOS,biologia__carbono_organico_solo,0.24,g/kg,carbono orgânico total,baixa,"Valor de Gale (Stern et al. 2022, PNAS) aplicado a Tharsis",
+marte,MARTE_MEDUSAE_YARDANGS,biologia__carbono_organico_solo,0.24,g/kg,carbono orgânico total,baixa,"Valor de Gale (Stern et al. 2022, PNAS) aplicado a Medusae Fossae",
+marte,MARTE_JEZERO,iluminacao_radiacao__radiacao_solar_superficie_wm2,133,W/m²,radiação solar média em superfície horizontal,baixa,"Cálculo: 586 W/m² ÷ π × cos(18,38°) × 0,75 de transmitância (poeira τ≈0,5)",
+marte,MARTE_GALE,iluminacao_radiacao__radiacao_solar_superficie_wm2,139,W/m²,radiação solar média em superfície horizontal,baixa,"Cálculo: 586 W/m² ÷ π × cos(5,4°) × 0,75 de transmitância (poeira τ≈0,5)",
+marte,MARTE_MERIDIANI,iluminacao_radiacao__radiacao_solar_superficie_wm2,140,W/m²,radiação solar média em superfície horizontal,baixa,"Cálculo: 586 W/m² ÷ π × cos(1,95°) × 0,75 de transmitância (poeira τ≈0,5)",
+marte,MARTE_GELO_MEDIAS_LAT,iluminacao_radiacao__radiacao_solar_superficie_wm2,70,W/m²,radiação solar média em superfície horizontal,baixa,"Cálculo: 586 W/m² ÷ π × ~0,5 (fator anual a 68° com obliquidade de 25°) × 0,75 de transmitância",
+marte,MARTE_THARSIS_TUBOS,iluminacao_radiacao__radiacao_solar_superficie_wm2,138,W/m²,radiação solar média em superfície horizontal,baixa,"Cálculo: 586 W/m² ÷ π × cos(8,26°) × 0,75 de transmitância (poeira τ≈0,5)",Na altitude a atmosfera é mais fina e a transmitância deve ser maior.
+marte,MARTE_MEDUSAE_YARDANGS,iluminacao_radiacao__radiacao_solar_superficie_wm2,140,W/m²,radiação solar média em superfície horizontal,baixa,"Cálculo: 586 W/m² ÷ π × cos(3,2°) × 0,75 de transmitância (poeira τ≈0,5)",
+marte,MARTE_JEZERO,iluminacao_radiacao__elevacao_solar_max_graus,90,°,altura máxima do Sol,alta,"Geometria: latitude 18,38° menor que a obliquidade de 25,19°",
+marte,MARTE_GALE,iluminacao_radiacao__elevacao_solar_max_graus,90,°,altura máxima do Sol,alta,"Geometria: latitude 5,4° menor que a obliquidade de 25,19°",
+marte,MARTE_MERIDIANI,iluminacao_radiacao__elevacao_solar_max_graus,90,°,altura máxima do Sol,alta,"Geometria: latitude 1,95° menor que a obliquidade de 25,19°",
+marte,MARTE_GELO_MEDIAS_LAT,iluminacao_radiacao__elevacao_solar_max_graus,46.97,°,altura máxima do Sol,alta,"Geometria: 90° − (68,22° − 25,19° de obliquidade)",
+marte,MARTE_THARSIS_TUBOS,iluminacao_radiacao__elevacao_solar_max_graus,90,°,altura máxima do Sol,alta,"Geometria: latitude 8,26° menor que a obliquidade de 25,19°",
+marte,MARTE_MEDUSAE_YARDANGS,iluminacao_radiacao__elevacao_solar_max_graus,90,°,altura máxima do Sol,alta,"Geometria: latitude 3,2° menor que a obliquidade de 25,19°",
+marte,MARTE_JEZERO,poeira_vento_processos__pressao_estimada_altitude_kpa,0.72,kPa,pressão atmosférica,media,"Perseverance/MEDA: 718 Pa nas primeiras medidas (NASA 2021)",Varia com a estação.
+marte,MARTE_GALE,poeira_vento_processos__pressao_estimada_altitude_kpa,0.91,kPa,pressão atmosférica,media,"Cálculo: 0,61 kPa no datum × exp(4,5 km ÷ 11,1 km); compatível com Curiosity/REMS",
+marte,MARTE_MERIDIANI,poeira_vento_processos__pressao_estimada_altitude_kpa,0.69,kPa,pressão atmosférica,media,"Cálculo: 0,61 kPa no datum × exp(1,4 km ÷ 11,1 km)",
+marte,MARTE_GELO_MEDIAS_LAT,poeira_vento_processos__pressao_estimada_altitude_kpa,0.85,kPa,pressão atmosférica,media,"Phoenix MET, sol 1: 8,5 mbar (NASA/CSA 2008)",
+marte,MARTE_THARSIS_TUBOS,poeira_vento_processos__pressao_estimada_altitude_kpa,0.25,kPa,pressão atmosférica,media,"Cálculo: 0,61 kPa × exp(−10 km ÷ 11,1 km); claraboias a 9,1–11 km (Cushing et al. 2007, GRL 34)",
+marte,MARTE_MEDUSAE_YARDANGS,poeira_vento_processos__pressao_estimada_altitude_kpa,0.61,kPa,pressão atmosférica,baixa,"Pressão média no datum de Marte (NASA Mars Fact Sheet)",Elevação local não verificada.
+marte,MARTE_JEZERO,poeira_vento_processos__vento_superficie_ms,4,m/s,vento médio,baixa,"Perseverance/MEDA: poucos m/s, rajadas de ~10 m/s (NASA 2021)",
+marte,MARTE_GALE,poeira_vento_processos__vento_superficie_ms,4,m/s,vento médio,baixa,"Ventos típicos de poucos m/s em Marte (REMS/MEDA)",
+marte,MARTE_MERIDIANI,poeira_vento_processos__vento_superficie_ms,4,m/s,vento médio,baixa,"Ventos típicos de poucos m/s em Marte (REMS/MEDA)",
+marte,MARTE_GELO_MEDIAS_LAT,poeira_vento_processos__vento_superficie_ms,4,m/s,vento médio,baixa,"Ventos típicos de poucos m/s em Marte (Phoenix/REMS/MEDA)",
+marte,MARTE_THARSIS_TUBOS,poeira_vento_processos__vento_superficie_ms,4,m/s,vento médio,baixa,"Ventos típicos de poucos m/s em Marte (REMS/MEDA)",
+marte,MARTE_MEDUSAE_YARDANGS,poeira_vento_processos__vento_superficie_ms,4,m/s,vento médio,baixa,"Ventos típicos de poucos m/s em Marte (REMS/MEDA)",Os yardangs registram ventos fortes do passado.
+marte,MARTE_GELO_MEDIAS_LAT,geologia_superficie__ph,7.7,pH,pH do solo,alta,"Phoenix/WCL: pH 7,7 ± 0,5 (Hecht et al. 2009, Science 325)",

@@ -139,6 +139,23 @@ def publish_forecasts(history: pd.DataFrame, model_path: str | Path) -> pd.DataF
     return pd.concat(output, ignore_index=True) if output else pd.DataFrame(columns=columns)
 
 
+TOLERANCE_SUFFIX = "__tolerancia"
+
+
+def reference_tolerance(row: pd.Series, mapping: NicheMapping) -> float:
+    """Per-base tolerance from ``<referencia>__tolerancia`` when present.
+
+    Real (non-terrestrial) targets need a tolerance measured from the target to
+    the Earth distribution, so it varies by base; otherwise the shared tolerance
+    in ``nichos.json`` applies.
+    """
+    column = mapping["referencia"].removesuffix("__alvo") + TOLERANCE_SUFFIX
+    value = row.get(column, np.nan)
+    if pd.notna(value):
+        return float(value)
+    return float(mapping["tolerancia"])
+
+
 def profile_criteria(
     niches_path: str | Path,
     body: str,
@@ -160,7 +177,8 @@ def profile_criteria(
         for item in mappings:
             earth_column = item["terra"]
             target = float(row[item["referencia"]])
-            tolerance, weight = float(item["tolerancia"]), float(item.get("peso", 1))
+            tolerance = reference_tolerance(row, item)
+            weight = float(item.get("peso", 1))
             if not np.isfinite([target, tolerance, weight]).all() or min(tolerance, weight) <= 0:
                 raise ValueError(f"Alvo, tolerancia ou peso invalido para {earth_column}")
             values = (target, tolerance, weight)
@@ -193,13 +211,13 @@ def audit_profile_catalog(
                 reference_column = mapping["referencia"]
                 if variable not in units or not pd.api.types.is_numeric_dtype(snapshot[variable]):
                     raise ValueError(f"Variável sem unidade ou valor numérico: {variable}")
-                for base_id, target in zip(
-                    reference["base_id"], reference[reference_column], strict=True
-                ):
+                for _, row in reference.iterrows():
                     expected.append({
-                        "corpo": body, "base_id": base_id, "nicho": niche, "terra": variable,
-                        "referencia": reference_column, "alvo": target,
-                        "tolerancia": mapping["tolerancia"], "peso": mapping.get("peso", 1),
+                        "corpo": body, "base_id": row["base_id"], "nicho": niche,
+                        "terra": variable, "referencia": reference_column,
+                        "alvo": row[reference_column],
+                        "tolerancia": reference_tolerance(row, mapping),
+                        "peso": mapping.get("peso", 1),
                     })
     identity = [*key, "referencia"]
     compared = pd.DataFrame(expected).merge(

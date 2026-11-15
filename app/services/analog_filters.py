@@ -18,6 +18,7 @@ import numpy as np
 import pandas as pd
 
 from app.services.errors import ApiError
+from feynmans_legacy.vocabulario import UTILITIES
 
 
 @dataclass(frozen=True)
@@ -43,34 +44,8 @@ FOCOS: dict[str, Foco] = {
 }
 
 UTILIDADES: dict[str, Utilidade] = {
-    "habitat": Utilidade(
-        "Habitat e base tripulada",
-        "Clima, luz, terreno plano e abrigo para testar módulos habitáveis.",
-        ("termico", "iluminacao_radiacao", "operacoes", "subsuperficie", "terreno")),
-    "mobilidade": Utilidade(
-        "Rover e mobilidade",
-        "Terreno, poeira e solo para testar rodas, navegação e caminhadas (EVA).",
-        ("terreno", "superficie_poeira", "operacoes", "processos")),
-    "geologia": Utilidade(
-        "Geologia e amostras",
-        "Rochas e superfície parecidas para treinar coleta e instrumentos.",
-        ("geologia", "superficie_poeira", "terreno")),
-    "agua_recursos": Utilidade(
-        "Água e recursos (ISRU)",
-        "Gelo, solo congelado e aridez para testar extração de água.",
-        ("agua_gelo", "subsuperficie", "agua_aridez")),
-    "astrobiologia": Utilidade(
-        "Astrobiologia",
-        "Limites da vida: aridez, pouca vegetação e química do solo.",
-        ("biologia_habitabilidade", "agua_aridez", "superficie_poeira", "geologia")),
-    "clima_extremo": Utilidade(
-        "Treino em clima extremo",
-        "Frio, calor, radiação e vento para treinar equipes e testar equipamentos.",
-        ("termico", "iluminacao_radiacao", "processos", "atmosfera")),
-    "tubos_lava": Utilidade(
-        "Cavernas e tubos de lava",
-        "Subsuperfície e geologia vulcânica para explorar cavernas.",
-        ("subsuperficie", "geologia", "terreno")),
+    key: Utilidade(item["nome"], item["descricao"], tuple(item["nichos"]))
+    for key, item in UTILITIES.items()
 }
 
 TIPOS = ("destaque", "geral", "especialista", "custo_beneficio")
