@@ -1,0 +1,354 @@
+{
+  "lua": {
+    "termico": [
+      {
+        "terra": "temperatura__ar_2m_c",
+        "referencia": "temperatura__ar_2m_c__alvo",
+        "tolerancia": 74.774138,
+        "peso": 1
+      },
+      {
+        "terra": "temperatura__lst_amplitude_dia_noite_c",
+        "referencia": "temperatura__lst_amplitude_dia_noite_c__alvo",
+        "tolerancia": 18.195652,
+        "peso": 1
+      }
+    ],
+    "iluminacao_radiacao": [
+      {
+        "terra": "iluminacao_radiacao__elevacao_solar_max_graus",
+        "referencia": "iluminacao_radiacao__elevacao_solar_max_graus__alvo",
+        "tolerancia": 63.792265,
+        "peso": 1
+      },
+      {
+        "terra": "iluminacao_radiacao__dias_dia_polar",
+        "referencia": "iluminacao_radiacao__dias_dia_polar__alvo",
+        "tolerancia": 169.0,
+        "peso": 1
+      },
+      {
+        "terra": "iluminacao_radiacao__radiacao_solar_superficie_wm2",
+        "referencia": "iluminacao_radiacao__radiacao_solar_superficie_wm2__alvo",
+        "tolerancia": 178.665228,
+        "peso": 1
+      }
+    ],
+    "agua_gelo": [
+      {
+        "terra": "agua_gelo__indice_permafrost",
+        "referencia": "agua_gelo__indice_permafrost__alvo",
+        "tolerancia": 1.0,
+        "peso": 1
+      },
+      {
+        "terra": "agua_gelo__precipitacao_mm_dia",
+        "referencia": "agua_gelo__precipitacao_mm_dia__alvo",
+        "tolerancia": 4.61394,
+        "peso": 1
+      }
+    ],
+    "terreno": [
+      {
+        "terra": "relevo__amplitude_relevo_m",
+        "referencia": "relevo__amplitude_relevo_m__alvo",
+        "tolerancia": 1697.0,
+        "peso": 1
+      },
+      {
+        "terra": "relevo__indice_posicao_topografica_m",
+        "referencia": "relevo__indice_posicao_topografica_m__alvo",
+        "tolerancia": 476.453178,
+        "peso": 1
+      },
+      {
+        "terra": "relevo__declividade_media_graus",
+        "referencia": "relevo__declividade_media_graus__alvo",
+        "tolerancia": 4.476335,
+        "peso": 1
+      }
+    ],
+    "geologia": [
+      {
+        "terra": "geologia_superficie__litologia_anortosito",
+        "referencia": "geologia_superficie__litologia_anortosito__alvo",
+        "tolerancia": 1.0,
+        "peso": 1
+      },
+      {
+        "terra": "geologia_superficie__litologia_impacto",
+        "referencia": "geologia_superficie__litologia_impacto__alvo",
+        "tolerancia": 1.0,
+        "peso": 1
+      },
+      {
+        "terra": "geologia_superficie__litologia_basalto",
+        "referencia": "geologia_superficie__litologia_basalto__alvo",
+        "tolerancia": 1.0,
+        "peso": 1
+      }
+    ],
+    "superficie_poeira": [
+      {
+        "terra": "biologia__ndvi",
+        "referencia": "biologia__ndvi__alvo",
+        "tolerancia": 0.710216,
+        "peso": 1
+      },
+      {
+        "terra": "geologia_superficie__albedo",
+        "referencia": "geologia_superficie__albedo__alvo",
+        "tolerancia": 0.662042,
+        "peso": 1
+      },
+      {
+        "terra": "biologia__carbono_organico_solo",
+        "referencia": "biologia__carbono_organico_solo__alvo",
+        "tolerancia": 215.67062,
+        "peso": 1
+      }
+    ],
+    "subsuperficie": [
+      {
+        "terra": "subsuperficie__potencial_tubos_lava",
+        "referencia": "subsuperficie__potencial_tubos_lava__alvo",
+        "tolerancia": 1.0,
+        "peso": 1
+      },
+      {
+        "terra": "subsuperficie__solo_congelado_indice",
+        "referencia": "subsuperficie__solo_congelado_indice__alvo",
+        "tolerancia": 1.0,
+        "peso": 1
+      }
+    ],
+    "atmosfera": [
+      {
+        "terra": "poeira_vento_processos__pressao_estimada_altitude_kpa",
+        "referencia": "poeira_vento_processos__pressao_estimada_altitude_kpa__alvo",
+        "tolerancia": 33.532837,
+        "peso": 1
+      }
+    ],
+    "operacoes": [
+      {
+        "terra": "operacoes__densidade_populacional",
+        "referencia": "operacoes__densidade_populacional__alvo",
+        "tolerancia": 100.0,
+        "peso": 1
+      },
+      {
+        "terra": "operacoes__fracao_terreno_plano_lt5graus",
+        "referencia": "operacoes__fracao_terreno_plano_lt5graus__alvo",
+        "tolerancia": 1.0,
+        "peso": 1
+      }
+    ]
+  },
+  "marte": {
+    "termico": [
+      {
+        "terra": "temperatura__ar_2m_c",
+        "referencia": "temperatura__ar_2m_c__alvo",
+        "tolerancia": 74.774138,
+        "peso": 1
+      },
+      {
+        "terra": "temperatura__lst_amplitude_dia_noite_c",
+        "referencia": "temperatura__lst_amplitude_dia_noite_c__alvo",
+        "tolerancia": 18.195652,
+        "peso": 1
+      }
+    ],
+    "agua_aridez": [
+      {
+        "terra": "agua_gelo__precipitacao_mm_dia",
+        "referencia": "agua_gelo__precipitacao_mm_dia__alvo",
+        "tolerancia": 4.61394,
+        "peso": 1
+      },
+      {
+        "terra": "agua_gelo__umidade_solo_raiz_m3m3",
+        "referencia": "agua_gelo__umidade_solo_raiz_m3m3__alvo",
+        "tolerancia": 0.303359,
+        "peso": 1
+      }
+    ],
+    "agua_gelo": [
+      {
+        "terra": "agua_gelo__indice_permafrost",
+        "referencia": "agua_gelo__indice_permafrost__alvo",
+        "tolerancia": 1.0,
+        "peso": 1
+      }
+    ],
+    "iluminacao_radiacao": [
+      {
+        "terra": "iluminacao_radiacao__radiacao_solar_superficie_wm2",
+        "referencia": "iluminacao_radiacao__radiacao_solar_superficie_wm2__alvo",
+        "tolerancia": 178.665228,
+        "peso": 1
+      },
+      {
+        "terra": "iluminacao_radiacao__elevacao_solar_max_graus",
+        "referencia": "iluminacao_radiacao__elevacao_solar_max_graus__alvo",
+        "tolerancia": 63.792265,
+        "peso": 1
+      }
+    ],
+    "geologia": [
+      {
+        "terra": "geologia_superficie__litologia_lacustre_argila",
+        "referencia": "geologia_superficie__litologia_lacustre_argila__alvo",
+        "tolerancia": 1.0,
+        "peso": 1
+      },
+      {
+        "terra": "geologia_superficie__litologia_carbonato",
+        "referencia": "geologia_superficie__litologia_carbonato__alvo",
+        "tolerancia": 1.0,
+        "peso": 1
+      },
+      {
+        "terra": "geologia_superficie__litologia_evaporito",
+        "referencia": "geologia_superficie__litologia_evaporito__alvo",
+        "tolerancia": 1.0,
+        "peso": 1
+      },
+      {
+        "terra": "geologia_superficie__litologia_basalto",
+        "referencia": "geologia_superficie__litologia_basalto__alvo",
+        "tolerancia": 1.0,
+        "peso": 1
+      },
+      {
+        "terra": "geologia_superficie__litologia_hidrotermal_ferro",
+        "referencia": "geologia_superficie__litologia_hidrotermal_ferro__alvo",
+        "tolerancia": 1.0,
+        "peso": 1
+      },
+      {
+        "terra": "geologia_superficie__litologia_eolico",
+        "referencia": "geologia_superficie__litologia_eolico__alvo",
+        "tolerancia": 1.0,
+        "peso": 1
+      },
+      {
+        "terra": "geologia_superficie__litologia_glacial",
+        "referencia": "geologia_superficie__litologia_glacial__alvo",
+        "tolerancia": 1.0,
+        "peso": 1
+      },
+      {
+        "terra": "geologia_superficie__litologia_piroclastico",
+        "referencia": "geologia_superficie__litologia_piroclastico__alvo",
+        "tolerancia": 1.0,
+        "peso": 1
+      }
+    ],
+    "terreno": [
+      {
+        "terra": "relevo__amplitude_relevo_m",
+        "referencia": "relevo__amplitude_relevo_m__alvo",
+        "tolerancia": 1697.0,
+        "peso": 1
+      },
+      {
+        "terra": "relevo__indice_posicao_topografica_m",
+        "referencia": "relevo__indice_posicao_topografica_m__alvo",
+        "tolerancia": 476.453178,
+        "peso": 1
+      },
+      {
+        "terra": "relevo__elevacao_media_m",
+        "referencia": "relevo__elevacao_media_m__alvo",
+        "tolerancia": 3153.116272,
+        "peso": 1
+      }
+    ],
+    "superficie_poeira": [
+      {
+        "terra": "geologia_superficie__albedo",
+        "referencia": "geologia_superficie__albedo__alvo",
+        "tolerancia": 0.662042,
+        "peso": 1
+      },
+      {
+        "terra": "biologia__carbono_organico_solo",
+        "referencia": "biologia__carbono_organico_solo__alvo",
+        "tolerancia": 215.67062,
+        "peso": 1
+      },
+      {
+        "terra": "geologia_superficie__ph",
+        "referencia": "geologia_superficie__ph__alvo",
+        "tolerancia": 3.387207,
+        "peso": 1
+      }
+    ],
+    "processos": [
+      {
+        "terra": "poeira_vento_processos__vento_superficie_ms",
+        "referencia": "poeira_vento_processos__vento_superficie_ms__alvo",
+        "tolerancia": 9.815084,
+        "peso": 1
+      },
+      {
+        "terra": "poeira_vento_processos__poeira_superficie_ugm3",
+        "referencia": "poeira_vento_processos__poeira_superficie_ugm3__alvo",
+        "tolerancia": 89.247281,
+        "peso": 1
+      }
+    ],
+    "biologia_habitabilidade": [
+      {
+        "terra": "biologia__ndvi",
+        "referencia": "biologia__ndvi__alvo",
+        "tolerancia": 0.710216,
+        "peso": 1
+      },
+      {
+        "terra": "biologia__cobertura_solo_exposto_arido_fracao",
+        "referencia": "biologia__cobertura_solo_exposto_arido_fracao__alvo",
+        "tolerancia": 1.0,
+        "peso": 1
+      }
+    ],
+    "subsuperficie": [
+      {
+        "terra": "subsuperficie__potencial_tubos_lava",
+        "referencia": "subsuperficie__potencial_tubos_lava__alvo",
+        "tolerancia": 1.0,
+        "peso": 1
+      },
+      {
+        "terra": "subsuperficie__solo_congelado_indice",
+        "referencia": "subsuperficie__solo_congelado_indice__alvo",
+        "tolerancia": 1.0,
+        "peso": 1
+      }
+    ],
+    "atmosfera": [
+      {
+        "terra": "poeira_vento_processos__pressao_estimada_altitude_kpa",
+        "referencia": "poeira_vento_processos__pressao_estimada_altitude_kpa__alvo",
+        "tolerancia": 33.532837,
+        "peso": 1
+      }
+    ],
+    "operacoes": [
+      {
+        "terra": "operacoes__densidade_populacional",
+        "referencia": "operacoes__densidade_populacional__alvo",
+        "tolerancia": 100.0,
+        "peso": 1
+      },
+      {
+        "terra": "operacoes__fracao_terreno_plano_lt5graus",
+        "referencia": "operacoes__fracao_terreno_plano_lt5graus__alvo",
+        "tolerancia": 1.0,
+        "peso": 1
+      }
+    ]
+  }
+}

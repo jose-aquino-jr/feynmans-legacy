@@ -1,0 +1,4 @@
+﻿coluna,grupo,unidade,fonte,descricao,transformacao_no_padronizado,resolucao_nativa,nivel_precisao_equivalente,faltantes_pct,arquivo,agregacao_mensal,cobertura_ultimo_mes_pct
+subsuperficie__potencial_carste_cavernas,subsuperficie,0–1,derivado do Macrostrat,"Rocha solúvel no ponto (1 = carbonato/carste, 0,7 = evaporito)",z-score,igual à variável de origem,,9.6,subsuperficie.parquet / subsuperficie_padronizado.parquet,,
+subsuperficie__potencial_tubos_lava,subsuperficie,0–1,derivado do Macrostrat,"Rocha vulcânica basáltica/piroclástica no ponto (1 = basalto, 0,5 = só piroclástica)",z-score,igual à variável de origem,,9.6,subsuperficie.parquet / subsuperficie_padronizado.parquet,,
+subsuperficie__solo_congelado_indice,subsuperficie,0–1,derivado (MERRA-2),Cópia do índice de permafrost (gelo subterrâneo); remova uma das duas se não quiser peso duplo,z-score,igual à variável de origem,,0.0,subsuperficie.parquet / subsuperficie_padronizado.parquet,,
