@@ -61,6 +61,7 @@ dependencies = [
 dev = [
     "jupyterlab>=4.6",
     "nbstripout>=0.9",
+    "optuna>=4,<5",
     "ruff>=0.17",
     "pytest>=9.2",
     "mypy>=2.4,<3",

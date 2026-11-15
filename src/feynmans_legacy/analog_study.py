@@ -99,47 +99,6 @@ def forecast_design(history: pd.DataFrame, variable: str, horizon: int) -> pd.Da
     return design.dropna(subset=FEATURES)
 
 
-def train_forecasts(
-    history: pd.DataFrame,
-    variables: Iterable[str],
-    horizons: Sequence[int],
-    min_validation: int = 20,
-) -> tuple[ForecastBundle, pd.DataFrame]:
-    """Select LightGBM or persistence by MAE on a chronological holdout."""
-    latest = months(history["anomes"]).max()
-    origins = sorted(months(history["anomes"]).unique())
-    cutoff = origins[int(len(origins) * 0.8)]
-    models: dict[tuple[str, int], LGBMRegressor | None] = {}
-    metrics: list[dict[str, object]] = []
-    for variable in variables:
-        for horizon in horizons:
-            design = forecast_design(history, variable, horizon)
-            labeled = design.dropna(subset=["observado"])
-            train = labeled[labeled["destino"] <= cutoff]
-            validation = labeled[labeled["origem"] >= cutoff]
-            if len(train) < min_validation or len(validation) < min_validation:
-                metrics.append({"variavel": variable, "horizonte": horizon,
-                                "status": "historico insuficiente"})
-                continue
-            estimator = LGBMRegressor(
-                n_estimators=100, learning_rate=0.1, num_leaves=31, random_state=42,
-                n_jobs=4, verbosity=-1,
-            )
-            estimator.fit(train[FEATURES], train["observado"])
-            predicted = estimator.predict(validation[FEATURES])
-            mae_model = (validation["observado"] - predicted).abs().mean()
-            mae_baseline = (validation["observado"] - validation["lag_0"]).abs().mean()
-            method = "lightgbm" if mae_model < mae_baseline else "persistencia"
-            models[(variable, horizon)] = (
-                estimator.fit(labeled[FEATURES], labeled["observado"]) if method == "lightgbm"
-                else None
-            )
-            metrics.append({"variavel": variable, "horizonte": horizon, "status": method,
-                            "n_validacao": len(validation), "mae_modelo": mae_model,
-                            "mae_persistencia": mae_baseline})
-    return {"origem": str(latest), "modelos": models}, pd.DataFrame(metrics)
-
-
 def publish_forecasts(history: pd.DataFrame, model_path: str | Path) -> pd.DataFrame:
     """Load a trusted artifact produced by train_forecasts and predict in batch."""
     with Path(model_path).open("rb") as file:
