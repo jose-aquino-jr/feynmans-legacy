@@ -1,0 +1,36 @@
+{
+  "success": {
+    "v": 2,
+    "license": "CC-BY 4.0",
+    "data": [
+      {
+        "map_id": 3192847,
+        "source_id": 154,
+        "name": "Paleozoic intrusive rocks",
+        "strat_name": "",
+        "lith": "intrusive igneous rocks",
+        "descrip": "",
+        "comments": "Transantarctic Mountains",
+        "macro_units": [],
+        "strat_names": [],
+        "liths": [
+          95
+        ],
+        "t_int_id": 74,
+        "t_int_age": 251.902,
+        "t_int_name": "Paleozoic",
+        "b_int_id": 74,
+        "b_int_age": 538.8,
+        "b_int_name": "Paleozoic",
+        "color": "#99C08D",
+        "t_age": 251.902,
+        "b_age": 541,
+        "best_int_name": null,
+        "scale": "tiny"
+      }
+    ],
+    "refs": {
+      "154": "Chorlton, L.B. Generalized geology of the world: bedrock domains and major faults in GIS format: a small-scale world geology map with an extended geological attribute database. doi: 10.4095/223767. Geological Survey of Canada, Open File 5529. "
+    }
+  }
+}

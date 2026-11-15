@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+src/feynmans_legacy/__init__.py
+src/feynmans_legacy.egg-info/PKG-INFO
+src/feynmans_legacy.egg-info/SOURCES.txt
+src/feynmans_legacy.egg-info/dependency_links.txt
+src/feynmans_legacy.egg-info/requires.txt
+src/feynmans_legacy.egg-info/top_level.txt
+src/feynmans_legacy/features/__init__.py
+src/feynmans_legacy/models/__init__.py

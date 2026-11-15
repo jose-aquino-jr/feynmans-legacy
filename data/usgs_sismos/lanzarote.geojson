@@ -1,0 +1,13 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "generated": 1794675492000,
+    "url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2016-01-01&endtime=2026-01-01&minmagnitude=3&minlatitude=27.68&maxlatitude=30.38&minlongitude=-15.129999999999999&maxlongitude=-12.13&limit=20000",
+    "title": "USGS Earthquakes",
+    "status": 200,
+    "api": "2.8.4",
+    "limit": 20000,
+    "offset": 1
+  },
+  "features": []
+}

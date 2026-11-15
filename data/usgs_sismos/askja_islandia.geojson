@@ -1,0 +1,3022 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "generated": 1794675474000,
+    "url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2016-01-01&endtime=2026-01-01&minmagnitude=3&minlatitude=63.67999999999999&maxlatitude=66.38000000000001&minlongitude=-18.25&maxlongitude=-15.25&limit=20000",
+    "title": "USGS Earthquakes",
+    "status": 200,
+    "api": "2.8.4",
+    "limit": 20000,
+    "offset": 1
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 5.4,
+        "place": "107 km WNW of Höfn, Iceland",
+        "time": 1761756389853,
+        "updated": 1769536741040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000rk65",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us6000rk65&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": 7.574,
+        "alert": "green",
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 449,
+        "net": "us",
+        "code": "6000rk65",
+        "ids": ",us6000rk65,usauto6000rk65,",
+        "sources": ",us,usauto,",
+        "types": ",ground-failure,internal-moment-tensor,losspager,moment-tensor,origin,phase-data,shakemap,",
+        "nst": 93,
+        "dmin": 1.744,
+        "rms": 0.82,
+        "gap": 74,
+        "magType": "mww",
+        "type": "earthquake",
+        "title": "M 5.4 - 107 km WNW of Höfn, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.2809,
+          64.6209,
+          10
+        ]
+      },
+      "id": "us6000rk65"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.4,
+        "place": "116 km WNW of Höfn, Iceland",
+        "time": 1760306394176,
+        "updated": 1767309078040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000rksf",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us6000rksf&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 298,
+        "net": "us",
+        "code": "6000rksf",
+        "ids": ",us6000rksf,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": 55,
+        "dmin": 1.648,
+        "rms": 0.65,
+        "gap": 133,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.4 - 116 km WNW of Höfn, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.5269,
+          64.5477,
+          10
+        ]
+      },
+      "id": "us6000rksf"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.2,
+        "place": "132 km S of Akureyri, Iceland",
+        "time": 1756980054935,
+        "updated": 1764545990040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000rd7c",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us6000rd7c&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 271,
+        "net": "us",
+        "code": "6000rd7c",
+        "ids": ",us6000rd7c,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": 36,
+        "dmin": 1.46,
+        "rms": 0.85,
+        "gap": 136,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.2 - 132 km S of Akureyri, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.9921,
+          64.4923,
+          10
+        ]
+      },
+      "id": "us6000rd7c"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 5.3,
+        "place": "104 km WNW of Höfn, Iceland",
+        "time": 1753659601998,
+        "updated": 1760216244040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000qvj6",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us6000qvj6&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 432,
+        "net": "us",
+        "code": "6000qvj6",
+        "ids": ",usauto6000qvj6,us6000qvj6,",
+        "sources": ",usauto,us,",
+        "types": ",internal-moment-tensor,origin,phase-data,",
+        "nst": 90,
+        "dmin": 1.757,
+        "rms": 0.57,
+        "gap": 57,
+        "magType": "mww",
+        "type": "earthquake",
+        "title": "M 5.3 - 104 km WNW of Höfn, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.2733,
+          64.5425,
+          10
+        ]
+      },
+      "id": "us6000qvj6"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 5.3,
+        "place": "117 km WNW of Höfn, Iceland",
+        "time": 1746479642950,
+        "updated": 1752337846040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000pxd6",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us7000pxd6&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 432,
+        "net": "us",
+        "code": "7000pxd6",
+        "ids": ",usauto7000pxd6,us7000pxd6,",
+        "sources": ",usauto,us,",
+        "types": ",internal-moment-tensor,origin,phase-data,",
+        "nst": 91,
+        "dmin": 1.65,
+        "rms": 0.36,
+        "gap": 42,
+        "magType": "mww",
+        "type": "earthquake",
+        "title": "M 5.3 - 117 km WNW of Höfn, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.4981,
+          64.6302,
+          10
+        ]
+      },
+      "id": "us7000pxd6"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.1,
+        "place": "117 km S of Akureyri, Iceland",
+        "time": 1746423267685,
+        "updated": 1752337850040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000q0kr",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us7000q0kr&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 259,
+        "net": "us",
+        "code": "7000q0kr",
+        "ids": ",us7000q0kr,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": 25,
+        "dmin": 1.511,
+        "rms": 0.65,
+        "gap": 131,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.1 - 117 km S of Akureyri, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.8198,
+          64.6371,
+          10
+        ]
+      },
+      "id": "us7000q0kr"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.5,
+        "place": "118 km WNW of Höfn, Iceland",
+        "time": 1744681425503,
+        "updated": 1749925604040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000q639",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us6000q639&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 312,
+        "net": "us",
+        "code": "6000q639",
+        "ids": ",us6000q639,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": 88,
+        "dmin": 1.628,
+        "rms": 1.14,
+        "gap": 79,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.5 - 118 km WNW of Höfn, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.5688,
+          64.5643,
+          10
+        ]
+      },
+      "id": "us6000q639"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 5.1,
+        "place": "115 km S of Akureyri, Iceland",
+        "time": 1740258286432,
+        "updated": 1746567559040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000pfi9",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us7000pfi9&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 400,
+        "net": "us",
+        "code": "7000pfi9",
+        "ids": ",usauto7000pfi9,us7000pfi9,",
+        "sources": ",usauto,us,",
+        "types": ",internal-moment-tensor,moment-tensor,origin,phase-data,",
+        "nst": 68,
+        "dmin": 1.498,
+        "rms": 0.5,
+        "gap": 99,
+        "magType": "mww",
+        "type": "earthquake",
+        "title": "M 5.1 - 115 km S of Akureyri, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.8452,
+          64.6566,
+          10
+        ]
+      },
+      "id": "us7000pfi9"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 5.2,
+        "place": "115 km SSE of Akureyri, Iceland",
+        "time": 1736841921537,
+        "updated": 1742504126040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000pjw8",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us6000pjw8&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 416,
+        "net": "us",
+        "code": "6000pjw8",
+        "ids": ",usauto6000pjw8,us6000pjw8,",
+        "sources": ",usauto,us,",
+        "types": ",internal-moment-tensor,origin,phase-data,",
+        "nst": 117,
+        "dmin": 1.648,
+        "rms": 0.76,
+        "gap": 42,
+        "magType": "mww",
+        "type": "earthquake",
+        "title": "M 5.2 - 115 km SSE of Akureyri, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.4925,
+          64.6751,
+          10
+        ]
+      },
+      "id": "us6000pjw8"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.5,
+        "place": "123 km S of Akureyri, Iceland",
+        "time": 1736840846578,
+        "updated": 1742504126040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000pjw6",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us6000pjw6&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 312,
+        "net": "us",
+        "code": "6000pjw6",
+        "ids": ",us6000pjw6,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": 22,
+        "dmin": 1.49,
+        "rms": 1.36,
+        "gap": 118,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.5 - 123 km S of Akureyri, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.8871,
+          64.5781,
+          10
+        ]
+      },
+      "id": "us6000pjw6"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.4,
+        "place": "118 km S of Akureyri, Iceland",
+        "time": 1736836161310,
+        "updated": 1742504126040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000pjvv",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us6000pjvv&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 298,
+        "net": "us",
+        "code": "6000pjvv",
+        "ids": ",us6000pjvv,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": 49,
+        "dmin": 1.533,
+        "rms": 0.98,
+        "gap": 106,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.4 - 118 km S of Akureyri, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.7712,
+          64.6257,
+          10
+        ]
+      },
+      "id": "us6000pjvv"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.3,
+        "place": "121 km WNW of Höfn, Iceland",
+        "time": 1736834916199,
+        "updated": 1742504125040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000pjvs",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us6000pjvs&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 284,
+        "net": "us",
+        "code": "6000pjvs",
+        "ids": ",us6000pjvs,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": 43,
+        "dmin": 1.599,
+        "rms": 0.65,
+        "gap": 111,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.3 - 121 km WNW of Höfn, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.6383,
+          64.5569,
+          10
+        ]
+      },
+      "id": "us6000pjvs"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.4,
+        "place": "110 km WNW of Höfn, Iceland",
+        "time": 1736307236924,
+        "updated": 1742504086040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000piih",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us6000piih&format=geojson",
+        "felt": 1,
+        "cdi": 2,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 298,
+        "net": "us",
+        "code": "6000piih",
+        "ids": ",us6000piih,",
+        "sources": ",us,",
+        "types": ",dyfi,origin,phase-data,",
+        "nst": 53,
+        "dmin": 11.051,
+        "rms": 1.15,
+        "gap": 104,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.4 - 110 km WNW of Höfn, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.3925,
+          64.5667,
+          10
+        ]
+      },
+      "id": "us6000piih"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 5.1,
+        "place": "110 km WNW of Höfn, Iceland",
+        "time": 1733622584842,
+        "updated": 1739644253040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000nwz5",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us7000nwz5&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 400,
+        "net": "us",
+        "code": "7000nwz5",
+        "ids": ",usauto7000nwz5,us7000nwz5,",
+        "sources": ",usauto,us,",
+        "types": ",internal-moment-tensor,origin,phase-data,",
+        "nst": 97,
+        "dmin": 1.726,
+        "rms": 0.8,
+        "gap": 44,
+        "magType": "mww",
+        "type": "earthquake",
+        "title": "M 5.1 - 110 km WNW of Höfn, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.3171,
+          64.6401,
+          10
+        ]
+      },
+      "id": "us7000nwz5"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.2,
+        "place": "119 km SSE of Akureyri, Iceland",
+        "time": 1731775505881,
+        "updated": 1737909069040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000nvhl",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us7000nvhl&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 271,
+        "net": "us",
+        "code": "7000nvhl",
+        "ids": ",us7000nvhl,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": 59,
+        "dmin": 1.622,
+        "rms": 0.78,
+        "gap": 100,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.2 - 119 km SSE of Akureyri, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.5621,
+          64.6331,
+          14.041
+        ]
+      },
+      "id": "us7000nvhl"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 5.1,
+        "place": "117 km S of Akureyri, Iceland",
+        "time": 1728237386452,
+        "updated": 1734187844040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000nwxc",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us6000nwxc&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 400,
+        "net": "us",
+        "code": "6000nwxc",
+        "ids": ",usauto6000nwxc,us6000nwxc,",
+        "sources": ",usauto,us,",
+        "types": ",internal-moment-tensor,moment-tensor,origin,phase-data,",
+        "nst": 99,
+        "dmin": 1.509,
+        "rms": 1,
+        "gap": 106,
+        "magType": "mww",
+        "type": "earthquake",
+        "title": "M 5.1 - 117 km S of Akureyri, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.8257,
+          64.6359,
+          10
+        ]
+      },
+      "id": "us6000nwxc"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 5.1,
+        "place": "108 km WNW of Höfn, Iceland",
+        "time": 1725381075201,
+        "updated": 1731687591040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000npik",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us6000npik&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 400,
+        "net": "us",
+        "code": "6000npik",
+        "ids": ",usauto6000npik,us6000npik,",
+        "sources": ",usauto,us,",
+        "types": ",internal-moment-tensor,origin,phase-data,",
+        "nst": 367,
+        "dmin": 1.73,
+        "rms": 0.49,
+        "gap": 22,
+        "magType": "mww",
+        "type": "earthquake",
+        "title": "M 5.1 - 108 km WNW of Höfn, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.3212,
+          64.5882,
+          10
+        ]
+      },
+      "id": "us6000npik"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 5.3,
+        "place": "119 km WNW of Höfn, Iceland",
+        "time": 1713681439558,
+        "updated": 1719349400040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000mdlk",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us7000mdlk&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 432,
+        "net": "us",
+        "code": "7000mdlk",
+        "ids": ",usauto7000mdlk,us7000mdlk,",
+        "sources": ",usauto,us,",
+        "types": ",internal-moment-tensor,moment-tensor,origin,phase-data,",
+        "nst": 227,
+        "dmin": 1.62,
+        "rms": 0.58,
+        "gap": 59,
+        "magType": "mww",
+        "type": "earthquake",
+        "title": "M 5.3 - 119 km WNW of Höfn, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.5954,
+          64.5409,
+          10
+        ]
+      },
+      "id": "us7000mdlk"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.7,
+        "place": "115 km S of Akureyri, Iceland",
+        "time": 1710722747063,
+        "updated": 1716819558040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000mjim",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us6000mjim&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 340,
+        "net": "us",
+        "code": "6000mjim",
+        "ids": ",us6000mjim,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": 157,
+        "dmin": 1.549,
+        "rms": 1.08,
+        "gap": 59,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.7 - 115 km S of Akureyri, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.7271,
+          64.6558,
+          10
+        ]
+      },
+      "id": "us6000mjim"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.5,
+        "place": "125 km S of Akureyri, Iceland",
+        "time": 1705500886284,
+        "updated": 1711733872040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000m47p",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us6000m47p&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 312,
+        "net": "us",
+        "code": "6000m47p",
+        "ids": ",us6000m47p,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": 58,
+        "dmin": 1.53,
+        "rms": 0.41,
+        "gap": 94,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.5 - 125 km S of Akureyri, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.7961,
+          64.5686,
+          10
+        ]
+      },
+      "id": "us6000m47p"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.5,
+        "place": "111 km W of Höfn, Iceland",
+        "time": 1704956001690,
+        "updated": 1710615617040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000m318",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us6000m318&format=geojson",
+        "felt": 1,
+        "cdi": 6.2,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 312,
+        "net": "us",
+        "code": "6000m318",
+        "ids": ",us6000m318,",
+        "sources": ",us,",
+        "types": ",dyfi,origin,phase-data,",
+        "nst": 52,
+        "dmin": 1.685,
+        "rms": 0.61,
+        "gap": 105,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.5 - 111 km W of Höfn, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.4809,
+          64.451,
+          10
+        ]
+      },
+      "id": "us6000m318"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.4,
+        "place": "119 km S of Akureyri, Iceland",
+        "time": 1704045931024,
+        "updated": 1709415575040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000m0uz",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us6000m0uz&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 298,
+        "net": "us",
+        "code": "6000m0uz",
+        "ids": ",us6000m0uz,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": 45,
+        "dmin": 1.555,
+        "rms": 0.78,
+        "gap": 88,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.4 - 119 km S of Akureyri, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.7212,
+          64.6254,
+          10
+        ]
+      },
+      "id": "us6000m0uz"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 5.2,
+        "place": "106 km S of Akureyri, Iceland",
+        "time": 1698185986229,
+        "updated": 1704342128040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000l63e",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us7000l63e&format=geojson",
+        "felt": 2,
+        "cdi": 2.7,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 417,
+        "net": "us",
+        "code": "7000l63e",
+        "ids": ",us7000l63e,",
+        "sources": ",us,",
+        "types": ",dyfi,origin,phase-data,",
+        "nst": 155,
+        "dmin": 1.541,
+        "rms": 0.75,
+        "gap": 56,
+        "magType": "mww",
+        "type": "earthquake",
+        "title": "M 5.2 - 106 km S of Akureyri, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.7358,
+          64.7362,
+          10
+        ]
+      },
+      "id": "us7000l63e"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.1,
+        "place": "126 km S of Akureyri, Iceland",
+        "time": 1697299992325,
+        "updated": 1702764790040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000lgmx",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us6000lgmx&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 259,
+        "net": "us",
+        "code": "6000lgmx",
+        "ids": ",us6000lgmx,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": 15,
+        "dmin": 1.414,
+        "rms": 0.76,
+        "gap": 159,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.1 - 126 km S of Akureyri, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -18.0735,
+          64.5521,
+          10
+        ]
+      },
+      "id": "us6000lgmx"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 5,
+        "place": "126 km W of Höfn, Iceland",
+        "time": 1696435919831,
+        "updated": 1702589212040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000lcv0",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us6000lcv0&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 385,
+        "net": "us",
+        "code": "6000lcv0",
+        "ids": ",us6000lcv0,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": 147,
+        "dmin": 1.555,
+        "rms": 0.77,
+        "gap": 49,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 5.0 - 126 km W of Höfn, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.7682,
+          64.4897,
+          10
+        ]
+      },
+      "id": "us6000lcv0"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.3,
+        "place": "115 km S of Akureyri, Iceland",
+        "time": 1693707742112,
+        "updated": 1700250468040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000ksxx",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us7000ksxx&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 284,
+        "net": "us",
+        "code": "7000ksxx",
+        "ids": ",us7000ksxx,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": 43,
+        "dmin": 1.52,
+        "rms": 0.87,
+        "gap": 59,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.3 - 115 km S of Akureyri, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.7947,
+          64.6557,
+          10
+        ]
+      },
+      "id": "us7000ksxx"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.7,
+        "place": "110 km WNW of Höfn, Iceland",
+        "time": 1690588546740,
+        "updated": 1696109793040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000kwex",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us6000kwex&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 340,
+        "net": "us",
+        "code": "6000kwex",
+        "ids": ",us6000kwex,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": 84,
+        "dmin": 1.715,
+        "rms": 0.47,
+        "gap": 90,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.7 - 110 km WNW of Höfn, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.351,
+          64.61,
+          10
+        ]
+      },
+      "id": "us6000kwex"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.2,
+        "place": "119 km S of Akureyri, Iceland",
+        "time": 1690587734330,
+        "updated": 1696109797040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000kxvm",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us6000kxvm&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 271,
+        "net": "us",
+        "code": "6000kxvm",
+        "ids": ",us6000kxvm,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": 45,
+        "dmin": 1.614,
+        "rms": 0.43,
+        "gap": 107,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.2 - 119 km S of Akureyri, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.5816,
+          64.632,
+          10
+        ]
+      },
+      "id": "us6000kxvm"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4,
+        "place": "110 km W of Höfn, Iceland",
+        "time": 1682262935552,
+        "updated": 1689039889040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000jwp0",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us7000jwp0&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 246,
+        "net": "us",
+        "code": "7000jwp0",
+        "ids": ",us7000jwp0,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": 19,
+        "dmin": 1.702,
+        "rms": 1.14,
+        "gap": 123,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.0 - 110 km W of Höfn, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.4681,
+          64.3976,
+          10
+        ]
+      },
+      "id": "us7000jwp0"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 5.2,
+        "place": "114 km S of Akureyri, Iceland",
+        "time": 1676968863831,
+        "updated": 1682805441040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000jqie",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us6000jqie&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 416,
+        "net": "us",
+        "code": "6000jqie",
+        "ids": ",us6000jqie,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": 105,
+        "dmin": 1.568,
+        "rms": 0.88,
+        "gap": 29,
+        "magType": "mww",
+        "type": "earthquake",
+        "title": "M 5.2 - 114 km S of Akureyri, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.6801,
+          64.6683,
+          10
+        ]
+      },
+      "id": "us6000jqie"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4,
+        "place": "126 km W of Höfn, Iceland",
+        "time": 1675638934851,
+        "updated": 1681594795040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000jn4b",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us6000jn4b&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 246,
+        "net": "us",
+        "code": "6000jn4b",
+        "ids": ",us6000jn4b,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": 17,
+        "dmin": 1.55,
+        "rms": 0.98,
+        "gap": 146,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.0 - 126 km W of Höfn, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.7887,
+          64.4746,
+          10
+        ]
+      },
+      "id": "us6000jn4b"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.3,
+        "place": "125 km W of Höfn, Iceland",
+        "time": 1672111723425,
+        "updated": 1678215606040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000j35a",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us7000j35a&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 284,
+        "net": "us",
+        "code": "7000j35a",
+        "ids": ",us7000j35a,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": 17,
+        "dmin": 1.643,
+        "rms": 0.58,
+        "gap": 137,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.3 - 125 km W of Höfn, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.7896,
+          64.1598,
+          10
+        ]
+      },
+      "id": "us7000j35a"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.4,
+        "place": "125 km S of Akureyri, Iceland",
+        "time": 1667228248845,
+        "updated": 1673565088040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000imhw",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us7000imhw&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 298,
+        "net": "us",
+        "code": "7000imhw",
+        "ids": ",us7000imhw,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": 41,
+        "dmin": 1.522,
+        "rms": 0.64,
+        "gap": 89,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.4 - 125 km S of Akureyri, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.8155,
+          64.5682,
+          10
+        ]
+      },
+      "id": "us7000imhw"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.3,
+        "place": "76 km SSE of Laugar, Iceland",
+        "time": 1666480262041,
+        "updated": 1672759422040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000ikpk",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us7000ikpk&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 284,
+        "net": "us",
+        "code": "7000ikpk",
+        "ids": ",us7000ikpk,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": 38,
+        "dmin": 2.117,
+        "rms": 0.9,
+        "gap": 99,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.3 - 76 km SSE of Laugar, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -16.4471,
+          65.1536,
+          10
+        ]
+      },
+      "id": "us7000ikpk"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.1,
+        "place": "111 km W of Höfn, Iceland",
+        "time": 1659450275229,
+        "updated": 1665586198040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000i7hi",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us6000i7hi&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 259,
+        "net": "us",
+        "code": "6000i7hi",
+        "ids": ",us6000i7hi,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": 36,
+        "dmin": 1.695,
+        "rms": 0.46,
+        "gap": 125,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.1 - 111 km W of Höfn, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.5117,
+          64.3522,
+          10
+        ]
+      },
+      "id": "us6000i7hi"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.8,
+        "place": "120 km S of Akureyri, Iceland",
+        "time": 1658670344515,
+        "updated": 1664662188040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000ht53",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us7000ht53&format=geojson",
+        "felt": 1,
+        "cdi": 3.1,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 355,
+        "net": "us",
+        "code": "7000ht53",
+        "ids": ",us7000ht53,",
+        "sources": ",us,",
+        "types": ",dyfi,origin,phase-data,",
+        "nst": 116,
+        "dmin": 1.566,
+        "rms": 0.54,
+        "gap": 29,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.8 - 120 km S of Akureyri, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.6993,
+          64.613,
+          10
+        ]
+      },
+      "id": "us7000ht53"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.4,
+        "place": "Iceland",
+        "time": 1658668992420,
+        "updated": 1664662188040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000ht50",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us7000ht50&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 298,
+        "net": "us",
+        "code": "7000ht50",
+        "ids": ",us7000ht50,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": 64,
+        "dmin": 1.491,
+        "rms": 0.74,
+        "gap": 90,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.4 - Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.8621,
+          64.6655,
+          10
+        ]
+      },
+      "id": "us7000ht50"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.7,
+        "place": "128 km W of Höfn, Iceland",
+        "time": 1653725178323,
+        "updated": 1659823980040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000hd8i",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us7000hd8i&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 340,
+        "net": "us",
+        "code": "7000hd8i",
+        "ids": ",us7000hd8i,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": 126,
+        "dmin": 1.54,
+        "rms": 0.4,
+        "gap": 63,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.7 - 128 km W of Höfn, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.8396,
+          64.4201,
+          10
+        ]
+      },
+      "id": "us7000hd8i"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.9,
+        "place": "121 km S of Akureyri, Iceland",
+        "time": 1645524682380,
+        "updated": 1651671582040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000gmwz",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us7000gmwz&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 369,
+        "net": "us",
+        "code": "7000gmwz",
+        "ids": ",us7000gmwz,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": null,
+        "dmin": 1.524,
+        "rms": 0.47,
+        "gap": 74,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.9 - 121 km S of Akureyri, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.7978,
+          64.6051,
+          10
+        ]
+      },
+      "id": "us7000gmwz"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.4,
+        "place": "120 km WNW of Höfn, Iceland",
+        "time": 1640789189119,
+        "updated": 1646521852040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000gg4s",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us6000gg4s&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 298,
+        "net": "us",
+        "code": "6000gg4s",
+        "ids": ",us6000gg4s,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": null,
+        "dmin": 1.613,
+        "rms": 0.53,
+        "gap": 112,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.4 - 120 km WNW of Höfn, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.6068,
+          64.5537,
+          10
+        ]
+      },
+      "id": "us6000gg4s"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.8,
+        "place": "129 km W of Höfn, Iceland",
+        "time": 1627423931985,
+        "updated": 1766441553442,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000ezmy",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us6000ezmy&format=geojson",
+        "felt": 3,
+        "cdi": 1,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 355,
+        "net": "us",
+        "code": "6000ezmy",
+        "ids": ",us6000ezmy,iscgem620857163,",
+        "sources": ",us,iscgem,",
+        "types": ",dyfi,origin,phase-data,",
+        "nst": null,
+        "dmin": 1.521,
+        "rms": 1.12,
+        "gap": 61,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.8 - 129 km W of Höfn, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.853,
+          64.4807,
+          10
+        ]
+      },
+      "id": "us6000ezmy"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.3,
+        "place": "113 km WNW of Höfn, Iceland",
+        "time": 1627412532520,
+        "updated": 1633238553040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000ezl9",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us6000ezl9&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 284,
+        "net": "us",
+        "code": "6000ezl9",
+        "ids": ",us6000ezl9,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": null,
+        "dmin": 1.697,
+        "rms": 1.38,
+        "gap": 102,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.3 - 113 km WNW of Höfn, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.3847,
+          64.6384,
+          10
+        ]
+      },
+      "id": "us6000ezl9"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.3,
+        "place": "138 km S of Akureyri, Iceland",
+        "time": 1613183373629,
+        "updated": 1619211866040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000djcc",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us6000djcc&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 284,
+        "net": "us",
+        "code": "6000djcc",
+        "ids": ",us6000djcc,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": null,
+        "dmin": 1.412,
+        "rms": 0.41,
+        "gap": 125,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.3 - 138 km S of Akureyri, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -18.1314,
+          64.4401,
+          10
+        ]
+      },
+      "id": "us6000djcc"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.8,
+        "place": "117 km WNW of Höfn, Iceland",
+        "time": 1601165169728,
+        "updated": 1766428973936,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000c1st",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us6000c1st&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 354,
+        "net": "us",
+        "code": "6000c1st",
+        "ids": ",iscgem619394492,us6000c1st,",
+        "sources": ",iscgem,us,",
+        "types": ",origin,phase-data,",
+        "nst": null,
+        "dmin": 1.635,
+        "rms": 0.57,
+        "gap": 67,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.8 - 117 km WNW of Höfn, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.5691,
+          64.5113,
+          7.08
+        ]
+      },
+      "id": "us6000c1st"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.3,
+        "place": "27 km WNW of Norðurþing, Iceland",
+        "time": 1600181532615,
+        "updated": 1605989444040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000bniv",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us7000bniv&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 284,
+        "net": "us",
+        "code": "7000bniv",
+        "ids": ",us7000bniv,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": null,
+        "dmin": 2.016,
+        "rms": 0.74,
+        "gap": 67,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.3 - 27 km WNW of Norðurþing, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.8724,
+          66.1498,
+          10
+        ]
+      },
+      "id": "us7000bniv"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.4,
+        "place": "124 km WNW of Höfn, Iceland",
+        "time": 1594688181026,
+        "updated": 1600549099040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000an4j",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us7000an4j&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 298,
+        "net": "us",
+        "code": "7000an4j",
+        "ids": ",us7000an4j,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": null,
+        "dmin": 1.569,
+        "rms": 1,
+        "gap": 112,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.4 - 124 km WNW of Höfn, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.7173,
+          64.5336,
+          10
+        ]
+      },
+      "id": "us7000an4j"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.5,
+        "place": "123 km WNW of Höfn, Iceland",
+        "time": 1592152365133,
+        "updated": 1598123701040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000aevp",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us6000aevp&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 312,
+        "net": "us",
+        "code": "6000aevp",
+        "ids": ",us6000aevp,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": null,
+        "dmin": 1.577,
+        "rms": 0.75,
+        "gap": 107,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.5 - 123 km WNW of Höfn, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.7118,
+          64.5015,
+          7.63
+        ]
+      },
+      "id": "us6000aevp"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 5.1,
+        "place": "123 km WNW of Höfn, Iceland",
+        "time": 1587354889609,
+        "updated": 1766428376229,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000908u",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us7000908u&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 400,
+        "net": "us",
+        "code": "7000908u",
+        "ids": ",iscgem618127920,us7000908u,",
+        "sources": ",iscgem,us,",
+        "types": ",origin,phase-data,",
+        "nst": null,
+        "dmin": 1.587,
+        "rms": 0.83,
+        "gap": 74,
+        "magType": "mww",
+        "type": "earthquake",
+        "title": "M 5.1 - 123 km WNW of Höfn, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.6556,
+          64.5898,
+          10
+        ]
+      },
+      "id": "us7000908u"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.2,
+        "place": "114 km S of Akureyri, Iceland",
+        "time": 1578200193041,
+        "updated": 1584810806040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us600079aq",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us600079aq&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 271,
+        "net": "us",
+        "code": "600079aq",
+        "ids": ",us600079aq,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": null,
+        "dmin": 1.495,
+        "rms": 1.03,
+        "gap": 115,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.2 - 114 km S of Akureyri, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.8506,
+          64.6639,
+          10
+        ]
+      },
+      "id": "us600079aq"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.9,
+        "place": "116 km SSE of Akureyri, Iceland",
+        "time": 1578198773421,
+        "updated": 1584810801040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us70006uwl",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us70006uwl&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 369,
+        "net": "us",
+        "code": "70006uwl",
+        "ids": ",us70006uwl,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": null,
+        "dmin": 1.618,
+        "rms": 0.87,
+        "gap": 83,
+        "magType": "mww",
+        "type": "earthquake",
+        "title": "M 4.9 - 116 km SSE of Akureyri, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.5641,
+          64.6591,
+          10
+        ]
+      },
+      "id": "us70006uwl"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.5,
+        "place": "122 km S of Akureyri, Iceland",
+        "time": 1561384559936,
+        "updated": 1568215182040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us60004584",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us60004584&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 312,
+        "net": "us",
+        "code": "60004584",
+        "ids": ",us60004584,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": null,
+        "dmin": 1.543,
+        "rms": 0.89,
+        "gap": 114,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.5 - 122 km S of Akureyri, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.7561,
+          64.5973,
+          10
+        ]
+      },
+      "id": "us60004584"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.5,
+        "place": "114 km S of Akureyri, Iceland",
+        "time": 1561381749883,
+        "updated": 1568215182040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000457r",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us6000457r&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 312,
+        "net": "us",
+        "code": "6000457r",
+        "ids": ",us6000457r,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": null,
+        "dmin": 1.515,
+        "rms": 1.04,
+        "gap": 115,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.5 - 114 km S of Akureyri, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.8035,
+          64.667,
+          9.02
+        ]
+      },
+      "id": "us6000457r"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.5,
+        "place": "119 km SSE of Akureyri, Iceland",
+        "time": 1550957041480,
+        "updated": 1557596447040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us2000jm6n",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us2000jm6n&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 312,
+        "net": "us",
+        "code": "2000jm6n",
+        "ids": ",us2000jm6n,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": null,
+        "dmin": 1.618,
+        "rms": 0.81,
+        "gap": 106,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.5 - 119 km SSE of Akureyri, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.5689,
+          64.6367,
+          10
+        ]
+      },
+      "id": "us2000jm6n"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.7,
+        "place": "118 km S of Akureyri, Iceland",
+        "time": 1545959796810,
+        "updated": 1551807996040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us2000iygs",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us2000iygs&format=geojson",
+        "felt": 7,
+        "cdi": 2.7,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 342,
+        "net": "us",
+        "code": "2000iygs",
+        "ids": ",us2000iygs,",
+        "sources": ",us,",
+        "types": ",dyfi,origin,phase-data,",
+        "nst": null,
+        "dmin": 1.552,
+        "rms": 1.43,
+        "gap": 111,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.7 - 118 km S of Akureyri, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.7244,
+          64.636,
+          10
+        ]
+      },
+      "id": "us2000iygs"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.5,
+        "place": "122 km WNW of Höfn, Iceland",
+        "time": 1540253341890,
+        "updated": 1547140714040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us1000hfw6",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us1000hfw6&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 312,
+        "net": "us",
+        "code": "1000hfw6",
+        "ids": ",us1000hfw6,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": null,
+        "dmin": 1.593,
+        "rms": 0.69,
+        "gap": 83,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.5 - 122 km WNW of Höfn, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.6514,
+          64.5583,
+          8.61
+        ]
+      },
+      "id": "us1000hfw6"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.5,
+        "place": "128 km WNW of Höfn, Iceland",
+        "time": 1536921615520,
+        "updated": 1542824355040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us2000hi7p",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us2000hi7p&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 312,
+        "net": "us",
+        "code": "2000hi7p",
+        "ids": ",us2000hi7p,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": null,
+        "dmin": 1.535,
+        "rms": 1.18,
+        "gap": 110,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.5 - 128 km WNW of Höfn, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.8029,
+          64.5167,
+          10
+        ]
+      },
+      "id": "us2000hi7p"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.7,
+        "place": "112 km SSE of Akureyri, Iceland",
+        "time": 1528988692860,
+        "updated": 1536342423040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us1000erk1",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us1000erk1&format=geojson",
+        "felt": 1,
+        "cdi": 1,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 340,
+        "net": "us",
+        "code": "1000erk1",
+        "ids": ",us1000erk1,",
+        "sources": ",us,",
+        "types": ",dyfi,origin,phase-data,",
+        "nst": null,
+        "dmin": 1.616,
+        "rms": 0.75,
+        "gap": 106,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.7 - 112 km SSE of Akureyri, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.5617,
+          64.7005,
+          10
+        ]
+      },
+      "id": "us1000erk1"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.3,
+        "place": "125 km WNW of Höfn, Iceland",
+        "time": 1526572826510,
+        "updated": 1534362415040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us1000e7bm",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us1000e7bm&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 284,
+        "net": "us",
+        "code": "1000e7bm",
+        "ids": ",us1000e7bm,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": null,
+        "dmin": 6.175,
+        "rms": 0.61,
+        "gap": 145,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.3 - 125 km WNW of Höfn, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.7231,
+          64.55,
+          10
+        ]
+      },
+      "id": "us1000e7bm"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.3,
+        "place": "125 km S of Akureyri, Iceland",
+        "time": 1521672964490,
+        "updated": 1529372147040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us1000d7b5",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us1000d7b5&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 284,
+        "net": "us",
+        "code": "1000d7b5",
+        "ids": ",us1000d7b5,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": null,
+        "dmin": 1.552,
+        "rms": 0.79,
+        "gap": 114,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.3 - 125 km S of Akureyri, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.7455,
+          64.5653,
+          7.1
+        ]
+      },
+      "id": "us1000d7b5"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.2,
+        "place": "45 km NW of Norðurþing, Iceland",
+        "time": 1518723438340,
+        "updated": 1526365748040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us2000d70q",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us2000d70q&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 271,
+        "net": "us",
+        "code": "2000d70q",
+        "ids": ",us2000d70q,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": null,
+        "dmin": 2.146,
+        "rms": 0.59,
+        "gap": 89,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.2 - 45 km NW of Norðurþing, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.9499,
+          66.3632,
+          10
+        ]
+      },
+      "id": "us2000d70q"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 5,
+        "place": "110 km WNW of Höfn, Iceland",
+        "time": 1517340260500,
+        "updated": 1524620377040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us2000crfy",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us2000crfy&format=geojson",
+        "felt": 1,
+        "cdi": 2,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 385,
+        "net": "us",
+        "code": "2000crfy",
+        "ids": ",us2000crfy,",
+        "sources": ",us,",
+        "types": ",dyfi,origin,phase-data,",
+        "nst": null,
+        "dmin": 1.734,
+        "rms": 1.05,
+        "gap": 69,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 5.0 - 110 km WNW of Höfn, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.2917,
+          64.6691,
+          10
+        ]
+      },
+      "id": "us2000crfy"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.5,
+        "place": "123 km S of Akureyri, Iceland",
+        "time": 1513747750840,
+        "updated": 1520989103040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us1000btik",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us1000btik&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 312,
+        "net": "us",
+        "code": "1000btik",
+        "ids": ",us1000btik,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": null,
+        "dmin": 1.556,
+        "rms": 1.14,
+        "gap": 111,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.5 - 123 km S of Akureyri, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.7285,
+          64.5844,
+          10
+        ]
+      },
+      "id": "us1000btik"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.4,
+        "place": "126 km W of Höfn, Iceland",
+        "time": 1511272387180,
+        "updated": 1518573668040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us1000bjct",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us1000bjct&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 298,
+        "net": "us",
+        "code": "1000bjct",
+        "ids": ",us1000bjct,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": null,
+        "dmin": 1.549,
+        "rms": 1.33,
+        "gap": 127,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.4 - 126 km W of Höfn, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.7956,
+          64.4613,
+          7.25
+        ]
+      },
+      "id": "us1000bjct"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.6,
+        "place": "120 km S of Akureyri, Iceland",
+        "time": 1509063403150,
+        "updated": 1516225835040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us1000axc8",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us1000axc8&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 326,
+        "net": "us",
+        "code": "1000axc8",
+        "ids": ",us1000axc8,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": null,
+        "dmin": 1.5,
+        "rms": 0.77,
+        "gap": 74,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.6 - 120 km S of Akureyri, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.8511,
+          64.611,
+          10
+        ]
+      },
+      "id": "us1000axc8"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.6,
+        "place": "115 km SSE of Akureyri, Iceland",
+        "time": 1509060395610,
+        "updated": 1516225835040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us1000axbq",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us1000axbq&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 326,
+        "net": "us",
+        "code": "1000axbq",
+        "ids": ",us1000axbq,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": null,
+        "dmin": 1.615,
+        "rms": 0.88,
+        "gap": 72,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.6 - 115 km SSE of Akureyri, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.5717,
+          64.6666,
+          10
+        ]
+      },
+      "id": "us1000axbq"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.3,
+        "place": "131 km S of Akureyri, Iceland",
+        "time": 1505658365190,
+        "updated": 1513648442040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us2000at5l",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us2000at5l&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 284,
+        "net": "us",
+        "code": "2000at5l",
+        "ids": ",us2000at5l,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": null,
+        "dmin": 1.475,
+        "rms": 1.36,
+        "gap": 127,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.3 - 131 km S of Akureyri, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.9505,
+          64.5019,
+          9.15
+        ]
+      },
+      "id": "us2000at5l"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.6,
+        "place": "118 km WNW of Höfn, Iceland",
+        "time": 1505658184020,
+        "updated": 1513648441040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us2000at6b",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us2000at6b&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 326,
+        "net": "us",
+        "code": "2000at6b",
+        "ids": ",us2000at6b,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": null,
+        "dmin": 1.62,
+        "rms": 0.76,
+        "gap": 89,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.6 - 118 km WNW of Höfn, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.6137,
+          64.4904,
+          8.23
+        ]
+      },
+      "id": "us2000at6b"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.7,
+        "place": "115 km WNW of Höfn, Iceland",
+        "time": 1504753695420,
+        "updated": 1512676818040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us2000ahc4",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us2000ahc4&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 340,
+        "net": "us",
+        "code": "2000ahc4",
+        "ids": ",us2000ahc4,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": null,
+        "dmin": 1.651,
+        "rms": 0.53,
+        "gap": 78,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.7 - 115 km WNW of Höfn, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.5233,
+          64.5368,
+          10
+        ]
+      },
+      "id": "us2000ahc4"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.4,
+        "place": "126 km S of Akureyri, Iceland",
+        "time": 1503798357530,
+        "updated": 1511894028040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us2000ac6d",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us2000ac6d&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 298,
+        "net": "us",
+        "code": "2000ac6d",
+        "ids": ",us2000ac6d,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": null,
+        "dmin": 1.515,
+        "rms": 1.09,
+        "gap": 122,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.4 - 126 km S of Akureyri, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.8364,
+          64.5507,
+          10
+        ]
+      },
+      "id": "us2000ac6d"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.3,
+        "place": "112 km S of Akureyri, Iceland",
+        "time": 1501673053860,
+        "updated": 1508291654040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us2000a3ln",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us2000a3ln&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 284,
+        "net": "us",
+        "code": "2000a3ln",
+        "ids": ",us2000a3ln,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": null,
+        "dmin": 1.58,
+        "rms": 0.81,
+        "gap": 115,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.3 - 112 km S of Akureyri, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.648,
+          64.6892,
+          10
+        ]
+      },
+      "id": "us2000a3ln"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.4,
+        "place": "126 km S of Akureyri, Iceland",
+        "time": 1498834725080,
+        "updated": 1506477799040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us100097mh",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us100097mh&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 298,
+        "net": "us",
+        "code": "100097mh",
+        "ids": ",us100097mh,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": null,
+        "dmin": 1.417,
+        "rms": 1.03,
+        "gap": 156,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.4 - 126 km S of Akureyri, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -18.068,
+          64.5478,
+          14.93
+        ]
+      },
+      "id": "us100097mh"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.2,
+        "place": "123 km S of Akureyri, Iceland",
+        "time": 1495877782340,
+        "updated": 1502328844040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us10008vrn",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us10008vrn&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 271,
+        "net": "us",
+        "code": "10008vrn",
+        "ids": ",us10008vrn,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": null,
+        "dmin": 1.488,
+        "rms": 0.52,
+        "gap": 134,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.2 - 123 km S of Akureyri, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.8901,
+          64.5807,
+          10
+        ]
+      },
+      "id": "us10008vrn"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.4,
+        "place": "116 km S of Akureyri, Iceland",
+        "time": 1495312375530,
+        "updated": 1501903933040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us10008tx3",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us10008tx3&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 298,
+        "net": "us",
+        "code": "10008tx3",
+        "ids": ",us10008tx3,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": null,
+        "dmin": 1.547,
+        "rms": 0.55,
+        "gap": 108,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.4 - 116 km S of Akureyri, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.7338,
+          64.6451,
+          6.36
+        ]
+      },
+      "id": "us10008tx3"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.2,
+        "place": "116 km S of Akureyri, Iceland",
+        "time": 1492430324180,
+        "updated": 1499737714040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us10008icd",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us10008icd&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 271,
+        "net": "us",
+        "code": "10008icd",
+        "ids": ",us10008icd,",
+        "sources": ",us,",
+        "types": ",origin,phase-data,",
+        "nst": null,
+        "dmin": 1.501,
+        "rms": 1.39,
+        "gap": 140,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.2 - 116 km S of Akureyri, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.8415,
+          64.6427,
+          6.87
+        ]
+      },
+      "id": "us10008icd"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 4.6,
+        "place": "117 km S of Akureyri, Iceland",
+        "time": 1460074251370,
+        "updated": 1466471642040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us20005iej",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us20005iej&format=geojson",
+        "felt": 0,
+        "cdi": 1,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 326,
+        "net": "us",
+        "code": "20005iej",
+        "ids": ",us20005iej,",
+        "sources": ",us,",
+        "types": ",dyfi,origin,phase-data,",
+        "nst": null,
+        "dmin": 1.532,
+        "rms": 0.77,
+        "gap": 105,
+        "magType": "mb",
+        "type": "earthquake",
+        "title": "M 4.6 - 117 km S of Akureyri, Iceland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.771,
+          64.6366,
+          7.3
+        ]
+      },
+      "id": "us20005iej"
+    }
+  ],
+  "bbox": [
+    -18.1314,
+    64.1598,
+    6.36,
+    -16.4471,
+    66.3632,
+    14.93
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "success": {
+    "v": 2,
+    "license": "CC-BY 4.0",
+    "data": [
+      {
+        "map_id": 4490595,
+        "source_id": 558,
+        "name": "Steep walls of calderas and pit craters",
+        "strat_name": "Steep walls of calderas and pit craters",
+        "lith": "basalt",
+        "descrip": "Lava flows and thin tephra beds exposed as a consequence of caldera- or crater-floor collapse. Deposits vary in age depending on depth of exposure; therefore several stratigraphic units may be included at different locations. Shown on Kīlauea and Mauna Loa. In walls of Kīlauea caldera, as much as 130 m (440 ft) of exposed strata range in age from 600 to 3,000 yr (corresponding to lava units Qp4, Qp3, and Qp2). Lava older than 3,000 yr (thus in Qp1y) conceivably is exposed in Pauahi and Makaopuhi Craters on the east rift zone, on basis of tephrastratigraphy (D.A. Swanson, written commun., 2009). On Mauna Loa, highest walls are at the summit caldera, Moku‘āweoweo, where 180 m (600 ft) of exposed strata range in age from 3,000 to 200 yr B.P. (corresponding to lava units Qk4, Qk3, and Qk2; F.A. Trusdell, written commun., 2009). Three pit crater walls on lower southwest rift zone that were shown as unit Qcw by Wolfe and Morris (1996a) are depicted here more precisely as Kahuku Basalt (unit Qkh)",
+        "comments": "",
+        "macro_units": [],
+        "strat_names": [],
+        "liths": [
+          70
+        ],
+        "t_int_id": 3,
+        "t_int_age": 0,
+        "t_int_name": "Holocene",
+        "b_int_id": 3,
+        "b_int_age": 0.0117,
+        "b_int_name": "Holocene",
+        "color": "#FEF2E0",
+        "t_age": 0,
+        "b_age": 0.0117,
+        "best_int_name": "Holocene",
+        "scale": "large"
+      },
+      {
+        "map_id": 2339825,
+        "source_id": 48,
+        "name": "Caldera wall rocks",
+        "strat_name": "",
+        "lith": "Lava flows, thin tephra deposits",
+        "descrip": "Tholeiitic basalt",
+        "comments": "",
+        "macro_units": [],
+        "strat_names": [],
+        "liths": [
+          119
+        ],
+        "t_int_id": 3,
+        "t_int_age": 0,
+        "t_int_name": "Holocene",
+        "b_int_id": 3,
+        "b_int_age": 0.0117,
+        "b_int_name": "Holocene",
+        "color": "#FEF2E0",
+        "t_age": 0,
+        "b_age": 0.0117,
+        "best_int_name": "Holocene",
+        "scale": "medium"
+      },
+      {
+        "map_id": 3186232,
+        "source_id": 154,
+        "name": "Cenozoic volcanic rocks",
+        "strat_name": "",
+        "lith": "shield volcano(s); mafic volcanic rocks",
+        "descrip": "",
+        "comments": "Hawaiian Chain",
+        "macro_units": [],
+        "strat_names": [],
+        "liths": [
+          63,
+          161
+        ],
+        "t_int_id": 421,
+        "t_int_age": 0,
+        "t_int_name": "Quaternary",
+        "b_int_id": 421,
+        "b_int_age": 2.58,
+        "b_int_name": "Quaternary",
+        "color": "#F9F97F",
+        "t_age": 0,
+        "b_age": 2.588,
+        "best_int_name": "Cenozoic",
+        "scale": "tiny"
+      }
+    ],
+    "refs": {
+      "48": "Sherrod, D.R., J.M. Sinton, S.E. Watkins, K.M. Brunt. Geologic Map of the State of Hawaii. U.S. Geological Survey. ",
+      "154": "Chorlton, L.B. Generalized geology of the world: bedrock domains and major faults in GIS format: a small-scale world geology map with an extended geological attribute database. doi: 10.4095/223767. Geological Survey of Canada, Open File 5529. ",
+      "558": "Sherrod, D.R., Sinton, J.M., Watkins, S.E., and Brunt, K.M., 2021, Geologic map of the State of Hawaiʻi: U.S. Geological Survey Scientific Investigations Map 3143, pamphlet 72 p., 5 sheets, scales 1:100,000 and 1:250,000, https://doi.org/10.3133/sim3143. https://doi.org/10.3133/sim3143. "
+    }
+  }
+}

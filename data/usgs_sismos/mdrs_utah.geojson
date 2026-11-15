@@ -1,0 +1,782 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "generated": 1794675477000,
+    "url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2016-01-01&endtime=2026-01-01&minmagnitude=3&minlatitude=37.059999999999995&maxlatitude=39.760000000000005&minlongitude=-112.29&maxlongitude=-109.28999999999999&limit=20000",
+    "title": "USGS Earthquakes",
+    "status": 200,
+    "api": "2.8.4",
+    "limit": 20000,
+    "offset": 1
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 3.05,
+        "place": "9 km NNE of Scipio, Utah",
+        "time": 1748090109580,
+        "updated": 1755098071040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/uu80108946",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=uu80108946&format=geojson",
+        "felt": 2,
+        "cdi": 2.5,
+        "mmi": 2.921,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 144,
+        "net": "uu",
+        "code": "80108946",
+        "ids": ",us7000q1a1,uu80108946,",
+        "sources": ",us,uu,",
+        "types": ",dyfi,origin,phase-data,shakemap,",
+        "nst": 46,
+        "dmin": 0.09953,
+        "rms": 0.21,
+        "gap": 33,
+        "magType": "ml",
+        "type": "earthquake",
+        "title": "M 3.1 - 9 km NNE of Scipio, Utah"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -112.0665,
+          39.3208333333333,
+          2.04
+        ]
+      },
+      "id": "uu80108946"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 3.46,
+        "place": "26 km SSE of Boulder Town, Utah",
+        "time": 1737456287050,
+        "updated": 1743286365040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/uu80099906",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=uu80099906&format=geojson",
+        "felt": 34,
+        "cdi": 3.3,
+        "mmi": 3.196,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 195,
+        "net": "uu",
+        "code": "80099906",
+        "ids": ",uu80099906,us6000pleg,",
+        "sources": ",uu,us,",
+        "types": ",dyfi,origin,phase-data,shakemap,",
+        "nst": 27,
+        "dmin": 0.5065,
+        "rms": 0.22,
+        "gap": 153,
+        "magType": "ml",
+        "type": "earthquake",
+        "title": "M 3.5 - 26 km SSE of Boulder Town, Utah"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.301666666667,
+          37.6911666666667,
+          13.59
+        ]
+      },
+      "id": "uu80099906"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 3.44,
+        "place": "17 km ESE of Mayfield, Utah",
+        "time": 1720472444050,
+        "updated": 1728444586455,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/uu80075496",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=uu80075496&format=geojson",
+        "felt": 2,
+        "cdi": 3.1,
+        "mmi": 3.347,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 183,
+        "net": "uu",
+        "code": "80075496",
+        "ids": ",uu80075496,us7000mxwj,",
+        "sources": ",uu,us,",
+        "types": ",dyfi,moment-tensor,origin,phase-data,shakemap,",
+        "nst": 37,
+        "dmin": 0.1462,
+        "rms": 0.17,
+        "gap": 48,
+        "magType": "ml",
+        "type": "earthquake",
+        "title": "M 3.4 - 17 km ESE of Mayfield, Utah"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.540166666667,
+          39.0353333333333,
+          5.43
+        ]
+      },
+      "id": "uu80075496"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 3.17,
+        "place": "4 km NNE of Richfield, Utah",
+        "time": 1698921921290,
+        "updated": 1704866499040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/uu60553437",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=uu60553437&format=geojson",
+        "felt": 167,
+        "cdi": 3.8,
+        "mmi": 3.415,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 218,
+        "net": "uu",
+        "code": "60553437",
+        "ids": ",uu60553437,us7000l8a5,",
+        "sources": ",uu,us,",
+        "types": ",dyfi,origin,phase-data,shakemap,",
+        "nst": 34,
+        "dmin": 0.04233,
+        "rms": 0.2,
+        "gap": 59,
+        "magType": "ml",
+        "type": "earthquake",
+        "title": "M 3.2 - 4 km NNE of Richfield, Utah"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -112.064,
+          38.8136667,
+          11.56
+        ]
+      },
+      "id": "uu60553437"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 3.76,
+        "place": "37 km ENE of Thompson Springs, Utah",
+        "time": 1654035147620,
+        "updated": 1659823991040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/uu60500212",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=uu60500212&format=geojson",
+        "felt": 100,
+        "cdi": 3.4,
+        "mmi": 4.438,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 252,
+        "net": "uu",
+        "code": "60500212",
+        "ids": ",uu60500212,us7000hdyp,",
+        "sources": ",uu,us,",
+        "types": ",dyfi,moment-tensor,origin,phase-data,shakemap,",
+        "nst": 19,
+        "dmin": 0.5584,
+        "rms": 0.2,
+        "gap": 102,
+        "magType": "ml",
+        "type": "earthquake",
+        "title": "M 3.8 - 37 km ENE of Thompson Springs, Utah"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -109.2958333,
+          39.0608333,
+          6.81
+        ]
+      },
+      "id": "uu60500212"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 3.44,
+        "place": "4 km S of Joseph, Utah",
+        "time": 1646212091670,
+        "updated": 1651959162040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/uu60483892",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=uu60483892&format=geojson",
+        "felt": 22,
+        "cdi": 3.4,
+        "mmi": 3.507,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 190,
+        "net": "uu",
+        "code": "60483892",
+        "ids": ",uu60483892,us6000h1c0,",
+        "sources": ",uu,us,",
+        "types": ",dyfi,moment-tensor,origin,phase-data,shakemap,",
+        "nst": 24,
+        "dmin": 0.08101,
+        "rms": 0.22,
+        "gap": 47,
+        "magType": "ml",
+        "type": "earthquake",
+        "title": "M 3.4 - 4 km S of Joseph, Utah"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -112.2125,
+          38.5848333,
+          -2.24
+        ]
+      },
+      "id": "uu60483892"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 3.53,
+        "place": "5 km S of Joseph, Utah",
+        "time": 1645309048310,
+        "updated": 1655402445606,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/uu60482552",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=uu60482552&format=geojson",
+        "felt": 52,
+        "cdi": 3.6,
+        "mmi": 4.159,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 210,
+        "net": "uu",
+        "code": "60482552",
+        "ids": ",us7000gmav,uu60482552,",
+        "sources": ",us,uu,",
+        "types": ",dyfi,moment-tensor,origin,phase-data,shakemap,",
+        "nst": 27,
+        "dmin": 0.07028,
+        "rms": 0.27,
+        "gap": 47,
+        "magType": "ml",
+        "type": "earthquake",
+        "title": "M 3.5 - 5 km S of Joseph, Utah"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -112.2238333,
+          38.5735,
+          4.48
+        ]
+      },
+      "id": "uu60482552"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 3.24,
+        "place": "16 km SSW of Levan, Utah",
+        "time": 1634902178780,
+        "updated": 1641663717040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/uu60464237",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=uu60464237&format=geojson",
+        "felt": 8,
+        "cdi": 3.4,
+        "mmi": 3.386,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 164,
+        "net": "uu",
+        "code": "60464237",
+        "ids": ",uu60464237,us6000fwr2,",
+        "sources": ",uu,us,",
+        "types": ",dyfi,origin,phase-data,shakemap,",
+        "nst": 22,
+        "dmin": 0.1337,
+        "rms": 0.2,
+        "gap": 68,
+        "magType": "ml",
+        "type": "earthquake",
+        "title": "M 3.2 - 16 km SSW of Levan, Utah"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.9605,
+          39.4346667,
+          7.12
+        ]
+      },
+      "id": "uu60464237"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 3.34,
+        "place": "8 km ENE of Kenilworth, Utah",
+        "time": 1602722205610,
+        "updated": 1620241492750,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/uu60414477",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=uu60414477&format=geojson",
+        "felt": 3,
+        "cdi": 3.3,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 173,
+        "net": "uu",
+        "code": "60414477",
+        "ids": ",uu60414477,us6000c8e6,",
+        "sources": ",uu,us,",
+        "types": ",dyfi,origin,phase-data,",
+        "nst": 25,
+        "dmin": 0.03067,
+        "rms": 0.22,
+        "gap": 49,
+        "magType": "ml",
+        "type": "earthquake",
+        "title": "M 3.3 - 8 km ENE of Kenilworth, Utah"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -110.7126667,
+          39.71,
+          -3.15
+        ]
+      },
+      "id": "uu60414477"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 3.13,
+        "place": "28 km ENE of Boulder Town, Utah",
+        "time": 1593086323580,
+        "updated": 1599327319040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/uu60398647",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=uu60398647&format=geojson",
+        "felt": 9,
+        "cdi": 3.1,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 154,
+        "net": "uu",
+        "code": "60398647",
+        "ids": ",uu60398647,us7000ab2b,",
+        "sources": ",uu,us,",
+        "types": ",dyfi,origin,phase-data,",
+        "nst": 15,
+        "dmin": 0.3349,
+        "rms": 0.14,
+        "gap": 130,
+        "magType": "ml",
+        "type": "earthquake",
+        "title": "M 3.1 - 28 km ENE of Boulder Town, Utah"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.1431667,
+          38.046,
+          19.72
+        ]
+      },
+      "id": "uu60398647"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 3.17,
+        "place": "14 km SE of Clawson, Utah",
+        "time": 1554870731370,
+        "updated": 1620248761860,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/uu60320462",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=uu60320462&format=geojson",
+        "felt": 17,
+        "cdi": 3.1,
+        "mmi": null,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 160,
+        "net": "uu",
+        "code": "60320462",
+        "ids": ",uu60320462,us700033gm,",
+        "sources": ",uu,us,",
+        "types": ",dyfi,origin,phase-data,",
+        "nst": 24,
+        "dmin": 0.2135,
+        "rms": 0.23,
+        "gap": 53,
+        "magType": "ml",
+        "type": "earthquake",
+        "title": "M 3.2 - 14 km SE of Clawson, Utah"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -110.9623333,
+          39.0555,
+          17.46
+        ]
+      },
+      "id": "uu60320462"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 3.12,
+        "place": "14 km E of Manti, Utah",
+        "time": 1545310162930,
+        "updated": 1620248744490,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/uu60307652",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=uu60307652&format=geojson",
+        "felt": 3,
+        "cdi": 2.2,
+        "mmi": 4.04,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 150,
+        "net": "uu",
+        "code": "60307652",
+        "ids": ",uu60307652,us2000ivbg,",
+        "sources": ",uu,us,",
+        "types": ",dyfi,origin,phase-data,shakemap,",
+        "nst": 38,
+        "dmin": 0.08897,
+        "rms": 0.21,
+        "gap": 26,
+        "magType": "ml",
+        "type": "earthquake",
+        "title": "M 3.1 - 14 km E of Manti, Utah"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.475,
+          39.2456667,
+          4.84
+        ]
+      },
+      "id": "uu60307652"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 3.41,
+        "place": "17 km ENE of Halls Crossing, Utah",
+        "time": 1540636464460,
+        "updated": 1620248738130,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/uu60302797",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=uu60302797&format=geojson",
+        "felt": null,
+        "cdi": null,
+        "mmi": 3.18,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 179,
+        "net": "uu",
+        "code": "60302797",
+        "ids": ",us1000hhy6,uu60302797,",
+        "sources": ",us,uu,",
+        "types": ",origin,phase-data,shakemap,",
+        "nst": 16,
+        "dmin": 0.9559,
+        "rms": 0.18,
+        "gap": 134,
+        "magType": "ml",
+        "type": "earthquake",
+        "title": "M 3.4 - 17 km ENE of Halls Crossing, Utah"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -110.515,
+          37.4941667,
+          6
+        ]
+      },
+      "id": "uu60302797"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 3.45,
+        "place": "2 km NW of Loa, Utah",
+        "time": 1522787198720,
+        "updated": 1620248728630,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/uu60276212",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=uu60276212&format=geojson",
+        "felt": 18,
+        "cdi": 3.6,
+        "mmi": 4.27,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 190,
+        "net": "uu",
+        "code": "60276212",
+        "ids": ",uu60276212,us1000ddul,",
+        "sources": ",uu,us,",
+        "types": ",dyfi,origin,phase-data,shakemap,",
+        "nst": 30,
+        "dmin": 0.3618,
+        "rms": 0.24,
+        "gap": 72,
+        "magType": "ml",
+        "type": "earthquake",
+        "title": "M 3.5 - 2 km NW of Loa, Utah"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.6611667,
+          38.417,
+          8.07
+        ]
+      },
+      "id": "uu60276212"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 3.15,
+        "place": "2 km NNW of Loa, Utah",
+        "time": 1521724893690,
+        "updated": 1529372147040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/uu60274927",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=uu60274927&format=geojson",
+        "felt": 14,
+        "cdi": 3.7,
+        "mmi": 3.41,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 158,
+        "net": "uu",
+        "code": "60274927",
+        "ids": ",uu60274927,us1000d7i1,",
+        "sources": ",uu,us,",
+        "types": ",dyfi,origin,phase-data,shakemap,",
+        "nst": 23,
+        "dmin": 0.3613,
+        "rms": 0.19,
+        "gap": 72,
+        "magType": "ml",
+        "type": "earthquake",
+        "title": "M 3.2 - 2 km NNW of Loa, Utah"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.657,
+          38.4205,
+          16.85
+        ]
+      },
+      "id": "uu60274927"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 3.05,
+        "place": "1 km NW of Loa, Utah",
+        "time": 1521678464650,
+        "updated": 1657226142091,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/uu60274867",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=uu60274867&format=geojson",
+        "felt": 10,
+        "cdi": 4.1,
+        "mmi": 3.42,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 147,
+        "net": "uu",
+        "code": "60274867",
+        "ids": ",us1000d7bz,uu60274867,",
+        "sources": ",us,uu,",
+        "types": ",dyfi,origin,phase-data,shakemap,",
+        "nst": 29,
+        "dmin": 0.3587,
+        "rms": 0.2,
+        "gap": 72,
+        "magType": "ml",
+        "type": "earthquake",
+        "title": "M 3.1 - 1 km NW of Loa, Utah"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.656,
+          38.4173333,
+          16.44
+        ]
+      },
+      "id": "uu60274867"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 3.34,
+        "place": "5 km ESE of Monroe, Utah",
+        "time": 1506227924130,
+        "updated": 1513979779040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/uu60249087",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=uu60249087&format=geojson",
+        "felt": 53,
+        "cdi": 3.4,
+        "mmi": 3.69,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 190,
+        "net": "uu",
+        "code": "60249087",
+        "ids": ",uu60249087,us2000att0,",
+        "sources": ",uu,us,",
+        "types": ",dyfi,origin,phase-data,shakemap,",
+        "nst": 29,
+        "dmin": 0.1654,
+        "rms": 0.24,
+        "gap": 51,
+        "magType": "ml",
+        "type": "earthquake",
+        "title": "M 3.3 - 5 km ESE of Monroe, Utah"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -112.056,
+          38.615,
+          7.09
+        ]
+      },
+      "id": "uu60249087"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 3.73,
+        "place": "4 km SSW of Bluff, Utah",
+        "time": 1492833701660,
+        "updated": 1620248684600,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/uu60194762",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=uu60194762&format=geojson",
+        "felt": 18,
+        "cdi": 3.6,
+        "mmi": 3.72,
+        "alert": null,
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 221,
+        "net": "uu",
+        "code": "60194762",
+        "ids": ",uu60194762,us10008jqd,",
+        "sources": ",uu,us,",
+        "types": ",dyfi,origin,phase-data,shakemap,",
+        "nst": 12,
+        "dmin": 0.8595,
+        "rms": 0.13,
+        "gap": 129,
+        "magType": "ml",
+        "type": "earthquake",
+        "title": "M 3.7 - 4 km SSW of Bluff, Utah"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -109.5676667,
+          37.2456667,
+          8.79
+        ]
+      },
+      "id": "uu60194762"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 3.77,
+        "place": "34 km N of Halls Crossing, Utah",
+        "time": 1456859222640,
+        "updated": 1655370012831,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/uu60141627",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=uu60141627&format=geojson",
+        "felt": 1,
+        "cdi": 2,
+        "mmi": 2.87,
+        "alert": "green",
+        "status": "reviewed",
+        "tsunami": 0,
+        "sig": 219,
+        "net": "uu",
+        "code": "60141627",
+        "ids": ",uu60141627,us10004tvx,",
+        "sources": ",uu,us,",
+        "types": ",cap,dyfi,losspager,origin,phase-data,shakemap,",
+        "nst": 23,
+        "dmin": 0.193,
+        "rms": 0.18,
+        "gap": 110,
+        "magType": "ml",
+        "type": "earthquake",
+        "title": "M 3.8 - 34 km N of Halls Crossing, Utah"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -110.6365,
+          37.7636667,
+          14.51
+        ]
+      },
+      "id": "uu60141627"
+    }
+  ],
+  "bbox": [
+    -112.2238333,
+    37.2456667,
+    -3.15,
+    -109.2958333,
+    39.71,
+    19.72
+  ]
+}

@@ -107,6 +107,8 @@ matplotlib-inline==0.2.2 # Exibe gráficos do Matplotlib diretamente integrados 
 
 mistune==3.4.0 # Realiza a tradução rápida de Markdown para HTML.
 
+mypy==2.4.1 # Verifica a tipagem estática do código da API.
+
 nbclient==0.11.0 # Executa notebooks Jupyter de forma programática.
 
 nbconvert==7.17.2 # Converte notebooks Jupyter para outros formatos como PDF ou HTML.
@@ -151,7 +153,7 @@ pygments==2.21.0 # Realiza a coloração e destaque de sintaxe para diversas lin
 
 pytest==9.2.0 # Executa testes automatizados em códigos Python.
 
-python-dateutil==4.0.0 # Estende as funcionalidades de manipulação de datas do Python.
+python-dateutil==2.9.0.post0 # Estende as funcionalidades de manipulação de datas do Python.
 
 python-discovery==1.9.5 # Ajuda a localizar interpretadores Python instalados no sistema.
 

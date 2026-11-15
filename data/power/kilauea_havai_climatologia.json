@@ -1,0 +1,248 @@
+{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      -155.28,
+      19.41,
+      482.4
+    ]
+  },
+  "properties": {
+    "parameter": {
+      "ALLSKY_SFC_SW_DWN": {
+        "JAN": 4.44,
+        "FEB": 4.8348,
+        "MAR": 5.1756,
+        "APR": 5.6518,
+        "MAY": 5.874,
+        "JUN": 6.0746,
+        "JUL": 6.197,
+        "AUG": 6.0804,
+        "SEP": 5.5997,
+        "OCT": 5.0018,
+        "NOV": 4.3627,
+        "DEC": 4.0464,
+        "ANN": 5.28
+      },
+      "CLRSKY_SFC_SW_DWN": {
+        "JAN": 5.6446,
+        "FEB": 6.4498,
+        "MAR": 7.2962,
+        "APR": 7.9222,
+        "MAY": 8.1775,
+        "JUN": 8.2483,
+        "JUL": 8.1886,
+        "AUG": 7.9661,
+        "SEP": 7.4402,
+        "OCT": 6.5892,
+        "NOV": 5.7329,
+        "DEC": 5.3028,
+        "ANN": 7.0819
+      },
+      "PRECTOTCORR": {
+        "JAN": 6.2,
+        "FEB": 6.47,
+        "MAR": 8.78,
+        "APR": 8.03,
+        "MAY": 5.64,
+        "JUN": 4.4,
+        "JUL": 4.91,
+        "AUG": 5.41,
+        "SEP": 5.54,
+        "OCT": 5.92,
+        "NOV": 7.19,
+        "DEC": 7.11,
+        "ANN": 6.3
+      },
+      "PS": {
+        "JAN": 96.33,
+        "FEB": 96.35,
+        "MAR": 96.43,
+        "APR": 96.5,
+        "MAY": 96.46,
+        "JUN": 96.44,
+        "JUL": 96.39,
+        "AUG": 96.34,
+        "SEP": 96.29,
+        "OCT": 96.28,
+        "NOV": 96.34,
+        "DEC": 96.37,
+        "ANN": 96.38
+      },
+      "RH2M": {
+        "JAN": 82.35,
+        "FEB": 82.47,
+        "MAR": 83.16,
+        "APR": 82.93,
+        "MAY": 82.62,
+        "JUN": 83.06,
+        "JUL": 83.37,
+        "AUG": 83.45,
+        "SEP": 83.26,
+        "OCT": 84.06,
+        "NOV": 84.13,
+        "DEC": 84.04,
+        "ANN": 83.25
+      },
+      "T2M": {
+        "JAN": 20.13,
+        "FEB": 19.85,
+        "MAR": 20.07,
+        "APR": 20.5,
+        "MAY": 21.2,
+        "JUN": 21.64,
+        "JUL": 22.24,
+        "AUG": 22.65,
+        "SEP": 22.65,
+        "OCT": 22.4,
+        "NOV": 21.56,
+        "DEC": 20.62,
+        "ANN": 21.3
+      },
+      "T2M_MAX": {
+        "JAN": 25.63,
+        "FEB": 26.66,
+        "MAR": 26.53,
+        "APR": 27.45,
+        "MAY": 26.29,
+        "JUN": 26.4,
+        "JUL": 27.73,
+        "AUG": 27.94,
+        "SEP": 29.05,
+        "OCT": 28.25,
+        "NOV": 27.36,
+        "DEC": 26.01,
+        "ANN": 29.05
+      },
+      "T2M_MIN": {
+        "JAN": 15.9,
+        "FEB": 15.34,
+        "MAR": 15.8,
+        "APR": 15.96,
+        "MAY": 17.77,
+        "JUN": 18.38,
+        "JUL": 18.52,
+        "AUG": 18.96,
+        "SEP": 18.81,
+        "OCT": 19.12,
+        "NOV": 17.43,
+        "DEC": 17.01,
+        "ANN": 15.34
+      },
+      "T2M_RANGE": {
+        "JAN": 3.89,
+        "FEB": 3.79,
+        "MAR": 3.7,
+        "APR": 3.63,
+        "MAY": 3.92,
+        "JUN": 3.79,
+        "JUL": 3.85,
+        "AUG": 3.83,
+        "SEP": 3.81,
+        "OCT": 3.63,
+        "NOV": 3.32,
+        "DEC": 3.34,
+        "ANN": 3.71
+      },
+      "WS10M": {
+        "JAN": 4.64,
+        "FEB": 4.96,
+        "MAR": 5.01,
+        "APR": 5.32,
+        "MAY": 4.92,
+        "JUN": 5.18,
+        "JUL": 5.18,
+        "AUG": 5.22,
+        "SEP": 4.94,
+        "OCT": 4.81,
+        "NOV": 4.96,
+        "DEC": 4.96,
+        "ANN": 5.01
+      },
+      "WS2M": {
+        "JAN": 3.68,
+        "FEB": 3.94,
+        "MAR": 3.99,
+        "APR": 4.24,
+        "MAY": 3.93,
+        "JUN": 4.13,
+        "JUL": 4.13,
+        "AUG": 4.17,
+        "SEP": 3.94,
+        "OCT": 3.84,
+        "NOV": 3.94,
+        "DEC": 3.93,
+        "ANN": 3.99
+      }
+    }
+  },
+  "header": {
+    "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
+    "api": {
+      "version": "v2.10.1",
+      "name": "POWER Climatology API"
+    },
+    "sources": [
+      "SYN1DEG",
+      "MERRA2",
+      "POWER"
+    ],
+    "fill_value": -999.0,
+    "time_standard": "LST",
+    "range": "25-year Meteorological and Solar Monthly & Annual Climatologies (January 2001 - December 2025)"
+  },
+  "messages": [
+    "The requested parameters are retrieved from a pre-computed climatological period (January 2001 - December 2025)"
+  ],
+  "parameters": {
+    "ALLSKY_SFC_SW_DWN": {
+      "units": "kW-hr/m^2/day",
+      "longname": "All Sky Surface Shortwave Downward Irradiance"
+    },
+    "CLRSKY_SFC_SW_DWN": {
+      "units": "kW-hr/m^2/day",
+      "longname": "Clear Sky Surface Shortwave Downward Irradiance"
+    },
+    "PRECTOTCORR": {
+      "units": "mm/day",
+      "longname": "Precipitation Corrected"
+    },
+    "PS": {
+      "units": "kPa",
+      "longname": "Surface Pressure"
+    },
+    "RH2M": {
+      "units": "%",
+      "longname": "Relative Humidity at 2 Meters"
+    },
+    "T2M": {
+      "units": "C",
+      "longname": "Temperature at 2 Meters"
+    },
+    "T2M_MAX": {
+      "units": "C",
+      "longname": "Temperature at 2 Meters Maximum"
+    },
+    "T2M_MIN": {
+      "units": "C",
+      "longname": "Temperature at 2 Meters Minimum"
+    },
+    "T2M_RANGE": {
+      "units": "C",
+      "longname": "Temperature at 2 Meters Range"
+    },
+    "WS10M": {
+      "units": "m/s",
+      "longname": "Wind Speed at 10 Meters"
+    },
+    "WS2M": {
+      "units": "m/s",
+      "longname": "Wind Speed at 2 Meters"
+    }
+  },
+  "times": {
+    "data": 0.39,
+    "process": 0.04
+  }
+}

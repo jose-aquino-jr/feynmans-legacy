@@ -35,6 +35,8 @@ earthaccess>=0.9.0 # Facilita a busca e o acesso a dados geoespaciais e científ
 
 executing==2.3.0 # Rastreia e identifica a linha de código exata que está sendo executada.
 
+fastapi==0.163.0 # Expõe a API HTTP assíncrona com validação Pydantic e OpenAPI.
+
 folium>=0.14.0 # Cria mapas interativos utilizando a biblioteca Leaflet.js.
 
 fonttools==4.68.0 # Manipula arquivos e métricas de fontes tipográficas.
@@ -95,9 +97,9 @@ netcdf4==1.7.5.1.post1 # Lê e grava arquivos de dados científicos no formato N
 
 numba==0.68.1 # Compila funções Python em código de máquina otimizado com JIT.
 
-numpy>=1.24.0,<2.0.0 # Fornece suporte a matrizes multidimensionais e computação numérica de alta performance.
+numpy>=2.5,<3 # Fornece suporte a matrizes multidimensionais e computação numérica de alta performance.
 
-nvidia-nccl-cu13==2.32.6 # Fornece primitivas de comunicação coletiva otimizadas para GPUs NVIDIA.
+nvidia-nccl-cu13==2.32.6; sys_platform == "linux" and platform_machine == "x86_64" # Fornece primitivas de comunicação coletiva otimizadas para GPUs NVIDIA.
 
 packaging==26.3 # Gerencia e compara versões de pacotes em conformidade com PEP 440.
 
@@ -131,6 +133,8 @@ pydantic==2.14.3 # Realiza validação de dados e gerenciamento de configuraçõ
 
 pydantic-core==2.50.4 # Implementa o motor de validação de alta performance para o Pydantic.
 
+pydantic-settings==2.16.3 # Carrega configurações da API a partir de variáveis de ambiente e .env.
+
 pygments==2.21.0 # Realiza a coloração e destaque de sintaxe para diversas linguagens.
 
 pynndescent==0.7.0 # Executa buscas aproximadas de vizinhos mais próximos em alta velocidade.
@@ -141,7 +145,7 @@ pyparsing==3.3.3 # Constrói analisadores sintáticos baseados em gramática de 
 
 pyproj==3.8.0 # Realiza transformações cartográficas e projeções de sistemas de coordenadas.
 
-python-dateutil==4.0.0 # Estende as funcionalidades de manipulação de datas do Python.
+python-dateutil==2.9.0.post0 # Estende as funcionalidades de manipulação de datas do Python.
 
 python-dotenv==1.2.4 # Carrega variáveis de ambiente a partir de arquivos `.env`.
 
@@ -190,6 +194,8 @@ tzdata==2026.6 # Fornece a base de dados de fusos horários globais (IANA).
 umap-learn==0.6.0 # Executa a redução de dimensionalidade UMAP para aprendizado de máquina.
 
 urllib3==2.8.0 # Gerencia conexões HTTP avançadas com suporte a pool e reuso.
+
+uvicorn[standard]==0.54.0 # Executa a API ASGI com recarga automática e suporte a produção.
 
 wcwidth==0.9.4 # Calcula a largura de caracteres Unicode impressos em terminais.
 
