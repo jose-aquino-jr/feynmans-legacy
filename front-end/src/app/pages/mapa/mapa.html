@@ -5,13 +5,13 @@
     <img src="/images/logo.svg" alt="Feynman's Legacy" class="block h-16 w-auto" />
   </a>
   <nav class="mr-[calc(var(--panel-w)*0.45)] flex gap-12 pt-1 max-md:mr-0 max-md:gap-5">
-    @for (item of navItems; track item) {
+    @for (item of navItems; track item.label) {
       <a
-        href="#"
-        (click)="$event.preventDefault()"
+        [routerLink]="item.link"
+        [fragment]="item.fragment"
         class="text-[11px] tracking-[.12em] text-cream no-underline"
-        [class]="item === 'MAP' ? 'font-semibold opacity-100' : 'font-normal opacity-75'"
-      >{{ item }}</a>
+        [class]="item.label === 'MAP' ? 'font-semibold opacity-100' : 'font-normal opacity-75'"
+      >{{ item.label }}</a>
     }
   </nav>
 </header>
@@ -21,7 +21,7 @@
   [class]="panelOpen ? 'right-[calc(var(--panel-w)_+_80px)]' : 'right-12'"
 >
   <div class="relative min-h-0 flex-1">
-    <canvas #scene class="absolute inset-0 block size-full cursor-grab touch-none active:cursor-grabbing"></canvas>
+    <canvas #scene class="absolute left-0 top-0 block h-full w-[calc(100vw_-_52px)] cursor-grab touch-none active:cursor-grabbing max-md:w-[calc(100vw_-_20px)]"></canvas>
 
     <p class="pointer-events-none absolute bottom-0 left-0 max-w-[240px] select-none text-[8px] font-light leading-[1.4] tracking-[.08em] opacity-60">
       @if (view === 'both') {
@@ -117,7 +117,7 @@
     aria-label="Comparar com"
   >
     <span
-      class="glass-active pointer-events-none absolute bottom-0.5 left-0.5 top-0.5 w-[calc(50%-2px)] rounded-[9px] transition-transform duration-[420ms] ease-[cubic-bezier(.34,1.25,.64,1)]"
+      class="glass-active pointer-events-none absolute bottom-0.5 left-0.5 top-0.5 w-[calc(50%-2px)] rounded-[9px]"
       [class]="body === 'mars' ? 'translate-x-full' : 'translate-x-0'"
       aria-hidden="true"
     ></span>
@@ -145,7 +145,7 @@
 >
   <div
     #glassBody
-    class="absolute inset-0 bg-gradient-to-b from-white/[.08] to-ink/60 backdrop-blur-xl backdrop-brightness-110 backdrop-saturate-150"
+    class="absolute inset-0 rounded-[20px] bg-gradient-to-b from-white/[.08] to-ink/60 backdrop-blur-xl backdrop-brightness-110 backdrop-saturate-150"
   ></div>
 
   <svg class="pointer-events-none absolute inset-0 size-full overflow-visible" aria-hidden="true">
@@ -168,8 +168,8 @@
 
   <button
     type="button"
-    class="absolute left-px top-1/2 z-20 grid h-[120px] w-[13px] -translate-y-1/2 cursor-pointer place-items-center text-cream/80 transition-colors hover:text-cream max-md:hidden"
-    (click)="panelOpen = !panelOpen"
+    class="absolute left-0 top-1/2 z-20 grid h-[120px] w-4 -translate-y-1/2 cursor-pointer place-items-center text-cream/80 transition-colors hover:text-cream max-md:hidden"
+    (click)="togglePanel()"
     [attr.aria-label]="panelOpen ? 'Recolher painel' : 'Abrir painel'"
   >
     <svg viewBox="0 0 10 16" class="h-[11px] w-[7px] transition-transform duration-300" [class]="panelOpen ? '' : 'rotate-180'" aria-hidden="true">

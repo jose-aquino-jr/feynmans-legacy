@@ -83,11 +83,12 @@ function buildRadar(values: number[]) {
   };
 }
 
-const SEGMENTS = 80;
+const SEGMENTS = 48;
 const ARC_HEIGHT = 0.6;
 const DASH_SPEED = 0.25;
 const CAMERA_SMOOTHING = 4;
 const MIN_DISTANCE_FACTOR = 2.5;
+const FRAME_INTERVAL = 1000 / 30;
 
 const FOV = 18;
 
@@ -102,8 +103,8 @@ const FIT_MARGIN = 1.12 * 1.06;
 
 function panelPath(w: number, h: number, bump: boolean): string {
   const r = 20;
-  const x0 = bump ? 14 : 0;
-  const o = x0 - 13;
+  const x0 = bump ? 16 : 0;
+  const o = x0 - 16;
   const t = h / 2 - 60;
   const left = bump
     ? `V${t + 120} C${x0} ${t + 98} ${o} ${t + 106} ${o} ${t + 84} V${t + 36} C${o} ${t + 14} ${x0} ${t + 22} ${x0} ${t} `
@@ -126,7 +127,7 @@ function latLon(lat: number, lon: number, r = 1): THREE.Vector3 {
 }
 
 @Component({
-  selector: 'app-mapa',
+  selector: 'app-map-page',
   imports: [RouterLink],
   templateUrl: './mapa.html',
   host: {
@@ -136,7 +137,7 @@ function latLon(lat: number, lon: number, r = 1): THREE.Vector3 {
       '[--panel-w:clamp(290px,24vw,361px)] [--panel-top:clamp(76px,12vh,150px)]',
   },
 })
-export class Mapa implements AfterViewInit, OnDestroy {
+export class MapPage implements AfterViewInit, OnDestroy {
   
   @ViewChild('scene') set sceneRef(ref: ElementRef<HTMLCanvasElement> | undefined) {
     if (ref) this.zone.runOutsideAngular(() => this.init(ref.nativeElement));
@@ -147,7 +148,12 @@ export class Mapa implements AfterViewInit, OnDestroy {
 
   readonly cfg = CONFIG;
   readonly timeline = TIMELINE;
-  readonly navItems = ['MAP', 'METHODS', 'DATA', 'TEAM'];
+  readonly navItems = [
+    { label: 'MAP', link: '/mapa' },
+    { label: 'METHODOLOGY', link: '/metodologia' },
+    { label: 'DATA', link: '/', fragment: 'data' },
+    { label: 'TEAM', link: '/', fragment: 'team' },
+  ];
   readonly minYear = TIMELINE[0].year;
   readonly maxYear = TIMELINE[TIMELINE.length - 1].year;
   panelOpen = true;
@@ -159,9 +165,11 @@ export class Mapa implements AfterViewInit, OnDestroy {
 
   private renderer: THREE.WebGLRenderer | null = null;
   private scene = new THREE.Scene();
-  
+
   private textureCache = new Map<string, THREE.Texture>();
   private maxAnisotropy = 1;
+  private moonMaterial!: THREE.MeshStandardMaterial;
+  private moonTextureRequested = false;
   private camera = new THREE.PerspectiveCamera(FOV, 1, 0.1, 300);
   private earth!: THREE.Mesh;
   private mars!: THREE.Mesh;
@@ -178,18 +186,67 @@ export class Mapa implements AfterViewInit, OnDestroy {
   private zoom = 1;
   private cameraX = 0;
   private cameraDistance = 6;
+  private fitAspect: number | null = null;
+  private visibleSceneWidth = 0;
+  private sceneCanvas: HTMLCanvasElement | null = null;
+  private viewportWidth = 0;
+  private viewportHeight = 0;
   private dragging: THREE.Object3D | null = null;
   private lastPointer = { x: 0, y: 0 };
   private raycaster = new THREE.Raycaster();
   private resizeObserver?: ResizeObserver;
   private panelObserver?: ResizeObserver;
   private cleanups: Array<() => void> = [];
+  private frameId: number | null = null;
+  private forceNextFrame = false;
+  private lineDirty = true;
+  private lastSpread: number | null = null;
+  private lastRenderTime = 0;
   private previousTime = performance.now();
 
   constructor(private zone: NgZone, private cdr: ChangeDetectorRef) { }
 
   ngAfterViewInit() {
-    this.zone.runOutsideAngular(() => this.observePanel());
+    this.zone.runOutsideAngular(() => {
+      this.observePanel();
+      this.updateSceneLayout();
+    });
+  }
+
+  togglePanel() {
+    this.panelOpen = !this.panelOpen;
+    this.zone.runOutsideAngular(() => this.updateSceneLayout());
+  }
+
+  private updateSceneLayout() {
+    const canvas = this.sceneCanvas;
+    if (!canvas) return;
+
+    const canvasWidth = canvas.clientWidth;
+    if (canvasWidth <= 0) return;
+    const canvasHeight = canvas.clientHeight || 1;
+    let visibleWidth = canvasWidth;
+
+    if (this.panelOpen && window.innerWidth >= 768 && this.panelEl?.nativeElement) {
+      const panel = this.panelEl.nativeElement;
+      const panelRight = Number.parseFloat(getComputedStyle(panel).right) || 0;
+      const panelLeft = window.innerWidth - panelRight - panel.offsetWidth;
+      const canvasLeft = canvas.getBoundingClientRect().left;
+      visibleWidth = THREE.MathUtils.clamp(panelLeft - canvasLeft, 1, canvasWidth);
+    }
+
+    this.visibleSceneWidth = visibleWidth;
+    this.fitAspect = visibleWidth / canvasHeight;
+    this.lineDirty = true;
+
+    if (this.lastRenderTime === 0) {
+      const initial = this.desiredCamera();
+      this.cameraX = initial.x;
+      this.cameraDistance = initial.distance;
+      this.camera.position.set(this.cameraX, 0, this.cameraDistance);
+    }
+
+    this.requestFrame();
   }
 
   
@@ -200,6 +257,8 @@ export class Mapa implements AfterViewInit, OnDestroy {
       const h = el.offsetHeight;
       if (!w || !h) return;
       const d = panelPath(w, h, window.innerWidth >= 768);
+      const svg = el.querySelector('svg');
+      svg?.setAttribute('viewBox', `0 0 ${w} ${h}`);
       el.querySelectorAll('path[data-shape]').forEach((p) => p.setAttribute('d', d));
       this.glassBodyEl.nativeElement.style.clipPath = `path('${d}')`;
     };
@@ -232,6 +291,7 @@ export class Mapa implements AfterViewInit, OnDestroy {
     this.aligning = true;
 
     this.cdr.markForCheck();
+    this.requestFrame();
   }
 
   setBody(body: Body) {
@@ -244,15 +304,19 @@ export class Mapa implements AfterViewInit, OnDestroy {
     this.zoom = 1;
     this.aligning = true;
     this.restartDraw();
+    if (body === 'moon') this.loadMoonTexture();
+    this.requestFrame();
   }
 
   align() {
     this.aligning = true;
+    this.requestFrame();
   }
 
   private restartDraw() {
     this.drawElapsed = -DRAW_DELAY;
     this.drawProgress = 0;
+    this.lineDirty = true;
   }
 
   private applyBody() {
@@ -262,20 +326,23 @@ export class Mapa implements AfterViewInit, OnDestroy {
       this.earthMarkers[b].visible = b === this.body;
       this.otherMarkers[b].visible = b === this.body;
     }
+    this.lineDirty = true;
   }
 
   
   private spread() {
-    return THREE.MathUtils.clamp(this.camera.aspect / 2.1, 1, 2);
+    const aspect = this.fitAspect ?? this.camera.aspect;
+    return THREE.MathUtils.clamp(aspect / 2.1, 1, 2);
   }
 
   
   private fitSphere(r: number) {
-    return (r * FIT_MARGIN) / (VIEW_HALF * Math.min(1, this.camera.aspect));
+    const aspect = this.fitAspect ?? this.camera.aspect;
+    return (r * FIT_MARGIN) / (VIEW_HALF * Math.min(1, aspect));
   }
 
   private cameraLimits() {
-    const aspect = this.camera.aspect;
+    const aspect = this.fitAspect ?? this.camera.aspect;
     if (this.view === 'earth') {
       return {
         x: this.earth.position.x,
@@ -307,7 +374,13 @@ export class Mapa implements AfterViewInit, OnDestroy {
 
   private desiredCamera() {
     const { x, base, min } = this.cameraLimits();
-    return { x, distance: Math.max(base * this.zoom, min) * DIST_K };
+    const distance = Math.max(base * this.zoom, min) * DIST_K;
+    const canvas = this.sceneCanvas;
+    const height = canvas?.clientHeight || 1;
+    const coveredWidth = Math.max(0, (canvas?.clientWidth || 0) - this.visibleSceneWidth);
+    const focalPixels = height / (2 * Math.tan((FOV * Math.PI) / 360));
+    const centerOffset = (coveredWidth * distance) / (2 * focalPixels);
+    return { x: x + centerOffset, distance };
   }
 
   private loadTexture(url: string, srgb: boolean, onLoad: (texture: THREE.Texture) => void) {
@@ -317,13 +390,19 @@ export class Mapa implements AfterViewInit, OnDestroy {
       onLoad(cached);
       return;
     }
+    const rendererAtRequest = this.renderer;
     new THREE.TextureLoader().load(
       url,
       (texture) => {
+        if (!rendererAtRequest || this.renderer !== rendererAtRequest) {
+          texture.dispose();
+          return;
+        }
         if (srgb) texture.colorSpace = THREE.SRGBColorSpace;
         texture.anisotropy = this.maxAnisotropy;
         this.textureCache.set(url, texture);
         onLoad(texture);
+        this.requestFrame();
       },
       undefined,
       () => console.warn('Texture not found:', url)
@@ -338,7 +417,7 @@ export class Mapa implements AfterViewInit, OnDestroy {
       emissive: new THREE.Color(0x0b1620),
       emissiveIntensity: 1,
     });
-    const mesh = new THREE.Mesh(new THREE.SphereGeometry(1, 96, 64), material);
+    const mesh = new THREE.Mesh(new THREE.SphereGeometry(1, 64, 48), material);
 
     this.loadTexture('/textures/earth.jpg', true, (texture) => {
       material.map = texture;
@@ -356,7 +435,7 @@ export class Mapa implements AfterViewInit, OnDestroy {
       roughness: 1,
       metalness: 0,
     });
-    const mesh = new THREE.Mesh(new THREE.SphereGeometry(MARS_SCALE, 96, 64), material);
+    const mesh = new THREE.Mesh(new THREE.SphereGeometry(MARS_SCALE, 64, 48), material);
 
     this.loadTexture('/textures/mars.jpg', true, (texture) => {
       material.map = texture;
@@ -376,19 +455,25 @@ export class Mapa implements AfterViewInit, OnDestroy {
       emissive: new THREE.Color(0x0e1014),
       emissiveIntensity: 1,
     });
-    const mesh = new THREE.Mesh(new THREE.SphereGeometry(MOON_SCALE, 96, 64), material);
-
-    this.loadTexture('/textures/moon.jpg', true, (texture) => {
-      material.map = texture;
-      material.bumpMap = texture;
-      material.bumpScale = 0.5;
-      material.color.set(0xffffff);
-      material.needsUpdate = true;
-    });
+    const mesh = new THREE.Mesh(new THREE.SphereGeometry(MOON_SCALE, 64, 48), material);
+    this.moonMaterial = material;
+    this.moonTextureRequested = false;
 
 
     this.createAtmosphere(mesh, MOON_SCALE * 1.07, 0xbfd0e8, 3, 0.55);
     return mesh;
+  }
+
+  private loadMoonTexture() {
+    if (this.moonTextureRequested) return;
+    this.moonTextureRequested = true;
+    this.loadTexture('/textures/moon.jpg', true, (texture) => {
+      this.moonMaterial.map = texture;
+      this.moonMaterial.bumpMap = texture;
+      this.moonMaterial.bumpScale = 0.5;
+      this.moonMaterial.color.set(0xffffff);
+      this.moonMaterial.needsUpdate = true;
+    });
   }
 
   private createAtmosphere(planet: THREE.Mesh, radius: number, color: number, power: number, gain: number) {
@@ -424,7 +509,7 @@ export class Mapa implements AfterViewInit, OnDestroy {
       blending: THREE.AdditiveBlending,
       depthWrite: false,
     });
-    planet.add(new THREE.Mesh(new THREE.SphereGeometry(radius, 64, 48), material));
+    planet.add(new THREE.Mesh(new THREE.SphereGeometry(radius, 32, 24), material));
   }
 
   private createMarker(
@@ -439,7 +524,7 @@ export class Mapa implements AfterViewInit, OnDestroy {
     const group = new THREE.Group();
     group.add(
       new THREE.Mesh(
-        new THREE.CircleGeometry(radius, 64),
+        new THREE.CircleGeometry(radius, 40),
         new THREE.MeshBasicMaterial({
           color: fill.color,
           transparent: true,
@@ -453,7 +538,7 @@ export class Mapa implements AfterViewInit, OnDestroy {
 
 
     const ring = new THREE.Mesh(
-      new THREE.RingGeometry(radius * 0.93, radius, 64),
+      new THREE.RingGeometry(radius * 0.93, radius, 40),
       new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, side: THREE.DoubleSide, toneMapped: false })
     );
     ring.renderOrder = 1;
@@ -556,8 +641,80 @@ export class Mapa implements AfterViewInit, OnDestroy {
     this.head.position.copy(p0);
   }
 
+  private requestFrame() {
+    if (!this.renderer || this.frameId !== null) return;
+    this.frameId = requestAnimationFrame(this.renderFrame);
+  }
+
+  private renderFrame = (now: number) => {
+    this.frameId = null;
+    const renderer = this.renderer;
+    if (!renderer) return;
+
+    const forceRender = this.forceNextFrame;
+    this.forceNextFrame = false;
+    if (!forceRender && now - this.lastRenderTime < FRAME_INTERVAL) {
+      this.requestFrame();
+      return;
+    }
+
+    const dt = Math.min((now - this.previousTime) / 1000, 0.1);
+    this.previousTime = now;
+    this.lastRenderTime = now;
+    (this.line.material as LineMaterial).dashOffset -= DASH_SPEED * dt;
+
+    if (this.drawProgress < 1) {
+      this.drawElapsed += dt;
+      const p = Math.min(Math.max(this.drawElapsed / DRAW_DURATION, 0), 1);
+      this.drawProgress = easeInOutCubic(p);
+      this.lineDirty = true;
+    }
+
+    const spread = this.spread();
+    if (this.lastSpread === null || Math.abs(spread - this.lastSpread) > 0.0001) {
+      this.lastSpread = spread;
+      this.lineDirty = true;
+    }
+    this.earth.position.x = EARTH_X * spread;
+    this.mars.position.x = OTHER_X * spread;
+    this.moon.position.x = OTHER_X * spread;
+
+    const desired = this.desiredCamera();
+    const cameraMoving =
+      Math.abs(desired.x - this.cameraX) > 0.001 || Math.abs(desired.distance - this.cameraDistance) > 0.001;
+    const k = 1 - Math.exp(-dt * CAMERA_SMOOTHING);
+    this.cameraX += (desired.x - this.cameraX) * k;
+    this.cameraDistance += (desired.distance - this.cameraDistance) * k;
+    this.camera.position.set(this.cameraX, 0, this.cameraDistance);
+    this.camera.updateMatrixWorld();
+
+    if (this.aligning) {
+      const earthTarget = this.earthFocus[this.body];
+      const otherTarget = this.otherFocus[this.body];
+      const alignmentStep = 1 - Math.pow(1 - 0.06, dt * 60);
+      this.earth.quaternion.slerp(earthTarget, alignmentStep);
+      this.other.quaternion.slerp(otherTarget, alignmentStep);
+      if (this.earth.quaternion.angleTo(earthTarget) < 0.001 && this.other.quaternion.angleTo(otherTarget) < 0.001) {
+        this.earth.quaternion.copy(earthTarget);
+        this.other.quaternion.copy(otherTarget);
+        this.aligning = false;
+      } else {
+        this.lineDirty = true;
+      }
+    }
+
+    if (this.lineDirty) {
+      this.updateLine();
+      this.lineDirty = false;
+    }
+    renderer.render(this.scene, this.camera);
+
+    if (this.drawProgress < 1 || this.aligning || cameraMoving || this.line.visible) this.requestFrame();
+  };
+
   private init(canvas: HTMLCanvasElement) {
     this.teardown();
+    this.sceneCanvas = canvas;
 
 
     this.scene = new THREE.Scene();
@@ -567,11 +724,16 @@ export class Mapa implements AfterViewInit, OnDestroy {
     this.dragging = null;
     this.restartDraw();
     this.previousTime = performance.now();
+    this.lastRenderTime = 0;
+    this.lastSpread = null;
+    this.fitAspect = null;
+    this.viewportWidth = window.innerWidth;
+    this.viewportHeight = window.innerHeight;
 
     const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
     this.renderer = renderer;
     this.maxAnisotropy = renderer.capabilities.getMaxAnisotropy();
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.2;
     renderer.setClearColor(0x000000, 0);
@@ -608,12 +770,32 @@ export class Mapa implements AfterViewInit, OnDestroy {
       const w = canvas.clientWidth;
       const h = canvas.clientHeight || 1;
       if (w === lastW && h === lastH) return;
+
+      const viewportChanged = this.viewportWidth !== window.innerWidth || this.viewportHeight !== window.innerHeight;
+      if (this.fitAspect === null || viewportChanged) {
+        this.viewportWidth = window.innerWidth;
+        this.viewportHeight = window.innerHeight;
+        this.fitAspect = w / h;
+      }
+
       lastW = w;
       lastH = h;
       renderer.setSize(w, h, false);
       this.camera.aspect = w / h;
       this.camera.updateProjectionMatrix();
       (this.line.material as LineMaterial).resolution.set(w, h);
+      this.updateSceneLayout();
+      this.lineDirty = true;
+      this.forceNextFrame = true;
+      if (this.lastRenderTime > 0) {
+        if (this.frameId !== null) {
+          cancelAnimationFrame(this.frameId);
+          this.frameId = null;
+        }
+        this.renderFrame(performance.now());
+      } else {
+        this.requestFrame();
+      }
     };
     this.resizeObserver = new ResizeObserver(resize);
     this.resizeObserver.observe(canvas);
@@ -650,6 +832,8 @@ export class Mapa implements AfterViewInit, OnDestroy {
       this.lastPointer = { x: e.clientX, y: e.clientY };
       this.dragging.rotateOnWorldAxis(new THREE.Vector3(0, 1, 0), dx * 0.006);
       this.dragging.rotateOnWorldAxis(new THREE.Vector3(1, 0, 0), dy * 0.006);
+      this.lineDirty = true;
+      this.requestFrame();
     };
     const onUp = () => {
       this.dragging = null;
@@ -667,6 +851,7 @@ export class Mapa implements AfterViewInit, OnDestroy {
       e.preventDefault();
       const next = this.zoom * (e.deltaY > 0 ? 1.08 : 0.92);
       this.zoom = Math.min(1.8, Math.max(this.minZoom(), next));
+      this.requestFrame();
     };
     canvas.addEventListener('pointerdown', onDown);
     canvas.addEventListener('pointermove', onMove);
@@ -681,49 +866,19 @@ export class Mapa implements AfterViewInit, OnDestroy {
       () => canvas.removeEventListener('wheel', onWheel)
     );
 
-    renderer.setAnimationLoop(() => {
-      const now = performance.now();
-      const dt = Math.min((now - this.previousTime) / 1000, 0.1);
-      this.previousTime = now;
-
-      (this.line.material as LineMaterial).dashOffset -= DASH_SPEED * dt;
-
-      if (this.drawProgress < 1) {
-        this.drawElapsed += dt;
-        const p = Math.min(Math.max(this.drawElapsed / DRAW_DURATION, 0), 1);
-        this.drawProgress = easeInOutCubic(p);
-      }
-
-      resize();
-
-      const spread = this.spread();
-      this.earth.position.x = EARTH_X * spread;
-      this.mars.position.x = OTHER_X * spread;
-      this.moon.position.x = OTHER_X * spread;
-
-      const desired = this.desiredCamera();
-      const k = 1 - Math.exp(-dt * CAMERA_SMOOTHING);
-      this.cameraX += (desired.x - this.cameraX) * k;
-      this.cameraDistance += (desired.distance - this.cameraDistance) * k;
-      this.camera.position.set(this.cameraX, 0, this.cameraDistance);
-      this.camera.updateMatrixWorld();
-
-      if (this.aligning) {
-        this.earth.quaternion.slerp(this.earthFocus[this.body], 0.06);
-        this.other.quaternion.slerp(this.otherFocus[this.body], 0.06);
-      }
-
-      this.updateLine();
-      renderer.render(this.scene, this.camera);
-    });
+    if (this.body === 'moon') this.loadMoonTexture();
+    this.requestFrame();
   }
 
   
   private teardown() {
+    if (this.frameId !== null) {
+      cancelAnimationFrame(this.frameId);
+      this.frameId = null;
+    }
     const renderer = this.renderer;
     if (!renderer) return;
     this.renderer = null;
-    renderer.setAnimationLoop(null);
     this.resizeObserver?.disconnect();
     this.resizeObserver = undefined;
     this.cleanups.forEach((fn) => fn());
