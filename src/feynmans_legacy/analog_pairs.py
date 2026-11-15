@@ -26,6 +26,14 @@ import numpy as np
 import pandas as pd
 
 from .analog_study import KEY, MIN_COVERAGE, profile_criteria, recommend
+from .logistics import (
+    LogisticsConfig,
+    cost_benefit,
+    load_support,
+    logistics_scores,
+    support_routes,
+    usable_support,
+)
 
 EARTH_RADIUS_KM = 6371.0
 NICHE_MIN_COVERAGE = 0.5
@@ -34,7 +42,8 @@ SITE_RADIUS_KM = 150.0
 STRONG_SCORE = 75.0
 WEAK_SCORE = 50.0
 BODIES = ("lua", "marte")
-PAIR_TYPES = ("destaque", "geral", "especialista")
+SUPPORT_FILE = "data/terra/apoio/nasa_bases_suporte.parquet"
+PAIR_TYPES = ("destaque", "geral", "especialista", "custo_beneficio")
 
 
 @dataclass(frozen=True)
@@ -65,6 +74,8 @@ class AnalogInputs:
     classics: Sequence[Zone] = ()
     featured: Sequence[Mapping[str, Any]] = ()
     names: Mapping[str, Mapping[str, str]] = field(default_factory=dict)
+    support: pd.DataFrame | None = None
+    logistics: LogisticsConfig = field(default_factory=LogisticsConfig)
 
 
 def haversine_km(
@@ -204,6 +215,7 @@ def build_pairs(
         for item in inputs.featured
     }
     land = land_locations(inputs.earth)
+    logistics = support_logistics(inputs)
     pair_rows: list[dict[str, Any]] = []
     niche_rows: list[dict[str, Any]] = []
     base_rows: list[dict[str, Any]] = []
@@ -212,12 +224,20 @@ def build_pairs(
         for base_id in inputs.references[body]["base_id"]:
             base = inputs.bases[str(base_id)]
             scores = base_scores(inputs, body, str(base_id))
-            picks = select_locations(scores[scores.index.isin(land)], niches,
-                                     inputs.classics, config)
+            scores["nota_logistica"] = logistics["nota_logistica"]
+            scores["custo_beneficio"] = cost_benefit(scores["nota_geral"],
+                                                     scores["nota_logistica"])
+            eligible = scores[scores.index.isin(land)]
+            picks = select_locations(eligible, niches, inputs.classics, config)
+            top_value = select_cost_benefit(eligible, inputs.classics, config,
+                                            inputs.logistics)
+            for location in top_value:
+                picks.setdefault(location, ("custo_beneficio", []))
             for location in featured_ids:
                 _, labels = picks.get(location, ("destaque", []))
                 picks[location] = ("destaque", labels)
             chosen = scores.loc[[loc for loc in picks if loc in scores.index]]
+            value_rank = chosen["custo_beneficio"].rank(ascending=False, method="first")
             chosen = chosen.sort_values("nota_geral", ascending=False, na_position="last")
             for rank, (location, row) in enumerate(chosen.iterrows(), start=1):
                 kind, labels = picks[str(location)]
@@ -230,6 +250,11 @@ def build_pairs(
                     "nichos_destaque": ",".join(labels), "rank_base": rank,
                     "nota_geral": row["nota_geral"], "cobertura": row["cobertura"],
                     "pontos_fortes": strong, "pontos_fracos": weak,
+                    "nota_logistica": row["nota_logistica"],
+                    "custo_beneficio": row["custo_beneficio"],
+                    "rank_custo_beneficio": (int(value_rank[location])
+                                             if pd.notna(value_rank[location]) else None),
+                    "top_custo_beneficio": str(location) in top_value,
                 })
                 niche_rows.extend({
                     "par_id": pair_id, "corpo": body, "base_id": str(base_id),
@@ -237,6 +262,8 @@ def build_pairs(
                     "nota": row[f"nota_{niche}"], "cobertura": row[f"cobertura_{niche}"],
                 } for niche in niches)
             best = chosen.dropna(subset=["nota_geral"])
+            value = chosen.dropna(subset=["custo_beneficio"]).sort_values(
+                "custo_beneficio", ascending=False)
             base_rows.append({
                 "base_id": str(base_id), "corpo": body, "nome": base["nome"],
                 "descricao": str(inputs.references[body].set_index("base_id").loc[
@@ -245,20 +272,66 @@ def build_pairs(
                 "raio_km": float(base["raio_km"]), "n_pares": len(chosen),
                 "melhor_location_id": str(best.index[0]) if not best.empty else None,
                 "melhor_nota": float(best["nota_geral"].iloc[0]) if not best.empty else None,
+                "melhor_custo_beneficio_location_id": (
+                    str(value.index[0]) if not value.empty else None),
+                "melhor_custo_beneficio": (
+                    float(value["custo_beneficio"].iloc[0]) if not value.empty else None),
             })
     pairs = pd.DataFrame(pair_rows)
-    sites = build_sites(inputs, pairs, featured_ids)
-    return {
+    sites = build_sites(inputs, pairs, featured_ids, logistics)
+    tables = {
         "bases": pd.DataFrame(base_rows),
         "locais": sites,
         "pares": pairs,
         "pares_nichos": pd.DataFrame(niche_rows),
     }
+    if inputs.support is not None:
+        support = usable_support(inputs.support, inputs.logistics)
+        tables["rotas"] = support_routes(sites[["location_id", "latitude", "longitude"]],
+                                         support, inputs.logistics)
+        apoios = inputs.support.copy()
+        apoios["usado_na_logistica"] = apoios["apoio_id"].isin(support["apoio_id"])
+        tables["apoios"] = apoios
+    return tables
+
+
+def support_logistics(inputs: AnalogInputs) -> pd.DataFrame:
+    """Logistics of every Earth cell; empty scores when no support catalog is given."""
+    if inputs.support is None:
+        return pd.DataFrame({"nota_logistica": np.nan},
+                            index=inputs.coordinates["location_id"].astype(str))
+    return logistics_scores(inputs.coordinates,
+                            usable_support(inputs.support, inputs.logistics),
+                            inputs.logistics)
+
+
+def select_cost_benefit(scores: pd.DataFrame, zones: Sequence[Zone],
+                        config: SelectionConfig, logistics: LogisticsConfig) -> set[str]:
+    """Best cost-benefit cells, spread apart and outside the classic analogs.
+
+    Only cells whose analog score reaches ``fracao_nota_minima`` of the best score
+    for the base compete, so good logistics cannot hide a poor analog.
+    """
+    allowed = scores[outside_zones(scores, zones)].dropna(subset=["custo_beneficio"])
+    if allowed.empty:
+        return set()
+    floor = logistics.fracao_nota_minima * allowed["nota_geral"].max()
+    allowed = allowed[allowed["nota_geral"] >= floor]
+    ranked = allowed.sort_values("custo_beneficio", ascending=False, kind="stable")
+    picked = pick_spread(ranked, logistics.n_custo_beneficio, config.separacao_km)
+    return {str(location) for location in picked.index}
+
+
+SHORT_COUNTRIES = {"Estados Unidos da América": "EUA"}
+LOGISTICS_COLUMNS = ["nota_logistica", "distancia_eua_km", "apoio_principal_id",
+                     "apoio_principal_nome", "distancia_apoio_km", "n_apoios_raio",
+                     "nota_eua", "nota_apoio", "nota_rotas"]
 
 
 def build_sites(
     inputs: AnalogInputs, pairs: pd.DataFrame,
     featured_ids: Mapping[str, Mapping[str, Any]],
+    logistics: pd.DataFrame,
 ) -> pd.DataFrame:
     """One row per Earth site present in any pair."""
     ids = pairs["location_id"].drop_duplicates()
@@ -280,9 +353,9 @@ def build_sites(
         if curated.get("nome"):
             label = str(curated["nome"])
         elif region and country:
-            label = f"{region}, {country}"
+            label = f"{region}, {SHORT_COUNTRIES.get(country, country)}"
         elif country:
-            label = f"{country} — {coordinates}"
+            label = f"{SHORT_COUNTRIES.get(country, country)} — {coordinates}"
         else:
             label = coordinates
         names.append(label)
@@ -296,10 +369,19 @@ def build_sites(
     sites["destaque"] = sites["location_id"].isin(list(featured_ids))
     sites["raio_km"] = SITE_RADIUS_KM
     counts = pairs.groupby("location_id").agg(
-        n_pares=("par_id", "size"), melhor_nota=("nota_geral", "max"))
+        n_pares=("par_id", "size"), melhor_nota=("nota_geral", "max"),
+        melhor_custo_beneficio=("custo_beneficio", "max"))
     sites = sites.merge(counts, left_on="location_id", right_index=True, how="left")
+    logistics = logistics.copy()
+    if inputs.support is not None and "apoio_principal_id" in logistics.columns:
+        names = inputs.support.set_index("apoio_id")["nome"]
+        logistics["apoio_principal_nome"] = logistics["apoio_principal_id"].map(names)
+    for column in LOGISTICS_COLUMNS:
+        sites[column] = sites["location_id"].map(logistics[column]) \
+            if column in logistics.columns else np.nan
     columns = ["location_id", "nome", "regiao", "pais", "descricao", "destaque",
                "latitude", "longitude", "raio_km", "n_pares", "melhor_nota",
+               "melhor_custo_beneficio", *LOGISTICS_COLUMNS,
                "temperatura_media_c", "precipitacao_mm_dia", "elevacao_media_m", "ndvi"]
     return sites[columns].sort_values(["destaque", "melhor_nota"], ascending=False,
                                       na_position="last", ignore_index=True)
@@ -357,6 +439,8 @@ def load_inputs(root: Path, months: int = CLIMATE_MONTHS) -> tuple[AnalogInputs,
     names_path = root / "config/nomes_locais.json"
     names = (json.loads(names_path.read_text(encoding="utf-8"))["locais"]
              if names_path.is_file() else {})
+    support_path = root / SUPPORT_FILE
+    logistics_path = root / "config/custo_beneficio.json"
     inputs = AnalogInputs(
         earth=values,
         coordinates=pd.read_parquet(run / "coordenadas.parquet"),
@@ -367,6 +451,9 @@ def load_inputs(root: Path, months: int = CLIMATE_MONTHS) -> tuple[AnalogInputs,
         classics=[Zone(**zone) for zone in classics["locais"]],
         featured=featured,
         names=names,
+        support=load_support(support_path) if support_path.is_file() else None,
+        logistics=(LogisticsConfig.from_json(logistics_path) if logistics_path.is_file()
+                   else LogisticsConfig()),
     )
     return inputs, observed
 
@@ -394,6 +481,31 @@ SIDECARS: dict[str, dict[str, Any]] = {
             "melhor_nota": "Maior nota geral entre as bases relacionadas.",
             "temperatura_media_c": "Média dos últimos meses observados.",
             "precipitacao_mm_dia": "Média dos últimos meses observados.",
+            "melhor_custo_beneficio": "Maior custo-benefício entre as bases relacionadas.",
+            "nota_logistica": "0–100: proximidade dos EUA, da base de apoio e redundância.",
+            "distancia_eua_km": "Distância à instalação dos EUA mais próxima do catálogo.",
+            "apoio_principal_id": "Melhor base de apoio (prioridade × distância).",
+            "distancia_apoio_km": "Distância até a base de apoio principal.",
+            "n_apoios_raio": "Bases de apoio dentro de raio_rotas_km (rotas alternativas).",
+        },
+    },
+    "rotas": {
+        "description": "Base de apoio principal e alternativas de cada local terrestre.",
+        "tags": ["análogos", "logística"],
+        "columns": {
+            "ordem": "1 = rota principal; 2 em diante = alternativas.",
+            "distancia_km": "Distância em linha reta (grande círculo) até a base.",
+            "peso_rota": "prioridade × exp(-distância / escala_apoio_km).",
+        },
+    },
+    "apoios": {
+        "description": "Catálogo de bases de apoio da NASA e parceiras (sem a geometria WKB).",
+        "id_column": "apoio_id",
+        "tags": ["logística", "nasa"],
+        "columns": {
+            "prioridade": "prioridade_combinada do catálogo (0–1).",
+            "eua": "Instalação em território dos EUA.",
+            "usado_na_logistica": "Falso para vínculos restritos e zonas no oceano.",
         },
     },
     "pares": {
@@ -401,7 +513,12 @@ SIDECARS: dict[str, dict[str, Any]] = {
         "id_column": "par_id",
         "tags": ["análogos"],
         "columns": {
-            "tipo": "destaque (curado), geral (melhor nota geral) ou especialista (um nicho).",
+            "tipo": ("destaque (curado), geral (melhor nota geral), especialista (um nicho) "
+                     "ou custo_beneficio (melhor nota × logística)."),
+            "nota_logistica": "0–100: proximidade dos EUA, da base de apoio e redundância.",
+            "custo_beneficio": "raiz(nota_geral × nota_logistica), 0–100.",
+            "rank_custo_beneficio": "Posição pelo custo-benefício entre os pares da base.",
+            "top_custo_beneficio": "Entre os melhores custo-benefício da base.",
             "nichos_destaque": "Nichos que motivaram a escolha, separados por vírgula.",
             "rank_base": "Posição do local entre os pares da mesma base (1 = melhor).",
             "nota_geral": "Nota 0–100 no perfil completo; nula se cobertura < 0,7.",

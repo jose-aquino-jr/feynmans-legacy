@@ -1,0 +1,15 @@
+{
+  "_descricao": "Pesos da nota de logística (0–100) e do custo-benefício. custo_beneficio = raiz(nota_geral × nota_logistica). nota_logistica = peso_eua × nota_eua + peso_apoio × nota_apoio + peso_rotas × nota_rotas. nota_eua = 100·exp(-distância à instalação dos EUA mais próxima / escala_eua_km). nota_apoio = 100·max(prioridade·exp(-distância / escala_apoio_km)). nota_rotas = 100·min(1, soma das prioridades das bases a até raio_rotas_km / saturacao_rotas). Só disputam o top de custo-benefício locais com nota_geral >= fracao_nota_minima × melhor nota da base.",
+  "escala_eua_km": 3000,
+  "escala_apoio_km": 1000,
+  "raio_rotas_km": 2500,
+  "saturacao_rotas": 3.0,
+  "peso_eua": 0.4,
+  "peso_apoio": 0.35,
+  "peso_rotas": 0.25,
+  "n_rotas": 3,
+  "n_custo_beneficio": 8,
+  "fracao_nota_minima": 0.8,
+  "vinculos_excluidos": ["Restrita"],
+  "continentes_excluidos": ["Oceano"]
+}

@@ -5,7 +5,11 @@
     "análogos"
   ],
   "columns": {
-    "tipo": "destaque (curado), geral (melhor nota geral) ou especialista (um nicho).",
+    "tipo": "destaque (curado), geral (melhor nota geral), especialista (um nicho) ou custo_beneficio (melhor nota × logística).",
+    "nota_logistica": "0–100: proximidade dos EUA, da base de apoio e redundância.",
+    "custo_beneficio": "raiz(nota_geral × nota_logistica), 0–100.",
+    "rank_custo_beneficio": "Posição pelo custo-benefício entre os pares da base.",
+    "top_custo_beneficio": "Entre os melhores custo-benefício da base.",
     "nichos_destaque": "Nichos que motivaram a escolha, separados por vírgula.",
     "rank_base": "Posição do local entre os pares da mesma base (1 = melhor).",
     "nota_geral": "Nota 0–100 no perfil completo; nula se cobertura < 0,7.",

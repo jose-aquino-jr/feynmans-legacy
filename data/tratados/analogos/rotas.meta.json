@@ -1,0 +1,16 @@
+{
+  "description": "Base de apoio principal e alternativas de cada local terrestre.",
+  "tags": [
+    "análogos",
+    "logística"
+  ],
+  "columns": {
+    "ordem": "1 = rota principal; 2 em diante = alternativas.",
+    "distancia_km": "Distância em linha reta (grande círculo) até a base.",
+    "peso_rota": "prioridade × exp(-distância / escala_apoio_km)."
+  },
+  "source": "src/feynmans_legacy/analog_pairs.py",
+  "metadata": {
+    "meses_climatologia": "202509–202608"
+  }
+}

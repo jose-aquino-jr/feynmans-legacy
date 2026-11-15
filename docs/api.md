@@ -425,6 +425,62 @@ curl -s "$BASE/api/v1/analogos/bases/LUA_POLO_SUL?destaque=true"
 }
 ```
 
+### Custo-benefício: EUA, bases de apoio e rotas alternativas
+
+A logística usa o catálogo `data/terra/apoio/nasa_bases_suporte.parquet` (182
+bases da NASA, agências parceiras e contratadas). Bases com vínculo `Restrita`
+e zonas no oceano ficam fora do cálculo. Os pesos estão em
+`config/custo_beneficio.json`:
+
+| Parte | Fórmula padrão | Peso |
+|-------|----------------|------|
+| `nota_eua` | 100 · exp(−distância à instalação dos EUA mais próxima / 3000 km) | 0,40 |
+| `nota_apoio` | 100 · max(prioridade · exp(−distância / 1000 km)) | 0,35 |
+| `nota_rotas` | 100 · min(1, Σ prioridade das bases a até 2500 km / 3) | 0,25 |
+
+`custo_beneficio = raiz(nota_geral × nota_logistica)`. Para cada base entram no
+top os 8 melhores locais (500 km entre si, fora dos clássicos) com nota geral
+de pelo menos 80% da melhor nota daquela base, para que a logística não esconda
+um análogo ruim. Esses pares têm `tipo = custo_beneficio` ou, se já existiam,
+`top_custo_beneficio = true`.
+
+```bash
+# Melhores custo-benefício (todas as bases, só o top)
+curl -s "$BASE/api/v1/analogos/custo-beneficio"
+
+# Por base ou corpo; apenas_top=false lista todos os pares com nota
+curl -s "$BASE/api/v1/analogos/custo-beneficio?base_id=MARTE_GALE&limit=5"
+curl -s "$BASE/api/v1/analogos/custo-beneficio?corpo=lua&apenas_top=false"
+
+# Pares de uma base ordenados por custo-benefício
+curl -s "$BASE/api/v1/analogos/bases/LUA_POLO_SUL?ordenar=custo_beneficio"
+
+# Bases de apoio para marcar no globo
+curl -s "$BASE/api/v1/analogos/apoios?usado=true"
+```
+
+Cada item de `/custo-beneficio` traz `local` (com `nota_logistica`,
+`distancia_eua_km`, `apoio_principal_nome`, `n_apoios_raio`), `base` e `rotas`:
+
+```json
+{
+  "par_id": "MARTE_GALE__T085720", "custo_beneficio": 88.0,
+  "nota_geral": 78.8, "nota_logistica": 98.3,
+  "local": {"nome": "White Sands — Novo México, EUA", "distancia_eua_km": 10.9},
+  "rotas": [
+    {"ordem": 1, "tipo_rota": "principal", "nome": "White Sands Complex (STGT/WSGT) – TDRS",
+     "distancia_km": 46, "latitude": 32.5, "longitude": -106.6},
+    {"ordem": 2, "tipo_rota": "alternativa", "nome": "White Sands Missile Range – LC-36",
+     "distancia_km": 51},
+    {"ordem": 3, "tipo_rota": "alternativa", "nome": "White Sands Test Facility (WSTF)",
+     "distancia_km": 50}
+  ]
+}
+```
+
+As distâncias são em linha reta (grande círculo), não por estrada; servem para
+comparar locais e desenhar os arcos no 3D.
+
 ### Outras rotas
 
 ```bash

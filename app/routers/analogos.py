@@ -9,8 +9,10 @@ from fastapi import APIRouter, Depends, Path, Query
 from app.config import Settings
 from app.dependencies import get_analog_repository, get_app_settings, get_current_principal
 from app.schemas.analogos import (
+    ApoioListResponse,
     BaseDetalhe,
     BaseListResponse,
+    CustoBeneficioResponse,
     LocalDetalhe,
     LocalListResponse,
     NichoListResponse,
@@ -69,7 +71,7 @@ def get_base(
     repository: Repository,
     settings: Annotated[Settings, Depends(get_app_settings)],
     base_id: Annotated[str, Path(examples=["MARTE_JEZERO"])],
-    tipo: Annotated[Literal["destaque", "geral", "especialista"] | None,
+    tipo: Annotated[Literal["destaque", "geral", "especialista", "custo_beneficio"] | None,
                     Query(description="Filtra pelo motivo da relação.")] = None,
     destaque: Annotated[bool | None, Query(description="Só locais padrão.")] = None,
     forte_em: Annotated[str | None, Query(
@@ -77,11 +79,58 @@ def get_base(
         examples=["geologia"])] = None,
     nota_minima: Annotated[float | None, Query(ge=0, le=100)] = None,
     limit: Annotated[int | None, Query(ge=1)] = None,
+    ordenar: Annotated[Literal["nota", "custo_beneficio"], Query(
+        description="nota (rank_base) ou custo_beneficio (maior primeiro).")] = "nota",
 ) -> BaseDetalhe:
     return repository.get_base(
         base_id, tipo=tipo, destaque=destaque, forte_em=forte_em,
         nota_minima=nota_minima, limit=min(limit or settings.default_limit, settings.max_limit),
+        ordenar=ordenar,
     )
+
+
+@router.get(
+    "/custo-beneficio",
+    response_model=CustoBeneficioResponse,
+    summary="Melhores análogos em custo-benefício",
+    description=(
+        "Pares ordenados por `custo_beneficio = raiz(nota_geral × nota_logistica)`. A "
+        "logística mede a proximidade dos EUA, da melhor base de apoio da NASA/parceiros "
+        "e a quantidade de bases no raio (rotas alternativas). Cada item traz o local, a "
+        "base espacial e as rotas: a base de apoio principal e as alternativas."
+    ),
+    responses=error_responses(400, 404, 500),
+)
+def list_cost_benefit(
+    repository: Repository,
+    settings: Annotated[Settings, Depends(get_app_settings)],
+    corpo: Annotated[Literal["lua", "marte"] | None, Query()] = None,
+    base_id: Annotated[str | None, Query(examples=["MARTE_GALE"])] = None,
+    apenas_top: Annotated[bool, Query(
+        description="Só os melhores custo-benefício de cada base (padrão).")] = True,
+    limit: Annotated[int | None, Query(ge=1)] = None,
+) -> CustoBeneficioResponse:
+    return repository.list_cost_benefit(
+        corpo=corpo, base_id=base_id, apenas_top=apenas_top,
+        limit=min(limit or settings.default_limit, settings.max_limit),
+    )
+
+
+@router.get(
+    "/apoios",
+    response_model=ApoioListResponse,
+    summary="Bases de apoio da NASA e parceiros",
+    description="Catálogo usado na logística (sem a geometria WKB), para marcar no globo.",
+    responses=error_responses(400, 404, 500),
+)
+def list_support(
+    repository: Repository,
+    eua: Annotated[bool | None, Query(description="Só instalações nos EUA.")] = None,
+    usado: Annotated[bool | None, Query(
+        description="Só as bases usadas no cálculo (sem vínculo restrito ou oceano).")] = None,
+    categoria: Annotated[str | None, Query(examples=["Centro de campo NASA"])] = None,
+) -> ApoioListResponse:
+    return repository.list_support(eua=eua, usado=usado, categoria=categoria)
 
 
 @router.get(

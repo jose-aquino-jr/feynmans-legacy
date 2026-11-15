@@ -7,7 +7,7 @@ from typing import Literal
 from pydantic import BaseModel, Field
 
 Corpo = Literal["lua", "marte"]
-TipoPar = Literal["destaque", "geral", "especialista"]
+TipoPar = Literal["destaque", "geral", "especialista", "custo_beneficio"]
 
 
 class Ponto(BaseModel):
@@ -30,6 +30,9 @@ class BaseEspacial(Ponto):
     n_pares: int = Field(..., description="Quantidade de locais terrestres relacionados.")
     melhor_location_id: str | None = None
     melhor_nota: float | None = Field(default=None, description="Maior nota geral (0–100).")
+    melhor_custo_beneficio_location_id: str | None = None
+    melhor_custo_beneficio: float | None = Field(
+        default=None, description="Maior custo-benefício entre os pares (0–100).")
 
 
 class LocalTerra(Ponto):
@@ -43,6 +46,19 @@ class LocalTerra(Ponto):
     destaque: bool = Field(..., description="Local padrão do software.")
     n_pares: int
     melhor_nota: float | None = None
+    melhor_custo_beneficio: float | None = None
+    nota_logistica: float | None = Field(
+        default=None, description="0–100: proximidade dos EUA, da base de apoio e redundância.")
+    distancia_eua_km: float | None = Field(
+        default=None, description="Distância à instalação dos EUA mais próxima.")
+    apoio_principal_id: str | None = None
+    apoio_principal_nome: str | None = None
+    distancia_apoio_km: float | None = None
+    n_apoios_raio: int | None = Field(
+        default=None, description="Bases de apoio no raio de rotas (alternativas).")
+    nota_eua: float | None = None
+    nota_apoio: float | None = None
+    nota_rotas: float | None = None
     temperatura_media_c: float | None = None
     precipitacao_mm_dia: float | None = None
     elevacao_media_m: float | None = None
@@ -77,6 +93,31 @@ class Par(BaseModel):
     nichos: dict[str, float | None] = Field(
         default_factory=dict, description="Nota 0–100 por nicho."
     )
+    nota_logistica: float | None = None
+    custo_beneficio: float | None = Field(
+        default=None, description="raiz(nota_geral × nota_logistica), 0–100.")
+    rank_custo_beneficio: int | None = Field(
+        default=None, description="Posição pelo custo-benefício entre os pares da base.")
+    top_custo_beneficio: bool = Field(
+        default=False, description="Entre os melhores custo-benefício da base.")
+
+
+class Rota(BaseModel):
+    """Base de apoio que atende um local terrestre (principal ou alternativa)."""
+
+    ordem: int = Field(..., description="1 = principal; 2 em diante = alternativas.")
+    tipo_rota: Literal["principal", "alternativa"]
+    apoio_id: str = Field(..., examples=["NASA-0015"])
+    nome: str
+    categoria: str
+    operador: str
+    pais: str
+    vinculo: str
+    latitude: float
+    longitude: float
+    distancia_km: float = Field(..., description="Distância em linha reta (grande círculo).")
+    prioridade: float = Field(..., description="prioridade_combinada do catálogo (0–1).")
+    peso_rota: float
 
 
 class ParComLocal(Par):
@@ -85,6 +126,50 @@ class ParComLocal(Par):
 
 class ParComBase(Par):
     base: BaseEspacial
+
+
+class ParCustoBeneficio(Par):
+    """Par ranqueado por custo-benefício, com local, base e rotas de apoio."""
+
+    local: LocalTerra
+    base: BaseEspacial
+    rotas: list[Rota]
+
+
+class CustoBeneficioResponse(BaseModel):
+    items: list[ParCustoBeneficio]
+    total: int
+
+
+class Apoio(BaseModel):
+    """Base de apoio da NASA ou de parceiros."""
+
+    apoio_id: str
+    nome: str
+    categoria: str
+    subcategoria: str | None = None
+    operador: str
+    tipo_operador: str | None = None
+    pais: str
+    continente: str | None = None
+    local: str | None = None
+    latitude: float
+    longitude: float
+    coord_precisao: str | None = None
+    capacidades: str | None = None
+    programas: str | None = None
+    vinculo: str
+    status: str | None = None
+    relevancia_score: int | None = None
+    compatibilidade_score: int | None = None
+    prioridade: float
+    eua: bool
+    usado_na_logistica: bool
+
+
+class ApoioListResponse(BaseModel):
+    items: list[Apoio]
+    total: int
 
 
 class BaseListResponse(BaseModel):
@@ -112,6 +197,7 @@ class LocalDetalhe(BaseModel):
 
     local: LocalTerra
     pares: list[ParComBase]
+    rotas: list[Rota] = Field(default_factory=list)
 
 
 class Nicho(BaseModel):
@@ -141,3 +227,4 @@ class ParDetalhe(BaseModel):
     base: BaseEspacial
     local: LocalTerra
     serie: list[PontoSerie]
+    rotas: list[Rota] = Field(default_factory=list)

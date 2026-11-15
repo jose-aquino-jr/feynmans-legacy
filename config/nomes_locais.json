@@ -183,6 +183,10 @@
    "regiao": "Tiris Zemmour",
    "pais": "Mauritânia"
   },
+  "25.75,-98.25": {
+   "regiao": "Tamaulipas",
+   "pais": "México"
+  },
   "25.75,101.75": {
    "regiao": "Iunã",
    "pais": "China"
@@ -202,6 +206,14 @@
   "25.75,58.75": {
    "regiao": "Hormusgão",
    "pais": "Irã"
+  },
+  "26.25,-97.75": {
+   "regiao": "Texas",
+   "pais": "Estados Unidos da América"
+  },
+  "26.75,-97.75": {
+   "regiao": "Texas",
+   "pais": "Estados Unidos da América"
   },
   "26.75,46.25": {
    "regiao": "Riade",
@@ -223,13 +235,41 @@
    "regiao": "Béni Abbès",
    "pais": "Argélia"
   },
+  "28.25,-80.75": {
+   "regiao": "Flórida",
+   "pais": "Estados Unidos da América"
+  },
+  "28.25,-81.25": {
+   "regiao": "Flórida",
+   "pais": "Estados Unidos da América"
+  },
+  "28.75,-104.25": {
+   "regiao": "Chihuahua",
+   "pais": "México"
+  },
+  "28.75,-81.75": {
+   "regiao": "Flórida",
+   "pais": "Estados Unidos da América"
+  },
   "28.75,5.25": {
    "regiao": "In Salah",
    "pais": "Argélia"
   },
+  "29.25,-110.25": {
+   "regiao": "Sonora",
+   "pais": "México"
+  },
   "29.25,38.75": {
    "regiao": "Tabuque",
    "pais": "Arábia Saudita"
+  },
+  "29.75,-104.25": {
+   "regiao": "Texas",
+   "pais": "Estados Unidos da América"
+  },
+  "29.75,-89.75": {
+   "regiao": "Luisiana",
+   "pais": "Estados Unidos da América"
   },
   "29.75,24.75": {
    "regiao": "Butnane",
@@ -275,6 +315,14 @@
    "regiao": "Tibete",
    "pais": "China"
   },
+  "31.25,-101.25": {
+   "regiao": "Texas",
+   "pais": "Estados Unidos da América"
+  },
+  "31.25,-95.75": {
+   "regiao": "Texas",
+   "pais": "Estados Unidos da América"
+  },
   "31.25,101.25": {
    "regiao": "Sujuão",
    "pais": "China"
@@ -283,13 +331,65 @@
    "regiao": "Tataouine (província)",
    "pais": "Tunísia"
   },
+  "31.75,-105.25": {
+   "regiao": "Texas",
+   "pais": "Estados Unidos da América"
+  },
+  "31.75,-106.25": {
+   "regiao": "Texas",
+   "pais": "Estados Unidos da América"
+  },
+  "31.75,-115.75": {
+   "regiao": "Baja California",
+   "pais": "México"
+  },
+  "31.75,-95.75": {
+   "regiao": "Texas",
+   "pais": "Estados Unidos da América"
+  },
+  "31.75,-96.25": {
+   "regiao": "Texas",
+   "pais": "Estados Unidos da América"
+  },
   "31.75,82.25": {
    "regiao": "Tibete",
    "pais": "China"
   },
+  "32.25,-107.25": {
+   "regiao": "Novo México",
+   "pais": "Estados Unidos da América"
+  },
+  "32.25,-114.25": {
+   "regiao": "Sonora",
+   "pais": "México"
+  },
+  "32.25,-95.75": {
+   "regiao": "Texas",
+   "pais": "Estados Unidos da América"
+  },
   "32.25,9.25": {
    "regiao": "Tataouine (província)",
    "pais": "Tunísia"
+  },
+  "32.75,-106.25": {
+   "regiao": "Novo México",
+   "pais": "Estados Unidos da América"
+  },
+  "32.75,-106.75": {
+   "regiao": "Novo México",
+   "pais": "Estados Unidos da América"
+  },
+  "32.75,-114.25": {
+   "regiao": "Arizona",
+   "pais": "Estados Unidos da América"
+  },
+  "32.75,-114.75": {
+   "regiao": "Califórnia",
+   "pais": "Estados Unidos da América"
+  },
+  "32.75,-115.75": {
+   "regiao": "Califórnia",
+   "pais": "Estados Unidos da América"
   },
   "32.75,54.75": {
    "regiao": "Iazde (província)",
@@ -307,9 +407,25 @@
    "regiao": "Novo México",
    "pais": "Estados Unidos da América"
   },
+  "33.25,-107.75": {
+   "regiao": "Novo México",
+   "pais": "Estados Unidos da América"
+  },
+  "33.25,-85.25": {
+   "regiao": "Geórgia",
+   "pais": "Estados Unidos da América"
+  },
+  "33.75,-94.75": {
+   "regiao": "Oklahoma",
+   "pais": "Estados Unidos da América"
+  },
   "33.75,55.75": {
    "regiao": "Coração do Sul",
    "pais": "Irã"
+  },
+  "34.25,-100.75": {
+   "regiao": "Texas",
+   "pais": "Estados Unidos da América"
   },
   "34.25,38.25": {
    "regiao": "Homs",
@@ -327,6 +443,10 @@
    "regiao": "Biskra",
    "pais": "Argélia"
   },
+  "35.25,-102.75": {
+   "regiao": "Texas",
+   "pais": "Estados Unidos da América"
+  },
   "35.25,80.75": {
    "regiao": "Tibete",
    "pais": "China"
@@ -335,21 +455,113 @@
    "regiao": "Xinjiang",
    "pais": "China"
   },
+  "36.25,-102.75": {
+   "regiao": "Texas",
+   "pais": "Estados Unidos da América"
+  },
+  "36.25,-104.25": {
+   "regiao": "Novo México",
+   "pais": "Estados Unidos da América"
+  },
+  "36.75,-112.75": {
+   "regiao": "Arizona",
+   "pais": "Estados Unidos da América"
+  },
+  "36.75,-121.25": {
+   "regiao": "Califórnia",
+   "pais": "Estados Unidos da América"
+  },
+  "36.75,-77.75": {
+   "regiao": "Virgínia",
+   "pais": "Estados Unidos da América"
+  },
+  "37.25,-120.75": {
+   "regiao": "Califórnia",
+   "pais": "Estados Unidos da América"
+  },
+  "37.25,-121.25": {
+   "regiao": "Califórnia",
+   "pais": "Estados Unidos da América"
+  },
+  "37.25,-121.75": {
+   "regiao": "Califórnia",
+   "pais": "Estados Unidos da América"
+  },
   "37.25,30.75": {
    "regiao": "Mediterranean Region",
    "pais": "Turquia"
+  },
+  "37.75,-114.25": {
+   "regiao": "Nevada",
+   "pais": "Estados Unidos da América"
+  },
+  "37.75,-121.75": {
+   "regiao": "Califórnia",
+   "pais": "Estados Unidos da América"
+  },
+  "38.25,-115.75": {
+   "regiao": "Nevada",
+   "pais": "Estados Unidos da América"
+  },
+  "38.25,-116.25": {
+   "regiao": "Nevada",
+   "pais": "Estados Unidos da América"
+  },
+  "38.25,-122.75": {
+   "regiao": "Califórnia",
+   "pais": "Estados Unidos da América"
+  },
+  "38.25,-75.25": {
+   "regiao": "Maryland",
+   "pais": "Estados Unidos da América"
+  },
+  "38.75,-105.75": {
+   "regiao": "Colorado",
+   "pais": "Estados Unidos da América"
+  },
+  "38.75,-78.25": {
+   "regiao": "Virgínia",
+   "pais": "Estados Unidos da América"
   },
   "38.75,77.25": {
    "regiao": "Xinjiang",
    "pais": "China"
   },
+  "39.25,-105.25": {
+   "regiao": "Colorado",
+   "pais": "Estados Unidos da América"
+  },
+  "39.25,-75.75": {
+   "regiao": "Delaware",
+   "pais": "Estados Unidos da América"
+  },
   "39.25,82.25": {
    "regiao": "Xinjiang",
    "pais": "China"
   },
+  "40.25,-104.75": {
+   "regiao": "Colorado",
+   "pais": "Estados Unidos da América"
+  },
   "40.25,55.25": {
    "regiao": "Balkan",
    "pais": "Turquemenistão"
+  },
+  "40.75,-103.75": {
+   "regiao": "Colorado",
+   "pais": "Estados Unidos da América"
+  },
+  "40.75,-82.75": {
+   "regiao": "Ohio",
+   "pais": "Estados Unidos da América"
+  },
+  "41.25,-118.25": {
+   "regiao": "Nevada",
+   "pais": "Estados Unidos da América"
+  },
+  "41.25,-84.75": {
+   "regiao": "Ohio",
+   "pais": "Estados Unidos da América"
   },
   "41.25,87.75": {
    "regiao": "Xinjiang",
@@ -359,13 +571,37 @@
    "regiao": "Nevada",
    "pais": "Estados Unidos da América"
   },
+  "41.75,-119.25": {
+   "regiao": "Nevada",
+   "pais": "Estados Unidos da América"
+  },
   "42.25,-104.75": {
    "regiao": "Wyoming",
+   "pais": "Estados Unidos da América"
+  },
+  "42.75,-80.75": {
+   "regiao": "Ontário",
+   "pais": "Canadá"
+  },
+  "42.75,-97.25": {
+   "regiao": "Nebraska",
    "pais": "Estados Unidos da América"
   },
   "42.75,98.75": {
    "regiao": "Bayankhongor",
    "pais": "Mongólia"
+  },
+  "43.75,-96.25": {
+   "regiao": "Minnesota",
+   "pais": "Estados Unidos da América"
+  },
+  "45.75,-95.25": {
+   "regiao": "Minnesota",
+   "pais": "Estados Unidos da América"
+  },
+  "46.25,-72.25": {
+   "regiao": "Quebec",
+   "pais": "Canadá"
   },
   "59.75,97.75": {
    "regiao": "Krasnoyarsk Krai",
@@ -375,9 +611,45 @@
    "regiao": "Alasca",
    "pais": "Estados Unidos da América"
   },
+  "63.25,-137.75": {
+   "regiao": "Yukon",
+   "pais": "Canadá"
+  },
+  "63.75,-135.75": {
+   "regiao": "Yukon",
+   "pais": "Canadá"
+  },
+  "65.25,-146.75": {
+   "regiao": "Alasca",
+   "pais": "Estados Unidos da América"
+  },
   "65.25,-162.25": {
    "regiao": "Alasca",
    "pais": "Estados Unidos da América"
+  },
+  "66.25,-146.25": {
+   "regiao": "Alasca",
+   "pais": "Estados Unidos da América"
+  },
+  "67.75,-125.75": {
+   "regiao": "Territórios do Noroeste",
+   "pais": "Canadá"
+  },
+  "68.25,-132.75": {
+   "regiao": "Territórios do Noroeste",
+   "pais": "Canadá"
+  },
+  "69.75,-145.25": {
+   "regiao": "Alasca",
+   "pais": "Estados Unidos da América"
+  },
+  "70.75,-156.25": {
+   "regiao": "Alasca",
+   "pais": "Estados Unidos da América"
+  },
+  "71.25,-116.25": {
+   "regiao": "Territórios do Noroeste",
+   "pais": "Canadá"
   },
   "72.25,-75.25": {
    "regiao": "Nunavut",
@@ -393,6 +665,9 @@
   "77.25,-22.25": {
    "pais": "Groenlândia"
   },
+  "77.25,-67.75": {
+   "pais": "Groenlândia"
+  },
   "79.25,-80.75": {
    "regiao": "Nunavut",
    "pais": "Canadá"
@@ -403,6 +678,10 @@
   },
   "81.75,-15.75": {
    "pais": "Groenlândia"
+  },
+  "81.75,-71.75": {
+   "regiao": "Nunavut",
+   "pais": "Canadá"
   },
   "82.25,-48.75": {
    "pais": "Groenlândia"

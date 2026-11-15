@@ -10,9 +10,12 @@ import pandas as pd
 
 from app.config import Settings
 from app.schemas.analogos import (
+    Apoio,
+    ApoioListResponse,
     BaseDetalhe,
     BaseEspacial,
     BaseListResponse,
+    CustoBeneficioResponse,
     LocalDetalhe,
     LocalListResponse,
     LocalTerra,
@@ -21,8 +24,10 @@ from app.schemas.analogos import (
     Par,
     ParComBase,
     ParComLocal,
+    ParCustoBeneficio,
     ParDetalhe,
     PontoSerie,
+    Rota,
 )
 from app.services.cache import BoundedCache
 from app.services.dataframe import frame_to_records
@@ -85,6 +90,24 @@ class AnalogRepository:
                 {"arquivo": f"{ANALOG_DIR}/{name}.parquet"},
             ) from exc
 
+    def _optional_table(self, name: str) -> pd.DataFrame | None:
+        """Tables added later (rotas, apoios) may be absent in older outputs."""
+        if not (self.root / f"{name}.parquet").is_file():
+            return None
+        return self._table(name)
+
+    def _routes(self, location_ids: list[str]) -> dict[str, list[Rota]]:
+        frame = self._optional_table("rotas")
+        if frame is None:
+            return {}
+        frame = frame[frame["location_id"].isin(location_ids)].sort_values(
+            ["location_id", "ordem"])
+        routes: dict[str, list[Rota]] = {}
+        for record in frame_to_records(frame):
+            routes.setdefault(str(record["location_id"]), []).append(
+                Rota.model_validate(record))
+        return routes
+
     def _bases(self) -> dict[str, BaseEspacial]:
         frame = self._table("bases")
         return {
@@ -138,6 +161,7 @@ class AnalogRepository:
         forte_em: str | None,
         nota_minima: float | None,
         limit: int,
+        ordenar: str = "nota",
     ) -> BaseDetalhe:
         base = self._bases().get(base_id)
         if base is None:
@@ -155,7 +179,10 @@ class AnalogRepository:
             strong = frame["pontos_fortes"].map(_split).map(lambda items: forte_em in items)
             chosen = frame["nichos_destaque"].map(_split).map(lambda items: forte_em in items)
             frame = frame[strong | chosen]
-        frame = frame.sort_values("rank_base")
+        if ordenar == "custo_beneficio" and "custo_beneficio" in frame.columns:
+            frame = frame.sort_values("custo_beneficio", ascending=False, na_position="last")
+        else:
+            frame = frame.sort_values("rank_base")
         sites = self._sites()
         pairs = [
             ParComLocal(**pair.model_dump(), local=sites[pair.location_id])
@@ -187,7 +214,56 @@ class AnalogRepository:
         bases = self._bases()
         pairs = [ParComBase(**pair.model_dump(), base=bases[pair.base_id])
                  for pair in self._pairs(frame)]
-        return LocalDetalhe(local=site, pares=pairs)
+        return LocalDetalhe(local=site, pares=pairs,
+                            rotas=self._routes([location_id]).get(location_id, []))
+
+    # ---------------------------------------------------------- custo-benefício
+    def list_cost_benefit(
+        self, *, corpo: str | None, base_id: str | None, apenas_top: bool, limit: int
+    ) -> CustoBeneficioResponse:
+        frame = self._table("pares")
+        if "custo_beneficio" not in frame.columns:
+            raise ApiError(404, "cost_benefit_not_generated",
+                           "Os análogos foram gerados sem o catálogo de bases de apoio.",
+                           {"arquivo": "data/terra/apoio/nasa_bases_suporte.parquet"})
+        if base_id is not None and base_id not in self._bases():
+            raise ApiError(404, "base_not_found", f"A base '{base_id}' não existe.",
+                           {"base_id": base_id})
+        frame = frame.dropna(subset=["custo_beneficio"])
+        if corpo is not None:
+            frame = frame[frame["corpo"] == corpo]
+        if base_id is not None:
+            frame = frame[frame["base_id"] == base_id]
+        if apenas_top:
+            frame = frame[frame["top_custo_beneficio"].astype(bool)]
+        frame = frame.sort_values(["custo_beneficio", "par_id"], ascending=[False, True])
+        page = self._pairs(frame.head(limit))
+        sites, bases = self._sites(), self._bases()
+        routes = self._routes([pair.location_id for pair in page])
+        items = [
+            ParCustoBeneficio(**pair.model_dump(), local=sites[pair.location_id],
+                              base=bases[pair.base_id],
+                              rotas=routes.get(pair.location_id, []))
+            for pair in page
+        ]
+        return CustoBeneficioResponse(items=items, total=len(frame))
+
+    def list_support(
+        self, *, eua: bool | None, usado: bool | None, categoria: str | None
+    ) -> ApoioListResponse:
+        frame = self._optional_table("apoios")
+        if frame is None:
+            raise ApiError(404, "support_not_generated",
+                           "O catálogo de bases de apoio não foi publicado.",
+                           {"arquivo": f"{ANALOG_DIR}/apoios.parquet"})
+        if eua is not None:
+            frame = frame[frame["eua"] == eua]
+        if usado is not None:
+            frame = frame[frame["usado_na_logistica"] == usado]
+        if categoria is not None:
+            frame = frame[frame["categoria"].str.casefold() == categoria.casefold()]
+        items = [Apoio.model_validate(record) for record in frame_to_records(frame)]
+        return ApoioListResponse(items=items, total=len(items))
 
     # -------------------------------------------------------------------- pares
     def get_pair(self, par_id: str) -> ParDetalhe:
@@ -202,7 +278,8 @@ class AnalogRepository:
             series[series["par_id"] == par_id].sort_values("anomes")[
                 ["anomes", "origem", "nota", "cobertura"]])]
         return ParDetalhe(par=pair, base=self._bases()[pair.base_id],
-                          local=self._sites()[pair.location_id], serie=points)
+                          local=self._sites()[pair.location_id], serie=points,
+                          rotas=self._routes([pair.location_id]).get(pair.location_id, []))
 
 
 def _read(path: Path) -> pd.DataFrame:

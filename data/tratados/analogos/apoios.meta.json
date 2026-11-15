@@ -1,0 +1,17 @@
+{
+  "description": "Catálogo de bases de apoio da NASA e parceiras (sem a geometria WKB).",
+  "id_column": "apoio_id",
+  "tags": [
+    "logística",
+    "nasa"
+  ],
+  "columns": {
+    "prioridade": "prioridade_combinada do catálogo (0–1).",
+    "eua": "Instalação em território dos EUA.",
+    "usado_na_logistica": "Falso para vínculos restritos e zonas no oceano."
+  },
+  "source": "src/feynmans_legacy/analog_pairs.py",
+  "metadata": {
+    "meses_climatologia": "202509–202608"
+  }
+}
