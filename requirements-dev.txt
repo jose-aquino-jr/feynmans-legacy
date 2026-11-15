@@ -3,6 +3,8 @@
 
 -r requirements.txt
 
+optuna>=4,<5
+
 anyio==4.16.0 # Fornece suporte a operações assíncronas independentes de framework em Python.
 
 argon2-cffi==25.1.0 # Implementa o algoritmo de hash de senhas Argon2.

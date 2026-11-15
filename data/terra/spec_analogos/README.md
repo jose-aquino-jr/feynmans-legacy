@@ -56,8 +56,10 @@ O Notebook 01 confere o dicionário `dicionario_spec.csv` e o catálogo `config/
   A regra de 80% do Notebook 01 as tira **só do agrupamento**; o ranking continua usando todas.
   Decidam com a equipe se querem baixar o limite ou excluir as calotas.
 - **Notebook 02:** o LightGBM é treinado por variável dinâmica e horizonte, com amostra de 400 locais.
-  A validação cronológica compara o MAE com a persistência, que permanece disponível quando obtém
-  menor erro. A inferência em lote preenche os horizontes de 1 a 3 meses para todos os locais com
+  O Optuna ajusta uma configuração por variável com dois meses de validação. O MAE é comparado
+  com o LightGBM padrão e a persistência. Os três últimos meses ficam reservados para teste.
+  Os resultados ficam em `metricas_previsao.parquet` e `otimizacao_lightgbm.json`.
+  A inferência em lote preenche os horizontes de 1 a 3 meses para todos os locais com
   histórico suficiente e publica o resultado em `previsoes.parquet`.
 - **Notebook 03:** `profile_criteria` + `recommend` rodaram para as 8 bases, em "Todos" e num nicho individual.
   Exemplos de primeiro colocado:
