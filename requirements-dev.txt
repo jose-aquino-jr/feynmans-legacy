@@ -1,7 +1,7 @@
 
 # Ferramentas de desenvolvimento — instalar APÓS requirements.txt
 
--c requirements.txt
+-r requirements.txt
 
 anyio==4.16.0 # Fornece suporte a operações assíncronas independentes de framework em Python.
 
