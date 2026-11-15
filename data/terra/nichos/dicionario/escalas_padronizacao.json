@@ -1,0 +1,517 @@
+{
+ "temperatura__ar_2m_amplitude_sazonal": {
+  "mediana_imputacao": 24.5,
+  "media": 24.530789958705643,
+  "desvio": 11.642115370040807
+ },
+ "temperatura__ar_2m_max_mensal": {
+  "mediana_imputacao": 16.350000381469727,
+  "media": 9.123467373578814,
+  "desvio": 21.75116926048595
+ },
+ "temperatura__ar_2m_media": {
+  "mediana_imputacao": 0.10000000149011612,
+  "media": -3.86164319099646,
+  "desvio": 25.184191295585794
+ },
+ "temperatura__ar_2m_min_mensal": {
+  "mediana_imputacao": -16.899999618530273,
+  "media": -15.40732304938328,
+  "desvio": 26.51648588593715
+ },
+ "temperatura__eventos_temperatura_extrema": {
+  "mediana_imputacao": 0.0,
+  "media": 0.0010107015091103417,
+  "desvio": 0.026448882469529734
+ },
+ "temperatura__lst_amplitude_dia_noite": {
+  "mediana_imputacao": 4.799999713897705,
+  "media": 5.714753522781935,
+  "desvio": 4.897224298986672
+ },
+ "temperatura__lst_dia_max_mensal": {
+  "mediana_imputacao": 21.950000762939453,
+  "media": 13.259798664467734,
+  "desvio": 25.646385772669248
+ },
+ "temperatura__lst_dia_media": {
+  "mediana_imputacao": 1.9500000476837158,
+  "media": -2.990822408561672,
+  "desvio": 29.398586150080078
+ },
+ "temperatura__lst_noite_media": {
+  "mediana_imputacao": -4.349999904632568,
+  "media": -8.705628424897307,
+  "desvio": 25.785137698887105
+ },
+ "temperatura__lst_noite_min_mensal": {
+  "mediana_imputacao": -21.850000381469727,
+  "media": -21.272690931229963,
+  "desvio": 28.08981840703364
+ },
+ "temperatura__meses_abaixo_0c": {
+  "mediana_imputacao": 6.0,
+  "media": 5.781664839138651,
+  "desvio": 5.012087226903372
+ },
+ "iluminacao_radiacao__amplitude_horas_luz": {
+  "mediana_imputacao": 10.547094345092773,
+  "media": 13.005732136838589,
+  "desvio": 9.497221244713476
+ },
+ "iluminacao_radiacao__dias_dia_polar": {
+  "mediana_imputacao": 0.0,
+  "media": 44.54281081585517,
+  "desvio": 62.965311150885
+ },
+ "iluminacao_radiacao__dias_noite_polar": {
+  "mediana_imputacao": 0.0,
+  "media": 44.54281081585517,
+  "desvio": 62.965311150885
+ },
+ "iluminacao_radiacao__elevacao_solar_max_graus": {
+  "mediana_imputacao": 57.689781188964844,
+  "media": 59.62401786428007,
+  "desvio": 22.93473068810424
+ },
+ "iluminacao_radiacao__elevacao_solar_min_meio_dia_graus": {
+  "mediana_imputacao": 10.810216903686523,
+  "media": 14.902225744669554,
+  "desvio": 26.183510837060258
+ },
+ "iluminacao_radiacao__insolacao_topo_atmosfera_media": {
+  "mediana_imputacao": 256.8524475097656,
+  "media": 276.1233553897872,
+  "desvio": 89.1099129966451
+ },
+ "iluminacao_radiacao__radiacao_solar_superficie_max_mensal": {
+  "mediana_imputacao": 282.0,
+  "media": 283.57934582273754,
+  "desvio": 38.90992174247197
+ },
+ "iluminacao_radiacao__radiacao_solar_superficie_media": {
+  "mediana_imputacao": 195.3333282470703,
+  "media": 188.06507594953888,
+  "desvio": 53.58367165666593
+ },
+ "iluminacao_radiacao__radiacao_solar_superficie_min_mensal": {
+  "mediana_imputacao": 89.0,
+  "media": 94.27207614959289,
+  "desvio": 67.30376023902798
+ },
+ "relevo__amplitude_relevo_m": {
+  "mediana_imputacao": 305.0,
+  "media": 514.3784032848844,
+  "desvio": 586.2032697984009
+ },
+ "relevo__declividade_desvio_graus": {
+  "mediana_imputacao": 0.3578721284866333,
+  "media": 0.7492689510332935,
+  "desvio": 0.9358686551248964
+ },
+ "relevo__declividade_max_graus": {
+  "mediana_imputacao": 2.031890034675598,
+  "media": 4.163839282044042,
+  "desvio": 5.0831838481550395
+ },
+ "relevo__declividade_media_graus": {
+  "mediana_imputacao": 0.5888172388076782,
+  "media": 1.1698122758050697,
+  "desvio": 1.507134010922081
+ },
+ "relevo__elevacao_max_m": {
+  "mediana_imputacao": 523.0,
+  "media": 789.8204978652917,
+  "desvio": 964.0780022958016
+ },
+ "relevo__elevacao_media_m": {
+  "mediana_imputacao": 368.8123321533203,
+  "media": 674.1812185125183,
+  "desvio": 954.1070635911134
+ },
+ "relevo__elevacao_min_m": {
+  "mediana_imputacao": 164.0,
+  "media": 271.35773277652055,
+  "desvio": 632.7759755832102
+ },
+ "relevo__indice_posicao_topografica_m": {
+  "mediana_imputacao": -2.091236114501953,
+  "media": 3.5955426109560573,
+  "desvio": 186.26996213407338
+ },
+ "relevo__rugosidade_desvio_elevacao_m": {
+  "mediana_imputacao": 65.11894226074219,
+  "media": 113.26511989474147,
+  "desvio": 134.191881108933
+ },
+ "agua_gelo__evaporacao_media": {
+  "mediana_imputacao": 0.8093734563203273,
+  "media": 0.8215558089870074,
+  "desvio": 0.34731671787327684
+ },
+ "agua_gelo__eventos_enchentes": {
+  "mediana_imputacao": 0.0,
+  "media": 0.050642471416998076,
+  "desvio": 0.20997823079167924
+ },
+ "agua_gelo__eventos_gelo_mar_lago": {
+  "mediana_imputacao": 0.0,
+  "media": 0.0007567180310167589,
+  "desvio": 0.02629678826023789
+ },
+ "agua_gelo__eventos_neve": {
+  "mediana_imputacao": 0.0,
+  "media": 0.00031000115405583706,
+  "desvio": 0.015348130253794955
+ },
+ "agua_gelo__eventos_seca": {
+  "mediana_imputacao": 0.0,
+  "media": 0.0005093935605916122,
+  "desvio": 0.01878364257858138
+ },
+ "agua_gelo__indice_permafrost": {
+  "mediana_imputacao": 0.15000000596046448,
+  "media": 0.4721955302179812,
+  "desvio": 0.4855448107073502
+ },
+ "agua_gelo__precipitacao_anual_mm": {
+  "mediana_imputacao": 6.08418431636666,
+  "media": 5.759884072261538,
+  "desvio": 1.2354863740664985
+ },
+ "agua_gelo__precipitacao_max_mensal": {
+  "mediana_imputacao": 1.4029547886007803,
+  "media": 1.3205464362862225,
+  "desvio": 0.7514038407607924
+ },
+ "agua_gelo__precipitacao_media": {
+  "mediana_imputacao": 0.7879117423444664,
+  "media": 0.7913643989865086,
+  "desvio": 0.5379104882283826
+ },
+ "agua_gelo__precipitacao_min_mensal": {
+  "mediana_imputacao": 0.12186359073285152,
+  "media": 0.23814424970060885,
+  "desvio": 0.2894620654803668
+ },
+ "agua_gelo__queda_neve_max_mensal": {
+  "mediana_imputacao": 0.48636897957922337,
+  "media": 0.5875721253226963,
+  "desvio": 0.5275086973770102
+ },
+ "agua_gelo__queda_neve_media": {
+  "mediana_imputacao": 0.19852294182069719,
+  "media": 0.29307012843479596,
+  "desvio": 0.29513629720808443
+ },
+ "agua_gelo__umidade_solo_raiz_media": {
+  "mediana_imputacao": 0.25979167222976685,
+  "media": 0.26033488098882646,
+  "desvio": 0.0785352627925549
+ },
+ "agua_gelo__umidade_solo_raiz_min_mensal": {
+  "mediana_imputacao": 0.2212499976158142,
+  "media": 0.2287120877807041,
+  "desvio": 0.07502601089139709
+ },
+ "agua_gelo__vapor_agua_coluna_media": {
+  "mediana_imputacao": 10.645833015441895,
+  "media": 13.926854286297985,
+  "desvio": 13.672522061925227
+ },
+ "poeira_vento_processos__aerossol_aod_max_mensal": {
+  "mediana_imputacao": 0.1875,
+  "media": 0.22552871914824815,
+  "desvio": 0.20067010299691104
+ },
+ "poeira_vento_processos__aerossol_aod_media": {
+  "mediana_imputacao": 0.09916666895151138,
+  "media": 0.12084741281004735,
+  "desvio": 0.10659082778545761
+ },
+ "poeira_vento_processos__deposicao_poeira_media": {
+  "mediana_imputacao": 1.2167992609019796e-06,
+  "media": 2.2404332941058173e-06,
+  "desvio": 2.43268727155928e-06
+ },
+ "poeira_vento_processos__eventos_deslizamentos": {
+  "mediana_imputacao": 0.0,
+  "media": 0.0009211518393800568,
+  "desvio": 0.02576094429550768
+ },
+ "poeira_vento_processos__eventos_incendios": {
+  "mediana_imputacao": 0.0,
+  "media": 0.3820184437654328,
+  "desvio": 0.8771527978719466
+ },
+ "poeira_vento_processos__eventos_poeira_nevoa": {
+  "mediana_imputacao": 0.0,
+  "media": 0.0009460166125272798,
+  "desvio": 0.02558972059841562
+ },
+ "poeira_vento_processos__eventos_tempestades": {
+  "mediana_imputacao": 0.0,
+  "media": 0.00314486639739913,
+  "desvio": 0.04848401487650375
+ },
+ "poeira_vento_processos__eventos_vulcanicos": {
+  "mediana_imputacao": 0.0,
+  "media": 0.013998068944992012,
+  "desvio": 0.17737315027610975
+ },
+ "poeira_vento_processos__poeira_superficie_max_mensal": {
+  "mediana_imputacao": 1.791759469228055,
+  "media": 2.098807735898186,
+  "desvio": 1.3862286169770217
+ },
+ "poeira_vento_processos__poeira_superficie_media": {
+  "mediana_imputacao": 1.1657515667349765,
+  "media": 1.643636842251977,
+  "desvio": 1.3621615574860888
+ },
+ "poeira_vento_processos__pressao_estimada_altitude_kpa": {
+  "mediana_imputacao": 96.97213745117188,
+  "media": 93.96312221038453,
+  "desvio": 9.957821779260673
+ },
+ "poeira_vento_processos__vento_superficie_max_mensal": {
+  "mediana_imputacao": 7.800000190734863,
+  "media": 8.832890548443068,
+  "desvio": 3.7121499152905977
+ },
+ "poeira_vento_processos__vento_superficie_media": {
+  "mediana_imputacao": 6.308333396911621,
+  "media": 7.035981742669485,
+  "desvio": 2.9851945226114283
+ },
+ "geologia_superficie__albedo_max_mensal": {
+  "mediana_imputacao": 0.5525000095367432,
+  "media": 0.48996220738037427,
+  "desvio": 0.2567190061974147
+ },
+ "geologia_superficie__albedo_media": {
+  "mediana_imputacao": 0.30653125047683716,
+  "media": 0.41258749172934017,
+  "desvio": 0.26367990365455535
+ },
+ "geologia_superficie__albedo_min_mensal": {
+  "mediana_imputacao": 0.17499999701976776,
+  "media": 0.3551014841424432,
+  "desvio": 0.2847307009448228
+ },
+ "geologia_superficie__areia_pct": {
+  "mediana_imputacao": 44.15529251098633,
+  "media": 44.42591077448637,
+  "desvio": 10.818529740256853
+ },
+ "geologia_superficie__argila_pct": {
+  "mediana_imputacao": 22.85743522644043,
+  "media": 23.310081076719907,
+  "desvio": 6.0086505994721495
+ },
+ "geologia_superficie__densidade_aparente": {
+  "mediana_imputacao": 1.1642671823501587,
+  "media": 1.1208014856040376,
+  "desvio": 0.24485766282625324
+ },
+ "geologia_superficie__fragmentos_grossos_pct": {
+  "mediana_imputacao": 12.072402000427246,
+  "media": 12.423598020324073,
+  "desvio": 5.2539298682624365
+ },
+ "geologia_superficie__idade_rocha_ma": {
+  "mediana_imputacao": 5.15732965567793,
+  "media": 4.908584119848727,
+  "desvio": 1.8217665145327318
+ },
+ "geologia_superficie__litologia_anortosito": {
+  "mediana_imputacao": 0.0,
+  "media": 0.02070550358117724,
+  "desvio": 0.1423965789709398
+ },
+ "geologia_superficie__litologia_basalto": {
+  "mediana_imputacao": 0.0,
+  "media": 0.09760166110631548,
+  "desvio": 0.29677529690930043
+ },
+ "geologia_superficie__litologia_carbonato": {
+  "mediana_imputacao": 0.0,
+  "media": 0.1516576067937382,
+  "desvio": 0.3586886910613911
+ },
+ "geologia_superficie__litologia_eolico": {
+  "mediana_imputacao": 0.0,
+  "media": 0.030422508923780418,
+  "desvio": 0.17174684822308361
+ },
+ "geologia_superficie__litologia_evaporito": {
+  "mediana_imputacao": 0.0,
+  "media": 0.049471572218463475,
+  "desvio": 0.21685049172343798
+ },
+ "geologia_superficie__litologia_glacial": {
+  "mediana_imputacao": 0.0,
+  "media": 0.22479761099316425,
+  "desvio": 0.41744897303135176
+ },
+ "geologia_superficie__litologia_granitico": {
+  "mediana_imputacao": 0.0,
+  "media": 0.1740545458787299,
+  "desvio": 0.37915638058415824
+ },
+ "geologia_superficie__litologia_hidrotermal_ferro": {
+  "mediana_imputacao": 0.0,
+  "media": 0.0036744978186314535,
+  "desvio": 0.06050616401997672
+ },
+ "geologia_superficie__litologia_impacto": {
+  "mediana_imputacao": 0.0,
+  "media": 0.019667312134008352,
+  "desvio": 0.13885427241331771
+ },
+ "geologia_superficie__litologia_lacustre_argila": {
+  "mediana_imputacao": 0.0,
+  "media": 0.2556750577421086,
+  "desvio": 0.43623998279694404
+ },
+ "geologia_superficie__litologia_piroclastico": {
+  "mediana_imputacao": 0.0,
+  "media": 0.02770454704523715,
+  "desvio": 0.16412496799163556
+ },
+ "geologia_superficie__litologia_sedimentar": {
+  "mediana_imputacao": 1.0,
+  "media": 0.6446119030399179,
+  "desvio": 0.47863075277208567
+ },
+ "geologia_superficie__litologia_ultramafico": {
+  "mediana_imputacao": 0.0,
+  "media": 0.017695914891631477,
+  "desvio": 0.13184373131772179
+ },
+ "geologia_superficie__ph": {
+  "mediana_imputacao": 6.130324840545654,
+  "media": 6.26924659247283,
+  "desvio": 0.914356769976619
+ },
+ "geologia_superficie__silte_pct": {
+  "mediana_imputacao": 32.7462043762207,
+  "media": 32.14844536880877,
+  "desvio": 8.530129339427921
+ },
+ "biologia__carbono_organico_solo": {
+  "mediana_imputacao": 3.8078766901625154,
+  "media": 3.7716727121239804,
+  "desvio": 0.9289100011366391
+ },
+ "biologia__cobertura_agricultura_fracao": {
+  "mediana_imputacao": 0.0,
+  "media": 0.06297092525751175,
+  "desvio": 0.19346196692211054
+ },
+ "biologia__cobertura_agua_fracao": {
+  "mediana_imputacao": 0.0,
+  "media": 0.03063521491631337,
+  "desvio": 0.10552908161555136
+ },
+ "biologia__cobertura_arbustos_fracao": {
+  "mediana_imputacao": 0.0,
+  "media": 0.08199116288306357,
+  "desvio": 0.23187740146603805
+ },
+ "biologia__cobertura_area_umida_fracao": {
+  "mediana_imputacao": 0.0,
+  "media": 0.008449426630298334,
+  "desvio": 0.044503251760749936
+ },
+ "biologia__cobertura_campo_fracao": {
+  "mediana_imputacao": 0.0,
+  "media": 0.15701082472947164,
+  "desvio": 0.28992754997611847
+ },
+ "biologia__cobertura_floresta_fracao": {
+  "mediana_imputacao": 0.0,
+  "media": 0.10784027637203315,
+  "desvio": 0.2466387357154638
+ },
+ "biologia__cobertura_neve_gelo_fracao": {
+  "mediana_imputacao": 0.0,
+  "media": 0.31129584696409224,
+  "desvio": 0.4560786483741244
+ },
+ "biologia__cobertura_savana_fracao": {
+  "mediana_imputacao": 0.0,
+  "media": 0.14282083453791977,
+  "desvio": 0.26598889032418854
+ },
+ "biologia__cobertura_solo_exposto_arido_fracao": {
+  "mediana_imputacao": 0.0,
+  "media": 0.09310162595175102,
+  "desvio": 0.2659324810492264
+ },
+ "biologia__cobertura_urbano_fracao": {
+  "mediana_imputacao": 0.0,
+  "media": 0.00380453739447657,
+  "desvio": 0.024346899139454602
+ },
+ "biologia__ndvi_amplitude_sazonal": {
+  "mediana_imputacao": 0.3362500071525574,
+  "media": 0.35589947400469446,
+  "desvio": 0.21088408222122093
+ },
+ "biologia__ndvi_max_mensal": {
+  "mediana_imputacao": 0.6951000094413757,
+  "media": 0.6204419646126854,
+  "desvio": 0.22370995147566877
+ },
+ "biologia__ndvi_media": {
+  "mediana_imputacao": 0.4000999927520752,
+  "media": 0.4075678618411378,
+  "desvio": 0.1809078756800645
+ },
+ "biologia__ndvi_min_mensal": {
+  "mediana_imputacao": 0.14259999990463257,
+  "media": 0.19897832315349698,
+  "desvio": 0.18907925241352463
+ },
+ "biologia__nitrogenio_solo": {
+  "mediana_imputacao": 1.5221142537184162,
+  "media": 1.5323584801682617,
+  "desvio": 0.5579726216123864
+ },
+ "subsuperficie__potencial_carste_cavernas": {
+  "mediana_imputacao": 0.0,
+  "media": 0.16270559671361062,
+  "desvio": 0.3645793307416295
+ },
+ "subsuperficie__potencial_tubos_lava": {
+  "mediana_imputacao": 0.0,
+  "media": 0.10139280964934792,
+  "desvio": 0.2986917031476482
+ },
+ "subsuperficie__solo_congelado_indice": {
+  "mediana_imputacao": 0.15000000596046448,
+  "media": 0.4721955302179812,
+  "desvio": 0.4855448107073502
+ },
+ "operacoes__densidade_populacional": {
+  "mediana_imputacao": 1.0116009116784799,
+  "media": 1.6532966519934924,
+  "desvio": 1.368056763488365
+ },
+ "operacoes__fracao_terreno_ingreme_gt15graus": {
+  "mediana_imputacao": 0.0,
+  "media": 0.0017523035340923675,
+  "desvio": 0.013891760260578418
+ },
+ "operacoes__fracao_terreno_muito_ingreme_gt30graus": {
+  "mediana_imputacao": 0.0,
+  "media": 8.831676774354029e-06,
+  "desvio": 0.0004809004006273661
+ },
+ "operacoes__fracao_terreno_plano_lt5graus": {
+  "mediana_imputacao": 1.0,
+  "media": 0.9520603388916274,
+  "desvio": 0.1319222174096542
+ }
+}

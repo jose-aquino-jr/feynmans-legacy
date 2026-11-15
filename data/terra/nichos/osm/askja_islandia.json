@@ -1,0 +1,2010 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-11-14T17:04:51Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 308855341,
+      "lat": 65.0304383,
+      "lon": -16.7468865,
+      "tags": {
+        "description": "Last erupted 1961.",
+        "ele": "1516",
+        "name": "Askja",
+        "name:ru": "Аскья",
+        "natural": "volcano",
+        "source": "landsat;Bing;Nordic Volcanological cnter",
+        "volcano:last_eruption": "1961",
+        "volcano:status": "active",
+        "volcano:type": "stratovolcano",
+        "wikidata": "Q211665",
+        "wikipedia": "is:Askja (fjall)"
+      }
+    },
+    {
+      "type": "node",
+      "id": 308856415,
+      "lat": 65.1786776,
+      "lon": -16.3450156,
+      "tags": {
+        "ele": "1677",
+        "name": "Herðubreið",
+        "natural": "volcano",
+        "source": "landsat;local knowledge",
+        "wikidata": "Q961546",
+        "wikipedia": "is:Herðubreið"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3052446913,
+      "lat": 65.0657079,
+      "lon": -16.7291658,
+      "tags": {
+        "name": "Vikraborgir",
+        "natural": "volcano"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3062325628,
+      "lat": 64.8708772,
+      "lon": -16.8347618,
+      "tags": {
+        "geological": "volcanic_vent",
+        "name": "Holuhraun",
+        "natural": "volcano",
+        "status": "inactive",
+        "volcanic_vent:type": "fissure",
+        "volcano:last_eruption": "2014"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5859275219,
+      "lat": 65.2768975,
+      "lon": -16.4957035,
+      "tags": {
+        "geological": "volcanic_vent"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5859275220,
+      "lat": 65.277584,
+      "lon": -16.4958751,
+      "tags": {
+        "geological": "volcanic_vent"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5859275221,
+      "lat": 65.3103863,
+      "lon": -16.4469838,
+      "tags": {
+        "geological": "volcanic_vent"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5859275222,
+      "lat": 65.3098619,
+      "lon": -16.4472091,
+      "tags": {
+        "geological": "volcanic_vent"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5859275223,
+      "lat": 65.3092883,
+      "lon": -16.44759,
+      "tags": {
+        "geological": "volcanic_vent"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5859275224,
+      "lat": 65.308141,
+      "lon": -16.4486414,
+      "tags": {
+        "geological": "volcanic_vent"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5859275225,
+      "lat": 65.3085936,
+      "lon": -16.4479494,
+      "tags": {
+        "geological": "volcanic_vent"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5859275226,
+      "lat": 65.3080379,
+      "lon": -16.4487487,
+      "tags": {
+        "geological": "volcanic_vent"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5859275227,
+      "lat": 65.3033293,
+      "lon": -16.4553469,
+      "tags": {
+        "geological": "volcanic_vent"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5859275228,
+      "lat": 65.3035713,
+      "lon": -16.4560658,
+      "tags": {
+        "geological": "volcanic_vent"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5859275229,
+      "lat": 65.3019306,
+      "lon": -16.4651424,
+      "tags": {
+        "geological": "volcanic_vent"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5859275230,
+      "lat": 65.3092838,
+      "lon": -16.4667893,
+      "tags": {
+        "geological": "volcanic_vent"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5859275231,
+      "lat": 65.3028295,
+      "lon": -16.4580346,
+      "tags": {
+        "geological": "volcanic_vent"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5859298863,
+      "lat": 65.2842823,
+      "lon": -16.4814663,
+      "tags": {
+        "geological": "volcanic_vent"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7486393890,
+      "lat": 64.8645456,
+      "lon": -16.841805,
+      "tags": {
+        "geological": "volcanic_vent",
+        "natural": "volcano",
+        "volcanic_vent:type": "crater",
+        "volcano:last_eruption": "2014",
+        "volcano:status": "dormant"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8042236874,
+      "lat": 64.8173191,
+      "lon": -17.0802909,
+      "tags": {
+        "geological": "volcanic_vent",
+        "natural": "volcano",
+        "status": "inactive",
+        "volcanic_vent:type": "fissure"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8042271172,
+      "lat": 64.864762,
+      "lon": -16.8411773,
+      "tags": {
+        "geological": "volcanic_vent",
+        "natural": "volcano",
+        "volcanic_vent:type": "crater",
+        "volcano:last_eruption": "2014",
+        "volcano:status": "dormant"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8042271173,
+      "lat": 64.8237507,
+      "lon": -16.8734497,
+      "tags": {
+        "geological": "volcanic_vent",
+        "natural": "volcano",
+        "status": "inactive",
+        "volcanic_vent:type": "crater"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10576296614,
+      "lat": 65.1939131,
+      "lon": -16.6704614,
+      "tags": {
+        "geological": "volcanic_lava_field",
+        "name": "Ódáðahraun",
+        "note": "Very large volcanic plain, edges not clearly defined"
+      }
+    },
+    {
+      "type": "way",
+      "id": 48317452,
+      "center": {
+        "lat": 64.9105485,
+        "lon": -16.7748881
+      },
+      "tags": {
+        "highway": "track",
+        "source": "ourfootprints"
+      }
+    },
+    {
+      "type": "way",
+      "id": 48322880,
+      "center": {
+        "lat": 65.0320912,
+        "lon": -17.4386122
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "unpaved",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 48322947,
+      "center": {
+        "lat": 64.8888393,
+        "lon": -16.9762879
+      },
+      "tags": {
+        "highway": "track",
+        "name": "Gæsavatnaleið",
+        "surface": "sand",
+        "tracktype": "grade5"
+      }
+    },
+    {
+      "type": "way",
+      "id": 48322967,
+      "center": {
+        "lat": 64.9822002,
+        "lon": -16.9515325
+      },
+      "tags": {
+        "highway": "track",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 48322970,
+      "center": {
+        "lat": 65.0921655,
+        "lon": -17.425305
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "unpaved",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 48322980,
+      "center": {
+        "lat": 65.324104,
+        "lon": -17.3260356
+      },
+      "tags": {
+        "highway": "track",
+        "name": "Réttartorfa",
+        "source": "ourfootprints"
+      }
+    },
+    {
+      "type": "way",
+      "id": 48322988,
+      "center": {
+        "lat": 65.196457,
+        "lon": -16.9922741
+      },
+      "tags": {
+        "highway": "track",
+        "name": "Öskjuvegur-Dyngjufjöll",
+        "surface": "ground",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 48322989,
+      "center": {
+        "lat": 65.3834538,
+        "lon": -17.030375
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 48322990,
+      "center": {
+        "lat": 65.2755018,
+        "lon": -17.0540133
+      },
+      "tags": {
+        "highway": "track",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 48324055,
+      "center": {
+        "lat": 64.8812592,
+        "lon": -16.173872
+      },
+      "tags": {
+        "highway": "track",
+        "note": "Gragaesadalur",
+        "source": "ourfootprints"
+      }
+    },
+    {
+      "type": "way",
+      "id": 48324090,
+      "center": {
+        "lat": 64.8754889,
+        "lon": -16.2954441
+      },
+      "tags": {
+        "highway": "track",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 48324095,
+      "center": {
+        "lat": 65.1453865,
+        "lon": -16.3570346
+      },
+      "tags": {
+        "highway": "track",
+        "name": "Herðubreið",
+        "surface": "unpaved",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 48324112,
+      "center": {
+        "lat": 64.8984898,
+        "lon": -16.0868253
+      },
+      "tags": {
+        "highway": "track",
+        "note": "Gragaesadalur-Fagridalur",
+        "source": "ourfootprints"
+      }
+    },
+    {
+      "type": "way",
+      "id": 48324116,
+      "center": {
+        "lat": 64.8946641,
+        "lon": -16.026625
+      },
+      "tags": {
+        "highway": "track",
+        "note": "Gragaesadalur-Fagridalur",
+        "source": "ourfootprints"
+      }
+    },
+    {
+      "type": "way",
+      "id": 48324118,
+      "center": {
+        "lat": 64.86777,
+        "lon": -16.072845
+      },
+      "tags": {
+        "highway": "track",
+        "ofp:name": "Gragaesadalur-Fagridalur",
+        "ourfootprints:author": "Oystein Blom",
+        "ourfootprints:date": "2008-09",
+        "ourfootprints:raw_comment": "ACTIVELOG Daten von OysteinBlom vom Sept08",
+        "ourfootprints:road_type": "10",
+        "ourfootprints:track": "ACTIVELOG",
+        "source": "ourfootprints"
+      }
+    },
+    {
+      "type": "way",
+      "id": 48324124,
+      "center": {
+        "lat": 64.9143435,
+        "lon": -15.9689809
+      },
+      "tags": {
+        "highway": "track",
+        "source": "ourfootprints"
+      }
+    },
+    {
+      "type": "way",
+      "id": 48324177,
+      "center": {
+        "lat": 65.0558411,
+        "lon": -15.976115
+      },
+      "tags": {
+        "highway": "track",
+        "source": "ourfootprints"
+      }
+    },
+    {
+      "type": "way",
+      "id": 73108573,
+      "center": {
+        "lat": 64.8293813,
+        "lon": -16.3928555
+      },
+      "tags": {
+        "highway": "track",
+        "name": "Hveragilavegur",
+        "source": "bing"
+      }
+    },
+    {
+      "type": "way",
+      "id": 137383811,
+      "center": {
+        "lat": 64.9586041,
+        "lon": -16.027445
+      },
+      "tags": {
+        "highway": "track",
+        "source": "ourfootprints"
+      }
+    },
+    {
+      "type": "way",
+      "id": 146905145,
+      "center": {
+        "lat": 65.3160462,
+        "lon": -17.1058594
+      },
+      "tags": {
+        "access": "yes",
+        "highway": "track",
+        "motor_vehicle": "yes",
+        "motorcar": "yes",
+        "motorcycle": "yes",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 170086945,
+      "center": {
+        "lat": 65.1908047,
+        "lon": -16.2108794
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "unpaved",
+        "tracktype": "grade5"
+      }
+    },
+    {
+      "type": "way",
+      "id": 170086952,
+      "center": {
+        "lat": 65.1869552,
+        "lon": -16.2078979
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "unpaved",
+        "tracktype": "grade5"
+      }
+    },
+    {
+      "type": "way",
+      "id": 309150309,
+      "center": {
+        "lat": 64.7584088,
+        "lon": -16.4227447
+      },
+      "tags": {
+        "highway": "track",
+        "source": "bing"
+      }
+    },
+    {
+      "type": "way",
+      "id": 309150310,
+      "center": {
+        "lat": 64.6950674,
+        "lon": -16.5115935
+      },
+      "tags": {
+        "highway": "track",
+        "source": "bing"
+      }
+    },
+    {
+      "type": "way",
+      "id": 319372206,
+      "center": {
+        "lat": 65.2075958,
+        "lon": -17.6099318
+      },
+      "tags": {
+        "4wd_only": "yes",
+        "designation": "Sx",
+        "highway": "secondary",
+        "name": "Sprengisandsleið",
+        "oneway": "no",
+        "ref": "F26",
+        "surface": "gravel"
+      }
+    },
+    {
+      "type": "way",
+      "id": 322832721,
+      "center": {
+        "lat": 64.847011,
+        "lon": -16.9737511
+      },
+      "tags": {
+        "check_date": "2025",
+        "highway": "track",
+        "name": "Gæsavatnaleið",
+        "source": "ourfootprints",
+        "surface": "ground",
+        "tracktype": "grade5"
+      }
+    },
+    {
+      "type": "way",
+      "id": 444581992,
+      "center": {
+        "lat": 65.2290189,
+        "lon": -16.1886864
+      },
+      "tags": {
+        "ford": "yes",
+        "highway": "track",
+        "surface": "ground",
+        "tracktype": "grade5"
+      }
+    },
+    {
+      "type": "way",
+      "id": 492666258,
+      "center": {
+        "lat": 65.417067,
+        "lon": -16.921095
+      },
+      "tags": {
+        "highway": "track",
+        "name": "Heilagsdalsskáli",
+        "surface": "unpaved",
+        "tracktype": "grade5"
+      }
+    },
+    {
+      "type": "way",
+      "id": 493336583,
+      "center": {
+        "lat": 65.1272721,
+        "lon": -17.5222814
+      },
+      "tags": {
+        "highway": "track",
+        "name": "Kvíakofi",
+        "surface": "ground",
+        "tracktype": "grade5"
+      }
+    },
+    {
+      "type": "way",
+      "id": 493336586,
+      "center": {
+        "lat": 65.1743291,
+        "lon": -17.4744695
+      },
+      "tags": {
+        "4wd_only": "yes",
+        "highway": "track",
+        "surface": "gravel"
+      }
+    },
+    {
+      "type": "way",
+      "id": 493336589,
+      "center": {
+        "lat": 65.1795394,
+        "lon": -17.4700771
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 493336590,
+      "center": {
+        "lat": 65.1939626,
+        "lon": -17.4871749
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 493336591,
+      "center": {
+        "lat": 65.1888931,
+        "lon": -17.471029
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 493336592,
+      "center": {
+        "lat": 65.1865886,
+        "lon": -17.4786778
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 493336597,
+      "center": {
+        "lat": 65.1958406,
+        "lon": -17.4795043
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 493336600,
+      "center": {
+        "lat": 65.1983424,
+        "lon": -17.4775894
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 512693043,
+      "center": {
+        "lat": 65.340254,
+        "lon": -17.134713
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 512693044,
+      "center": {
+        "lat": 65.3421684,
+        "lon": -17.1384597
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 512693046,
+      "center": {
+        "lat": 65.3445608,
+        "lon": -17.1271679
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 512693082,
+      "center": {
+        "lat": 65.347617,
+        "lon": -17.0516617
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 513730616,
+      "center": {
+        "lat": 65.1434031,
+        "lon": -15.9457552
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 513730618,
+      "center": {
+        "lat": 65.1488999,
+        "lon": -15.9516535
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 556288142,
+      "center": {
+        "lat": 65.3058665,
+        "lon": -17.2886607
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 556288146,
+      "center": {
+        "lat": 65.0553595,
+        "lon": -16.6455326
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 556288148,
+      "center": {
+        "lat": 65.123278,
+        "lon": -16.7121366
+      },
+      "tags": {
+        "highway": "track",
+        "name": "Vikrafellsleið",
+        "surface": "ground",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 556359229,
+      "center": {
+        "lat": 65.2586099,
+        "lon": -17.3121445
+      },
+      "tags": {
+        "highway": "track",
+        "name": "Réttartorfa"
+      }
+    },
+    {
+      "type": "way",
+      "id": 556453807,
+      "center": {
+        "lat": 64.9973791,
+        "lon": -17.5305106
+      },
+      "tags": {
+        "highway": "track",
+        "name": "Slakki",
+        "surface": "ground",
+        "tracktype": "grade5"
+      }
+    },
+    {
+      "type": "way",
+      "id": 556453811,
+      "center": {
+        "lat": 64.9450212,
+        "lon": -17.5609355
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground",
+        "tracktype": "grade5"
+      }
+    },
+    {
+      "type": "way",
+      "id": 556453813,
+      "center": {
+        "lat": 65.0140068,
+        "lon": -17.4514154
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "unpaved",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 556453818,
+      "center": {
+        "lat": 65.0283029,
+        "lon": -17.5957029
+      },
+      "tags": {
+        "highway": "track",
+        "name": "Slakki",
+        "surface": "ground",
+        "tracktype": "grade5"
+      }
+    },
+    {
+      "type": "way",
+      "id": 556453831,
+      "center": {
+        "lat": 64.9874174,
+        "lon": -17.5654576
+      },
+      "tags": {
+        "highway": "track",
+        "name": "Slakki",
+        "surface": "ground",
+        "tracktype": "grade5"
+      }
+    },
+    {
+      "type": "way",
+      "id": 556453841,
+      "center": {
+        "lat": 65.0798597,
+        "lon": -17.461781
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 556458828,
+      "center": {
+        "lat": 64.797405,
+        "lon": -17.2463388
+      },
+      "tags": {
+        "highway": "track",
+        "name": "Dyngjujokull"
+      }
+    },
+    {
+      "type": "way",
+      "id": 556458830,
+      "center": {
+        "lat": 64.8135491,
+        "lon": -17.2339183
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground",
+        "tracktype": "grade5"
+      }
+    },
+    {
+      "type": "way",
+      "id": 556478140,
+      "center": {
+        "lat": 65.1908529,
+        "lon": -17.3792944
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 556478144,
+      "center": {
+        "lat": 65.1867795,
+        "lon": -17.3648502
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 556478148,
+      "center": {
+        "lat": 65.2311387,
+        "lon": -17.2716677
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 556478154,
+      "center": {
+        "lat": 65.1566825,
+        "lon": -17.2995047
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 556478167,
+      "center": {
+        "lat": 65.2320569,
+        "lon": -17.3048999
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 556478174,
+      "center": {
+        "lat": 65.0621491,
+        "lon": -17.2919595
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "unpaved",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 558304670,
+      "center": {
+        "lat": 64.8870961,
+        "lon": -16.3050993
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 558304673,
+      "center": {
+        "lat": 64.8913663,
+        "lon": -15.9487015
+      },
+      "tags": {
+        "highway": "track",
+        "name": "Hálslón"
+      }
+    },
+    {
+      "type": "way",
+      "id": 558304681,
+      "center": {
+        "lat": 64.826232,
+        "lon": -16.0800866
+      },
+      "tags": {
+        "highway": "track",
+        "name": "Brúarjökull"
+      }
+    },
+    {
+      "type": "way",
+      "id": 558304682,
+      "center": {
+        "lat": 64.8438664,
+        "lon": -15.9833563
+      },
+      "tags": {
+        "highway": "track",
+        "name": "Hálslón",
+        "surface": "unpaved",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 558304683,
+      "center": {
+        "lat": 64.8475267,
+        "lon": -16.039043
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 558304686,
+      "center": {
+        "lat": 64.8430539,
+        "lon": -16.0360983
+      },
+      "tags": {
+        "highway": "track",
+        "name": "Sauðárflugvöllur"
+      }
+    },
+    {
+      "type": "way",
+      "id": 558304687,
+      "center": {
+        "lat": 64.9015843,
+        "lon": -15.9904402
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 558304689,
+      "center": {
+        "lat": 64.8628212,
+        "lon": -16.0329555
+      },
+      "tags": {
+        "highway": "track",
+        "name": "Brúarjökull"
+      }
+    },
+    {
+      "type": "way",
+      "id": 558537081,
+      "center": {
+        "lat": 65.0553317,
+        "lon": -16.9523461
+      },
+      "tags": {
+        "highway": "track",
+        "name": "Dyngjufjalladalur",
+        "surface": "gravel",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 558537118,
+      "center": {
+        "lat": 65.1699601,
+        "lon": -15.9257504
+      },
+      "tags": {
+        "highway": "track",
+        "name": "Dyngjuháls",
+        "surface": "ground",
+        "tracktype": "grade5"
+      }
+    },
+    {
+      "type": "way",
+      "id": 650779549,
+      "center": {
+        "lat": 65.3037755,
+        "lon": -17.1327478
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 650779552,
+      "center": {
+        "lat": 65.268529,
+        "lon": -17.0002269
+      },
+      "tags": {
+        "highway": "track",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 650779553,
+      "center": {
+        "lat": 65.2774428,
+        "lon": -17.0289779
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 650779554,
+      "center": {
+        "lat": 65.2779089,
+        "lon": -17.0314124
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 660156186,
+      "center": {
+        "lat": 65.3548797,
+        "lon": -17.0997908
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 660156187,
+      "center": {
+        "lat": 65.3529544,
+        "lon": -17.0920134
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 660156188,
+      "center": {
+        "lat": 65.3556887,
+        "lon": -17.0872394
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 660157505,
+      "center": {
+        "lat": 65.3341071,
+        "lon": -17.2008466
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 664535350,
+      "center": {
+        "lat": 65.2287462,
+        "lon": -16.1873356
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "gravel",
+        "tracktype": "grade3"
+      }
+    },
+    {
+      "type": "way",
+      "id": 700698648,
+      "center": {
+        "lat": 65.1941803,
+        "lon": -16.2177618
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "unpaved",
+        "tracktype": "grade5"
+      }
+    },
+    {
+      "type": "way",
+      "id": 700698649,
+      "center": {
+        "lat": 65.1937082,
+        "lon": -16.215373
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "unpaved",
+        "tracktype": "grade5"
+      }
+    },
+    {
+      "type": "way",
+      "id": 715102982,
+      "center": {
+        "lat": 64.8199352,
+        "lon": -17.1224814
+      },
+      "tags": {
+        "check_date": "2025",
+        "highway": "track",
+        "name": "Gæsavatnaleið",
+        "source": "ourfootprints",
+        "surface": "dirt",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 875249121,
+      "center": {
+        "lat": 65.2305757,
+        "lon": -16.1883074
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "gravel",
+        "tracktype": "grade3"
+      }
+    },
+    {
+      "type": "way",
+      "id": 875249122,
+      "center": {
+        "lat": 65.2280619,
+        "lon": -16.1887793
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "gravel",
+        "tracktype": "grade3"
+      }
+    },
+    {
+      "type": "way",
+      "id": 977416760,
+      "center": {
+        "lat": 64.8780259,
+        "lon": -16.8903779
+      },
+      "tags": {
+        "check_date": "2025",
+        "highway": "track",
+        "name": "Gæsavatnaleið",
+        "surface": "dirt",
+        "tracktype": "grade5"
+      }
+    },
+    {
+      "type": "way",
+      "id": 986307284,
+      "center": {
+        "lat": 64.9985724,
+        "lon": -17.4386559
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "unpaved",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 986307286,
+      "center": {
+        "lat": 65.2221365,
+        "lon": -17.3450444
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "unpaved",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1091927497,
+      "center": {
+        "lat": 64.8177124,
+        "lon": -17.2257732
+      },
+      "tags": {
+        "check_date": "2025",
+        "highway": "track",
+        "name": "Gæsavatnaleið",
+        "surface": "ground",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1091927498,
+      "center": {
+        "lat": 64.8005536,
+        "lon": -17.3180148
+      },
+      "tags": {
+        "check_date": "2025",
+        "highway": "track",
+        "name": "Gæsavatnaleið",
+        "surface": "ground",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1091927499,
+      "center": {
+        "lat": 64.8126825,
+        "lon": -17.2822853
+      },
+      "tags": {
+        "check_date": "2025",
+        "highway": "track",
+        "name": "Gæsavatnaleið",
+        "surface": "ground",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1091935065,
+      "center": {
+        "lat": 64.818371,
+        "lon": -17.1727053
+      },
+      "tags": {
+        "check_date": "2025",
+        "highway": "track",
+        "name": "Gæsavatnaleið",
+        "source": "ourfootprints",
+        "surface": "ground",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1091935066,
+      "center": {
+        "lat": 64.8178681,
+        "lon": -17.1757917
+      },
+      "tags": {
+        "check_date": "2025",
+        "highway": "track",
+        "name": "Gæsavatnaleið",
+        "source": "ourfootprints",
+        "surface": "ground",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1091935067,
+      "center": {
+        "lat": 64.8198793,
+        "lon": -17.1863345
+      },
+      "tags": {
+        "check_date": "2025",
+        "highway": "track",
+        "name": "Gæsavatnaleið",
+        "source": "ourfootprints",
+        "surface": "dirt",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1091935068,
+      "center": {
+        "lat": 64.821615,
+        "lon": -17.1979284
+      },
+      "tags": {
+        "check_date": "2025",
+        "highway": "track",
+        "name": "Gæsavatnaleið",
+        "source": "ourfootprints",
+        "surface": "dirt",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1091951390,
+      "center": {
+        "lat": 64.8247023,
+        "lon": -17.0298976
+      },
+      "tags": {
+        "geological": "moraine",
+        "natural": "scree"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1091951391,
+      "center": {
+        "lat": 64.8253663,
+        "lon": -17.0255578
+      },
+      "tags": {
+        "geological": "moraine",
+        "natural": "scree"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1091951392,
+      "center": {
+        "lat": 64.8229884,
+        "lon": -17.0349294
+      },
+      "tags": {
+        "geological": "moraine",
+        "natural": "scree"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1091951393,
+      "center": {
+        "lat": 64.8180014,
+        "lon": -17.0480079
+      },
+      "tags": {
+        "geological": "moraine",
+        "natural": "scree"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1091951394,
+      "center": {
+        "lat": 64.8130389,
+        "lon": -17.0623576
+      },
+      "tags": {
+        "geological": "moraine",
+        "natural": "scree"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1159330243,
+      "center": {
+        "lat": 65.3039713,
+        "lon": -17.1558945
+      },
+      "tags": {
+        "highway": "track",
+        "name": "Öskjuvegur-Dyngjufjöll",
+        "surface": "ground",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1159330244,
+      "center": {
+        "lat": 65.2684842,
+        "lon": -17.0677945
+      },
+      "tags": {
+        "ford": "yes",
+        "highway": "track",
+        "name": "Öskjuvegur-Dyngjufjöll",
+        "surface": "ground",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1193309508,
+      "center": {
+        "lat": 65.3061865,
+        "lon": -17.1505508
+      },
+      "tags": {
+        "geological": "volcanic_lava_field",
+        "natural": "bare_rock"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1193373687,
+      "center": {
+        "lat": 65.3140745,
+        "lon": -17.193059
+      },
+      "tags": {
+        "geological": "volcanic_lava_field",
+        "natural": "bare_rock"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1420902644,
+      "center": {
+        "lat": 64.8175908,
+        "lon": -17.0810275
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1420902645,
+      "center": {
+        "lat": 64.8709236,
+        "lon": -16.9045951
+      },
+      "tags": {
+        "check_date": "2025",
+        "highway": "track",
+        "name": "Gæsavatnaleið",
+        "surface": "dirt",
+        "tracktype": "grade5"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1420902646,
+      "center": {
+        "lat": 64.8989384,
+        "lon": -16.8407417
+      },
+      "tags": {
+        "check_date": "2025",
+        "highway": "track",
+        "name": "Gæsavatnaleið",
+        "surface": "dirt",
+        "tracktype": "grade5"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1420902647,
+      "center": {
+        "lat": 64.8808294,
+        "lon": -16.875574
+      },
+      "tags": {
+        "access": "no",
+        "check_date": "2025",
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1420902648,
+      "center": {
+        "lat": 64.8230899,
+        "lon": -17.0555023
+      },
+      "tags": {
+        "check_date": "2025",
+        "highway": "track",
+        "name": "Gæsavatnaleið",
+        "surface": "sand",
+        "tracktype": "grade5"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1420902649,
+      "center": {
+        "lat": 64.7905603,
+        "lon": -17.3515881
+      },
+      "tags": {
+        "check_date": "2025",
+        "highway": "track",
+        "name": "Gæsavatnaleið",
+        "surface": "ground",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1420902651,
+      "center": {
+        "lat": 64.7990277,
+        "lon": -17.3229356
+      },
+      "tags": {
+        "check_date": "2025",
+        "highway": "track",
+        "name": "Gæsavatnaleið",
+        "surface": "ground",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1420902652,
+      "center": {
+        "lat": 64.7993195,
+        "lon": -17.3217431
+      },
+      "tags": {
+        "check_date": "2025",
+        "highway": "track",
+        "name": "Gæsavatnaleið",
+        "surface": "ground",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1472190973,
+      "center": {
+        "lat": 65.2603513,
+        "lon": -17.3138403
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1472190975,
+      "center": {
+        "lat": 65.2586393,
+        "lon": -17.3125954
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1472190978,
+      "center": {
+        "lat": 65.153275,
+        "lon": -17.3929216
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 8596662,
+      "center": {
+        "lat": 65.2691204,
+        "lon": -17.2113866
+      },
+      "tags": {
+        "geological": "volcanic_lava_field",
+        "name": "Suðurárhraun",
+        "natural": "bare_rock",
+        "source": "jardfraedikort.is/index.html",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 8600450,
+      "center": {
+        "lat": 65.1176466,
+        "lon": -17.1193224
+      },
+      "tags": {
+        "alt_name": "Frambruni",
+        "geological": "volcanic_lava_field",
+        "name": "Fjallsendahraun",
+        "natural": "bare_rock",
+        "source": "jardfraedikort.is/index.html",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 8600914,
+      "center": {
+        "lat": 65.3174355,
+        "lon": -16.4067668
+      },
+      "tags": {
+        "geological": "volcanic_lava_field",
+        "name": "Sprunguhraun",
+        "natural": "bare_rock",
+        "source": "jardfraedikort.is/index.html",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 11071456,
+      "center": {
+        "lat": 64.8918647,
+        "lon": -16.6869014
+      },
+      "tags": {
+        "alt_name": "Nornahraun",
+        "geological": "volcanic_lava_field",
+        "name": "Holuhraun",
+        "natural": "bare_rock",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 12572453,
+      "center": {
+        "lat": 64.9709707,
+        "lon": -17.3182244
+      },
+      "tags": {
+        "geological": "volcanic_lava_field",
+        "natural": "bare_rock",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 12573889,
+      "center": {
+        "lat": 65.0462908,
+        "lon": -16.7916769
+      },
+      "tags": {
+        "geological": "volcanic_lava_field",
+        "natural": "bare_rock",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 12573890,
+      "center": {
+        "lat": 65.0441282,
+        "lon": -16.7128685
+      },
+      "tags": {
+        "geological": "volcanic_lava_flow",
+        "name": "Bátshraun",
+        "natural": "bare_rock",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 12573891,
+      "center": {
+        "lat": 65.0231126,
+        "lon": -16.8051419
+      },
+      "tags": {
+        "geological": "volcanic_lava_field",
+        "name": "Mývetningahraun",
+        "natural": "bare_rock",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 12573901,
+      "center": {
+        "lat": 64.9213389,
+        "lon": -16.9863653
+      },
+      "tags": {
+        "geological": "volcanic_lava_field",
+        "name": "Hrímölduhraun",
+        "natural": "bare_rock",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 12574010,
+      "center": {
+        "lat": 65.2870764,
+        "lon": -16.653117
+      },
+      "tags": {
+        "geological": "volcanic_lava_field",
+        "name": "Hvammsdyngja",
+        "natural": "bare_rock",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 12574012,
+      "center": {
+        "lat": 65.241915,
+        "lon": -16.5888942
+      },
+      "tags": {
+        "geological": "volcanic_lava_field",
+        "natural": "bare_rock",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 13751159,
+      "center": {
+        "lat": 65.343823,
+        "lon": -17.2585974
+      },
+      "tags": {
+        "geological": "volcanic_lava_field",
+        "natural": "bare_rock",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 13836821,
+      "center": {
+        "lat": 64.9138805,
+        "lon": -17.3976107
+      },
+      "tags": {
+        "geological": "volcanic_lava_field",
+        "natural": "bare_rock",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 13950253,
+      "center": {
+        "lat": 64.7674572,
+        "lon": -17.3109822
+      },
+      "tags": {
+        "geological": "moraine",
+        "natural": "scree",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 14646683,
+      "center": {
+        "lat": 64.788624,
+        "lon": -16.1025046
+      },
+      "tags": {
+        "geological": "moraine",
+        "natural": "scree",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 14744933,
+      "center": {
+        "lat": 64.7617442,
+        "lon": -16.2727102
+      },
+      "tags": {
+        "geological": "moraine",
+        "natural": "scree",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 14744935,
+      "center": {
+        "lat": 64.6881536,
+        "lon": -16.7506714
+      },
+      "tags": {
+        "geological": "moraine",
+        "natural": "scree",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 14759587,
+      "center": {
+        "lat": 64.7770234,
+        "lon": -16.8171754
+      },
+      "tags": {
+        "geological": "moraine",
+        "natural": "scree",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 15313291,
+      "center": {
+        "lat": 65.218212,
+        "lon": -17.0543701
+      },
+      "tags": {
+        "geological": "volcanic_lava_field",
+        "natural": "bare_rock",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 15351238,
+      "center": {
+        "lat": 65.3203548,
+        "lon": -16.6546727
+      },
+      "tags": {
+        "geological": "volcanic_lava_field",
+        "natural": "bare_rock",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 16142673,
+      "center": {
+        "lat": 65.3090724,
+        "lon": -17.158225
+      },
+      "tags": {
+        "geological": "volcanic_lava_field",
+        "natural": "bare_rock",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 16142675,
+      "center": {
+        "lat": 65.3086457,
+        "lon": -17.1740099
+      },
+      "tags": {
+        "geological": "volcanic_lava_field",
+        "natural": "bare_rock",
+        "type": "multipolygon"
+      }
+    }
+  ]
+}

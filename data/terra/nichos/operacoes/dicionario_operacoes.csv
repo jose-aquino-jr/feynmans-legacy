@@ -1,0 +1,5 @@
+﻿coluna,grupo,unidade,fonte,descricao,transformacao_no_padronizado,resolucao_nativa,nivel_precisao_equivalente,faltantes_pct,arquivo,agregacao_mensal,cobertura_ultimo_mes_pct
+operacoes__densidade_populacional,operacoes,hab/km²,NASA SEDAC GPW v4 2020 (via GIBS),Densidade populacional (isolamento/logística),log1p + z-score,"~1 km (amostrado a 0,1°)",1.0,30.3,operacoes.parquet / operacoes_padronizado.parquet,,
+operacoes__fracao_terreno_ingreme_gt15graus,operacoes,0–1,"AWS Terrain Tiles z6 (SRTM/ETOPO1/GMTED, ~2,4 km/px no equador)",Fração com declividade > 15°,z-score,"~2,4 km/px no equador",2.0,7.6,operacoes.parquet / operacoes_padronizado.parquet,,
+operacoes__fracao_terreno_muito_ingreme_gt30graus,operacoes,0–1,"AWS Terrain Tiles z6 (SRTM/ETOPO1/GMTED, ~2,4 km/px no equador)",Fração com declividade > 30°,z-score,"~2,4 km/px no equador",2.0,7.6,operacoes.parquet / operacoes_padronizado.parquet,,
+operacoes__fracao_terreno_plano_lt5graus,operacoes,0–1,"AWS Terrain Tiles z6 (SRTM/ETOPO1/GMTED, ~2,4 km/px no equador)",Fração com declividade < 5° (pouso/mobilidade),z-score,"~2,4 km/px no equador",2.0,7.6,operacoes.parquet / operacoes_padronizado.parquet,,

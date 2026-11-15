@@ -1,0 +1,131 @@
+{
+  "success": {
+    "v": 2,
+    "license": "CC-BY 4.0",
+    "data": [
+      {
+        "map_id": 3858065,
+        "source_id": 475,
+        "name": "Dakota Sandstone and Cedar Mountain or Burro Canyon Formations",
+        "strat_name": "Dakota Sandstone and Cedar Mountain or Burro Canyon Formations",
+        "lith": "sandstone",
+        "descrip": "",
+        "comments": "",
+        "macro_units": [],
+        "strat_names": [
+          347
+        ],
+        "liths": [
+          10
+        ],
+        "t_int_id": 33,
+        "t_int_age": 66,
+        "t_int_name": "Cretaceous",
+        "b_int_id": 33,
+        "b_int_age": 143.1,
+        "b_int_name": "Cretaceous",
+        "color": "#7FC64E",
+        "t_age": 66,
+        "b_age": 143.1,
+        "best_int_name": "Cretaceous",
+        "scale": "medium"
+      },
+      {
+        "map_id": 2890406,
+        "source_id": 133,
+        "name": "Dakota Ss and Cedar Mtn. or Burro Canyon Formations",
+        "strat_name": "Dakota Sandstone; Cedar Mountain Formation; Burro Canyon Formation",
+        "lith": "Major:{sandstone}, Minor:{mixed clastic}",
+        "descrip": "Dakota Ss and Cedar Mtn or Burro Canyon Formations.",
+        "comments": "Dakota Ss overlies Cedar Mtn/Burro Canyon Fms; fluvial and near shore; Dakota marks initiation of the Western Interior seaway Original map source: Hintze, L.F., Willis, G.C., Laes, D.Y.M., Sprinkel, D.A., and Brown, K.D., 2000, Digital Geologic Map of Utah: Utah Geological Survey, Map 179DM, scale 1:500,000. Primary reference: Currie, B.S., 2002, Structural configuration of the Early Cretaceous Cordilleran foreland-basin system and Sevier thrust belt, Utah and Colorado: Journal of Geology, v. 110, p. 697-718.",
+        "macro_units": [
+          14993,
+          15055,
+          15176,
+          15177,
+          15437,
+          15438,
+          15468,
+          15469
+        ],
+        "strat_names": [
+          271,
+          347,
+          6873,
+          69297
+        ],
+        "liths": [
+          10
+        ],
+        "t_int_id": 40,
+        "t_int_age": 93.9,
+        "t_int_name": "Cenomanian",
+        "b_int_id": 43,
+        "b_int_age": 121.4,
+        "b_int_name": "Aptian",
+        "color": "#7FC64E",
+        "t_age": 93.9,
+        "b_age": 129.4,
+        "best_int_name": "Cretaceous",
+        "scale": "medium"
+      },
+      {
+        "map_id": 966571,
+        "source_id": 7,
+        "name": "Early Cretaceous sedimentary",
+        "strat_name": "",
+        "lith": "sedimentary",
+        "descrip": "",
+        "comments": "Includes 1uK in Sverdrup Basin in Canadian Arctic Islands",
+        "macro_units": [],
+        "strat_names": [],
+        "liths": [
+          111
+        ],
+        "t_int_id": 41,
+        "t_int_age": 100.5,
+        "t_int_name": "Early Cretaceous",
+        "b_int_id": 41,
+        "b_int_age": 143.1,
+        "b_int_name": "Early Cretaceous",
+        "color": "#8CCD57",
+        "t_age": 100.5,
+        "b_age": 145,
+        "best_int_name": "Mesozoic",
+        "scale": "small"
+      },
+      {
+        "map_id": 3185972,
+        "source_id": 154,
+        "name": "Mesozoic sedimentary rocks",
+        "strat_name": "",
+        "lith": "sandstone-conglomerate",
+        "descrip": "",
+        "comments": "",
+        "macro_units": [],
+        "strat_names": [],
+        "liths": [
+          10,
+          14
+        ],
+        "t_int_id": 58,
+        "t_int_age": 174.7,
+        "t_int_name": "Early Jurassic",
+        "b_int_id": 64,
+        "b_int_age": 237,
+        "b_int_name": "Late Triassic",
+        "color": "#5B6FAE",
+        "t_age": 174.1,
+        "b_age": 237,
+        "best_int_name": "Mesozoic",
+        "scale": "tiny"
+      }
+    ],
+    "refs": {
+      "7": "Garrity, C.P., and Soller, D.R.,. Database of the Geologic Map of North America: adapted from the map by J.C. Reed, Jr. and others (2005). U.S. Geological Survey Data Series 424 . ",
+      "133": "Horton, J.D., C.A. San Juan, and D.B. Stoeser. The State Geologic Map Compilation (SGMC) geodatabase of the conterminous United States. doi: 10.3133/ds1052. U.S. Geological Survey Data Series 1052. ",
+      "154": "Chorlton, L.B. Generalized geology of the world: bedrock domains and major faults in GIS format: a small-scale world geology map with an extended geological attribute database. doi: 10.4095/223767. Geological Survey of Canada, Open File 5529. ",
+      "475": "Hintze, L.F., Willis, G.C., and Laes, D.Y.M., Sprinkel, D.A., and Brown, K.D., 2000, Digital Geologic Map of Utah: Utah Geological Survey Map M-179DM, scale 1:500,000, https://doi.org/10.34191/M-179dm. "
+    }
+  }
+}

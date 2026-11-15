@@ -2,7 +2,7 @@
 
 Este diretório contém a base de dados de Marte. O catálogo principal, com
 descrição, resolução e links de cada produto, está em
-[`../README.md`](../README.md). Este anexo registra a proveniência dos
+[`catalogo.md`](catalogo.md). Este anexo registra a proveniência dos
 arquivos brutos e as decisões de conversão.
 
 ## Inventário resumido
@@ -46,7 +46,7 @@ Todos os arquivos vêm de servidores NASA/USGS e foram baixados em 2026-11-14.
 
 ## Limitações
 
-Ver a seção [Limitações e produtos não incluídos](../README.md#limitações-e-produtos-não-incluídos)
+Ver a seção [Limitações e produtos não incluídos](catalogo.md#limitações-e-produtos-não-incluídos)
 no catálogo principal. Em resumo: não foram baixados HiRISE DTM nativo,
 HRSC–MOLA 200 m global, DEM de Gale, tiles THEMIS de 100 m, cubos CRISM
 completos nem dados de radiação MSL/RAD prontos para uso.

@@ -1,0 +1,103 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-11-14T17:26:03Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "way",
+      "id": 198197063,
+      "center": {
+        "lat": 75.3764232,
+        "lon": -89.6793037
+      },
+      "tags": {
+        "geological": "meteor_crater",
+        "name": "Haughton impact crater",
+        "natural": "ridge",
+        "wikidata": "Q1589279",
+        "wikimedia_commons": "category:Haughton Impact Structure",
+        "wikipedia": "en:Haughton impact crater"
+      }
+    },
+    {
+      "type": "way",
+      "id": 513793807,
+      "center": {
+        "lat": 75.4323177,
+        "lon": -89.808177
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 513793808,
+      "center": {
+        "lat": 75.4337615,
+        "lon": -89.8481747
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 513793811,
+      "center": {
+        "lat": 75.4463131,
+        "lon": -89.8692845
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 513793822,
+      "center": {
+        "lat": 75.4315501,
+        "lon": -89.86349
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 513793823,
+      "center": {
+        "lat": 75.4314473,
+        "lon": -89.8578129
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 513798988,
+      "center": {
+        "lat": 75.4286953,
+        "lon": -89.8261277
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 513818352,
+      "center": {
+        "lat": 75.4042618,
+        "lon": -89.8408927
+      },
+      "tags": {
+        "highway": "track"
+      }
+    }
+  ]
+}
