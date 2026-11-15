@@ -214,7 +214,8 @@ def train_forecasts(
             features = split.test[FEATURES]
             observed = split.test["observado"]
             persistence = split.test["lag_0"].to_numpy()
-            tuned = _fit(split.train, params, seed).predict(features)
+            # predict() is typed as a union with sparse/list outputs; LGBMRegressor returns 1-D.
+            tuned = np.asarray(_fit(split.train, params, seed).predict(features))
             default = tuned if params == DEFAULT_PARAMS else (
                 _fit(split.train, DEFAULT_PARAMS, seed).predict(features)
             )
