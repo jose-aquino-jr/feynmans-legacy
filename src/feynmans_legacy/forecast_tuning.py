@@ -218,7 +218,7 @@ def train_forecasts(
             default = tuned if params == DEFAULT_PARAMS else (
                 _fit(split.train, DEFAULT_PARAMS, seed).predict(features)
             )
-            selected = tuned if method == "lightgbm" else persistence
+            selected = np.asarray(tuned if method == "lightgbm" else persistence)
             metrics.append({
                 "variavel": variable, "horizonte": horizon, "status": method,
                 "configuracao": "padrao" if params == DEFAULT_PARAMS else "optuna",
