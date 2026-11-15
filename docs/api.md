@@ -338,6 +338,245 @@ curl -i -s "$BASE/api/v1/models/nao_existe"
 # HTTP/1.1 404 Not Found
 ```
 
+## Análogos
+
+Relações prontas entre as bases da Lua e de Marte e locais da Terra, para o
+mapa 3D. As tabelas ficam em `data/tratados/analogos/` (também acessíveis pelas
+rotas genéricas, ex.: `/api/v1/datasets/analogos/pares/records`).
+
+### Como são gerados
+
+```bash
+make analogos                     # ou: python scripts/gerar_analogos.py
+python scripts/nomear_locais.py   # opcional: nomeia locais novos (OpenStreetMap)
+```
+
+1. A Terra usa a média dos últimos 12 meses observados das variáveis mensais e
+   as variáveis estáticas.
+2. Cada base é comparada com todas as células terrestres pelo ranking do
+   Notebook 03 (`recommend`), no perfil completo e em cada nicho.
+3. Para cada base são escolhidos, sem repetir locais a menos de 500 km:
+   - `geral`: as 8 melhores notas gerais;
+   - `especialista`: até 2 locais com nota ≥ 80 em cada nicho, mesmo com nota
+     geral baixa (ex.: ótimo em geologia e ruim em clima);
+   - `destaque`: os locais padrão de `config/locais_destaque.json`, comparados com
+     todas as bases.
+4. Os análogos clássicos de `config/analogos_classicos.json` (Atacama, Dry
+   Valleys, Devon, Islândia, Mojave...) e células cobertas por água ficam fora da
+   seleção automática.
+5. A série mensal da nota usa os meses observados e as previsões do LightGBM
+   (`data/terra/analise_analogos/previsoes.parquet`).
+
+As coordenadas das bases em `config/bases_espaciais.json` são aproximadas (ponto
+representativo do sítio). Longitudes sempre leste, em [-180, 180].
+
+| Tabela | Conteúdo |
+|--------|----------|
+| `bases` | 8 bases (2 Lua, 6 Marte) com ponto e raio no globo |
+| `locais` | locais terrestres com nome, coordenadas e clima médio |
+| `pares` | base ↔ local, tipo, nota geral, pontos fortes e fracos |
+| `pares_nichos` | nota de cada par em cada nicho |
+| `series` | nota geral mensal de cada par (observada e prevista) |
+
+### `GET /api/v1/analogos/bases`
+
+```bash
+curl -s "$BASE/api/v1/analogos/bases?corpo=marte" | python -m json.tool
+```
+
+### `GET /api/v1/analogos/bases/{base_id}`
+
+Rota principal do mapa 3D: a base (alvo) e os locais terrestres (análogos).
+
+```bash
+curl -s "$BASE/api/v1/analogos/bases/MARTE_JEZERO?limit=5" | python -m json.tool
+curl -s "$BASE/api/v1/analogos/bases/MARTE_GALE?forte_em=geologia"
+curl -s "$BASE/api/v1/analogos/bases/LUA_POLO_SUL?destaque=true"
+```
+
+| Parâmetro | Descrição |
+|-----------|-----------|
+| `tipo` | `destaque`, `geral` ou `especialista` |
+| `destaque` | `true` só locais padrão |
+| `forte_em` | nicho (`termico`, `geologia`, `terreno`...) em que o local é forte |
+| `nota_minima` | nota geral mínima (0–100) |
+| `limit` | máximo de pares; `total` traz a contagem antes do limite |
+
+```json
+{
+  "base": {
+    "base_id": "MARTE_JEZERO", "corpo": "marte", "nome": "Cratera Jezero",
+    "latitude": 18.38, "longitude": 77.58, "raio_km": 150.0, "n_pares": 38
+  },
+  "pares": [
+    {
+      "par_id": "MARTE_JEZERO__T042068", "tipo": "destaque", "rank_base": 1,
+      "nota_geral": 83.85, "cobertura": 1.0,
+      "pontos_fortes": ["agua_gelo", "subsuperficie", "biologia_habitabilidade"],
+      "pontos_fracos": ["atmosfera", "termico"],
+      "nichos": {"termico": 20.86, "geologia": 87.5, "terreno": 86.46, "atmosfera": 0.0},
+      "local": {
+        "location_id": "T042068", "nome": "Deserto da Núbia — Sudão",
+        "latitude": 20.75, "longitude": 33.25, "raio_km": 150.0, "destaque": true
+      }
+    }
+  ],
+  "total": 38
+}
+```
+
+### Custo-benefício: EUA, bases de apoio e rotas alternativas
+
+A logística usa o catálogo `data/terra/apoio/nasa_bases_suporte.parquet` (182
+bases da NASA, agências parceiras e contratadas). Bases com vínculo `Restrita`
+e zonas no oceano ficam fora do cálculo. Os pesos estão em
+`config/custo_beneficio.json`:
+
+| Parte | Fórmula padrão | Peso |
+|-------|----------------|------|
+| `nota_eua` | 100 · exp(−distância à instalação dos EUA mais próxima / 3000 km) | 0,40 |
+| `nota_apoio` | 100 · max(prioridade · exp(−distância / 1000 km)) | 0,35 |
+| `nota_rotas` | 100 · min(1, Σ prioridade das bases a até 2500 km / 3) | 0,25 |
+
+`custo_beneficio = raiz(nota_geral × nota_logistica)`. Para cada base entram no
+top os 8 melhores locais (500 km entre si, fora dos clássicos) com nota geral
+de pelo menos 80% da melhor nota daquela base, para que a logística não esconda
+um análogo ruim. Esses pares têm `tipo = custo_beneficio` ou, se já existiam,
+`top_custo_beneficio = true`.
+
+```bash
+# Melhores custo-benefício (todas as bases, só o top)
+curl -s "$BASE/api/v1/analogos/custo-beneficio"
+
+# Por base ou corpo; apenas_top=false lista todos os pares com nota
+curl -s "$BASE/api/v1/analogos/custo-beneficio?base_id=MARTE_GALE&limit=5"
+curl -s "$BASE/api/v1/analogos/custo-beneficio?corpo=lua&apenas_top=false"
+
+# Pares de uma base ordenados por custo-benefício
+curl -s "$BASE/api/v1/analogos/bases/LUA_POLO_SUL?ordenar=custo_beneficio"
+
+# Bases de apoio para marcar no globo
+curl -s "$BASE/api/v1/analogos/apoios?usado=true"
+```
+
+Cada item de `/custo-beneficio` traz `local` (com `nota_logistica`,
+`distancia_eua_km`, `apoio_principal_nome`, `n_apoios_raio`), `base` e `rotas`:
+
+```json
+{
+  "par_id": "MARTE_GALE__T085720", "custo_beneficio": 88.0,
+  "nota_geral": 78.8, "nota_logistica": 98.3,
+  "local": {"nome": "White Sands — Novo México, EUA", "distancia_eua_km": 10.9},
+  "rotas": [
+    {"ordem": 1, "tipo_rota": "principal", "nome": "White Sands Complex (STGT/WSGT) – TDRS",
+     "distancia_km": 46, "latitude": 32.5, "longitude": -106.6},
+    {"ordem": 2, "tipo_rota": "alternativa", "nome": "White Sands Missile Range – LC-36",
+     "distancia_km": 51},
+    {"ordem": 3, "tipo_rota": "alternativa", "nome": "White Sands Test Facility (WSTF)",
+     "distancia_km": 50}
+  ]
+}
+```
+
+As distâncias são em linha reta (grande círculo), não por estrada; servem para
+comparar locais e desenhar os arcos no 3D.
+
+### Filtros por foco, utilidade e logística
+
+`GET /api/v1/analogos/pares` é a busca geral. `/custo-beneficio` é a mesma busca
+com `apenas_top=true`, e `/bases/{base_id}` aceita os mesmos filtros (com
+`ordenar=foco` para usar a `nota_foco`). Os valores aceitos estão em
+`GET /api/v1/analogos/filtros`, pronto para montar os seletores do front.
+
+**Foco** — define o peso da logística na `nota_foco` (média geométrica ponderada):
+
+| `foco` | Peso da logística | Para quê |
+|--------|-------------------|----------|
+| `ciencia` | 0 | o análogo mais parecido, onde quer que esteja |
+| `equilibrado` (padrão) | 0,5 | custo-benefício |
+| `logistica` | 1 | o mais fácil de operar (EUA, apoio, rotas) |
+
+`peso_logistica` (0–1) sobrepõe o foco, ex.: `peso_logistica=0.3`.
+
+**Utilidade** — troca a nota geral pela média dos nichos da campanha
+(`nota_utilidade`):
+
+| `utilidade` | Nichos |
+|-------------|--------|
+| `habitat` | térmico, iluminação, operações, subsuperfície, terreno |
+| `mobilidade` | terreno, superfície e poeira, operações, processos |
+| `geologia` | geologia, superfície e poeira, terreno |
+| `agua_recursos` | água e gelo, subsuperfície, água e aridez |
+| `astrobiologia` | biologia, água e aridez, superfície e poeira, geologia |
+| `clima_extremo` | térmico, iluminação, processos, atmosfera |
+| `tubos_lava` | subsuperfície, geologia, terreno |
+
+Nichos que não existem no perfil do corpo (ex.: `processos` na Lua) são ignorados.
+
+**Recortes:**
+
+| Parâmetro | Descrição |
+|-----------|-----------|
+| `corpo`, `base_id`, `tipo`, `destaque` | quem e por que entrou no ranking |
+| `forte_em`, `evitar_fraco_em` | nichos (repita ou separe por vírgula) |
+| `nota_minima`, `utilidade_minima`, `foco_minimo`, `logistica_minima` | notas mínimas (0–100) |
+| `eua` | `true` só EUA, `false` só fora dos EUA |
+| `pais` | país do local |
+| `max_distancia_eua_km`, `max_distancia_apoio_km`, `min_apoios` | logística |
+| `apoio_categoria`, `apoio_vinculo` | exige rota para esse tipo de base (ex.: `lançamento`, `Espaço Profundo`, `Nativa NASA`) |
+| `lat_min`, `lat_max`, `lon_min`, `lon_max` | recorte do globo |
+| `temperatura_min`, `temperatura_max` | clima médio do local (°C) |
+| `limit`, `offset` | paginação; `total` conta antes da paginação |
+
+Exemplos:
+
+```bash
+# Rover em Marte, equilibrando semelhança e logística
+curl -s "$BASE/api/v1/analogos/pares?utilidade=mobilidade&corpo=marte"
+
+# Água/ISRU, só ciência, fora dos EUA
+curl -s "$BASE/api/v1/analogos/pares?utilidade=agua_recursos&foco=ciencia&eua=false"
+
+# Perto (<500 km) de uma antena de Espaço Profundo
+curl -s "$BASE/api/v1/analogos/pares?apoio_categoria=Espa%C3%A7o%20Profundo&max_distancia_apoio_km=500"
+
+# Forte em geologia sem ser fraco no clima, para Gale
+curl -s "$BASE/api/v1/analogos/bases/MARTE_GALE?forte_em=geologia&evitar_fraco_em=termico&ordenar=foco"
+
+# Locais terrestres fora dos EUA com melhor logística
+curl -s "$BASE/api/v1/analogos/locais?eua=false&ordenar=logistica"
+```
+
+`/locais` aceita os recortes de local (`destaque`, `eua`, `pais`, logística,
+apoio, região e temperatura), `base_id` para limitar aos locais de uma base e
+`ordenar=padrao|nota|custo_beneficio|logistica`.
+
+Filtros inválidos respondem `400` (`invalid_range`, `invalid_nicho` ou
+`invalid_parameter`).
+
+### Outras rotas
+
+```bash
+# Locais padrão do software (destaques)
+curl -s "$BASE/api/v1/analogos/locais?destaque=true"
+
+# Todas as bases relacionadas a um local terrestre
+curl -s "$BASE/api/v1/analogos/locais/T042068"
+
+# Par completo com a série mensal (observada + prevista)
+curl -s "$BASE/api/v1/analogos/pares/MARTE_JEZERO__T042068"
+
+# Nomes legíveis dos nichos
+curl -s "$BASE/api/v1/analogos/nichos"
+```
+
+Uso no front (Three.js): `base.latitude/longitude/raio_km` vai no corpo
+(Marte ou Lua) e `pares[].local.latitude/longitude/raio_km` na Terra, no mesmo
+formato `{name, lat, lon, radiusKm}` do `CONFIG` de `mapa.ts`.
+
+Erros: `404 analogs_not_generated` quando as tabelas não existem;
+`404 base_not_found`, `local_not_found` e `pair_not_found` para IDs inválidos.
+
 ## CORS
 
 As origens são configuradas por `FL_CORS_ORIGINS` (lista JSON ou valores

@@ -1,0 +1,25 @@
+{
+  "description": "Locais terrestres relacionados a alguma base da Lua ou de Marte.",
+  "id_column": "location_id",
+  "tags": [
+    "análogos",
+    "terra"
+  ],
+  "columns": {
+    "destaque": "Local curado em config/locais_destaque.json (padrão do software).",
+    "raio_km": "Raio sugerido para o destaque no globo.",
+    "melhor_nota": "Maior nota geral entre as bases relacionadas.",
+    "temperatura_media_c": "Média dos últimos meses observados.",
+    "precipitacao_mm_dia": "Média dos últimos meses observados.",
+    "melhor_custo_beneficio": "Maior custo-benefício entre as bases relacionadas.",
+    "nota_logistica": "0–100: proximidade dos EUA, da base de apoio e redundância.",
+    "distancia_eua_km": "Distância à instalação dos EUA mais próxima do catálogo.",
+    "apoio_principal_id": "Melhor base de apoio (prioridade × distância).",
+    "distancia_apoio_km": "Distância até a base de apoio principal.",
+    "n_apoios_raio": "Bases de apoio dentro de raio_rotas_km (rotas alternativas)."
+  },
+  "source": "src/feynmans_legacy/analog_pairs.py",
+  "metadata": {
+    "meses_climatologia": "202509–202608"
+  }
+}

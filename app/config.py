@@ -45,7 +45,9 @@ class Settings(BaseSettings):
 
     # CORS: nunca use "*" em produção.
     cors_origins: Annotated[list[str], NoDecode] = Field(
-        default_factory=lambda: ["http://localhost:3000", "http://localhost:5173"]
+        default_factory=lambda: [
+            "http://localhost:4200", "http://localhost:3000", "http://localhost:5173"
+        ]
     )
     cors_allow_credentials: bool = False
 

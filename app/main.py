@@ -18,8 +18,9 @@ from app.config import Settings, get_settings
 from app.errors import register_exception_handlers
 from app.logging_config import configure_logging
 from app.middleware import RequestContextMiddleware
-from app.routers import datasets, health, models
+from app.routers import analogos, datasets, health, models
 from app.schemas.common import ErrorResponse
+from app.services.analogos import AnalogRepository
 from app.services.datasets import DatasetRepository
 from app.services.models import ModelRepository
 
@@ -59,6 +60,13 @@ OPENAPI_TAGS = [
     {
         "name": "models",
         "description": "Metadados dos artefatos presentes em `models/`.",
+    },
+    {
+        "name": "analogos",
+        "description": (
+            "Relações entre bases da Lua e de Marte e locais terrestres, com notas por "
+            "nicho, para o mapa 3D. Geradas por `scripts/gerar_analogos.py`."
+        ),
     },
 ]
 
@@ -131,6 +139,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     app.state.started_at = time.perf_counter()
     app.state.dataset_repository = DatasetRepository(active_settings)
     app.state.model_repository = ModelRepository(active_settings)
+    app.state.analog_repository = AnalogRepository(active_settings)
 
     # O middleware adicionado por último fica mais externo: CORS por fora.
     app.add_middleware(RequestContextMiddleware)
@@ -147,6 +156,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     app.include_router(health.router)
     app.include_router(datasets.router, prefix=active_settings.api_v1_prefix)
     app.include_router(models.router, prefix=active_settings.api_v1_prefix)
+    app.include_router(analogos.router, prefix=active_settings.api_v1_prefix)
 
     register_exception_handlers(app)
 
@@ -167,6 +177,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
             "health": "/health",
             "datasets": f"{active_settings.api_v1_prefix}/datasets",
             "models": f"{active_settings.api_v1_prefix}/models",
+            "analogos": f"{active_settings.api_v1_prefix}/analogos/bases",
         }
 
     return app
