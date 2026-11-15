@@ -8,8 +8,8 @@ from typing import NotRequired, TypedDict
 
 import numpy as np
 import pandas as pd
+from lightgbm import LGBMRegressor
 from sklearn.cluster import KMeans
-from sklearn.ensemble import RandomForestRegressor
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 
@@ -20,7 +20,7 @@ FEATURES = [f"lag_{lag}" for lag in LAGS] + ["month_sin", "month_cos"]
 
 class ForecastBundle(TypedDict):
     origem: str
-    modelos: dict[tuple[str, int], RandomForestRegressor | None]
+    modelos: dict[tuple[str, int], LGBMRegressor | None]
 
 
 class NicheMapping(TypedDict):
@@ -105,11 +105,11 @@ def train_forecasts(
     horizons: Sequence[int],
     min_validation: int = 20,
 ) -> tuple[ForecastBundle, pd.DataFrame]:
-    """Select model or persistence by MAE on a chronological holdout."""
+    """Select LightGBM or persistence by MAE on a chronological holdout."""
     latest = months(history["anomes"]).max()
     origins = sorted(months(history["anomes"]).unique())
     cutoff = origins[int(len(origins) * 0.8)]
-    models: dict[tuple[str, int], RandomForestRegressor | None] = {}
+    models: dict[tuple[str, int], LGBMRegressor | None] = {}
     metrics: list[dict[str, object]] = []
     for variable in variables:
         for horizon in horizons:
@@ -121,16 +121,17 @@ def train_forecasts(
                 metrics.append({"variavel": variable, "horizonte": horizon,
                                 "status": "historico insuficiente"})
                 continue
-            estimator = RandomForestRegressor(
-                n_estimators=80, min_samples_leaf=5, random_state=42, n_jobs=-1
+            estimator = LGBMRegressor(
+                n_estimators=100, learning_rate=0.1, num_leaves=31, random_state=42,
+                n_jobs=4, verbosity=-1,
             )
             estimator.fit(train[FEATURES], train["observado"])
             predicted = estimator.predict(validation[FEATURES])
             mae_model = (validation["observado"] - predicted).abs().mean()
             mae_baseline = (validation["observado"] - validation["lag_0"]).abs().mean()
-            method = "random_forest" if mae_model < mae_baseline else "persistencia"
+            method = "lightgbm" if mae_model < mae_baseline else "persistencia"
             models[(variable, horizon)] = (
-                estimator.fit(labeled[FEATURES], labeled["observado"]) if method == "random_forest"
+                estimator.fit(labeled[FEATURES], labeled["observado"]) if method == "lightgbm"
                 else None
             )
             metrics.append({"variavel": variable, "horizonte": horizon, "status": method,

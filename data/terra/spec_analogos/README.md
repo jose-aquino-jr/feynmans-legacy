@@ -55,10 +55,10 @@ O Notebook 01 confere o dicionário `dicionario_spec.csv` e o catálogo `config/
   ficaram com ~70%. As fontes não cobrem calotas de gelo (Antártida e Groenlândia, ~30% dos locais).
   A regra de 80% do Notebook 01 as tira **só do agrupamento**; o ranking continua usando todas.
   Decidam com a equipe se querem baixar o limite ou excluir as calotas.
-- **Notebook 02:** `train_forecasts` rodou numa amostra de 400 locais. O Random Forest venceu a persistência em todos os
-  horizontes testados (ex.: temperatura h = 1, MAE 1,6 °C contra 4,0 °C).
-  **Custo:** com os 85,7 mil locais, cada par variável × horizonte treina em cerca de 7 milhões de linhas.
-  Meçam tempo e memória ou usem uma amostra de locais no treino.
+- **Notebook 02:** o LightGBM é treinado por variável dinâmica e horizonte, com amostra de 400 locais.
+  A validação cronológica compara o MAE com a persistência, que permanece disponível quando obtém
+  menor erro. A inferência em lote preenche os horizontes de 1 a 3 meses para todos os locais com
+  histórico suficiente e publica o resultado em `previsoes.parquet`.
 - **Notebook 03:** `profile_criteria` + `recommend` rodaram para as 8 bases, em "Todos" e num nicho individual.
   Exemplos de primeiro colocado:
 
