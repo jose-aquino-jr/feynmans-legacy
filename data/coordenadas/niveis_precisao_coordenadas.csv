@@ -1,0 +1,8 @@
+﻿casas_decimais,precisao_aproximada,uso_comum,uso_no_projeto,dados_nesta_escala,exemplo_id,exemplo_local,coluna_na_tabela_coordenadas
+0,~111 km,Identificar um país ou uma grande região.,Regiões climáticas e geológicas amplas; agrupar resultados de clusters.,"CERES (1°), MERRA-2 (0,5°×0,625°); a grade principal (0,5°) fica entre os níveis 0 e 1",+19_+076,Cratera de Lonar,id_n0
+1,"~11,1 km",Localizar uma cidade grande ou região metropolitana.,"Crateras grandes, bacias, campos vulcânicos, desertos locais.","MODIS NDVI/LST/neve via GIBS (0,1°), SoilGrids agregado (5 km), SEDAC GPW (0,1°)",+19.9_+076.5,Cratera de Lonar,id_n1
+2,"~1,1 km","Definir um bairro, distrito ou vila.","Crateras pequenas (Lonar ~1,8 km), maars, tubos de lava, dunas.","AWS Terrain Tiles z6 (~2,4 km/px), MODIS LST nativo (1 km), Macrostrat (escala do mapa varia)",+19.97_+076.50,Cratera de Lonar,id_n2
+3,~110 metros,"Apontar um quarteirão, rua ou complexo grande.","Áreas de pouso, entradas de cavernas, afloramentos.",SRTM/ASTER 30 m e SoilGrids 250 m (usados na análise dos sítios; não na grade global),+19.976_+076.508,Cratera de Lonar,id_n3
+4,~11 metros,"Identificar um terreno, casa ou prédio específico.",Coordenada exata dos sítios nomeados (chave id_ponto).,Nenhum atributo global com essa resolução; serve só como identificador,+19.9760_+076.5080,Cratera de Lonar,id_n4
+5,"~1,1 metro","Localizar uma árvore, veículo ou porta de entrada.",Não usado.,—,,Cratera de Lonar,
+6,~11 centímetros,"Mapeamento de engenharia, drones ou topografia.",Não usado.,—,,Cratera de Lonar,
