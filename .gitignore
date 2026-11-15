@@ -28,3 +28,8 @@
 data/marte/**
 !data/marte/README.md
 
+
+# Base lunar (scripts/lua): dados brutos e processados fora do git; README e relatórios versionados
+data/lua/*
+!data/lua/README.md
+!data/lua/reports/
