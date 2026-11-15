@@ -1,0 +1,4807 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-11-14T17:03:51Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "way",
+      "id": 112987511,
+      "center": {
+        "lat": -24.2230109,
+        "lon": -69.1016974
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 112987512,
+      "center": {
+        "lat": -24.2236029,
+        "lon": -69.1016829
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 144180342,
+      "center": {
+        "lat": -24.2961039,
+        "lon": -69.026921
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 153193815,
+      "center": {
+        "lat": -24.3332305,
+        "lon": -69.0684628
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 153193822,
+      "center": {
+        "lat": -24.3640181,
+        "lon": -69.1106855
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 153193829,
+      "center": {
+        "lat": -24.338183,
+        "lon": -69.0591025
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 153193831,
+      "center": {
+        "lat": -24.2994067,
+        "lon": -69.0760153
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 153193846,
+      "center": {
+        "lat": -24.3263505,
+        "lon": -69.0979799
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 153193854,
+      "center": {
+        "lat": -24.3243781,
+        "lon": -69.0997421
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 153193862,
+      "center": {
+        "lat": -24.3264703,
+        "lon": -69.0971766
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 153193864,
+      "center": {
+        "lat": -24.3339905,
+        "lon": -69.0698013
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 153193878,
+      "center": {
+        "lat": -24.3016948,
+        "lon": -69.0742129
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 153786884,
+      "center": {
+        "lat": -24.3396006,
+        "lon": -69.0573097
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 153786891,
+      "center": {
+        "lat": -24.3377615,
+        "lon": -69.0602747
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 153786899,
+      "center": {
+        "lat": -24.3386266,
+        "lon": -69.0638464
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 153786926,
+      "center": {
+        "lat": -24.3394111,
+        "lon": -69.0576511
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 153786928,
+      "center": {
+        "lat": -24.338849,
+        "lon": -69.0634388
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 153794139,
+      "center": {
+        "lat": -24.2960332,
+        "lon": -69.0329335
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 153794144,
+      "center": {
+        "lat": -24.2864911,
+        "lon": -69.0414363
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 153803188,
+      "center": {
+        "lat": -24.2559272,
+        "lon": -69.053849
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 153805269,
+      "center": {
+        "lat": -24.2398503,
+        "lon": -69.0533948
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 154063305,
+      "center": {
+        "lat": -24.271343,
+        "lon": -69.1298783
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 154116958,
+      "center": {
+        "lat": -24.3432074,
+        "lon": -69.0765608
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 154133045,
+      "center": {
+        "lat": -24.4507785,
+        "lon": -69.1029935
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 154133055,
+      "center": {
+        "lat": -24.4398271,
+        "lon": -69.1413256
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 154133063,
+      "center": {
+        "lat": -24.3925136,
+        "lon": -69.1371319
+      },
+      "tags": {
+        "access": "no",
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 154133068,
+      "center": {
+        "lat": -24.3925862,
+        "lon": -69.1378296
+      },
+      "tags": {
+        "access": "no",
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 154416475,
+      "center": {
+        "lat": -24.3315903,
+        "lon": -69.0548994
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 154504901,
+      "center": {
+        "lat": -24.3266877,
+        "lon": -69.093809
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 154838795,
+      "center": {
+        "lat": -24.2776307,
+        "lon": -69.0102983
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 154851439,
+      "center": {
+        "lat": -24.3355668,
+        "lon": -69.0649719
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 154851440,
+      "center": {
+        "lat": -24.2967394,
+        "lon": -69.0351416
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 154851448,
+      "center": {
+        "lat": -24.3365419,
+        "lon": -69.0652772
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 154851454,
+      "center": {
+        "lat": -24.276934,
+        "lon": -69.0031069
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 157286911,
+      "center": {
+        "lat": -24.2784042,
+        "lon": -69.0113575
+      },
+      "tags": {
+        "access": "private",
+        "bridge": "yes",
+        "highway": "track",
+        "layer": "1",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 157286919,
+      "center": {
+        "lat": -24.2747904,
+        "lon": -69.0177656
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 263466448,
+      "center": {
+        "lat": -24.4426503,
+        "lon": -69.4612548
+      },
+      "tags": {
+        "access": "no",
+        "highway": "track",
+        "source": "bing",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 263466457,
+      "center": {
+        "lat": -24.4682439,
+        "lon": -69.4298749
+      },
+      "tags": {
+        "highway": "track",
+        "source": "bing",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 263466460,
+      "center": {
+        "lat": -24.438749,
+        "lon": -69.4313533
+      },
+      "tags": {
+        "access": "no",
+        "highway": "track",
+        "source": "bing",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 263466461,
+      "center": {
+        "lat": -24.512548,
+        "lon": -69.44522
+      },
+      "tags": {
+        "highway": "track",
+        "source": "bing",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 263466463,
+      "center": {
+        "lat": -24.4715088,
+        "lon": -69.4259591
+      },
+      "tags": {
+        "highway": "track",
+        "source": "bing",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 263466464,
+      "center": {
+        "lat": -24.4189229,
+        "lon": -69.5061869
+      },
+      "tags": {
+        "access": "no",
+        "highway": "track",
+        "source": "bing",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 263466473,
+      "center": {
+        "lat": -24.4326902,
+        "lon": -69.425733
+      },
+      "tags": {
+        "access": "no",
+        "highway": "track",
+        "source": "bing",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 263466475,
+      "center": {
+        "lat": -24.4220415,
+        "lon": -69.5085377
+      },
+      "tags": {
+        "access": "no",
+        "highway": "track",
+        "source": "bing",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 321406704,
+      "center": {
+        "lat": -24.8564026,
+        "lon": -69.2047599
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 321406722,
+      "center": {
+        "lat": -24.8306533,
+        "lon": -69.1915326
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 321406726,
+      "center": {
+        "lat": -24.8567804,
+        "lon": -69.1979927
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 321406732,
+      "center": {
+        "lat": -24.9003065,
+        "lon": -69.1065308
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 321406739,
+      "center": {
+        "lat": -24.8591288,
+        "lon": -69.281891
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 355171221,
+      "center": {
+        "lat": -24.3761847,
+        "lon": -69.4666377
+      },
+      "tags": {
+        "access": "no",
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 370291146,
+      "center": {
+        "lat": -24.3357842,
+        "lon": -69.2171517
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 460123377,
+      "center": {
+        "lat": -24.2715689,
+        "lon": -69.1282906
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 558124365,
+      "center": {
+        "lat": -24.2153415,
+        "lon": -69.030765
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "oneway": "yes",
+        "surface": "unpaved",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 558124366,
+      "center": {
+        "lat": -24.2155135,
+        "lon": -69.029072
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "oneway": "yes",
+        "surface": "unpaved",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 558124367,
+      "center": {
+        "lat": -24.2064273,
+        "lon": -69.0306758
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "oneway": "yes",
+        "surface": "unpaved",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 558124375,
+      "center": {
+        "lat": -24.2034856,
+        "lon": -69.0426632
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "oneway": "yes",
+        "surface": "unpaved",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 558124376,
+      "center": {
+        "lat": -24.2065292,
+        "lon": -69.0482823
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "oneway": "no",
+        "surface": "unpaved",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 558124377,
+      "center": {
+        "lat": -24.1978933,
+        "lon": -69.0389794
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "oneway": "yes",
+        "surface": "unpaved",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 558124378,
+      "center": {
+        "lat": -24.2010888,
+        "lon": -69.0376901
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "oneway": "yes",
+        "surface": "unpaved",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 558124379,
+      "center": {
+        "lat": -24.2010706,
+        "lon": -69.0375891
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "oneway": "yes",
+        "surface": "unpaved",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 558124380,
+      "center": {
+        "lat": -24.2012536,
+        "lon": -69.0352497
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "oneway": "yes",
+        "surface": "unpaved",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 558124381,
+      "center": {
+        "lat": -24.1991723,
+        "lon": -69.0317792
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "oneway": "no",
+        "surface": "unpaved",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 558124382,
+      "center": {
+        "lat": -24.2009206,
+        "lon": -69.035275
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "oneway": "-1",
+        "surface": "unpaved",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 558125553,
+      "center": {
+        "lat": -24.199742,
+        "lon": -69.0266768
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "oneway": "yes",
+        "surface": "unpaved",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 558125554,
+      "center": {
+        "lat": -24.204567,
+        "lon": -69.0311019
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "oneway": "yes",
+        "surface": "unpaved",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 727640344,
+      "center": {
+        "lat": -24.8184721,
+        "lon": -68.9828982
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 727647658,
+      "center": {
+        "lat": -24.742545,
+        "lon": -68.9676867
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 727647659,
+      "center": {
+        "lat": -24.7136242,
+        "lon": -68.9231353
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground",
+        "tracktype": "grade3"
+      }
+    },
+    {
+      "type": "way",
+      "id": 727647662,
+      "center": {
+        "lat": -24.6729668,
+        "lon": -68.949934
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 727647663,
+      "center": {
+        "lat": -24.6746639,
+        "lon": -68.9355417
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 727647664,
+      "center": {
+        "lat": -24.674068,
+        "lon": -68.9319727
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 727647665,
+      "center": {
+        "lat": -24.6736063,
+        "lon": -68.9263625
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 727647666,
+      "center": {
+        "lat": -24.6835923,
+        "lon": -68.9364238
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 727647667,
+      "center": {
+        "lat": -24.6830267,
+        "lon": -68.9345095
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 727647668,
+      "center": {
+        "lat": -24.6704589,
+        "lon": -68.9473445
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 727647673,
+      "center": {
+        "lat": -24.6520304,
+        "lon": -68.9125791
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871979788,
+      "center": {
+        "lat": -24.5889577,
+        "lon": -68.8814292
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871979789,
+      "center": {
+        "lat": -24.5814683,
+        "lon": -68.8942036
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871979790,
+      "center": {
+        "lat": -24.5807907,
+        "lon": -68.8975705
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871979791,
+      "center": {
+        "lat": -24.5807792,
+        "lon": -68.9006308
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871979792,
+      "center": {
+        "lat": -24.5786337,
+        "lon": -68.9001814
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871979793,
+      "center": {
+        "lat": -24.5786274,
+        "lon": -68.900335
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871979794,
+      "center": {
+        "lat": -24.5784883,
+        "lon": -68.8944654
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871979795,
+      "center": {
+        "lat": -24.5694132,
+        "lon": -68.8977288
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade3"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871979796,
+      "center": {
+        "lat": -24.5725137,
+        "lon": -68.8746705
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871979797,
+      "center": {
+        "lat": -24.5498301,
+        "lon": -68.8579453
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871979799,
+      "center": {
+        "lat": -24.5399779,
+        "lon": -68.8623155
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871979800,
+      "center": {
+        "lat": -24.5365414,
+        "lon": -68.865812
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871979801,
+      "center": {
+        "lat": -24.5328373,
+        "lon": -68.8892542
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871979802,
+      "center": {
+        "lat": -24.5463232,
+        "lon": -68.8781365
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871979803,
+      "center": {
+        "lat": -24.5553042,
+        "lon": -68.8807609
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871979804,
+      "center": {
+        "lat": -24.5673813,
+        "lon": -68.8573479
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871979814,
+      "center": {
+        "lat": -24.5882054,
+        "lon": -68.8715464
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871979815,
+      "center": {
+        "lat": -24.5904891,
+        "lon": -68.8683337
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871979816,
+      "center": {
+        "lat": -24.5538555,
+        "lon": -68.8620485
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871979817,
+      "center": {
+        "lat": -24.5413594,
+        "lon": -68.8540132
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871979818,
+      "center": {
+        "lat": -24.5563346,
+        "lon": -68.8665683
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871979819,
+      "center": {
+        "lat": -24.5652518,
+        "lon": -68.9071809
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871979820,
+      "center": {
+        "lat": -24.5125792,
+        "lon": -68.8935069
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871979821,
+      "center": {
+        "lat": -24.5577585,
+        "lon": -68.8912009
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871979822,
+      "center": {
+        "lat": -24.5713285,
+        "lon": -68.8795272
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871979823,
+      "center": {
+        "lat": -24.5660721,
+        "lon": -68.874604
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871979824,
+      "center": {
+        "lat": -24.5575553,
+        "lon": -68.8717487
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871979825,
+      "center": {
+        "lat": -24.6074952,
+        "lon": -68.8783175
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871979826,
+      "center": {
+        "lat": -24.6379615,
+        "lon": -68.901897
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871979827,
+      "center": {
+        "lat": -24.6105295,
+        "lon": -68.879098
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871979828,
+      "center": {
+        "lat": -24.6136184,
+        "lon": -68.8832537
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871979829,
+      "center": {
+        "lat": -24.6018108,
+        "lon": -68.9795065
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871981463,
+      "center": {
+        "lat": -24.5982541,
+        "lon": -68.8717111
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871981464,
+      "center": {
+        "lat": -24.6033089,
+        "lon": -68.87692
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871981465,
+      "center": {
+        "lat": -24.6048307,
+        "lon": -68.87268
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871981466,
+      "center": {
+        "lat": -24.6098426,
+        "lon": -68.8850474
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871981467,
+      "center": {
+        "lat": -24.6108631,
+        "lon": -68.8870174
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871981469,
+      "center": {
+        "lat": -24.6220966,
+        "lon": -68.88467
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871981470,
+      "center": {
+        "lat": -24.6311433,
+        "lon": -68.8837346
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871981471,
+      "center": {
+        "lat": -24.6414976,
+        "lon": -68.905138
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871981472,
+      "center": {
+        "lat": -24.6390686,
+        "lon": -68.8952111
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871981475,
+      "center": {
+        "lat": -24.5947245,
+        "lon": -68.8683405
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871981477,
+      "center": {
+        "lat": -24.5819059,
+        "lon": -68.87977
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871982449,
+      "center": {
+        "lat": -24.5235139,
+        "lon": -68.8794779
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "ground",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871982450,
+      "center": {
+        "lat": -24.5137376,
+        "lon": -68.8986647
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871982451,
+      "center": {
+        "lat": -24.5245336,
+        "lon": -68.8930617
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871982452,
+      "center": {
+        "lat": -24.5087585,
+        "lon": -68.8621047
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871982454,
+      "center": {
+        "lat": -24.5076899,
+        "lon": -68.8546413
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871982455,
+      "center": {
+        "lat": -24.5022394,
+        "lon": -68.8650647
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871982456,
+      "center": {
+        "lat": -24.4917071,
+        "lon": -68.8753018
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871982457,
+      "center": {
+        "lat": -24.5113874,
+        "lon": -68.8659721
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871983117,
+      "center": {
+        "lat": -24.6143675,
+        "lon": -68.8814001
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871983540,
+      "center": {
+        "lat": -24.6442039,
+        "lon": -68.9220587
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871983738,
+      "center": {
+        "lat": -24.557871,
+        "lon": -68.8621235
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871983739,
+      "center": {
+        "lat": -24.5619182,
+        "lon": -68.8625545
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871985830,
+      "center": {
+        "lat": -24.4804541,
+        "lon": -68.8856792
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 871985831,
+      "center": {
+        "lat": -24.3707258,
+        "lon": -68.9486348
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872723226,
+      "center": {
+        "lat": -24.4725477,
+        "lon": -68.8704279
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872723267,
+      "center": {
+        "lat": -24.3529622,
+        "lon": -68.8781968
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872723308,
+      "center": {
+        "lat": -24.3602041,
+        "lon": -68.8855487
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872723310,
+      "center": {
+        "lat": -24.3192565,
+        "lon": -68.9089349
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "ground",
+        "tracktype": "grade3"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872723327,
+      "center": {
+        "lat": -24.3576964,
+        "lon": -68.8906476
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872723329,
+      "center": {
+        "lat": -24.3633187,
+        "lon": -68.8774612
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872723333,
+      "center": {
+        "lat": -24.3264819,
+        "lon": -68.9016554
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "ground",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872723338,
+      "center": {
+        "lat": -24.3681782,
+        "lon": -68.8814948
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872723382,
+      "center": {
+        "lat": -24.3634753,
+        "lon": -68.9162466
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872723399,
+      "center": {
+        "lat": -24.2819792,
+        "lon": -68.9547632
+      },
+      "tags": {
+        "access": "no",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872723410,
+      "center": {
+        "lat": -24.3719236,
+        "lon": -68.900069
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872723433,
+      "center": {
+        "lat": -24.3661109,
+        "lon": -68.8707108
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872728322,
+      "center": {
+        "lat": -24.3175981,
+        "lon": -68.9131211
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872728324,
+      "center": {
+        "lat": -24.3267456,
+        "lon": -68.9037234
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "ground",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872758891,
+      "center": {
+        "lat": -24.4189316,
+        "lon": -68.8693935
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "ground",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872758893,
+      "center": {
+        "lat": -24.4248939,
+        "lon": -68.8751325
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872758901,
+      "center": {
+        "lat": -24.3759754,
+        "lon": -68.8715495
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872758905,
+      "center": {
+        "lat": -24.3842478,
+        "lon": -68.8948433
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872758907,
+      "center": {
+        "lat": -24.3943194,
+        "lon": -68.8855929
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872759079,
+      "center": {
+        "lat": -24.3822196,
+        "lon": -68.8891005
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764290,
+      "center": {
+        "lat": -24.4181948,
+        "lon": -68.9034537
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764292,
+      "center": {
+        "lat": -24.41595,
+        "lon": -68.8922628
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764297,
+      "center": {
+        "lat": -24.4172069,
+        "lon": -68.8929811
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764298,
+      "center": {
+        "lat": -24.3760336,
+        "lon": -68.8826493
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764303,
+      "center": {
+        "lat": -24.4173193,
+        "lon": -68.8930213
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764305,
+      "center": {
+        "lat": -24.4693417,
+        "lon": -68.9010627
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764307,
+      "center": {
+        "lat": -24.3777267,
+        "lon": -68.8866364
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764308,
+      "center": {
+        "lat": -24.3921029,
+        "lon": -68.8786789
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764315,
+      "center": {
+        "lat": -24.4723715,
+        "lon": -68.8584121
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764319,
+      "center": {
+        "lat": -24.4055391,
+        "lon": -68.8885125
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764321,
+      "center": {
+        "lat": -24.4471001,
+        "lon": -68.8897372
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764329,
+      "center": {
+        "lat": -24.4517071,
+        "lon": -68.8610977
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764330,
+      "center": {
+        "lat": -24.4138021,
+        "lon": -68.8645363
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "ground",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764331,
+      "center": {
+        "lat": -24.5027976,
+        "lon": -68.8659726
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764339,
+      "center": {
+        "lat": -24.4170262,
+        "lon": -68.8906127
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "ground",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764340,
+      "center": {
+        "lat": -24.4986634,
+        "lon": -68.8664472
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764342,
+      "center": {
+        "lat": -24.5025328,
+        "lon": -68.8758941
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764343,
+      "center": {
+        "lat": -24.44305,
+        "lon": -68.8643154
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764347,
+      "center": {
+        "lat": -24.4752089,
+        "lon": -68.8629565
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764350,
+      "center": {
+        "lat": -24.3749931,
+        "lon": -68.879187
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764351,
+      "center": {
+        "lat": -24.3742188,
+        "lon": -68.8846904
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764352,
+      "center": {
+        "lat": -24.4077653,
+        "lon": -68.8830187
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "ground",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764353,
+      "center": {
+        "lat": -24.4728743,
+        "lon": -68.8577717
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764355,
+      "center": {
+        "lat": -24.5239667,
+        "lon": -68.8882416
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764357,
+      "center": {
+        "lat": -24.499588,
+        "lon": -68.8644212
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764360,
+      "center": {
+        "lat": -24.4577443,
+        "lon": -68.8878447
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764366,
+      "center": {
+        "lat": -24.4392403,
+        "lon": -68.8928523
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764368,
+      "center": {
+        "lat": -24.4569849,
+        "lon": -68.9044315
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764369,
+      "center": {
+        "lat": -24.3893421,
+        "lon": -68.8924487
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764372,
+      "center": {
+        "lat": -24.3944381,
+        "lon": -68.884736
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764374,
+      "center": {
+        "lat": -24.4002609,
+        "lon": -68.8996142
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764377,
+      "center": {
+        "lat": -24.4879095,
+        "lon": -68.9604815
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764378,
+      "center": {
+        "lat": -24.4373219,
+        "lon": -68.8970708
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764380,
+      "center": {
+        "lat": -24.4305294,
+        "lon": -68.8689102
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764382,
+      "center": {
+        "lat": -24.4687114,
+        "lon": -68.8572393
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764383,
+      "center": {
+        "lat": -24.4507007,
+        "lon": -68.8603752
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764386,
+      "center": {
+        "lat": -24.4610288,
+        "lon": -68.8590873
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764387,
+      "center": {
+        "lat": -24.4014796,
+        "lon": -68.8862621
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764388,
+      "center": {
+        "lat": -24.4698881,
+        "lon": -68.900726
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764389,
+      "center": {
+        "lat": -24.3897693,
+        "lon": -68.8801476
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764391,
+      "center": {
+        "lat": -24.4164484,
+        "lon": -68.9044191
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764394,
+      "center": {
+        "lat": -24.4509519,
+        "lon": -68.8568998
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764396,
+      "center": {
+        "lat": -24.4158274,
+        "lon": -68.9052099
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764402,
+      "center": {
+        "lat": -24.4195553,
+        "lon": -68.9044394
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764403,
+      "center": {
+        "lat": -24.4557084,
+        "lon": -68.8573525
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764411,
+      "center": {
+        "lat": -24.4722694,
+        "lon": -68.8978303
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764415,
+      "center": {
+        "lat": -24.4786738,
+        "lon": -68.8569046
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764416,
+      "center": {
+        "lat": -24.3892671,
+        "lon": -68.8919189
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764417,
+      "center": {
+        "lat": -24.4634044,
+        "lon": -68.9084038
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764420,
+      "center": {
+        "lat": -24.406267,
+        "lon": -68.8875416
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "ground",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764421,
+      "center": {
+        "lat": -24.405136,
+        "lon": -68.8870695
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "ground",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764423,
+      "center": {
+        "lat": -24.4736631,
+        "lon": -68.8976857
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764425,
+      "center": {
+        "lat": -24.4113523,
+        "lon": -68.9038628
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764427,
+      "center": {
+        "lat": -24.4110298,
+        "lon": -68.8750097
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "ground",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764429,
+      "center": {
+        "lat": -24.451369,
+        "lon": -68.9018774
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764430,
+      "center": {
+        "lat": -24.4696001,
+        "lon": -68.90133
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764431,
+      "center": {
+        "lat": -24.5031673,
+        "lon": -68.8993052
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764433,
+      "center": {
+        "lat": -24.4744459,
+        "lon": -68.8992306
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764434,
+      "center": {
+        "lat": -24.4416599,
+        "lon": -68.8714486
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764435,
+      "center": {
+        "lat": -24.41827,
+        "lon": -68.9054065
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764438,
+      "center": {
+        "lat": -24.4092634,
+        "lon": -68.8621629
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "ground",
+        "tracktype": "grade3"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764439,
+      "center": {
+        "lat": -24.4684903,
+        "lon": -68.8795953
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764440,
+      "center": {
+        "lat": -24.4733189,
+        "lon": -68.8987559
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764441,
+      "center": {
+        "lat": -24.422429,
+        "lon": -68.905169
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764442,
+      "center": {
+        "lat": -24.5228285,
+        "lon": -68.853979
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "ground",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764444,
+      "center": {
+        "lat": -24.3944648,
+        "lon": -68.8967148
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764451,
+      "center": {
+        "lat": -24.4720251,
+        "lon": -68.8992548
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764452,
+      "center": {
+        "lat": -24.3926231,
+        "lon": -68.8905752
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764453,
+      "center": {
+        "lat": -24.3893721,
+        "lon": -68.8919914
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764457,
+      "center": {
+        "lat": -24.5213138,
+        "lon": -68.8630449
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 872764459,
+      "center": {
+        "lat": -24.3778836,
+        "lon": -68.8816862
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 879310764,
+      "center": {
+        "lat": -24.2543656,
+        "lon": -69.0427233
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "oneway": "yes",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 886873446,
+      "center": {
+        "lat": -24.3808278,
+        "lon": -69.1338121
+      },
+      "tags": {
+        "access": "no",
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 917428456,
+      "center": {
+        "lat": -24.3218927,
+        "lon": -69.052348
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 926692214,
+      "center": {
+        "lat": -24.6711453,
+        "lon": -68.9562545
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 959735076,
+      "center": {
+        "lat": -24.3146482,
+        "lon": -69.2366422
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 959735077,
+      "center": {
+        "lat": -24.3132669,
+        "lon": -69.2395054
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 959736353,
+      "center": {
+        "lat": -24.3991324,
+        "lon": -69.2480615
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 959736354,
+      "center": {
+        "lat": -24.4125925,
+        "lon": -69.2461524
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 959756946,
+      "center": {
+        "lat": -24.2084805,
+        "lon": -69.2540253
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 959777990,
+      "center": {
+        "lat": -24.1570847,
+        "lon": -69.1297302
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 959777991,
+      "center": {
+        "lat": -24.1609228,
+        "lon": -69.145238
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 960010159,
+      "center": {
+        "lat": -24.7487488,
+        "lon": -68.9929185
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 960010160,
+      "center": {
+        "lat": -24.7485678,
+        "lon": -68.9928776
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 960010161,
+      "center": {
+        "lat": -24.7711776,
+        "lon": -68.9996862
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 966046474,
+      "center": {
+        "lat": -24.2551382,
+        "lon": -69.0428637
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "oneway": "yes",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 966046479,
+      "center": {
+        "lat": -24.2652802,
+        "lon": -69.0084346
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "oneway": "yes",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 966046480,
+      "center": {
+        "lat": -24.2656889,
+        "lon": -69.0091484
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "oneway": "yes",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 966876555,
+      "center": {
+        "lat": -24.2125869,
+        "lon": -69.0370268
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "oneway": "yes",
+        "surface": "unpaved",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 966876556,
+      "center": {
+        "lat": -24.2129464,
+        "lon": -69.0370635
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "oneway": "yes",
+        "surface": "unpaved",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1036045703,
+      "center": {
+        "lat": -24.332997,
+        "lon": -69.0660749
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1053437894,
+      "center": {
+        "lat": -24.238965,
+        "lon": -69.0991528
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1053437895,
+      "center": {
+        "lat": -24.24559,
+        "lon": -69.1040253
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1054279641,
+      "center": {
+        "lat": -24.2114337,
+        "lon": -69.0386425
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "oneway": "yes",
+        "surface": "unpaved",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1054279647,
+      "center": {
+        "lat": -24.2141909,
+        "lon": -69.0334739
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "oneway": "yes",
+        "surface": "unpaved",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1054279648,
+      "center": {
+        "lat": -24.1970527,
+        "lon": -69.0381452
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "oneway": "yes",
+        "surface": "unpaved",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1054279650,
+      "center": {
+        "lat": -24.2144755,
+        "lon": -69.0335543
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "oneway": "yes",
+        "surface": "unpaved",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1174456023,
+      "center": {
+        "lat": -24.2938355,
+        "lon": -69.1316896
+      },
+      "tags": {
+        "aeroway": "aerodrome",
+        "icao": "SCLE",
+        "name": "Aeródromo La Escondida",
+        "source": "ourairports.com",
+        "wikidata": "Q16893832",
+        "wikipedia": "es:Aeródromo La Escondida"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1269262631,
+      "center": {
+        "lat": -24.1032124,
+        "lon": -69.0124397
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435280742,
+      "center": {
+        "lat": -24.5276795,
+        "lon": -69.4637517
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435280743,
+      "center": {
+        "lat": -24.5139561,
+        "lon": -69.4684161
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435280744,
+      "center": {
+        "lat": -24.5201348,
+        "lon": -69.4700226
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435315453,
+      "center": {
+        "lat": -24.5682547,
+        "lon": -69.4307857
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435315457,
+      "center": {
+        "lat": -24.5685038,
+        "lon": -69.4277796
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435317770,
+      "center": {
+        "lat": -24.5678126,
+        "lon": -69.4295202
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435317771,
+      "center": {
+        "lat": -24.5681998,
+        "lon": -69.4289711
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435317772,
+      "center": {
+        "lat": -24.5682983,
+        "lon": -69.4281882
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435317773,
+      "center": {
+        "lat": -24.5680922,
+        "lon": -69.4271169
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435317774,
+      "center": {
+        "lat": -24.5697294,
+        "lon": -69.4262389
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435317775,
+      "center": {
+        "lat": -24.5706457,
+        "lon": -69.4263493
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435317776,
+      "center": {
+        "lat": -24.5724033,
+        "lon": -69.4226012
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435317777,
+      "center": {
+        "lat": -24.5736835,
+        "lon": -69.4197041
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435328969,
+      "center": {
+        "lat": -24.5783902,
+        "lon": -69.4161198
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435328970,
+      "center": {
+        "lat": -24.587141,
+        "lon": -69.4203742
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435328972,
+      "center": {
+        "lat": -24.5822833,
+        "lon": -69.4233541
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435328973,
+      "center": {
+        "lat": -24.5838527,
+        "lon": -69.4188572
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435556978,
+      "center": {
+        "lat": -24.5918419,
+        "lon": -69.4318967
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435556979,
+      "center": {
+        "lat": -24.5904746,
+        "lon": -69.4407243
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435557220,
+      "center": {
+        "lat": -24.5958224,
+        "lon": -69.4389981
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435557221,
+      "center": {
+        "lat": -24.5878755,
+        "lon": -69.4534243
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435557760,
+      "center": {
+        "lat": -24.5874757,
+        "lon": -69.4605242
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435557761,
+      "center": {
+        "lat": -24.5864323,
+        "lon": -69.4634684
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435561464,
+      "center": {
+        "lat": -24.5853704,
+        "lon": -69.4685038
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435561465,
+      "center": {
+        "lat": -24.5861951,
+        "lon": -69.4726725
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435561466,
+      "center": {
+        "lat": -24.5898151,
+        "lon": -69.481864
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435561467,
+      "center": {
+        "lat": -24.5881646,
+        "lon": -69.4813832
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435561469,
+      "center": {
+        "lat": -24.5941218,
+        "lon": -69.4803547
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435561470,
+      "center": {
+        "lat": -24.5987818,
+        "lon": -69.4818902
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435561471,
+      "center": {
+        "lat": -24.6017821,
+        "lon": -69.4792378
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435561472,
+      "center": {
+        "lat": -24.6019208,
+        "lon": -69.4822358
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435619221,
+      "center": {
+        "lat": -24.6065636,
+        "lon": -69.4837997
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435619222,
+      "center": {
+        "lat": -24.6093615,
+        "lon": -69.4892497
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435619223,
+      "center": {
+        "lat": -24.6093143,
+        "lon": -69.4892828
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435619224,
+      "center": {
+        "lat": -24.6108395,
+        "lon": -69.4877597
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435623202,
+      "center": {
+        "lat": -24.6057516,
+        "lon": -69.4938646
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435664070,
+      "center": {
+        "lat": -24.6137974,
+        "lon": -69.4910323
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435665719,
+      "center": {
+        "lat": -24.6170767,
+        "lon": -69.4881782
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435665720,
+      "center": {
+        "lat": -24.6169484,
+        "lon": -69.4882745
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435665721,
+      "center": {
+        "lat": -24.6161636,
+        "lon": -69.484897
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435925045,
+      "center": {
+        "lat": -24.6133695,
+        "lon": -69.4959623
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435925046,
+      "center": {
+        "lat": -24.6161347,
+        "lon": -69.4977438
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435925047,
+      "center": {
+        "lat": -24.6177207,
+        "lon": -69.4973224
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435925510,
+      "center": {
+        "lat": -24.6134235,
+        "lon": -69.4982995
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435931612,
+      "center": {
+        "lat": -24.6185284,
+        "lon": -69.5030964
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435931613,
+      "center": {
+        "lat": -24.6153545,
+        "lon": -69.5100783
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435931614,
+      "center": {
+        "lat": -24.6172727,
+        "lon": -69.6216008
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435932393,
+      "center": {
+        "lat": -24.6146577,
+        "lon": -69.549864
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435932394,
+      "center": {
+        "lat": -24.6143369,
+        "lon": -69.5355148
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435933450,
+      "center": {
+        "lat": -24.6119876,
+        "lon": -69.4982811
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435933451,
+      "center": {
+        "lat": -24.6105115,
+        "lon": -69.4998405
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435933452,
+      "center": {
+        "lat": -24.6032134,
+        "lon": -69.5198142
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435933453,
+      "center": {
+        "lat": -24.608008,
+        "lon": -69.5053478
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435934501,
+      "center": {
+        "lat": -24.6050051,
+        "lon": -69.5124953
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435934502,
+      "center": {
+        "lat": -24.6025122,
+        "lon": -69.5155254
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1518167052,
+      "center": {
+        "lat": -24.5442013,
+        "lon": -69.4372232
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1518167053,
+      "center": {
+        "lat": -24.5494568,
+        "lon": -69.4322248
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1518167054,
+      "center": {
+        "lat": -24.5512967,
+        "lon": -69.4280149
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1518167055,
+      "center": {
+        "lat": -24.5523497,
+        "lon": -69.4319055
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1518167056,
+      "center": {
+        "lat": -24.5433694,
+        "lon": -69.4249153
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1518167057,
+      "center": {
+        "lat": -24.5459919,
+        "lon": -69.4136945
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1518167058,
+      "center": {
+        "lat": -24.548485,
+        "lon": -69.4112483
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1518167059,
+      "center": {
+        "lat": -24.5434412,
+        "lon": -69.4090598
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1518167060,
+      "center": {
+        "lat": -24.540872,
+        "lon": -69.391554
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1518167061,
+      "center": {
+        "lat": -24.5366427,
+        "lon": -69.3758066
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1518167062,
+      "center": {
+        "lat": -24.5313109,
+        "lon": -69.3715399
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1518167063,
+      "center": {
+        "lat": -24.5267183,
+        "lon": -69.3696269
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1518167064,
+      "center": {
+        "lat": -24.5312721,
+        "lon": -69.3660232
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1518167065,
+      "center": {
+        "lat": -24.5358184,
+        "lon": -69.3639311
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1518167066,
+      "center": {
+        "lat": -24.641259,
+        "lon": -69.4066816
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1518167067,
+      "center": {
+        "lat": -24.7442136,
+        "lon": -69.4479678
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1518167068,
+      "center": {
+        "lat": -24.7442585,
+        "lon": -69.4473135
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1518167069,
+      "center": {
+        "lat": -24.8533289,
+        "lon": -69.4894146
+      },
+      "tags": {
+        "highway": "track"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1547324278,
+      "center": {
+        "lat": -24.5573487,
+        "lon": -69.0820711
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1547324279,
+      "center": {
+        "lat": -24.547639,
+        "lon": -69.0917689
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1547324280,
+      "center": {
+        "lat": -24.5449078,
+        "lon": -69.0958285
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1547324281,
+      "center": {
+        "lat": -24.542951,
+        "lon": -69.0938222
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1547324282,
+      "center": {
+        "lat": -24.5082086,
+        "lon": -69.1103035
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1547324283,
+      "center": {
+        "lat": -24.539583,
+        "lon": -69.1254706
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1547324284,
+      "center": {
+        "lat": -24.5554654,
+        "lon": -69.1414427
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1547324285,
+      "center": {
+        "lat": -24.5061759,
+        "lon": -69.1264535
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1547324286,
+      "center": {
+        "lat": -24.5916749,
+        "lon": -69.0369124
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1547324287,
+      "center": {
+        "lat": -24.5863978,
+        "lon": -69.063911
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1547324288,
+      "center": {
+        "lat": -24.6276479,
+        "lon": -69.0847619
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1547324289,
+      "center": {
+        "lat": -24.4380454,
+        "lon": -68.989833
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1547324290,
+      "center": {
+        "lat": -24.3758751,
+        "lon": -68.9626612
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1547324291,
+      "center": {
+        "lat": -24.4076844,
+        "lon": -68.993088
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1547324292,
+      "center": {
+        "lat": -24.4456433,
+        "lon": -69.0442022
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1547324293,
+      "center": {
+        "lat": -24.44587,
+        "lon": -69.0489077
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1547324294,
+      "center": {
+        "lat": -24.4725374,
+        "lon": -69.0266533
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1547324295,
+      "center": {
+        "lat": -24.5049901,
+        "lon": -68.9993924
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1547324296,
+      "center": {
+        "lat": -24.5682069,
+        "lon": -69.1029467
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1547324297,
+      "center": {
+        "lat": -24.5757172,
+        "lon": -69.05547
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1547324298,
+      "center": {
+        "lat": -24.6610806,
+        "lon": -69.0415717
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground",
+        "tracktype": "grade4"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1547708879,
+      "center": {
+        "lat": -24.1569299,
+        "lon": -69.1257878
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1547708891,
+      "center": {
+        "lat": -24.1631458,
+        "lon": -69.1566106
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1547708892,
+      "center": {
+        "lat": -24.1515585,
+        "lon": -69.158552
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1547708893,
+      "center": {
+        "lat": -24.1537598,
+        "lon": -69.1592688
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1547728402,
+      "center": {
+        "lat": -24.3619161,
+        "lon": -68.9557927
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1547800525,
+      "center": {
+        "lat": -24.1455532,
+        "lon": -69.1527521
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "ground"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1547800529,
+      "center": {
+        "lat": -24.2005403,
+        "lon": -69.2846933
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "dirt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1547800530,
+      "center": {
+        "lat": -24.1527703,
+        "lon": -69.2348769
+      },
+      "tags": {
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade3"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1547800532,
+      "center": {
+        "lat": -24.2019635,
+        "lon": -69.0646492
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1547800533,
+      "center": {
+        "lat": -24.2020905,
+        "lon": -68.9895192
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "unpaved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1547800546,
+      "center": {
+        "lat": -24.6206951,
+        "lon": -68.8785482
+      },
+      "tags": {
+        "access": "private",
+        "highway": "track",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1547800552,
+      "center": {
+        "lat": -24.2687864,
+        "lon": -68.9680597
+      },
+      "tags": {
+        "access": "no",
+        "highway": "track",
+        "source": "maxar",
+        "surface": "dirt",
+        "tracktype": "grade2"
+      }
+    }
+  ]
+}

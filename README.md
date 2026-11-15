@@ -18,9 +18,10 @@ Os estudos são feitos em notebooks (`.ipynb`) e consolidados em uma aplicação
 feynmans-legacy/
 ├── app/                      # Aplicação web (visualização dos achados)
 ├── data/
-│   ├── external/             # Dados de terceiros
-│   ├── nasa/                 # Dados da NASA (perfis de Lua/Marte e afins)
-│   └── tratados/             # Dados processados (alimentam notebooks e app)
+│   ├── marte/               # Dados e spec de referência de Marte
+│   ├── lua/                 # Spec de referência da Lua
+│   └── terra/               # Dados temáticos, insumos e resultados da análise
+├── config/                   # Nichos e critérios de comparação entre corpos
 ├── docs/
 │   ├── decisions/            # Registro de decisões técnicas (ADRs)
 │   └── methodology.md        # Metodologia dos estudos
@@ -57,16 +58,16 @@ pre-commit install
 
 ## Fluxo de trabalho
 
-1. **ETL:** dados brutos entram em `data/external` e `data/nasa`; os notebooks de `notebooks/00_ETL` geram os dados em `data/tratados`.
+1. **ETL:** mantenha os dados na pasta do corpo correspondente. Os arquivos temáticos da Terra ficam em `data/terra/nichos/`. A análise lê `data/terra/terra.parquet`, os insumos auxiliares em `data/terra/spec_analogos/` e as referências fixas em `data/lua/` e `data/marte/`.
 2. **Estudos:** cada caso tem seus notebooks numerados (ex.: `01_01_features.ipynb`). Lógica reutilizável vai para `src/feynmans_legacy`, não fica só no notebook.
-3. **Aplicação:** o `app` consome apenas o que está em `data/tratados`.
+3. **Aplicação:** o `app` consome `data/terra/terra.parquet`, os resultados de `data/terra/analise_analogos/`, `config/nichos.json` e os perfis de referência espaciais.
 
 ## Convenções
 
 - **Branches:** `case1/descricao`, `case2/descricao`, `app/descricao`, `setup/descricao`.
 - **Commits:** `feat:`, `fix:`, `docs:`, `chore:`, `refactor:`.
 - **Notebooks:** sem outputs versionados (`nbstripout`) e com seeds fixas.
-- **Dados:** não versionar arquivos pesados; documentar fonte, licença e data de download em `data/README.md`.
+- **Dados:** não versionar arquivos pesados; documentar fonte, licença e data de download nos catálogos [Terra](data/terra/README.md) e [Marte](data/marte/catalogo.md).
 - **PRs:** sempre para `main`, com revisão de pelo menos uma pessoa.
 
 ## Equipe

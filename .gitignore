@@ -24,7 +24,17 @@
 #.DS_Store
 #.vscode/
 
-# Dados de Marte (pesados): baixar/gerar conforme data/README.md
+# Dados de Marte (pesados): baixar/gerar conforme data/marte/catalogo.md
 data/marte/**
 !data/marte/README.md
+!data/marte/catalogo.md
+!data/marte/marte.parquet
 
+
+# Saídas geradas pelos notebooks de análise
+/data/terra/analise_analogos/
+
+# Produtos locais gerados pelo ETL lunar
+/data/lua/raw/
+/data/lua/processed/
+/data/lua/outputs/

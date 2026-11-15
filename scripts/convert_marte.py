@@ -1,6 +1,6 @@
 """Converte produtos PDS/ENVI de Marte para GeoTIFF.
 
-Os dados brutos ficam em ``data/marte`` (ver ``data/README.md``). Este script
+Os dados brutos ficam em ``data/marte`` (ver ``data/marte/catalogo.md``). Este script
 gera versoes GeoTIFF prontas para uso em SIG a partir dos formatos PDS3 IMG,
 ENVI e tabelas ASCII.
 

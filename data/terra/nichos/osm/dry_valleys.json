@@ -1,0 +1,478 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-11-14T17:05:51Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 7952873068,
+      "lat": -77.5584106,
+      "lon": 163.0414501,
+      "tags": {
+        "ele": "~850",
+        "geological": "nunatak",
+        "name": "Sanders Nunatak",
+        "name:etymology": "Ryan Sanders of NOAA",
+        "natural": "peak",
+        "ref:linz:place_id": "11709",
+        "wikidata": "Q7416144",
+        "wikipedia": "en:Sanders Nunatak"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7952873074,
+      "lat": -77.4964822,
+      "lon": 163.3766192,
+      "tags": {
+        "ele": "629",
+        "geological": "nunatak",
+        "name": "Vince Nunatak",
+        "name:etymology": "George Vince",
+        "natural": "peak",
+        "ref:linz:place_id": "10695",
+        "ref:linz:topo50_id": "ant_fs7rx",
+        "wikidata": "Q7931567",
+        "wikipedia": "en:Vince Nunatak"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7952873075,
+      "lat": -77.491229,
+      "lon": 163.4773934,
+      "tags": {
+        "ele": "~650",
+        "geological": "nunatak",
+        "name": "Cat Nunatak",
+        "natural": "peak",
+        "ref:linz:place_id": "10308",
+        "wikidata": "Q5051049",
+        "wikipedia": "en:Cat Nunatak"
+      }
+    },
+    {
+      "type": "way",
+      "id": 233313975,
+      "center": {
+        "lat": -77.2106622,
+        "lon": 162.1021801
+      },
+      "tags": {
+        "geological": "moraine",
+        "natural": "scree"
+      }
+    },
+    {
+      "type": "way",
+      "id": 233314360,
+      "center": {
+        "lat": -77.2174557,
+        "lon": 162.1192297
+      },
+      "tags": {
+        "geological": "moraine",
+        "natural": "scree"
+      }
+    },
+    {
+      "type": "way",
+      "id": 233314833,
+      "center": {
+        "lat": -77.6660624,
+        "lon": 160.8656103
+      },
+      "tags": {
+        "geological": "moraine",
+        "natural": "scree"
+      }
+    },
+    {
+      "type": "way",
+      "id": 233314916,
+      "center": {
+        "lat": -77.7814032,
+        "lon": 161.3706889
+      },
+      "tags": {
+        "geological": "moraine",
+        "natural": "scree"
+      }
+    },
+    {
+      "type": "way",
+      "id": 233314997,
+      "center": {
+        "lat": -77.6603075,
+        "lon": 161.979112
+      },
+      "tags": {
+        "geological": "moraine",
+        "natural": "scree"
+      }
+    },
+    {
+      "type": "way",
+      "id": 233315145,
+      "center": {
+        "lat": -77.2278442,
+        "lon": 162.1146559
+      },
+      "tags": {
+        "geological": "moraine",
+        "natural": "scree"
+      }
+    },
+    {
+      "type": "way",
+      "id": 233315659,
+      "center": {
+        "lat": -77.3778113,
+        "lon": 163.0983139
+      },
+      "tags": {
+        "geological": "moraine",
+        "natural": "scree"
+      }
+    },
+    {
+      "type": "way",
+      "id": 233315824,
+      "center": {
+        "lat": -77.6278339,
+        "lon": 160.8167007
+      },
+      "tags": {
+        "geological": "moraine",
+        "natural": "scree"
+      }
+    },
+    {
+      "type": "way",
+      "id": 233316104,
+      "center": {
+        "lat": -77.4462966,
+        "lon": 162.8620987
+      },
+      "tags": {
+        "geological": "moraine",
+        "natural": "scree"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 3137654,
+      "center": {
+        "lat": -77.8227483,
+        "lon": 161.6030759
+      },
+      "tags": {
+        "geological": "moraine",
+        "natural": "glacier",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 3137783,
+      "center": {
+        "lat": -77.8091079,
+        "lon": 162.3411871
+      },
+      "tags": {
+        "geological": "moraine",
+        "natural": "scree",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 3137789,
+      "center": {
+        "lat": -77.4410789,
+        "lon": 163.1916439
+      },
+      "tags": {
+        "geological": "moraine",
+        "natural": "scree",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 3137826,
+      "center": {
+        "lat": -77.6207069,
+        "lon": 162.227445
+      },
+      "tags": {
+        "geological": "moraine",
+        "natural": "scree",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 3137854,
+      "center": {
+        "lat": -77.3570832,
+        "lon": 162.5570125
+      },
+      "tags": {
+        "geological": "moraine",
+        "natural": "scree",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 3137919,
+      "center": {
+        "lat": -77.6837083,
+        "lon": 161.403071
+      },
+      "tags": {
+        "geological": "moraine",
+        "natural": "scree",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 3137934,
+      "center": {
+        "lat": -77.8778284,
+        "lon": 162.2026537
+      },
+      "tags": {
+        "geological": "moraine",
+        "natural": "scree",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 3137951,
+      "center": {
+        "lat": -77.229661,
+        "lon": 162.0975866
+      },
+      "tags": {
+        "geological": "moraine",
+        "natural": "scree",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 3137955,
+      "center": {
+        "lat": -77.5820796,
+        "lon": 163.0329203
+      },
+      "tags": {
+        "geological": "moraine",
+        "natural": "scree",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 3138007,
+      "center": {
+        "lat": -77.6495137,
+        "lon": 161.2442564
+      },
+      "tags": {
+        "geological": "moraine",
+        "natural": "scree",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 3138011,
+      "center": {
+        "lat": -77.6916099,
+        "lon": 161.2911525
+      },
+      "tags": {
+        "geological": "moraine",
+        "natural": "scree",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 3138012,
+      "center": {
+        "lat": -77.7647065,
+        "lon": 161.2675508
+      },
+      "tags": {
+        "geological": "moraine",
+        "natural": "scree",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 3138037,
+      "center": {
+        "lat": -77.7630439,
+        "lon": 161.5362689
+      },
+      "tags": {
+        "geological": "moraine",
+        "natural": "scree",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 3138039,
+      "center": {
+        "lat": -77.8156369,
+        "lon": 161.4323069
+      },
+      "tags": {
+        "geological": "moraine",
+        "natural": "scree",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 3138041,
+      "center": {
+        "lat": -77.5997527,
+        "lon": 161.5972964
+      },
+      "tags": {
+        "geological": "moraine",
+        "natural": "scree",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 3138045,
+      "center": {
+        "lat": -77.3716857,
+        "lon": 162.8137749
+      },
+      "tags": {
+        "geological": "moraine",
+        "natural": "scree",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 3138057,
+      "center": {
+        "lat": -77.7722242,
+        "lon": 161.7514642
+      },
+      "tags": {
+        "geological": "moraine",
+        "natural": "scree",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 3138062,
+      "center": {
+        "lat": -77.7801933,
+        "lon": 163.1338956
+      },
+      "tags": {
+        "geological": "moraine",
+        "natural": "scree",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 3138071,
+      "center": {
+        "lat": -77.7181285,
+        "lon": 162.6249315
+      },
+      "tags": {
+        "geological": "moraine",
+        "natural": "scree",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 3138079,
+      "center": {
+        "lat": -77.6803008,
+        "lon": 162.0679184
+      },
+      "tags": {
+        "geological": "moraine",
+        "natural": "scree",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 3138085,
+      "center": {
+        "lat": -77.4261378,
+        "lon": 162.7780176
+      },
+      "tags": {
+        "geological": "moraine",
+        "natural": "scree",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 3138123,
+      "center": {
+        "lat": -77.7697685,
+        "lon": 163.2124494
+      },
+      "tags": {
+        "geological": "moraine",
+        "natural": "scree",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 3138125,
+      "center": {
+        "lat": -77.4775041,
+        "lon": 162.5636039
+      },
+      "tags": {
+        "geological": "moraine",
+        "natural": "scree",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 3138168,
+      "center": {
+        "lat": -77.7261973,
+        "lon": 163.0315612
+      },
+      "tags": {
+        "geological": "moraine",
+        "natural": "scree",
+        "type": "multipolygon"
+      }
+    }
+  ]
+}
