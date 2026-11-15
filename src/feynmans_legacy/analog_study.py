@@ -2,7 +2,9 @@
 
 import json
 import pickle
+from collections.abc import Iterable, Mapping, Sequence
 from pathlib import Path
+from typing import NotRequired, TypedDict
 
 import numpy as np
 import pandas as pd
@@ -16,18 +18,39 @@ LAGS = [0, 1, 2, 11]
 FEATURES = [f"lag_{lag}" for lag in LAGS] + ["month_sin", "month_cos"]
 
 
-def months(values):
+class ForecastBundle(TypedDict):
+    origem: str
+    modelos: dict[tuple[str, int], RandomForestRegressor | None]
+
+
+class NicheMapping(TypedDict):
+    terra: str
+    referencia: str
+    tolerancia: float
+    peso: NotRequired[float]
+
+
+type Criteria = dict[str, tuple[float, float, float]]
+
+
+def months(values: pd.Series) -> pd.Series:
     """Parse strict YYYYMM into monthly periods."""
     return pd.to_datetime(values.astype(str), format="%Y%m", errors="raise").dt.to_period("M")
 
 
-def validate_key(frame, key, name):
+def validate_key(frame: pd.DataFrame, key: list[str], name: str) -> None:
     if frame[key].isna().any().any() or frame.duplicated(key).any():
         raise ValueError(f"{name}: chave nula ou duplicada em {key}")
 
 
-def select_features(snapshot, candidates, min_coverage=0.8, max_correlation=0.9):
-    rows, selected = [], []
+def select_features(
+    snapshot: pd.DataFrame,
+    candidates: Iterable[str],
+    min_coverage: float = 0.8,
+    max_correlation: float = 0.9,
+) -> tuple[list[str], pd.DataFrame]:
+    rows = []
+    selected: list[str] = []
     for name in candidates:
         coverage = snapshot[name].notna().mean()
         reason = "selecionada"
@@ -46,7 +69,9 @@ def select_features(snapshot, candidates, min_coverage=0.8, max_correlation=0.9)
     return selected, pd.DataFrame(rows)
 
 
-def cluster_snapshot(snapshot, features, n_clusters):
+def cluster_snapshot(
+    snapshot: pd.DataFrame, features: list[str], n_clusters: int
+) -> pd.DataFrame:
     complete = snapshot.dropna(subset=features)
     if not features or len(complete[features].drop_duplicates()) < n_clusters:
         raise ValueError("Amostra insuficiente para a quantidade de clusters solicitada.")
@@ -57,7 +82,7 @@ def cluster_snapshot(snapshot, features, n_clusters):
     return result
 
 
-def forecast_design(history, variable, horizon):
+def forecast_design(history: pd.DataFrame, variable: str, horizon: int) -> pd.DataFrame:
     # Join on actual calendar months so gaps never become artificial lags.
     source = history[KEY + [variable]].dropna().copy()
     source["anomes"] = months(source["anomes"])
@@ -74,12 +99,18 @@ def forecast_design(history, variable, horizon):
     return design.dropna(subset=FEATURES)
 
 
-def train_forecasts(history, variables, horizons, min_validation=20):
+def train_forecasts(
+    history: pd.DataFrame,
+    variables: Iterable[str],
+    horizons: Sequence[int],
+    min_validation: int = 20,
+) -> tuple[ForecastBundle, pd.DataFrame]:
     """Select model or persistence by MAE on a chronological holdout."""
     latest = months(history["anomes"]).max()
     origins = sorted(months(history["anomes"]).unique())
     cutoff = origins[int(len(origins) * 0.8)]
-    models, metrics = {}, []
+    models: dict[tuple[str, int], RandomForestRegressor | None] = {}
+    metrics: list[dict[str, object]] = []
     for variable in variables:
         for horizon in horizons:
             design = forecast_design(history, variable, horizon)
@@ -108,10 +139,10 @@ def train_forecasts(history, variables, horizons, min_validation=20):
     return {"origem": str(latest), "modelos": models}, pd.DataFrame(metrics)
 
 
-def publish_forecasts(history, model_path):
+def publish_forecasts(history: pd.DataFrame, model_path: str | Path) -> pd.DataFrame:
     """Load a trusted artifact produced by train_forecasts and predict in batch."""
     with Path(model_path).open("rb") as file:
-        bundle = pickle.load(file)
+        bundle: ForecastBundle = pickle.load(file)
     periods = months(history["anomes"])
     latest = periods.max()
     if str(latest) != bundle["origem"]:
@@ -121,7 +152,7 @@ def publish_forecasts(history, model_path):
     recent = history.loc[required].copy()
     recent["anomes"] = periods[required]
     output = []
-    lag_cache = {}
+    lag_cache: dict[str, pd.DataFrame] = {}
     for (variable, horizon), model in bundle["modelos"].items():
         if variable not in lag_cache:
             # Each source row supplies one calendar lag at the forecast cutoff.
@@ -148,15 +179,23 @@ def publish_forecasts(history, model_path):
     return pd.concat(output, ignore_index=True) if output else pd.DataFrame(columns=columns)
 
 
-def profile_criteria(niches_path, body, niche, reference, base_id):
+def profile_criteria(
+    niches_path: str | Path,
+    body: str,
+    niche: str,
+    reference: pd.DataFrame,
+    base_id: str,
+) -> Criteria:
     """Resolve one row of a fixed reference spec and its mapped Earth criteria."""
-    config = json.loads(Path(niches_path).read_text(encoding="utf-8"))
+    config: dict[str, dict[str, list[NicheMapping]]] = json.loads(
+        Path(niches_path).read_text(encoding="utf-8")
+    )
     entries = config[body]
     if niche != "Todos":
         entries = {niche: entries[niche]}
     validate_key(reference, ["base_id"], body)
     row = reference.set_index("base_id").loc[base_id]
-    criteria = {}
+    criteria: Criteria = {}
     for mappings in entries.values():
         for item in mappings:
             earth_column = item["terra"]
@@ -173,7 +212,13 @@ def profile_criteria(niches_path, body, niche, reference, base_id):
     return criteria
 
 
-def audit_profile_catalog(niches, references, snapshot, catalog, dictionary):
+def audit_profile_catalog(
+    niches: Mapping[str, Mapping[str, Sequence[NicheMapping]]],
+    references: Mapping[str, pd.DataFrame],
+    snapshot: pd.DataFrame,
+    catalog: pd.DataFrame,
+    dictionary: pd.DataFrame,
+) -> None:
     """Check terrestrial units and catalog consistency for the proposed targets."""
     key = ["corpo", "base_id", "nicho", "terra"]
     fields = ["alvo", "tolerancia", "peso"]
@@ -214,7 +259,9 @@ def audit_profile_catalog(niches, references, snapshot, catalog, dictionary):
         raise ValueError(f"Catálogo diverge dos perfis ou nichos: {mismatches}")
 
 
-def recommend(values, coordinates, criteria):
+def recommend(
+    values: pd.DataFrame, coordinates: pd.DataFrame, criteria: Criteria
+) -> pd.DataFrame:
     validate_key(values, ["location_id"], "consulta")
     validate_key(coordinates, ["location_id"], "coordenadas")
     missing = set(criteria).difference(values.columns)
