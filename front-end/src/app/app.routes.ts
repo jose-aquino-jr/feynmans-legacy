@@ -1,11 +1,11 @@
 import { Routes } from '@angular/router';
-import { Mapa } from './pages/mapa/mapa';
 import { Home } from './pages/home/home';
+import { Mapa } from './pages/mapa/mapa';
 
 export const routes: Routes = [
+  { path: '', component: Home, pathMatch: 'full' },
   { path: 'mapa', component: Mapa },
-  { path: 'mapa', redirectTo: '' },
 
-  { path: 'home', component: Home },
-  { path: 'home', redirectTo: 'home' },
+  { path: 'home', redirectTo: '', pathMatch: 'full' },
+  { path: '**', redirectTo: '' },
 ];

@@ -1,0 +1,60 @@
+<!-- vídeo de fundo (planeta). O poster aparece enquanto o vídeo carrega -->
+<video
+  #bg
+  class="absolute inset-0 size-full object-cover object-[30%_center]"
+  autoplay
+  muted
+  loop
+  playsinline
+  preload="auto"
+  poster="/images/earth-poster.webp"
+  aria-hidden="true"
+>
+  <source src="/videos/earth.mp4" type="video/mp4" />
+</video>
+
+<!-- escurecimento para o texto respirar + brilho âmbar no canto, como na referência -->
+<div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-ink/80 via-ink/10 to-ink/85"></div>
+<div class="pointer-events-none absolute inset-0 bg-gradient-to-r from-ink/10 via-transparent to-ink/60"></div>
+<div class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_100%_100%,#DE7D2830,transparent_55%)]"></div>
+
+<header class="absolute inset-x-0 top-0 z-10 flex items-start justify-between px-[37px] py-6">
+  <a routerLink="/" aria-label="Feynman's Legacy">
+    <img src="/images/logo.svg" alt="Feynman's Legacy" class="block h-24 w-auto md:h-32" />
+  </a>
+  <nav class="flex items-center gap-12 max-md:gap-5">
+    @for (item of navItems; track item.label) {
+      @if (item.link) {
+        <a [routerLink]="item.link" class="text-[11px] tracking-[.12em] text-cream no-underline transition-opacity hover:opacity-70">{{ item.label }}</a>
+      } @else {
+        <a href="#" (click)="$event.preventDefault()" class="text-[11px] tracking-[.12em] text-cream no-underline transition-opacity hover:opacity-70">{{ item.label }}</a>
+      }
+    }
+    <button
+      type="button"
+      aria-label="Sobre o projeto"
+      class="ml-3 inline-grid size-[15px] cursor-pointer place-items-center rounded-full border border-cream text-[9px] leading-none transition-opacity hover:opacity-70 max-md:ml-0"
+    >i</button>
+  </nav>
+</header>
+
+<main class="absolute inset-0 z-[5] grid place-items-center px-6 pt-[7vh]">
+  <div class="home-rise flex flex-col items-center">
+    <div class="flex flex-col items-center">
+      <h1 class="w-fit text-center font-display uppercase leading-[1.08] tracking-[.04em] text-cream [text-shadow:0_2px_24px_rgb(0_0_0/0.45)]">
+        <!-- a 1ª linha tem ~68% do tamanho da 2ª para as duas terem a mesma largura -->
+        <span class="block text-[clamp(17px,2.3vw,40px)]">Identify Earth</span>
+        <span class="block text-[clamp(25px,3.4vw,58px)]">Locations</span>
+      </h1>
+      <!-- uma linha só e centralizado sob o título -->
+      <p class="mt-4 whitespace-nowrap text-center text-[clamp(8px,0.8vw,12px)] font-medium uppercase tracking-[.1em]">
+        That analog the permanent Moon base locations and Mars
+      </p>
+    </div>
+
+    <a
+      routerLink="/mapa"
+      class="glass mt-[clamp(32px,6vh,64px)] inline-block rounded-[10px] px-[clamp(36px,3.6vw,56px)] py-[clamp(12px,1.6vh,17px)] text-[11px] font-medium tracking-[.2em] text-cream no-underline transition hover:brightness-125 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cream"
+    >START EXPLORING</a>
+  </div>
+</main>
