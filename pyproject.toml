@@ -47,9 +47,14 @@ dependencies = [
     "httpx>=0.28",
     "pandera>=0.36",
     "pydantic>=2.14,<3",
+    "pydantic-settings>=2.16,<3",
     "python-dotenv>=1.2",
     "tqdm>=4.70",
     "ipykernel>=7.4",
+
+    # API (somente leitura) consumida pelo Front-End
+    "fastapi>=0.163,<1",
+    "uvicorn[standard]>=0.54,<1",
 ]
 
 [project.optional-dependencies]
@@ -58,16 +63,20 @@ dev = [
     "nbstripout>=0.9",
     "ruff>=0.17",
     "pytest>=9.2",
+    "mypy>=2.4,<3",
     "pre-commit>=4.7",
 ]
 
 [tool.setuptools.packages.find]
-where = ["src"]
+where = ["src", "."]
+include = ["feynmans_legacy*", "app*"]
+exclude = ["tests*", "notebooks*", "scripts*", "data*", "models*"]
+namespaces = false
 
 [tool.ruff]
 line-length = 100
 target-version = "py312"
-src = ["src", "tests"]
+src = ["src", "tests", "app"]
 extend-exclude = ["data", "models"]
 
 [tool.ruff.lint]
@@ -80,3 +89,15 @@ select = ["E", "F", "I", "B", "UP", "N", "NPY", "PD"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-q"
+pythonpath = ["."]
+
+[tool.mypy]
+python_version = "3.12"
+files = ["app", "src"]
+ignore_missing_imports = true
+check_untyped_defs = true
+disallow_untyped_defs = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+no_implicit_optional = true
+strict_equality = true

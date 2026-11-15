@@ -107,6 +107,8 @@ matplotlib-inline==0.2.2 # Exibe gráficos do Matplotlib diretamente integrados 
 
 mistune==3.4.0 # Realiza a tradução rápida de Markdown para HTML.
 
+mypy==2.4.1 # Verifica a tipagem estática do código da API.
+
 nbclient==0.11.0 # Executa notebooks Jupyter de forma programática.
 
 nbconvert==7.17.2 # Converte notebooks Jupyter para outros formatos como PDF ou HTML.

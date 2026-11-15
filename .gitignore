@@ -8,21 +8,29 @@
 #!data/README.md
 #
 ## Python
-#__pycache__/
-#*.pyc
-#.venv/
-#.env
-#.ipynb_checkpoints/
-#.pytest_cache/
-#.ruff_cache/
-#
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.venv*/
+.eggs/
+*.egg-info/
+build/
+dist/
+.ipynb_checkpoints/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
 ## Node (frontend)
-#node_modules/
-#dist/
-#
+node_modules/
+dist/
+
 ## SO / editor
-#.DS_Store
-#.vscode/
+.DS_Store
+.vscode/
 
 # Dados de Marte (pesados): baixar/gerar conforme data/marte/catalogo.md
 data/marte/**

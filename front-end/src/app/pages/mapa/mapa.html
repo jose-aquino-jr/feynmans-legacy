@@ -1,0 +1,20 @@
+<a routerLink="/" class="back">← Voltar</a>
+
+<div class="controls">
+  <div class="group">
+    <span class="group-label">Comparar com</span>
+    <button [class.active]="body === 'mars'" (click)="setBody('mars')">Marte</button>
+    <button [class.active]="body === 'moon'" (click)="setBody('moon')">Lua</button>
+  </div>
+  <div class="group">
+    <button [class.active]="view === 'both'" (click)="setView('both')">Ambos</button>
+    <button [class.active]="view === 'earth'" (click)="setView('earth')">Terra</button>
+    <button [class.active]="view === 'other'" (click)="setView('other')">{{ cfg[body].label }}</button>
+    <button (click)="align()">Centralizar</button>
+  </div>
+</div>
+
+<canvas #scene></canvas>
+
+<span #marsLabel class="label">{{ cfg[body].label }} · {{ cfg[body].target.name }} <small>(alvo)</small></span>
+<span #earthLabel class="label">Terra · {{ cfg[body].analog.name }} <small>(análogo)</small></span>

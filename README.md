@@ -16,7 +16,12 @@ Os estudos são feitos em notebooks (`.ipynb`) e consolidados em uma aplicação
 
 ```
 feynmans-legacy/
-├── app/                      # Aplicação web (visualização dos achados)
+├── app/                      # API FastAPI (back-end somente leitura)
+│   ├── routers/              # health, datasets e models
+│   ├── schemas/              # contrato Pydantic v2
+│   ├── services/             # leitura/cache de CSV/Parquet e artefatos
+│   ├── config.py             # configuração por variáveis FL_*
+│   └── main.py               # create_app / instância ASGI
 ├── data/
 │   ├── marte/               # Dados e spec de referência de Marte
 │   ├── lua/                 # Spec de referência da Lua
@@ -24,6 +29,7 @@ feynmans-legacy/
 ├── config/                   # Nichos e critérios de comparação entre corpos
 ├── docs/
 │   ├── decisions/            # Registro de decisões técnicas (ADRs)
+│   ├── api.md                # Exemplos de curl de cada endpoint
 │   └── methodology.md        # Metodologia dos estudos
 ├── models/                   # Artefatos de modelos treinados
 ├── notebooks/
@@ -31,6 +37,7 @@ feynmans-legacy/
 ├── src/feynmans_legacy/
 │   ├── features/             # Engenharia de atributos
 │   └── models/               # Clusterização e previsão
+├── tests/                    # Testes de contrato da API
 ├── .github/                  # Workflows e templates
 ├── Makefile                  # Atalhos de comandos
 └── pyproject.toml            # Dependências e configuração
@@ -55,6 +62,50 @@ pip install -e .                   # instala o pacote src/feynmans_legacy
 python -m ipykernel install --user --name feynmans-legacy
 pre-commit install
 ```
+
+## API (FastAPI)
+
+A API expõe rotas genéricas **somente leitura** sobre `data/tratados/` e os
+metadados de `models/`. Não há front-end, autenticação implementada nem
+endpoints de escrita nesta etapa.
+
+```bash
+cp .env.example .env          # no Windows: copy .env.example .env
+pip install -r requirements.txt -r requirements-dev.txt
+pip install -e .
+uvicorn app.main:app --reload
+```
+
+- Swagger: <http://127.0.0.1:8000/docs>
+- ReDoc: <http://127.0.0.1:8000/redoc>
+- Health: <http://127.0.0.1:8000/health>
+- Exemplos de `curl`: [`docs/api.md`](docs/api.md)
+
+Atalhos:
+
+```bash
+make api-dev     # uvicorn app.main:app --reload
+make api-test    # pytest tests -q
+make api-lint    # ruff check app tests && mypy
+```
+
+Endpoints principais:
+
+| Método | Rota | Descrição |
+|--------|------|-----------|
+| GET | `/health` | status e disponibilidade dos diretórios |
+| GET | `/api/v1/datasets` | lista datasets e metadados |
+| GET | `/api/v1/datasets/{dataset}` | metadados de um dataset |
+| GET | `/api/v1/datasets/{dataset}/records` | registros paginados, filtros, sort e fields |
+| GET | `/api/v1/datasets/{dataset}/records/{id}` | registro pelo identificador |
+| GET | `/api/v1/datasets/{dataset}/aggregations` | `count`, `mean`, `min`, `max`, `sum` + `group_by` |
+| GET | `/api/v1/models` | metadados dos artefatos |
+| GET | `/api/v1/models/{nome}` | metadados de um artefato |
+
+A configuração vem de variáveis `FL_*` (veja `.env.example`): diretórios,
+limites de paginação, origens de CORS e nível de log. Se `data/tratados/`
+ainda não existir, a listagem retorna `{"items": [], "total": 0}`; a API não
+cria nem altera dados.
 
 ## Fluxo de trabalho
 
