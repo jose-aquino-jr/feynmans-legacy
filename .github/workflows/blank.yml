@@ -27,6 +27,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install -r requirements-dev.txt
+          pip install -e .
 
       - name: Verificar Lint (Ruff)
         run: ruff check .
+
+      - name: Verificar tipagem (mypy)
+        run: python -m mypy
+
+      - name: Executar testes da API
+        run: python -m pytest -q

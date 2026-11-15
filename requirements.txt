@@ -35,6 +35,8 @@ earthaccess>=0.9.0 # Facilita a busca e o acesso a dados geoespaciais e científ
 
 executing==2.3.0 # Rastreia e identifica a linha de código exata que está sendo executada.
 
+fastapi==0.163.0 # Expõe a API HTTP assíncrona com validação Pydantic e OpenAPI.
+
 folium>=0.14.0 # Cria mapas interativos utilizando a biblioteca Leaflet.js.
 
 fonttools==4.68.0 # Manipula arquivos e métricas de fontes tipográficas.
@@ -131,6 +133,8 @@ pydantic==2.14.3 # Realiza validação de dados e gerenciamento de configuraçõ
 
 pydantic-core==2.50.4 # Implementa o motor de validação de alta performance para o Pydantic.
 
+pydantic-settings==2.16.3 # Carrega configurações da API a partir de variáveis de ambiente e .env.
+
 pygments==2.21.0 # Realiza a coloração e destaque de sintaxe para diversas linguagens.
 
 pynndescent==0.7.0 # Executa buscas aproximadas de vizinhos mais próximos em alta velocidade.
@@ -190,6 +194,8 @@ tzdata==2026.6 # Fornece a base de dados de fusos horários globais (IANA).
 umap-learn==0.6.0 # Executa a redução de dimensionalidade UMAP para aprendizado de máquina.
 
 urllib3==2.8.0 # Gerencia conexões HTTP avançadas com suporte a pool e reuso.
+
+uvicorn[standard]==0.54.0 # Executa a API ASGI com recarga automática e suporte a produção.
 
 wcwidth==0.9.4 # Calcula a largura de caracteres Unicode impressos em terminais.
 

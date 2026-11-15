@@ -16,13 +16,19 @@ Os estudos são feitos em notebooks (`.ipynb`) e consolidados em uma aplicação
 
 ```
 feynmans-legacy/
-├── app/                      # Aplicação web (visualização dos achados)
+├── app/                      # API FastAPI (back-end somente leitura)
+│   ├── routers/              # health, datasets e models
+│   ├── schemas/              # contrato Pydantic v2
+│   ├── services/             # leitura/cache de CSV/Parquet e artefatos
+│   ├── config.py             # configuração por variáveis FL_*
+│   └── main.py               # create_app / instância ASGI
 ├── data/
 │   ├── external/             # Dados de terceiros
 │   ├── nasa/                 # Dados da NASA (perfis de Lua/Marte e afins)
-│   └── tratados/             # Dados processados (alimentam notebooks e app)
+│   └── tratados/             # Dados processados (alimentam notebooks e API)
 ├── docs/
 │   ├── decisions/            # Registro de decisões técnicas (ADRs)
+│   ├── api.md                # Exemplos de curl de cada endpoint
 │   └── methodology.md        # Metodologia dos estudos
 ├── models/                   # Artefatos de modelos treinados
 ├── notebooks/
@@ -30,6 +36,7 @@ feynmans-legacy/
 ├── src/feynmans_legacy/
 │   ├── features/             # Engenharia de atributos
 │   └── models/               # Clusterização e previsão
+├── tests/                    # Testes de contrato da API
 ├── .github/                  # Workflows e templates
 ├── Makefile                  # Atalhos de comandos
 └── pyproject.toml            # Dependências e configuração
@@ -55,11 +62,55 @@ python -m ipykernel install --user --name feynmans-legacy
 pre-commit install
 ```
 
+## API (FastAPI)
+
+A API expõe rotas genéricas **somente leitura** sobre `data/tratados/` e os
+metadados de `models/`. Não há front-end, autenticação implementada nem
+endpoints de escrita nesta etapa.
+
+```bash
+cp .env.example .env          # no Windows: copy .env.example .env
+pip install -r requirements.txt -r requirements-dev.txt
+pip install -e .
+uvicorn app.main:app --reload
+```
+
+- Swagger: <http://127.0.0.1:8000/docs>
+- ReDoc: <http://127.0.0.1:8000/redoc>
+- Health: <http://127.0.0.1:8000/health>
+- Exemplos de `curl`: [`docs/api.md`](docs/api.md)
+
+Atalhos:
+
+```bash
+make api-dev     # uvicorn app.main:app --reload
+make api-test    # pytest tests -q
+make api-lint    # ruff check app tests && mypy
+```
+
+Endpoints principais:
+
+| Método | Rota | Descrição |
+|--------|------|-----------|
+| GET | `/health` | status e disponibilidade dos diretórios |
+| GET | `/api/v1/datasets` | lista datasets e metadados |
+| GET | `/api/v1/datasets/{dataset}` | metadados de um dataset |
+| GET | `/api/v1/datasets/{dataset}/records` | registros paginados, filtros, sort e fields |
+| GET | `/api/v1/datasets/{dataset}/records/{id}` | registro pelo identificador |
+| GET | `/api/v1/datasets/{dataset}/aggregations` | `count`, `mean`, `min`, `max`, `sum` + `group_by` |
+| GET | `/api/v1/models` | metadados dos artefatos |
+| GET | `/api/v1/models/{nome}` | metadados de um artefato |
+
+A configuração vem de variáveis `FL_*` (veja `.env.example`): diretórios,
+limites de paginação, origens de CORS e nível de log. Se `data/tratados/`
+ainda não existir, a listagem retorna `{"items": [], "total": 0}`; a API não
+cria nem altera dados.
+
 ## Fluxo de trabalho
 
 1. **ETL:** dados brutos entram em `data/external` e `data/nasa`; os notebooks de `notebooks/00_ETL` geram os dados em `data/tratados`.
 2. **Estudos:** cada caso tem seus notebooks numerados (ex.: `01_01_features.ipynb`). Lógica reutilizável vai para `src/feynmans_legacy`, não fica só no notebook.
-3. **Aplicação:** o `app` consome apenas o que está em `data/tratados`.
+3. **Aplicação:** o `app` (API FastAPI) consome apenas o que está em `data/tratados` e os metadados de `models`.
 
 ## Convenções
 
