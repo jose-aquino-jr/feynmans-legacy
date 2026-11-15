@@ -219,27 +219,54 @@ def audit_profile_catalog(
         raise ValueError(f"Catálogo diverge dos perfis ou nichos: {mismatches}")
 
 
+MIN_COVERAGE = 0.7
+
+
 def recommend(
-    values: pd.DataFrame, coordinates: pd.DataFrame, criteria: Criteria
+    values: pd.DataFrame,
+    coordinates: pd.DataFrame,
+    criteria: Criteria,
+    min_coverage: float = MIN_COVERAGE,
 ) -> pd.DataFrame:
+    """Rank locations by weighted closeness to a reference profile.
+
+    A criterion without data in a location is left out of its score, and the
+    weights of the available criteria are renormalized. ``cobertura`` is the
+    share of the profile weight with data; locations below ``min_coverage``
+    are dropped. ``min_coverage=1`` keeps only locations with every criterion.
+    """
+    if not 0 < min_coverage <= 1:
+        raise ValueError("min_coverage precisa estar no intervalo (0, 1].")
     validate_key(values, ["location_id"], "consulta")
     validate_key(coordinates, ["location_id"], "coordenadas")
     missing = set(criteria).difference(values.columns)
     if missing:
         raise ValueError(f"Criterios sem dados no periodo: {sorted(missing)}")
-    ranked = values.dropna(subset=list(criteria)).copy()
-    ranked = ranked.merge(coordinates[["location_id", "latitude", "longitude"]],
+    ranked = values.merge(coordinates[["location_id", "latitude", "longitude"]],
                           on="location_id", how="left", validate="one_to_one")
     valid_coordinates = (
         ranked["latitude"].between(-90, 90) & ranked["longitude"].between(-180, 180)
     )
     ranked = ranked[valid_coordinates].copy()
     weight_sum = sum(weight for _, _, weight in criteria.values())
-    ranked["nota"] = 0.0
+    weighted_score = pd.Series(0.0, index=ranked.index)
+    covered_weight = pd.Series(0.0, index=ranked.index)
+    available = pd.Series(0, index=ranked.index)
     for variable, (target, tolerance, weight) in criteria.items():
         ranked[f"alvo_{variable}"] = target
         relative_error = (ranked[variable] - target).abs() / tolerance
-        ranked[f"nota_{variable}"] = 100 * (1 - relative_error).clip(lower=0)
+        score = 100 * (1 - relative_error).clip(lower=0)
+        has_data = score.notna()
+        ranked[f"nota_{variable}"] = score
         ranked[f"peso_{variable}"] = weight / weight_sum
-        ranked["nota"] += ranked[f"nota_{variable}"] * weight / weight_sum
+        weighted_score += score.fillna(0) * weight
+        covered_weight += has_data * weight
+        available += has_data
+    ranked["cobertura"] = covered_weight / weight_sum
+    ranked["criterios_disponiveis"] = available
+    ranked["criterios_total"] = len(criteria)
+    # Tolerance keeps locations at exactly min_coverage despite float rounding.
+    eligible = ranked["cobertura"] >= min_coverage - 1e-9
+    ranked = ranked[eligible].copy()
+    ranked["nota"] = weighted_score[eligible] / covered_weight[eligible]
     return ranked.sort_values(["nota", "location_id"], ascending=[False, True])
