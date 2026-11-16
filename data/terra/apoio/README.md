@@ -1,21 +1,15 @@
-# Bases de apoio
+# Support facilities
 
-`nasa_bases_suporte.parquet` (GeoParquet, 182 linhas) lista instalações da NASA,
-de agências parceiras, de contratadas e de apoio a campanhas: centros de campo,
-redes DSN/NSN/TDRS, sítios de lançamento, bases de balões e apoio logístico.
+`nasa_bases_suporte.parquet` is a 182-row GeoParquet file covering NASA, partner, contractor, and campaign support facilities. It includes field centers, DSN/NSN/TDRS networks, launch sites, balloon bases, and logistics support.
 
-| Coluna | Uso na logística |
-|--------|------------------|
-| `id`, `nome`, `categoria`, `operador`, `pais` | identificação e exibição |
-| `lat`, `lon` | distância até os locais terrestres |
-| `prioridade_combinada` (0–1) | peso da base na nota de apoio e nas rotas |
-| `vinculo` | `Restrita` fica fora do cálculo |
-| `continente` | `Oceano` (zonas de amerissagem) fica fora do cálculo |
+| Column | Use |
+|---|---|
+| `id`, `nome`, `categoria`, `operador`, `pais` | Identification and display. |
+| `lat`, `lon` | Distance to Earth sites. |
+| `prioridade_combinada` (0–1) | Facility weight in the support score and routes. |
+| `vinculo` | Facilities with the value `Restrita` are excluded. |
+| `continente` | Locations with the value `Oceano` (splashdown zones) are excluded. |
 
-Fonte declarada no arquivo: compilação de fontes públicas (NASA, ESA ESTRACK,
-JAXA, ILRS/IVS, Wikipedia), data de referência 2026-11-15. A coluna
-`coord_precisao` indica que algumas posições são aproximadas (cidade ou
-centroide).
+The file cites public sources including NASA, ESA ESTRACK, JAXA, ILRS/IVS, and Wikipedia. Its reference date is 2026-11-15. The `coord_precisao` column flags approximate positions, such as city centers or centroids.
 
-Usado por `src/feynmans_legacy/logistics.py` e publicado em
-`data/tratados/analogos/apoios.parquet` sem a geometria WKB.
+`src/feynmans_legacy/logistics.py` uses this dataset. The pipeline publishes it as `data/tratados/analogos/apoios.parquet` without WKB geometry.

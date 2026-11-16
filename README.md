@@ -1,148 +1,148 @@
 # Feynman's Legacy
 
-**Tema:** Identificar locais na Terra que sejam análogos aos locais de uma base lunar permanente e de Marte.
+Feynman's Legacy identifies Earth sites that resemble reference locations on the Moon and Mars. The notebooks prepare the data, train the monthly forecast model, and rank Earth sites. FastAPI serves the published results, and the Angular application displays them on an interactive map.
 
-Os estudos são feitos em notebooks (`.ipynb`) e consolidados em uma aplicação web para visualização dos achados.
+## 1. Clone the repository and set up Python
 
-## Casos de estudo
-
-| # | Caso | Objetivo | Status |
-|---|------|----------|--------|
-| 1 | Clusterização atual | Identificar locais potenciais com scoring de similaridade | Em andamento |
-| 2 | Modelo de previsão | Prever similaridade futura a partir de condições históricas | Planejado |
-| 3 | A definir | Pendente | Pendente |
-
-## Estrutura do repositório
-
-```
-feynmans-legacy/
-├── app/                      # API FastAPI (back-end somente leitura)
-│   ├── routers/              # health, datasets e models
-│   ├── schemas/              # contrato Pydantic v2
-│   ├── services/             # leitura/cache de CSV/Parquet e artefatos
-│   ├── config.py             # configuração por variáveis FL_*
-│   └── main.py               # create_app / instância ASGI
-├── data/
-│   ├── marte/               # Dados e spec de referência de Marte
-│   ├── lua/                 # Spec de referência da Lua
-│   └── terra/               # Dados temáticos, insumos e resultados da análise
-├── config/                   # Nichos e critérios de comparação entre corpos
-├── docs/
-│   ├── decisions/            # Registro de decisões técnicas (ADRs)
-│   ├── api.md                # Exemplos de curl de cada endpoint
-│   └── methodology.md        # Metodologia dos estudos
-├── models/                   # Artefatos de modelos treinados
-├── notebooks/
-│   └── 00_ETL/               # Extração, transformação e carga
-├── src/feynmans_legacy/
-│   ├── features/             # Engenharia de atributos
-│   └── models/               # Clusterização e previsão
-├── tests/                    # Testes de contrato da API
-├── .github/                  # Workflows e templates
-├── Makefile                  # Atalhos de comandos
-└── pyproject.toml            # Dependências e configuração
-```
-
-## Como começar
+Install Git, Git LFS, Python 3.12, and Node.js with npm. The backend CI uses Python 3.12. The frontend declares its npm version in [front-end/package.json](front-end/package.json).
 
 ```bash
+git lfs install
 git clone https://github.com/jose-aquino-jr/feynmans-legacy.git
 cd feynmans-legacy
-make setup
-pre-commit install
-```
-
-## Criação e ativação da venv
-
-```bash
+git lfs pull
 python -m venv .venv
-source .venv/Scripts/activate      # no Windows; em Linux/Mac: source .venv/bin/activate
-pip install -r requirements.txt -r requirements-dev.txt
-pip install -e .                   # instala o pacote src/feynmans_legacy
-python -m ipykernel install --user --name feynmans-legacy
-pre-commit install
 ```
 
-## API (FastAPI)
+Activate the environment for your shell:
 
-A API expõe rotas genéricas **somente leitura** sobre `data/tratados/` e os
-metadados de `models/`. Não há front-end, autenticação implementada nem
-endpoints de escrita nesta etapa.
+| Shell | Command |
+|---|---|
+| PowerShell | `.\.venv\Scripts\Activate.ps1` |
+| Git Bash on Windows | `source .venv/Scripts/activate` |
+| Linux or macOS | `source .venv/bin/activate` |
+
+From the repository root:
 
 ```bash
-cp .env.example .env          # no Windows: copy .env.example .env
-pip install -r requirements.txt -r requirements-dev.txt
-pip install -e .
-uvicorn app.main:app --reload
+python -m pip install --upgrade pip
+python -m pip install -r requirements-dev.txt
+python -m pip install -e .
+python -m ipykernel install --user --name feynmans-legacy --display-name "Python (Feynman's Legacy)"
 ```
 
-- Swagger: <http://127.0.0.1:8000/docs>
-- ReDoc: <http://127.0.0.1:8000/redoc>
-- Health: <http://127.0.0.1:8000/health>
-- Exemplos de `curl`: [`docs/api.md`](docs/api.md)
+Open the repository in a Jupyter-compatible editor such as VS Code with its Python and Jupyter extensions. Select **Python (Feynman's Legacy)** as the kernel in each notebook. The development requirements include the notebook dependencies and Optuna.
 
-Atalhos:
+## 2. Check the input data
+
+| Input | Purpose |
+|---|---|
+| `data/terra/terra.parquet` | Monthly Earth observations keyed by `location_id` and `anomes` (YYYYMM). |
+| `data/terra/spec_analogos/estaticas.parquet` and `coordenadas.parquet` | Static features and geographic coordinates. |
+| `data/terra/spec_analogos/dicionario_spec.csv` | Earth variable definitions and units. |
+| `data/lua/lua.parquet` and `data/marte/marte.parquet` | Fixed reference profiles for the Moon and Mars. |
+| `config/nichos.json` and `config/criterios_referencia_proposta.csv` | Variable mappings, targets, weights, and tolerances. |
+
+Run the input-check cell in Notebook 01 before training. The prepared files above are the notebook inputs. Raw planetary data processing is documented in the [Moon README](data/lua/README.md), [Mars README](data/marte/README.md), and [Earth data specification](data/terra/spec_analogos/README.md).
+
+## 3. Run the notebooks in order
+
+Run each notebook from the first cell through the last. Restart its kernel before a clean run. The output directory is `data/terra/analise_analogos/`.
+
+1. [**01 — Feature selection and clustering**](notebooks/01_spec_e_clusterizacao.ipynb). Validates the catalogs and keys, chooses clustering features and forecast targets, and writes the clusters, selection metadata, static features, and coordinates.
+2. [**02 — Monthly forecasting**](notebooks/02_previsao_mensal.ipynb). Uses Optuna and LightGBM on a reproducible sample, evaluates the chronological holdout, and publishes predictions for one to three months after the cutoff. Allow time for tuning and batch inference. Check that `previsoes.parquet`, `metricas_previsao.parquet`, `otimizacao_lightgbm.json`, and `modelos/previsao_mensal.pkl` exist in the output directory. When using a published release instead of retraining, fetch its large model with `git lfs pull` and use the data and forecast artifacts from the same publication. Load pickle files only from your own training or a trusted project publication.
+3. [**03 — Recommendations on the world map**](notebooks/03_recomendacao_e_mapa.ipynb). Run it to verify an observed month. Leave `ANOMES = None` to use the latest observation. To verify a forecast, set `ANOMES` to a month in `previsoes.parquet` and rerun the notebook. Choose the reference body with `CORPO`, the base with `BASE`, and the comparison profile with `NICHO`. The charts use English labels while the underlying identifiers still match the dataset.
+
+If Plotly reports that `nbformat` is unavailable, check that the notebook is using the environment from step 1, reinstall the development requirements in that environment, and restart the kernel.
+
+## 4. Publish the datasets for the API
+
+With the outputs from Notebooks 01 and 02 available, run this from the repository root:
 
 ```bash
-make api-dev     # uvicorn app.main:app --reload
-make api-test    # pytest tests -q
-make api-lint    # ruff check app tests && mypy
+python scripts/gerar_analogos.py
 ```
 
-Endpoints principais:
+The script writes the Earth–Moon and Earth–Mars pairs, scores, and related logistics data under `data/tratados/analogos/`. Re-run it after changing the input profiles or publishing a new set of forecasts. To name newly ranked sites, run `python scripts/nomear_locais.py` after the first generation, then run `python scripts/gerar_analogos.py` again.
 
-| Método | Rota | Descrição |
-|--------|------|-----------|
-| GET | `/health` | status e disponibilidade dos diretórios |
-| GET | `/api/v1/datasets` | lista datasets e metadados |
-| GET | `/api/v1/datasets/{dataset}` | metadados de um dataset |
-| GET | `/api/v1/datasets/{dataset}/records` | registros paginados, filtros, sort e fields |
-| GET | `/api/v1/datasets/{dataset}/records/{id}` | registro pelo identificador |
-| GET | `/api/v1/datasets/{dataset}/aggregations` | `count`, `mean`, `min`, `max`, `sum` + `group_by` |
-| GET | `/api/v1/models` | metadados dos artefatos |
-| GET | `/api/v1/models/{nome}` | metadados de um artefato |
-| GET | `/api/v1/analogos/bases` | bases da Lua e de Marte com o ponto no globo |
-| GET | `/api/v1/analogos/bases/{base_id}` | locais terrestres relacionados, com notas por nicho |
-| GET | `/api/v1/analogos/locais` | locais terrestres (`destaque=true` = padrão do software) |
-| GET | `/api/v1/analogos/locais/{location_id}` | bases relacionadas a um local terrestre |
-| GET | `/api/v1/analogos/pares/{par_id}` | par completo com a nota mensal observada e prevista |
-| GET | `/api/v1/analogos/nichos` | nichos de comparação e nomes legíveis |
-| GET | `/api/v1/analogos/custo-beneficio` | melhores análogos por nota × logística (EUA, apoio, rotas) |
-| GET | `/api/v1/analogos/pares` | busca com filtros por foco, utilidade, logística, região e clima |
-| GET | `/api/v1/analogos/filtros` | valores aceitos pelos filtros (para os seletores do front) |
-| GET | `/api/v1/analogos/apoios` | bases de apoio da NASA e parceiros |
+For a checkout that includes the **temporal recommendations API** and `scripts/publicar_projecoes.py`, also seed the recursive forecast cache and verify the publication:
 
-Os análogos são gerados por `make analogos` (ou `python scripts/gerar_analogos.py`)
-depois dos notebooks 01 e 02. Veja [`docs/api.md`](docs/api.md#análogos).
+```bash
+python scripts/publicar_projecoes.py
+python scripts/publicar_projecoes.py --verificar
+```
 
-A configuração vem de variáveis `FL_*` (veja `.env.example`): diretórios,
-limites de paginação, origens de CORS e nível de log. Se `data/tratados/`
-ainda não existir, a listagem retorna `{"items": [], "total": 0}`; a API não
-cria nem altera dados.
+By default the script seeds 12 months after the observed cutoff. Use `--meses` for a different count or `--ate YYYYMM` for a specific month. The API can extend the forecast on demand. Keep its projection cache writable. If the publication script is absent, the checkout supports the notebook forecasts and published pairs, and you need the temporal recommendations changes for recursive forecasts in the web app.
 
-## Fluxo de trabalho
+## 5. Start FastAPI and check the data
 
-1. **ETL:** mantenha os dados na pasta do corpo correspondente. Os arquivos temáticos da Terra ficam em `data/terra/nichos/`. A análise lê `data/terra/terra.parquet`, os insumos auxiliares em `data/terra/spec_analogos/` e as referências fixas em `data/lua/` e `data/marte/`.
-2. **Estudos:** cada caso tem seus notebooks numerados (ex.: `01_01_features.ipynb`). Lógica reutilizável vai para `src/feynmans_legacy`, não fica só no notebook.
-3. **Aplicação:** o `app` consome `data/terra/terra.parquet`, os resultados de `data/terra/analise_analogos/`, `config/nichos.json` e os perfis de referência espaciais.
+Copy `.env.example` to `.env` if you need to override the defaults. The example documents the `FL_*` settings. Run the API from the repository root so relative data and model paths resolve correctly.
 
-## Convenções
+```bash
+python -m uvicorn app.main:app --host 127.0.0.1 --port 8000
+```
 
-- **Branches:** `case1/descricao`, `case2/descricao`, `app/descricao`, `setup/descricao`.
-- **Commits:** `feat:`, `fix:`, `docs:`, `chore:`, `refactor:`.
-- **Notebooks:** sem outputs versionados (`nbstripout`) e com seeds fixas.
-- **Dados:** não versionar arquivos pesados; documentar fonte, licença e data de download nos catálogos [Terra](data/terra/README.md) e [Marte](data/marte/catalogo.md).
-- **PRs:** sempre para `main`, com revisão de pelo menos uma pessoa.
+In a second terminal:
 
-## Equipe
+```bash
+curl -f http://127.0.0.1:8000/health
+curl -f http://127.0.0.1:8000/api/v1/analogos/bases
+```
 
-| Frente | Responsável |
-|--------|-------------|
-| Dados / ETL | _a definir_ |
-| Caso 1 | _a definir_ |
-| Caso 2 | _a definir_ |
-| Aplicação | _a definir_ |
+Open [Swagger UI](http://127.0.0.1:8000/docs) to inspect the actual responses. Verify that the bases endpoint returns reference sites, since a healthy API process alone does not confirm that the pipeline outputs are present. See [API examples](docs/api.md) for dataset, model, and analog endpoints.
 
-## Licença
+With the temporal recommendations API available, check its options and run a query using an observed month from the options response:
 
-_A definir._
+```bash
+curl -f http://127.0.0.1:8000/api/v1/analogos/recomendacoes/opcoes
+curl -f "http://127.0.0.1:8000/api/v1/analogos/recomendacoes?anomes=202608&nicho=Todos&k=5"
+```
+
+To test a recursive forecast, replace `202609` below with a month after your observed cutoff.
+
+```bash
+curl -f "http://127.0.0.1:8000/api/v1/analogos/recomendacoes?anomes=202609&nicho=Todos&k=5&estrategia=recursiva"
+```
+
+An HTTP `202` means projection is in progress. Retry the same URL after the number of seconds in `Retry-After`.
+
+## 6. Start the Angular application
+
+Leave FastAPI running. From the repository root, open a separate terminal:
+
+```bash
+cd front-end
+npm ci
+npm start
+```
+
+Open [http://localhost:4200](http://localhost:4200). Open the map, select a Moon or Mars base and a comparison profile, and submit the query. On a checkout that includes the API-backed map, confirm that the browser requests succeed for both an observed month and a future month. The development proxy on that checkout forwards `/api` to `127.0.0.1:8000`. For production, serve the compiled frontend and route `/api` to FastAPI on the same origin.
+
+## Checks
+
+Run the backend checks from the repository root:
+
+```bash
+python -m ruff check .
+python -m mypy
+python -m pytest -q
+```
+
+Run the frontend checks from `front-end/` after `npm ci`:
+
+```bash
+npm test -- --watch=false
+npm run build
+```
+
+## Repository guide
+
+| Path | Contents |
+|---|---|
+| `notebooks/` | Data preparation, forecasting, and recommendations. |
+| `src/feynmans_legacy/` | Reusable analysis, modeling, and ranking code. |
+| `app/` | FastAPI routes, schemas, and services. |
+| `front-end/` | Angular application. |
+| `config/` | Reference profiles and comparison criteria. |
+| `data/` and `models/` | Data products, model artifacts, and their documentation. |
+| `docs/` | API examples and methodology. |

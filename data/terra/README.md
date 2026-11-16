@@ -1,33 +1,28 @@
-# Dataset da Terra para análogos da Lua e de Marte
+# Earth dataset for Moon and Mars analogs
 
-Dados terrestres globais: grade de 0,5° com 85.699 pontos de terra, mais 27 sítios nomeados, ou seja,
-85.726 locais. A chave é `location_id` (texto `T000001`…), a mesma em todos os arquivos.
-
-## Onde está cada coisa
+The global dataset covers 85,726 Earth sites: 85,699 land points on a 0.5° grid and 27 named sites. All files share the text key `location_id`, such as `T000001`.
 
 ```text
 data/terra/
-├── terra.parquet                  # série mensal consolidada usada pelos notebooks
-├── tabela_principal.parquet       # cadastro de IDs e coordenadas
-├── nichos/                        # Parquets temáticos, dicionários e fontes
+├── terra.parquet                  # Consolidated monthly series used by the notebooks
+├── tabela_principal.parquet       # Site IDs and coordinates
+├── nichos/                        # Thematic Parquet files, dictionaries, and sources
 │   ├── temperatura/
 │   ├── agua_gelo/
 │   ├── coordenadas/
-│   └── ...                        # demais temas e fontes da Terra
-├── spec_analogos/                 # estáticas, de-para do estudo, dicionário e manifesto
-└── analise_analogos/              # clusters, previsões, métricas e modelo publicados localmente
+│   └── ...
+├── spec_analogos/                 # Static features, site lookup, dictionary, and manifest
+└── analise_analogos/              # Clusters, forecasts, metrics, and published model
 ```
 
-Os Parquets mensais em `nichos/` mantêm as colunas por tema. Os notebooks leem
-`terra.parquet` diretamente, associam os atributos estáticos pelo ID e resolvem
-os critérios em `config/`. Os perfis fixos ficam em `data/lua/` e `data/marte/`.
+The notebooks read `terra.parquet` directly, join the static features by site ID, and use the comparison criteria in `config/`. The fixed planetary profiles are in `data/lua/` and `data/marte/`.
 
-As condições de geração, o controle de qualidade e as limitações estão em
-[spec_analogos/README.md](spec_analogos/README.md).
+See the [Earth input specification](spec_analogos/README.md) for how the data was produced, quality checks, and limitations.
 
 ```python
 import pandas as pd
-principal = pd.read_parquet("data/terra/tabela_principal.parquet")
-temp      = pd.read_parquet("data/terra/nichos/temperatura/temperatura_mensal.parquet")
-tabela    = principal.merge(temp, on="location_id")
+
+sites = pd.read_parquet("data/terra/tabela_principal.parquet")
+temperature = pd.read_parquet("data/terra/nichos/temperatura/temperatura_mensal.parquet")
+table = sites.merge(temperature, on="location_id")
 ```
