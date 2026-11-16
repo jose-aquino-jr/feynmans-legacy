@@ -33,6 +33,8 @@ class BaseEspacial(Ponto):
     melhor_custo_beneficio_location_id: str | None = None
     melhor_custo_beneficio: float | None = Field(
         default=None, description="Maior custo-benefício entre os pares (0–100).")
+    explicacao: str | None = Field(
+        default=None, description="Resumo: melhores análogos e o que a Terra reproduz bem ou mal.")
 
 
 class LocalTerra(Ponto):
@@ -63,6 +65,10 @@ class LocalTerra(Ponto):
     precipitacao_mm_dia: float | None = None
     elevacao_media_m: float | None = None
     ndvi: float | None = None
+    explicacao: str | None = Field(
+        default=None, description="Resumo: bases relacionadas, melhores usos, logística e clima.")
+    usos_recomendados: list[str] = Field(
+        default_factory=list, description="Até 2 utilidades com nota >= 70 (ids de /filtros).")
 
 
 class Par(BaseModel):
@@ -104,6 +110,26 @@ class Par(BaseModel):
         default=None, description="Média dos nichos da utilidade pedida (0–100).")
     nota_foco: float | None = Field(
         default=None, description="Nota usada para ordenar conforme o foco (0–100).")
+    explicacao: str | None = Field(
+        default=None,
+        description=("Por que o par foi escolhido: motivo, semelhanças e diferenças com "
+                     "exemplos de variáveis, cobertura, logística e previsão."))
+    motivos: list[str] = Field(
+        default_factory=list, description="Frases curtas para exibir como etiquetas.")
+
+
+class VariavelPar(BaseModel):
+    """Comparação de uma variável entre o local terrestre e o alvo da base."""
+
+    nicho: str
+    variavel: str = Field(..., examples=["temperatura__ar_2m_c"])
+    nome: str = Field(..., examples=["temperatura média do ar"])
+    unidade: str = Field(..., description="Vazia = adimensional; 0/1 = presença/ausência.")
+    valor_terra: float | None
+    alvo: float
+    tolerancia: float
+    peso: float
+    nota: float | None = Field(..., description="100 × (1 − |valor − alvo| / tolerância).")
 
 
 class Rota(BaseModel):
@@ -263,3 +289,5 @@ class ParDetalhe(BaseModel):
     local: LocalTerra
     serie: list[PontoSerie]
     rotas: list[Rota] = Field(default_factory=list)
+    variaveis: list[VariavelPar] = Field(
+        default_factory=list, description="Valor na Terra × alvo de cada variável do perfil.")

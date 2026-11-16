@@ -1,0 +1,18 @@
+{
+  "description": "Comparação variável a variável: valor na Terra, alvo da base e nota.",
+  "tags": [
+    "análogos",
+    "explicação"
+  ],
+  "columns": {
+    "valor_terra": "Valor no local (média dos últimos meses ou estático).",
+    "alvo": "Valor de referência da base na Lua ou em Marte.",
+    "tolerancia": "Diferença que zera a nota da variável.",
+    "nota": "100 × (1 − |valor − alvo| / tolerância), mínimo 0.",
+    "unidade": "Vazia = adimensional; 0/1 = presença/ausência."
+  },
+  "source": "src/feynmans_legacy/analog_pairs.py",
+  "metadata": {
+    "meses_climatologia": "202509–202608"
+  }
+}

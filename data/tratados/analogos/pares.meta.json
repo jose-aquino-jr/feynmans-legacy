@@ -10,6 +10,8 @@
     "custo_beneficio": "raiz(nota_geral × nota_logistica), 0–100.",
     "rank_custo_beneficio": "Posição pelo custo-benefício entre os pares da base.",
     "top_custo_beneficio": "Entre os melhores custo-benefício da base.",
+    "explicacao": "Texto gerado a partir das notas: motivo, semelhanças, diferenças, logística e previsão.",
+    "motivos": "Frases curtas (uma por linha) para exibir como etiquetas.",
     "nichos_destaque": "Nichos que motivaram a escolha, separados por vírgula.",
     "rank_base": "Posição do local entre os pares da mesma base (1 = melhor).",
     "nota_geral": "Nota 0–100 no perfil completo; nula se cobertura < 0,7.",
