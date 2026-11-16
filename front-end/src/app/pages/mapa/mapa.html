@@ -1,15 +1,18 @@
 <div class="pointer-events-none absolute -bottom-[42vh] -left-[62vw] h-[90vh] w-[90vw] rounded-full bg-[radial-gradient(closest-side,#DE7D2880,#DE7D2800)] blur-[40px]"></div>
 
-<header class="absolute inset-x-0 top-0 z-30 flex items-start justify-between px-[37px] pt-5">
+<header class="absolute inset-x-0 top-0 z-30 flex items-start justify-between px-[37px] pt-5 max-md:px-4 max-md:pt-4">
   <a routerLink="/" aria-label="Feynman's Legacy">
-    <img src="/images/logo.svg" alt="Feynman's Legacy" class="block h-16 w-auto" />
+    <img src="/images/logo.svg" alt="Feynman's Legacy" class="block h-16 w-auto max-md:h-10" />
   </a>
-  <nav class="mr-[calc(var(--panel-w)*0.45)] flex gap-12 pt-1 max-md:mr-0 max-md:gap-5">
+  <nav
+    class="mr-[var(--nav-right-offset)] flex gap-12 pt-1 max-md:!mr-0 max-md:gap-2 max-md:pt-0"
+    [style.--nav-right-offset]="panelOpen ? 'calc(var(--panel-w) + 36px)' : null"
+  >
     @for (item of navItems; track item.label) {
       <a
         [routerLink]="item.link"
         [fragment]="item.fragment"
-        class="text-[11px] tracking-[.12em] text-cream no-underline"
+        class="text-[11px] tracking-[.12em] text-cream no-underline max-md:text-[9px]"
         [class]="item.label === 'MAP' ? 'font-semibold opacity-100' : 'font-normal opacity-75'"
       >{{ item.label }}</a>
     }
@@ -20,6 +23,27 @@
   class="absolute bottom-0 left-0 top-0 z-[5] flex flex-col pb-10 pl-[52px] pt-[92px] transition-[right] duration-500 ease-out max-md:relative max-md:right-auto max-md:h-screen max-md:px-5 max-md:pb-8"
   [class]="panelOpen ? 'right-[calc(var(--panel-w)_+_80px)]' : 'right-12'"
 >
+  <section class="absolute left-1/2 top-[74px] z-20 -translate-x-1/2 max-md:top-[68px]">
+    <button
+      type="button"
+      class="glass flex h-10 items-center gap-3 rounded-lg px-5 text-[9px] tracking-[.14em] text-cream transition-colors hover:border-cream/35 hover:bg-white/[.04]"
+      (click)="openFilters()"
+      aria-haspopup="dialog"
+      [attr.aria-expanded]="filtersModalOpen"
+    >
+      <svg viewBox="0 0 18 18" class="size-3.5" aria-hidden="true">
+        <path d="M3 4h12M5.5 9h7M7.5 14h3" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
+        <circle cx="6" cy="4" r="1.4" fill="#0F0903" stroke="currentColor" stroke-width="1.2" />
+        <circle cx="11" cy="9" r="1.4" fill="#0F0903" stroke="currentColor" stroke-width="1.2" />
+        <circle cx="9" cy="14" r="1.4" fill="#0F0903" stroke="currentColor" stroke-width="1.2" />
+      </svg>
+      <span>ANALYSIS SETTINGS</span>
+      @if (selectedCriteria.length > 0) {
+        <span class="border-l border-cream/20 pl-3 text-[7px] text-cream/60">{{ selectedCriteria.length }} VARIABLES</span>
+      }
+    </button>
+  </section>
+
   <div class="relative min-h-0 flex-1">
     <canvas #scene class="absolute left-0 top-0 block h-full w-[calc(100vw_-_52px)] cursor-grab touch-none active:cursor-grabbing max-md:w-[calc(100vw_-_20px)]"></canvas>
 
@@ -32,6 +56,7 @@
     </p>
   </div>
 
+  @if (hasSearched) {
   <section class="mt-3 pt-14">
     <div class="relative mx-1.5 h-2.5">
       <div class="absolute inset-x-0 top-1/2 h-px bg-cream/25"></div>
@@ -39,75 +64,17 @@
         <button
           type="button"
           class="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer rounded-full p-0 transition-colors"
+          [hidden]="i % 10 !== 0 && i !== activeYear && i !== timeline.length - 1"
           [class]="i === activeYear ? 'size-[11px] bg-cream' : 'size-[9px] bg-cream/35 hover:bg-cream'"
           [style.left.%]="(i / (timeline.length - 1)) * 100"
           [attr.aria-label]="t.year"
           (click)="activeYear = i"
         >
-          @if (i === activeYear) {
-            <span
-              class="pointer-events-none absolute bottom-full mb-[3px] flex h-[50px] items-start gap-1.5 text-cream"
-              [class]="i >= timeline.length - 5 ? 'right-1/2 -mr-px flex-row-reverse text-right' : 'left-1/2 -ml-px text-left'"
-            >
-              <svg
-                class="h-[50px] w-5 shrink-0 overflow-visible"
-                [class]="i >= timeline.length - 5 ? '-scale-x-100' : ''"
-                viewBox="0 0 20 50"
-                fill="none"
-                aria-hidden="true"
-              >
-                <path d="M1 50 V17 Q1 6 12 6 H20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-              <span class="flex w-[130px] flex-col gap-1">
-                <b class="text-[11px] font-medium leading-3 tracking-[.12em]">{{ t.year }}</b>
-                <small class="text-[7px] font-light leading-[1.3] opacity-80">Lorem ipsum dolor sit amet, consectetur</small>
-              </span>
-            </span>
-          }
         </button>
       }
     </div>
     <div class="relative mt-[22px] flex items-center justify-center">
       <p class="text-[11px] tracking-[.3em]">TIMELINE</p>
-
-      <div class="absolute right-1.5 flex items-center gap-1.5 text-[9px] tracking-[.15em]">
-        <span class="mr-1 opacity-90">YEAR</span>
-        <button
-          type="button"
-          class="grid size-[22px] cursor-pointer place-items-center rounded-lg text-cream/80 transition-colors hover:text-cream disabled:cursor-default disabled:opacity-30 disabled:hover:text-cream/80"
-          [disabled]="activeYear === 0"
-          (click)="stepYear(-1)"
-          aria-label="Ano anterior"
-        >
-          <svg viewBox="0 0 10 16" class="h-[11px] w-[7px]" aria-hidden="true">
-            <path d="M8 2L2 8l6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-        </button>
-        <input
-          #yearInput
-          type="number"
-          inputmode="numeric"
-          [min]="minYear"
-          [max]="maxYear"
-          step="1"
-          [value]="timeline[activeYear].year"
-          (change)="setYear(yearInput.value); yearInput.value = '' + timeline[activeYear].year"
-          (keydown.enter)="yearInput.blur()"
-          aria-label="Selecionar ano"
-          class="glass h-[22px] w-[64px] rounded-lg bg-transparent text-center text-[11px] tracking-[.1em] text-cream outline-none [appearance:textfield] focus-visible:border-cream/60 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
-        />
-        <button
-          type="button"
-          class="grid size-[22px] cursor-pointer place-items-center rounded-lg text-cream/80 transition-colors hover:text-cream disabled:cursor-default disabled:opacity-30 disabled:hover:text-cream/80"
-          [disabled]="activeYear === timeline.length - 1"
-          (click)="stepYear(1)"
-          aria-label="Próximo ano"
-        >
-          <svg viewBox="0 0 10 16" class="h-[11px] w-[7px]" aria-hidden="true">
-            <path d="M2 2l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-        </button>
-      </div>
     </div>
   </section>
 
@@ -136,12 +103,180 @@
       (click)="setBody('mars')"
     >MARS</button>
   </div>
+  }
 </main>
+
+@if (filtersModalOpen) {
+  <div class="fixed inset-0 z-[60] flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm" (click)="closeFilters()">
+    <section
+      class="glass relative max-h-[90vh] w-[min(900px,calc(100vw_-_32px))] overflow-y-auto rounded-2xl p-6 max-md:p-4"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="analysis-filter-title"
+      tabindex="-1"
+      (click)="$event.stopPropagation()"
+    >
+      <header class="mb-6 flex items-start justify-between gap-4 border-b border-cream/15 pb-4">
+        <div>
+          <p class="text-[8px] tracking-[.2em] text-cream/55">MAP ANALYSIS</p>
+          <h2 id="analysis-filter-title" class="mt-1 text-sm tracking-[.16em]">ANALYSIS SETTINGS</h2>
+        </div>
+        <button
+          type="button"
+          class="grid size-8 shrink-0 place-items-center rounded-full border border-cream/20 text-lg text-cream/75 transition-colors hover:border-cream/50 hover:text-cream"
+          (click)="closeFilters()"
+          aria-label="Close analysis settings"
+          autofocus
+        >&times;</button>
+      </header>
+
+      <div class="grid grid-cols-12 items-start gap-x-4 gap-y-5 max-md:grid-cols-2 max-md:gap-x-3 max-md:gap-y-4">
+        <label class="col-span-3 flex min-w-0 flex-col gap-1.5 text-[8px] tracking-[.12em] text-cream/80 max-md:col-span-1">
+          YEAR
+          <input
+            #searchYearInput
+            type="number"
+            inputmode="numeric"
+            [min]="minYear"
+            [max]="maxYear"
+            step="1"
+            [value]="searchYearValue"
+            (input)="setSearchYear(searchYearInput.value)"
+            aria-label="Search year"
+            class="glass h-9 w-full rounded-lg bg-transparent px-3 text-[10px] tracking-[.04em] text-cream outline-none [appearance:textfield] focus-visible:border-cream/60 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+          />
+        </label>
+
+        <label class="col-span-3 flex min-w-0 flex-col gap-1.5 text-[8px] tracking-[.12em] text-cream/80 max-md:col-span-1">
+          MONTH
+          <select
+            #monthInput
+            [value]="searchMonth"
+            (change)="searchMonth = monthInput.value"
+            aria-label="Analysis month"
+            class="glass h-9 w-full rounded-lg bg-ink px-3 text-[10px] tracking-[.04em] text-cream outline-none focus-visible:border-cream/60"
+          >
+            @for (month of months; track month.value) {
+              <option [value]="month.value" [selected]="month.value === searchMonth" class="bg-ink">{{ month.label }}</option>
+            }
+          </select>
+        </label>
+
+        <label class="col-span-6 flex min-w-0 flex-col gap-1.5 text-[8px] tracking-[.12em] text-cream/80 max-md:col-span-2">
+          BASE
+          <select
+            #baseInput
+            [value]="baseValue"
+            (change)="baseValue = baseInput.value"
+            aria-label="Analysis base"
+            class="glass h-9 w-full rounded-lg bg-ink px-3 text-[10px] tracking-[.02em] text-cream outline-none focus-visible:border-cream/60"
+          >
+            @for (base of baseOptions[body]; track base.value) {
+              <option [value]="base.value" [selected]="base.value === baseValue" class="bg-ink">{{ base.label }}</option>
+            }
+          </select>
+        </label>
+
+        <div class="col-span-12">
+          <div class="flex flex-wrap items-center justify-center gap-x-5 gap-y-3 rounded-xl border border-cream/10 bg-black/10 px-4 py-4">
+            <span class="mr-1 text-[8px] tracking-[.12em] text-cream/80">VARIABLES</span>
+            <label class="flex cursor-pointer items-center gap-1.5 text-[8px] uppercase tracking-[.12em] text-cream/85">
+              <input
+                type="checkbox"
+                class="size-3 accent-[#DE7D28]"
+                [checked]="allCriteriaSelected"
+                (change)="toggleAllCriteria($event)"
+              />
+              <span>All criteria</span>
+            </label>
+            @for (criterion of criteria; track criterion.key) {
+              <label class="flex cursor-pointer items-center gap-1.5 text-[8px] uppercase tracking-[.12em] text-cream/85">
+                <input
+                  type="checkbox"
+                  class="size-3 accent-[#DE7D28]"
+                  [checked]="selectedCriteria.includes(criterion.key)"
+                  (change)="toggleCriterion(criterion.key, $event)"
+                />
+                <span>{{ criterion.label }}</span>
+              </label>
+            }
+          </div>
+          <p class="mt-2 text-[7px] font-light text-cream/50">Select one or more variables to compare environmental conditions.</p>
+        </div>
+
+        <div class="col-span-3 min-w-0 max-md:col-span-1">
+          <label for="neighbors-per-base" class="block text-[8px] tracking-[.12em] text-cream/80">K PER BASE</label>
+          <input
+            #neighborsInput
+            id="neighbors-per-base"
+            type="number"
+            inputmode="numeric"
+            min="1"
+            [max]="analogCount"
+            step="1"
+            [value]="neighborsPerBase"
+            (input)="setNeighborsPerBase(neighborsInput.value)"
+            aria-label="Number of analogs per base"
+            class="glass mt-1.5 h-9 w-full rounded-lg bg-transparent px-3 text-[10px] tracking-[.04em] text-cream outline-none [appearance:textfield] focus-visible:border-cream/60 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+          />
+          <p class="mt-1.5 text-[7px] font-light text-cream/50">Number of analog locations to return.</p>
+        </div>
+
+        <div class="col-span-3 min-w-0 max-md:col-span-1">
+          <label for="minimum-coverage" class="block text-[8px] tracking-[.12em] text-cream/80">MINIMUM COVERAGE</label>
+          <select
+            #coverageInput
+            id="minimum-coverage"
+            [value]="minimumCoverage"
+            (change)="setMinimumCoverage(coverageInput.value)"
+            aria-label="Minimum coverage"
+            class="glass mt-1.5 h-9 w-full rounded-lg bg-ink px-3 text-[10px] tracking-[.04em] text-cream outline-none focus-visible:border-cream/60"
+          >
+            @for (coverage of coverageOptions; track coverage) {
+              <option [value]="coverage" [selected]="coverage === minimumCoverage" class="bg-ink">{{ coverage }}%</option>
+            }
+          </select>
+          <p class="mt-1.5 text-[7px] font-light text-cream/50">Minimum share of selected variables with available data.</p>
+        </div>
+
+        <div class="col-span-6 min-w-0 max-md:col-span-2">
+          <label for="future-earth-state" class="block text-[8px] tracking-[.12em] text-cream/80">EARTH FUTURE STATE</label>
+          <select
+            #projectionInput
+            id="future-earth-state"
+            [value]="futureEarthState"
+            (change)="futureEarthState = projectionInput.value"
+            aria-label="Earth future state projection"
+            class="glass mt-1.5 h-9 w-full rounded-lg bg-ink px-3 text-[10px] tracking-[.02em] text-cream outline-none focus-visible:border-cream/60"
+          >
+            @for (model of projectionModels; track model.value) {
+              <option [value]="model.value" [selected]="model.value === futureEarthState" class="bg-ink">{{ model.label }}</option>
+            }
+          </select>
+          <p class="mt-1.5 text-[7px] font-light text-cream/50">Earth baseline projection model.</p>
+        </div>
+
+        <div class="col-span-12 flex items-center justify-between gap-4 border-t border-cream/15 pt-4 max-md:flex-col max-md:items-stretch">
+          <p class="text-[8px] text-cream/55">Choose at least one variable to enable the search.</p>
+          <button
+            type="button"
+            class="glass-active h-9 rounded-lg px-6 text-[8px] font-medium tracking-[.14em] text-cream transition-opacity hover:brightness-125 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:brightness-100"
+            [disabled]="!canSearch"
+            (click)="searchAnalogs()"
+          >FIND ANALOGS</button>
+        </div>
+      </div>
+    </section>
+  </div>
+}
 
 <aside
   #panel
   class="absolute right-10 top-[var(--panel-top)] z-10 h-[min(778px,calc(100vh_-_var(--panel-top)_-_28px))] w-[calc(var(--panel-w)_+_14px)] transition-transform duration-[450ms] ease-[cubic-bezier(.4,0,.2,1)] max-md:relative max-md:right-auto max-md:top-auto max-md:mx-5 max-md:mb-10 max-md:h-[min(778px,80vh)] max-md:w-auto max-md:translate-x-0"
+  [style.--panel-top]="panelOpen ? 'clamp(100px, 12vh, 132px)' : null"
   [class]="panelOpen ? '' : 'translate-x-[calc(100%_+_17px)]'"
+  [class.hidden]="!hasSearched"
+  [attr.aria-hidden]="!panelOpen"
 >
   <div
     #glassBody
@@ -179,35 +314,97 @@
 
   <div class="panel-scroll absolute inset-0 z-10 overflow-y-auto overscroll-contain rounded-[20px]">
     <div class="relative flex min-h-full flex-col pb-7 pl-[54px] pr-10 pt-7 max-md:min-h-0 max-md:pl-6 max-md:pr-6">
-      <h2 class="text-center text-xs font-normal tracking-[.3em]">
-        SIMILARITY
-        <span class="ml-1 inline-grid size-[13px] place-items-center rounded-full border border-cream align-[1px] text-[8px] tracking-normal">i</span>
-      </h2>
+      @if (selectedAnalog; as analog) {
+        <button
+          type="button"
+          class="mb-4 flex w-fit cursor-pointer items-center gap-2 text-[8px] tracking-[.14em] text-cream/75 transition-colors hover:text-cream"
+          (click)="backToResults()"
+        >
+          <svg viewBox="0 0 10 16" class="h-[11px] w-[7px]" aria-hidden="true">
+            <path d="M8 2L2 8l6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          BACK TO RESULTS
+        </button>
 
-      <svg class="mt-2 block h-[clamp(190px,28vh,240px)] w-full flex-none" viewBox="0 0 240 200" role="img" aria-label="Similarity chart">
-        @for (ring of radar.rings; track $index) {
-          <polygon class="fill-none stroke-cream/20 stroke-[0.8]" [attr.points]="ring" />
-        }
-        @for (a of radar.axes; track $index) {
-          <line class="stroke-cream/20 stroke-[0.8]" x1="120" y1="100" [attr.x2]="a.x" [attr.y2]="a.y" />
-        }
-        <polygon class="fill-ember/40 stroke-cream stroke-[1.2] transition-all duration-500 [stroke-linejoin:round]" [attr.points]="radar.data" />
-        @for (l of radar.labels; track l.text) {
-          <text class="fill-cream text-[7.5px] opacity-80" [attr.x]="l.x" [attr.y]="l.y" [attr.dy]="l.dy" [attr.text-anchor]="l.anchor">{{ l.text }}</text>
-        }
-      </svg>
+        <h2 class="text-center text-xs font-normal tracking-[.3em]">
+          SIMILARITY
+          <span class="ml-1 inline-grid size-[13px] place-items-center rounded-full border border-cream align-[1px] text-[8px] tracking-normal">i</span>
+        </h2>
 
-      <p class="mt-3 text-[8px] tracking-[.22em]">{{ info.eyebrow }}</p>
-      <h3 class="mt-0.5 text-[clamp(26px,2.5vw,36px)] font-extrabold leading-[1.1] tracking-[.02em]">{{ info.place }}</h3>
-      <p class="mt-3 text-[clamp(38px,3.4vw,48px)] font-bold leading-none">{{ info.pct }}%</p>
-      <p class="mt-1 text-[6px] tracking-[.15em] opacity-80">AVERAGE SIMILARITY</p>
-      <p class="mt-3 text-justify text-[10px] font-light leading-[1.55]">{{ info.desc }}</p>
+        <svg class="mt-2 block h-[clamp(190px,28vh,240px)] w-full flex-none" viewBox="0 0 240 200" role="img" aria-label="Similarity chart">
+          @for (ring of radar.rings; track $index) {
+            <polygon class="fill-none stroke-cream/20 stroke-[0.8]" [attr.points]="ring" />
+          }
+          @for (a of radar.axes; track $index) {
+            <line class="stroke-cream/20 stroke-[0.8]" x1="120" y1="100" [attr.x2]="a.x" [attr.y2]="a.y" />
+          }
+          <polygon class="fill-ember/40 stroke-cream stroke-[1.2] transition-all duration-500 [stroke-linejoin:round]" [attr.points]="radar.data" />
+          @for (l of radar.labels; track l.text) {
+            <text class="fill-cream text-[7.5px]" [attr.opacity]="l.selected ? 0.8 : 0.25" [attr.x]="l.x" [attr.y]="l.y" [attr.dy]="l.dy" [attr.text-anchor]="l.anchor">{{ l.text }}</text>
+          }
+        </svg>
 
-      @for (section of info.sections; track section.title) {
+        <p class="mt-3 text-[8px] tracking-[.22em]">{{ body === 'mars' ? 'MARS ANALOG' : 'MOON ANALOG' }} · {{ analog.region }}</p>
+        <h3 class="mt-0.5 text-[clamp(24px,2.3vw,34px)] font-extrabold leading-[1.1] tracking-[.02em]">{{ analog.name }}</h3>
+        <p class="mt-3 text-[clamp(38px,3.4vw,48px)] font-bold leading-none">{{ analog.similarity }}%</p>
+        <p class="mt-1 text-[6px] tracking-[.15em] opacity-80">AVERAGE SIMILARITY</p>
+        <p class="mt-3 text-justify text-[10px] font-light leading-[1.55]">{{ analog.summary }}</p>
+
         <section class="mt-5 border-t border-cream/15 pt-3">
-          <h3 class="text-[8px] font-medium tracking-[.18em]">{{ section.title }}</h3>
-          <p class="mt-2 text-justify text-[10px] font-light leading-[1.55] opacity-85">{{ section.body }}</p>
+          <h3 class="text-[8px] font-medium tracking-[.18em]">WHERE THE ANALOGY HOLDS</h3>
+          <p class="mt-2 text-justify text-[10px] font-light leading-[1.55] opacity-85">{{ analog.fit }}</p>
         </section>
+        <section class="mt-5 border-t border-cream/15 pt-3">
+          <h3 class="text-[8px] font-medium tracking-[.18em]">WHERE IT FALLS SHORT</h3>
+          <p class="mt-2 text-justify text-[10px] font-light leading-[1.55] opacity-85">{{ bodyDetails[body].limitation }}</p>
+        </section>
+        <section class="mt-5 border-t border-cream/15 pt-3">
+          <h3 class="text-[8px] font-medium tracking-[.18em]">MISSION APPLICATIONS</h3>
+          <p class="mt-2 text-justify text-[10px] font-light leading-[1.55] opacity-85">{{ bodyDetails[body].missionUse }}</p>
+        </section>
+        <section class="mt-5 border-t border-cream/15 pt-3">
+          <h3 class="text-[8px] font-medium tracking-[.18em]">SIMULATED PSYCHODATA · 0–100</h3>
+          <p class="mt-1 text-[8px] font-light leading-[1.45] opacity-60">Illustrative crew indicators, not measurements from participants.</p>
+          <div class="mt-3 space-y-3">
+            @for (metric of psychodataMetrics; track metric.key) {
+              <div class="grid grid-cols-[86px_minmax(0,1fr)_22px] items-center gap-2">
+                <span class="text-[8px] opacity-80">{{ metric.label }}</span>
+                <span class="h-1.5 overflow-hidden rounded-full bg-cream/10">
+                  <span class="block h-full rounded-full bg-ember" [style.width.%]="analog.psychodata[metric.key]"></span>
+                </span>
+                <span class="text-right text-[8px] tabular-nums">{{ analog.psychodata[metric.key] }}</span>
+              </div>
+            }
+          </div>
+        </section>
+      } @else {
+        <div class="flex items-end justify-between gap-3">
+          <div>
+            <h2 class="text-xs font-normal tracking-[.22em]">ANALOG LOCATIONS</h2>
+            <p class="mt-1 text-[7px] tracking-[.12em] text-cream/60">{{ results.length }} {{ bodyDetails[body].label }} CANDIDATES</p>
+          </div>
+          <span class="text-[7px] tracking-[.12em] text-cream/55">SELECT A PLACE</span>
+        </div>
+
+        <div class="mt-4">
+          @for (result of results; track result.id; let i = $index) {
+            <button
+              type="button"
+              class="group flex w-full cursor-pointer items-center gap-2 border-t border-cream/15 py-3 text-left transition-colors hover:border-cream/35"
+              (click)="selectAnalog(result)"
+            >
+              <span class="w-5 shrink-0 text-[7px] tabular-nums text-cream/45">{{ i + 1 }}</span>
+              <span class="min-w-0 flex-1">
+                <span class="block truncate text-[10px] font-medium tracking-[.06em]">{{ result.name }}</span>
+                <span class="mt-1 block truncate text-[8px] font-light text-cream/60">{{ result.region }}</span>
+              </span>
+              <span class="shrink-0 text-[13px] font-semibold tabular-nums">{{ result.similarity }}%</span>
+              <svg viewBox="0 0 10 16" class="h-[10px] w-[6px] shrink-0 text-cream/60 transition-transform group-hover:translate-x-0.5" aria-hidden="true">
+                <path d="M2 2l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+          }
+        </div>
       }
     </div>
   </div>

@@ -13,6 +13,7 @@ import { RouterLink } from '@angular/router';
 export class MethodologyPage implements AfterViewInit, OnDestroy {
   readonly scrolled = signal(false);
   readonly navItems = [
+    { label: 'HOME', link: '/' },
     { label: 'MAP', link: '/mapa' },
     { label: 'METHODOLOGY', link: '/metodologia' },
     { label: 'DATA', link: '/', fragment: 'data' },
