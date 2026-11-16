@@ -4,11 +4,37 @@ Feynman's Legacy identifies Earth sites that resemble reference locations on the
 
 ## Run the app for evaluation (Windows)
 
-The repository includes the Earth data, reference profiles, and trained model used by the map. Follow the three steps below to open the app and run a search. The data-generation and training instructions are optional.
+The repository includes the Earth data, reference profiles, and trained model used by the map. Follow the steps below to open the app and run a search. The data-generation and training instructions are optional.
 
-### 1. Open the repository in PowerShell
+### 1. Install missing tools
 
-Install **Git for Windows with Git LFS**, **uv** (`winget install --id=astral-sh.uv -e`), and **Node.js 24.x with npm**. The [official Node.js 24.22.1 release](https://nodejs.org/download/release/v24.22.1/) has installers for Windows x64 and ARM64. After installing, open a new PowerShell window and confirm that these commands all print a version:
+Open PowerShell and paste this block. It installs Git, uv, and Node.js with npm only when the corresponding commands are missing. WinGet may ask for permission to install software.
+
+```powershell
+& {
+    function Install-Tool($Id, $Version) {
+        $installArgs = @('install', '--id', $Id, '--exact', '--source', 'winget')
+        if ($Version) { $installArgs += @('--version', $Version) }
+        winget @installArgs --accept-source-agreements --accept-package-agreements
+        if ($LASTEXITCODE -ne 0) { throw "WinGet could not install $Id." }
+    }
+
+    if (-not (Get-Command git.exe -ErrorAction SilentlyContinue)) {
+        Install-Tool 'Git.Git'
+    }
+    if (-not (Get-Command uv.exe -ErrorAction SilentlyContinue)) {
+        Install-Tool 'astral-sh.uv'
+    }
+    if (-not (Get-Command node.exe -ErrorAction SilentlyContinue) -or
+        -not (Get-Command npm.cmd -ErrorAction SilentlyContinue)) {
+        Install-Tool 'OpenJS.NodeJS.LTS' '24.22.1'
+    }
+}
+```
+
+If WinGet is unavailable or fails to install Node.js, use the official [Windows x64 installer (.msi)](https://nodejs.org/download/release/v24.22.1/node-v24.22.1-x64.msi) or [Windows ARM64 installer (.msi)](https://nodejs.org/download/release/v24.22.1/node-v24.22.1-arm64.msi). Keep npm and Add to PATH enabled.
+
+**After installing Node.js, close the PowerShell window and open a new one from the Start menu.** Even when WinGet reports `Successfully installed`, the old window still has the previous PATH. Run the following checks in the new window:
 
 ```powershell
 git lfs version
@@ -16,6 +42,10 @@ uv --version
 node --version
 npm.cmd --version
 ```
+
+Use Node.js 24.15.0 or newer in the 24.x series. If a command is still missing, resolve it before running the next step.
+
+### 2. Open the repository in PowerShell
 
 If you have not cloned the repository yet, run:
 
@@ -35,20 +65,44 @@ git lfs pull
 
 Update the path in `Set-Location` if you cloned elsewhere. The Git root should contain `requirements.txt` and `front-end/proxy.conf.json`. If `git lfs pull` fails, resolve the download before starting the API.
 
-### 2. Start the API
+### 3. Start the API
 
-Keep this terminal at the repository root:
+First, open [recommendation options](http://127.0.0.1:8000/api/v1/analogos/recomendacoes/opcoes). If it already shows the expected bases and observed months, FastAPI is running. Skip the launch command and go to step 4.
+
+To start a new instance or restart the running one, paste the whole block below from the repository root. If port 8000 is occupied, the block stops the process only after verifying that Uvicorn is serving Feynman's Legacy.
 
 ```powershell
-$env:PYTHONPATH = (Resolve-Path .\src -ErrorAction Stop).Path
-uv run --no-project --python 3.13 --with-requirements requirements.txt python -B -m uvicorn app.main:app --host 127.0.0.1 --port 8000
+& {
+    $listener = Get-NetTCPConnection -LocalPort 8000 -State Listen -ErrorAction SilentlyContinue |
+        Where-Object { $_.LocalAddress -in @('127.0.0.1', '0.0.0.0') } |
+        Select-Object -First 1
+
+    if ($listener) {
+        $server = Get-CimInstance Win32_Process -Filter "ProcessId = $($listener.OwningProcess)"
+        if ($server.CommandLine -notmatch '\buvicorn\s+app\.main:app\b') {
+            throw 'Port 8000 is in use by another program. Leave it running and check its configuration.'
+        }
+        $health = Invoke-RestMethod 'http://127.0.0.1:8000/health' -TimeoutSec 5 -ErrorAction Stop
+        if ($health.app -ne "Feynman's Legacy API") {
+            throw "The API on port 8000 does not identify itself as Feynman's Legacy."
+        }
+        $process = Get-Process -Id $listener.OwningProcess -ErrorAction Stop
+        Stop-Process -InputObject $process -ErrorAction Stop
+        if (-not $process.WaitForExit(10000)) { throw 'The previous API did not exit.' }
+    }
+
+    $env:PYTHONPATH = (Resolve-Path .\src -ErrorAction Stop).Path
+    uv run --no-project --python 3.13 --with-requirements requirements.txt python -B -m uvicorn app.main:app --host 127.0.0.1 --port 8000
+}
 ```
 
 On the first run, uv may download Python and the dependencies into its cache. Keep the terminal open once Uvicorn is listening. Open [recommendation options](http://127.0.0.1:8000/api/v1/analogos/recomendacoes/opcoes) and verify that the JSON contains bases and observed months. This check also confirms the model can load.
 
-### 3. Build and open the map
+### 4. Build and open the map
 
-Open a **second PowerShell window**. Use the `front-end` directory in the same checkout as the API:
+If [the map](http://127.0.0.1:4200/mapa) and [the options through Angular](http://127.0.0.1:4200/api/v1/analogos/recomendacoes/opcoes) already load, use that running instance and go straight to the example searches below.
+
+Otherwise, open a **second PowerShell window**. Use the `front-end` directory in the same checkout as the API:
 
 ```powershell
 Set-Location "$env:USERPROFILE\Downloads\feynmans-legacy\front-end" -ErrorAction Stop
@@ -58,12 +112,22 @@ npm.cmd start -- --host 127.0.0.1 --port 4200
 
 Run the start command after `npm.cmd ci` succeeds. The development server compiles the app and forwards `/api` to port 8000. When Angular reports that it is ready, open [the map](http://127.0.0.1:4200/mapa). Keep both terminals open while navigating.
 
+If Angular reports `Port 4200 is already in use` and you want to run this checkout in a separate instance, start it on port 4201 instead:
+
+```powershell
+npm.cmd start -- --host 127.0.0.1 --port 4201
+```
+
+Open [the map on port 4201](http://127.0.0.1:4201/mapa). This changes only the frontend URL. Its proxy still sends API requests to port 8000.
+
 1. Open **Analysis Settings**, select **Jezero Crater**, **Thermal**, and **August 2026**, then run the search. The map should list Earth sites from the observed data.
 2. Try **September 2026** with the recursive projection. The first future search shows a progress state while the model computes the requested month.
 
 For a production compilation check, run `npm.cmd run build` from `front-end/` after `npm.cmd ci`. The output is in `front-end/dist/`. To evaluate the app locally, use the development server above so API requests go through the proxy.
 
 ### If the map does not open or return results
+
+If [the map](http://127.0.0.1:4200/mapa) and [its recommendation options](http://127.0.0.1:4200/api/v1/analogos/recomendacoes/opcoes) already work, the servers are running and you can open the app directly.
 
 | What you see | What to do |
 |---|---|
