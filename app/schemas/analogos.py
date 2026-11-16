@@ -100,6 +100,10 @@ class Par(BaseModel):
         default=None, description="Posição pelo custo-benefício entre os pares da base.")
     top_custo_beneficio: bool = Field(
         default=False, description="Entre os melhores custo-benefício da base.")
+    nota_utilidade: float | None = Field(
+        default=None, description="Média dos nichos da utilidade pedida (0–100).")
+    nota_foco: float | None = Field(
+        default=None, description="Nota usada para ordenar conforme o foco (0–100).")
 
 
 class Rota(BaseModel):
@@ -138,7 +142,38 @@ class ParCustoBeneficio(Par):
 
 class CustoBeneficioResponse(BaseModel):
     items: list[ParCustoBeneficio]
-    total: int
+    total: int = Field(..., description="Pares após os filtros, antes da paginação.")
+    limit: int
+    offset: int
+    foco: str
+    peso_logistica: float = Field(..., description="Peso efetivo da logística em nota_foco.")
+    utilidade: str | None = None
+
+
+class FocoInfo(BaseModel):
+    foco: str = Field(..., examples=["equilibrado"])
+    nome: str
+    peso_logistica: float
+    descricao: str
+
+
+class UtilidadeInfo(BaseModel):
+    utilidade: str = Field(..., examples=["mobilidade"])
+    nome: str
+    descricao: str
+    nichos: list[str]
+
+
+class FiltrosResponse(BaseModel):
+    """Valores aceitos pelos filtros, para montar os seletores do front."""
+
+    focos: list[FocoInfo]
+    utilidades: list[UtilidadeInfo]
+    nichos: list[Nicho]
+    tipos: list[str]
+    paises: list[str]
+    categorias_apoio: list[str]
+    vinculos_apoio: list[str]
 
 
 class Apoio(BaseModel):

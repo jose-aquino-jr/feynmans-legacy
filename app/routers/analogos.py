@@ -13,12 +13,14 @@ from app.schemas.analogos import (
     BaseDetalhe,
     BaseListResponse,
     CustoBeneficioResponse,
+    FiltrosResponse,
     LocalDetalhe,
     LocalListResponse,
     NichoListResponse,
     ParDetalhe,
 )
 from app.schemas.common import error_responses
+from app.services.analog_filters import PairFilters, SiteFilters, split_values
 from app.services.analogos import AnalogRepository
 
 router = APIRouter(
@@ -28,6 +30,98 @@ router = APIRouter(
 )
 
 Repository = Annotated[AnalogRepository, Depends(get_analog_repository)]
+Corpo = Literal["lua", "marte"]
+Foco = Literal["ciencia", "equilibrado", "logistica"]
+Utilidade = Literal["habitat", "mobilidade", "geologia", "agua_recursos", "astrobiologia",
+                    "clima_extremo", "tubos_lava"]
+TipoPar = Literal["destaque", "geral", "especialista", "custo_beneficio"]
+
+
+def site_filters(
+    destaque: Annotated[bool | None, Query(description="Só locais padrão do software.")] = None,
+    eua: Annotated[bool | None, Query(
+        description="true: só locais nos EUA; false: só fora dos EUA.")] = None,
+    pais: Annotated[str | None, Query(description="País do local terrestre.",
+                                      examples=["México"])] = None,
+    max_distancia_eua_km: Annotated[float | None, Query(
+        ge=0, description="Distância máxima até uma instalação dos EUA.")] = None,
+    max_distancia_apoio_km: Annotated[float | None, Query(
+        ge=0, description="Distância máxima até a base de apoio principal.")] = None,
+    min_apoios: Annotated[int | None, Query(
+        ge=0, description="Mínimo de bases de apoio no raio (rotas alternativas).")] = None,
+    logistica_minima: Annotated[float | None, Query(ge=0, le=100)] = None,
+    apoio_categoria: Annotated[str | None, Query(
+        description="Exige rota para uma base desta categoria (trecho do nome).",
+        examples=["lançamento", "Espaço Profundo"])] = None,
+    apoio_vinculo: Annotated[str | None, Query(
+        description="Exige rota para uma base com este vínculo.",
+        examples=["Nativa NASA"])] = None,
+    lat_min: Annotated[float | None, Query(ge=-90, le=90)] = None,
+    lat_max: Annotated[float | None, Query(ge=-90, le=90)] = None,
+    lon_min: Annotated[float | None, Query(ge=-180, le=180)] = None,
+    lon_max: Annotated[float | None, Query(ge=-180, le=180)] = None,
+    temperatura_min: Annotated[float | None, Query(
+        description="Temperatura média mínima do local (°C).")] = None,
+    temperatura_max: Annotated[float | None, Query(
+        description="Temperatura média máxima do local (°C).")] = None,
+) -> SiteFilters:
+    return SiteFilters(
+        destaque=destaque, eua=eua, pais=pais, max_distancia_eua_km=max_distancia_eua_km,
+        max_distancia_apoio_km=max_distancia_apoio_km, min_apoios=min_apoios,
+        logistica_minima=logistica_minima, apoio_categoria=apoio_categoria,
+        apoio_vinculo=apoio_vinculo, lat_min=lat_min, lat_max=lat_max, lon_min=lon_min,
+        lon_max=lon_max, temperatura_min=temperatura_min, temperatura_max=temperatura_max,
+    )
+
+
+def pair_filters(
+    local: Annotated[SiteFilters, Depends(site_filters)],
+    foco: Annotated[Foco, Query(
+        description=("ciencia: só a semelhança; equilibrado: custo-benefício; "
+                     "logistica: só EUA, apoio e rotas."))] = "equilibrado",
+    peso_logistica: Annotated[float | None, Query(
+        ge=0, le=1, description="Peso da logística em nota_foco; sobrepõe o foco.")] = None,
+    utilidade: Annotated[Utilidade | None, Query(
+        description="Troca a nota geral pela média dos nichos desta utilidade.")] = None,
+    tipo: Annotated[TipoPar | None, Query(description="Motivo da relação.")] = None,
+    forte_em: Annotated[list[str] | None, Query(
+        description="Só pares fortes em algum destes nichos (repita ou separe por vírgula).",
+        examples=["geologia,terreno"])] = None,
+    evitar_fraco_em: Annotated[list[str] | None, Query(
+        description="Remove pares fracos em algum destes nichos.",
+        examples=["termico"])] = None,
+    nota_minima: Annotated[float | None, Query(ge=0, le=100)] = None,
+    utilidade_minima: Annotated[float | None, Query(ge=0, le=100)] = None,
+    foco_minimo: Annotated[float | None, Query(ge=0, le=100)] = None,
+) -> PairFilters:
+    return PairFilters(
+        local=local, tipo=tipo, utilidade=utilidade, foco=foco,
+        peso_logistica=peso_logistica, forte_em=split_values(forte_em),
+        evitar_fraco_em=split_values(evitar_fraco_em), nota_minima=nota_minima,
+        utilidade_minima=utilidade_minima, foco_minimo=foco_minimo,
+    )
+
+
+Filters = Annotated[PairFilters, Depends(pair_filters)]
+Sites = Annotated[SiteFilters, Depends(site_filters)]
+LimitQuery = Annotated[int | None, Query(ge=1)]
+OffsetQuery = Annotated[int, Query(ge=0)]
+SettingsDep = Annotated[Settings, Depends(get_app_settings)]
+
+
+def _limit(limit: int | None, settings: Settings) -> int:
+    return min(limit or settings.default_limit, settings.max_limit)
+
+
+@router.get(
+    "/filtros",
+    response_model=FiltrosResponse,
+    summary="Opções dos filtros",
+    description="Focos, utilidades, nichos, países e tipos de base de apoio aceitos.",
+    responses=error_responses(404, 500),
+)
+def filter_options(repository: Repository) -> FiltrosResponse:
+    return repository.filter_options()
 
 
 @router.get(
@@ -50,8 +144,7 @@ def list_niches(repository: Repository) -> NichoListResponse:
 )
 def list_bases(
     repository: Repository,
-    corpo: Annotated[Literal["lua", "marte"] | None,
-                     Query(description="Filtra por corpo.")] = None,
+    corpo: Annotated[Corpo | None, Query(description="Filtra por corpo.")] = None,
 ) -> BaseListResponse:
     return repository.list_bases(corpo)
 
@@ -61,32 +154,53 @@ def list_bases(
     response_model=BaseDetalhe,
     summary="Locais terrestres relacionados a uma base",
     description=(
-        "Retorna a base e os pares com o local terrestre embutido (nome, coordenadas, "
-        "raio), a nota geral, a nota por nicho e os pontos fortes e fracos. Ordem: "
-        "`rank_base` (melhor nota geral primeiro)."
+        "Retorna a base e os pares com o local terrestre embutido. Aceita os mesmos "
+        "filtros de `/analogos/pares`. `ordenar`: `nota` (rank_base, padrão), "
+        "`custo_beneficio` ou `foco` (nota_foco, segue `foco`, `peso_logistica` e "
+        "`utilidade`)."
     ),
     responses=error_responses(400, 404, 500),
 )
 def get_base(
     repository: Repository,
-    settings: Annotated[Settings, Depends(get_app_settings)],
+    settings: SettingsDep,
+    filters: Filters,
     base_id: Annotated[str, Path(examples=["MARTE_JEZERO"])],
-    tipo: Annotated[Literal["destaque", "geral", "especialista", "custo_beneficio"] | None,
-                    Query(description="Filtra pelo motivo da relação.")] = None,
-    destaque: Annotated[bool | None, Query(description="Só locais padrão.")] = None,
-    forte_em: Annotated[str | None, Query(
-        description="Só pares fortes neste nicho (ex.: termico, geologia, terreno).",
-        examples=["geologia"])] = None,
-    nota_minima: Annotated[float | None, Query(ge=0, le=100)] = None,
-    limit: Annotated[int | None, Query(ge=1)] = None,
-    ordenar: Annotated[Literal["nota", "custo_beneficio"], Query(
-        description="nota (rank_base) ou custo_beneficio (maior primeiro).")] = "nota",
+    ordenar: Annotated[Literal["nota", "custo_beneficio", "foco"], Query()] = "nota",
+    limit: LimitQuery = None,
+    offset: OffsetQuery = 0,
 ) -> BaseDetalhe:
-    return repository.get_base(
-        base_id, tipo=tipo, destaque=destaque, forte_em=forte_em,
-        nota_minima=nota_minima, limit=min(limit or settings.default_limit, settings.max_limit),
-        ordenar=ordenar,
-    )
+    return repository.get_base(base_id, filters, ordenar=ordenar,
+                               limit=_limit(limit, settings), offset=offset)
+
+
+@router.get(
+    "/pares",
+    response_model=CustoBeneficioResponse,
+    summary="Busca de pares por foco, utilidade e logística",
+    description=(
+        "Lista pares de todas as bases ordenados por `nota_foco` (maior primeiro). O "
+        "foco define o peso da logística: `ciencia` = 0, `equilibrado` = 0,5, "
+        "`logistica` = 1 (ou use `peso_logistica`). Com `utilidade`, a nota da "
+        "semelhança vira a média dos nichos daquela utilidade. Valores aceitos em "
+        "`/analogos/filtros`."
+    ),
+    responses=error_responses(400, 404, 500),
+)
+def list_pairs(
+    repository: Repository,
+    settings: SettingsDep,
+    filters: Filters,
+    corpo: Annotated[Corpo | None, Query()] = None,
+    base_id: Annotated[str | None, Query(examples=["MARTE_GALE"])] = None,
+    apenas_top: Annotated[bool, Query(
+        description="Só os melhores custo-benefício de cada base.")] = False,
+    limit: LimitQuery = None,
+    offset: OffsetQuery = 0,
+) -> CustoBeneficioResponse:
+    return repository.list_pairs(filters, corpo=corpo, base_id=base_id,
+                                 apenas_top=apenas_top, limit=_limit(limit, settings),
+                                 offset=offset)
 
 
 @router.get(
@@ -94,64 +208,52 @@ def get_base(
     response_model=CustoBeneficioResponse,
     summary="Melhores análogos em custo-benefício",
     description=(
-        "Pares ordenados por `custo_beneficio = raiz(nota_geral × nota_logistica)`. A "
-        "logística mede a proximidade dos EUA, da melhor base de apoio da NASA/parceiros "
-        "e a quantidade de bases no raio (rotas alternativas). Cada item traz o local, a "
-        "base espacial e as rotas: a base de apoio principal e as alternativas."
+        "Atalho de `/analogos/pares` com `apenas_top=true`: os melhores custo-benefício "
+        "de cada base, com local, base espacial e rotas de apoio. Aceita os mesmos "
+        "filtros (foco, utilidade, EUA, distância, tipo de apoio, região, clima)."
     ),
     responses=error_responses(400, 404, 500),
 )
 def list_cost_benefit(
     repository: Repository,
-    settings: Annotated[Settings, Depends(get_app_settings)],
-    corpo: Annotated[Literal["lua", "marte"] | None, Query()] = None,
+    settings: SettingsDep,
+    filters: Filters,
+    corpo: Annotated[Corpo | None, Query()] = None,
     base_id: Annotated[str | None, Query(examples=["MARTE_GALE"])] = None,
     apenas_top: Annotated[bool, Query(
         description="Só os melhores custo-benefício de cada base (padrão).")] = True,
-    limit: Annotated[int | None, Query(ge=1)] = None,
+    limit: LimitQuery = None,
+    offset: OffsetQuery = 0,
 ) -> CustoBeneficioResponse:
-    return repository.list_cost_benefit(
-        corpo=corpo, base_id=base_id, apenas_top=apenas_top,
-        limit=min(limit or settings.default_limit, settings.max_limit),
-    )
-
-
-@router.get(
-    "/apoios",
-    response_model=ApoioListResponse,
-    summary="Bases de apoio da NASA e parceiros",
-    description="Catálogo usado na logística (sem a geometria WKB), para marcar no globo.",
-    responses=error_responses(400, 404, 500),
-)
-def list_support(
-    repository: Repository,
-    eua: Annotated[bool | None, Query(description="Só instalações nos EUA.")] = None,
-    usado: Annotated[bool | None, Query(
-        description="Só as bases usadas no cálculo (sem vínculo restrito ou oceano).")] = None,
-    categoria: Annotated[str | None, Query(examples=["Centro de campo NASA"])] = None,
-) -> ApoioListResponse:
-    return repository.list_support(eua=eua, usado=usado, categoria=categoria)
+    return repository.list_pairs(filters, corpo=corpo, base_id=base_id,
+                                 apenas_top=apenas_top, limit=_limit(limit, settings),
+                                 offset=offset)
 
 
 @router.get(
     "/locais",
     response_model=LocalListResponse,
     summary="Lista os locais terrestres com análogos",
-    description="Locais padrão (`destaque=true`) primeiro, depois pela melhor nota.",
+    description=(
+        "Filtra por destaque, EUA, país, logística, tipo de base de apoio, região "
+        "(`lat_*`, `lon_*`) e temperatura. `base_id` restringe aos locais "
+        "relacionados a uma base. `ordenar`: `padrao` (destaques primeiro), `nota`, "
+        "`custo_beneficio` ou `logistica`."
+    ),
     responses=error_responses(400, 404, 500),
 )
 def list_sites(
     repository: Repository,
-    settings: Annotated[Settings, Depends(get_app_settings)],
-    destaque: Annotated[bool | None, Query(description="Só locais padrão.")] = None,
-    pais: Annotated[str | None, Query(examples=["Sudão"])] = None,
-    limit: Annotated[int | None, Query(ge=1)] = None,
-    offset: Annotated[int, Query(ge=0)] = 0,
+    settings: SettingsDep,
+    filters: Sites,
+    base_id: Annotated[str | None, Query(examples=["LUA_POLO_SUL"])] = None,
+    ordenar: Annotated[Literal["padrao", "nota", "custo_beneficio", "logistica"],
+                       Query()] = "padrao",
+    limit: LimitQuery = None,
+    offset: OffsetQuery = 0,
 ) -> LocalListResponse:
-    return repository.list_sites(
-        destaque=destaque, pais=pais,
-        limit=min(limit or settings.default_limit, settings.max_limit), offset=offset,
-    )
+    return repository.list_sites(filters, base_id=base_id, ordenar=ordenar,
+                                 limit=_limit(limit, settings), offset=offset)
 
 
 @router.get(
@@ -173,7 +275,7 @@ def get_site(
     summary="Detalhe de um par com a série mensal da nota",
     description=(
         "Inclui a nota geral nos meses observados e nos meses previstos pelo modelo "
-        "LightGBM (`origem = prevista`)."
+        "LightGBM (`origem = prevista`) e as rotas de apoio do local."
     ),
     responses=error_responses(404, 500),
 )
@@ -182,3 +284,20 @@ def get_pair(
     par_id: Annotated[str, Path(examples=["MARTE_JEZERO__T042068"])],
 ) -> ParDetalhe:
     return repository.get_pair(par_id)
+
+
+@router.get(
+    "/apoios",
+    response_model=ApoioListResponse,
+    summary="Bases de apoio da NASA e parceiros",
+    description="Catálogo usado na logística (sem a geometria WKB), para marcar no globo.",
+    responses=error_responses(400, 404, 500),
+)
+def list_support(
+    repository: Repository,
+    eua: Annotated[bool | None, Query(description="Só instalações nos EUA.")] = None,
+    usado: Annotated[bool | None, Query(
+        description="Só as bases usadas no cálculo (sem vínculo restrito ou oceano).")] = None,
+    categoria: Annotated[str | None, Query(examples=["Centro de campo NASA"])] = None,
+) -> ApoioListResponse:
+    return repository.list_support(eua=eua, usado=usado, categoria=categoria)

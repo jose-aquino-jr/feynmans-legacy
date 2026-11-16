@@ -108,6 +108,8 @@ Endpoints principais:
 | GET | `/api/v1/analogos/pares/{par_id}` | par completo com a nota mensal observada e prevista |
 | GET | `/api/v1/analogos/nichos` | nichos de comparação e nomes legíveis |
 | GET | `/api/v1/analogos/custo-beneficio` | melhores análogos por nota × logística (EUA, apoio, rotas) |
+| GET | `/api/v1/analogos/pares` | busca com filtros por foco, utilidade, logística, região e clima |
+| GET | `/api/v1/analogos/filtros` | valores aceitos pelos filtros (para os seletores do front) |
 | GET | `/api/v1/analogos/apoios` | bases de apoio da NASA e parceiros |
 
 Os análogos são gerados por `make analogos` (ou `python scripts/gerar_analogos.py`)

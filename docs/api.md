@@ -481,6 +481,79 @@ Cada item de `/custo-beneficio` traz `local` (com `nota_logistica`,
 As distâncias são em linha reta (grande círculo), não por estrada; servem para
 comparar locais e desenhar os arcos no 3D.
 
+### Filtros por foco, utilidade e logística
+
+`GET /api/v1/analogos/pares` é a busca geral. `/custo-beneficio` é a mesma busca
+com `apenas_top=true`, e `/bases/{base_id}` aceita os mesmos filtros (com
+`ordenar=foco` para usar a `nota_foco`). Os valores aceitos estão em
+`GET /api/v1/analogos/filtros`, pronto para montar os seletores do front.
+
+**Foco** — define o peso da logística na `nota_foco` (média geométrica ponderada):
+
+| `foco` | Peso da logística | Para quê |
+|--------|-------------------|----------|
+| `ciencia` | 0 | o análogo mais parecido, onde quer que esteja |
+| `equilibrado` (padrão) | 0,5 | custo-benefício |
+| `logistica` | 1 | o mais fácil de operar (EUA, apoio, rotas) |
+
+`peso_logistica` (0–1) sobrepõe o foco, ex.: `peso_logistica=0.3`.
+
+**Utilidade** — troca a nota geral pela média dos nichos da campanha
+(`nota_utilidade`):
+
+| `utilidade` | Nichos |
+|-------------|--------|
+| `habitat` | térmico, iluminação, operações, subsuperfície, terreno |
+| `mobilidade` | terreno, superfície e poeira, operações, processos |
+| `geologia` | geologia, superfície e poeira, terreno |
+| `agua_recursos` | água e gelo, subsuperfície, água e aridez |
+| `astrobiologia` | biologia, água e aridez, superfície e poeira, geologia |
+| `clima_extremo` | térmico, iluminação, processos, atmosfera |
+| `tubos_lava` | subsuperfície, geologia, terreno |
+
+Nichos que não existem no perfil do corpo (ex.: `processos` na Lua) são ignorados.
+
+**Recortes:**
+
+| Parâmetro | Descrição |
+|-----------|-----------|
+| `corpo`, `base_id`, `tipo`, `destaque` | quem e por que entrou no ranking |
+| `forte_em`, `evitar_fraco_em` | nichos (repita ou separe por vírgula) |
+| `nota_minima`, `utilidade_minima`, `foco_minimo`, `logistica_minima` | notas mínimas (0–100) |
+| `eua` | `true` só EUA, `false` só fora dos EUA |
+| `pais` | país do local |
+| `max_distancia_eua_km`, `max_distancia_apoio_km`, `min_apoios` | logística |
+| `apoio_categoria`, `apoio_vinculo` | exige rota para esse tipo de base (ex.: `lançamento`, `Espaço Profundo`, `Nativa NASA`) |
+| `lat_min`, `lat_max`, `lon_min`, `lon_max` | recorte do globo |
+| `temperatura_min`, `temperatura_max` | clima médio do local (°C) |
+| `limit`, `offset` | paginação; `total` conta antes da paginação |
+
+Exemplos:
+
+```bash
+# Rover em Marte, equilibrando semelhança e logística
+curl -s "$BASE/api/v1/analogos/pares?utilidade=mobilidade&corpo=marte"
+
+# Água/ISRU, só ciência, fora dos EUA
+curl -s "$BASE/api/v1/analogos/pares?utilidade=agua_recursos&foco=ciencia&eua=false"
+
+# Perto (<500 km) de uma antena de Espaço Profundo
+curl -s "$BASE/api/v1/analogos/pares?apoio_categoria=Espa%C3%A7o%20Profundo&max_distancia_apoio_km=500"
+
+# Forte em geologia sem ser fraco no clima, para Gale
+curl -s "$BASE/api/v1/analogos/bases/MARTE_GALE?forte_em=geologia&evitar_fraco_em=termico&ordenar=foco"
+
+# Locais terrestres fora dos EUA com melhor logística
+curl -s "$BASE/api/v1/analogos/locais?eua=false&ordenar=logistica"
+```
+
+`/locais` aceita os recortes de local (`destaque`, `eua`, `pais`, logística,
+apoio, região e temperatura), `base_id` para limitar aos locais de uma base e
+`ordenar=padrao|nota|custo_beneficio|logistica`.
+
+Filtros inválidos respondem `400` (`invalid_range`, `invalid_nicho` ou
+`invalid_parameter`).
+
 ### Outras rotas
 
 ```bash

@@ -6,6 +6,7 @@ import logging
 from pathlib import Path
 from typing import Any
 
+import numpy as np
 import pandas as pd
 
 from app.config import Settings
@@ -16,6 +17,8 @@ from app.schemas.analogos import (
     BaseEspacial,
     BaseListResponse,
     CustoBeneficioResponse,
+    FiltrosResponse,
+    FocoInfo,
     LocalDetalhe,
     LocalListResponse,
     LocalTerra,
@@ -28,6 +31,18 @@ from app.schemas.analogos import (
     ParDetalhe,
     PontoSerie,
     Rota,
+    UtilidadeInfo,
+)
+from app.services.analog_filters import (
+    FOCOS,
+    TIPOS,
+    UTILIDADES,
+    PairFilters,
+    SiteFilters,
+    focus_score,
+    pair_mask,
+    site_mask,
+    utility_scores,
 )
 from app.services.cache import BoundedCache
 from app.services.dataframe import frame_to_records
@@ -36,6 +51,8 @@ from app.services.errors import ApiError
 logger = logging.getLogger("feynmans_legacy.api.analogos")
 
 ANALOG_DIR = "analogos"
+SITE_ORDER = {"nota": "melhor_nota", "custo_beneficio": "melhor_custo_beneficio",
+              "logistica": "nota_logistica"}
 LIST_COLUMNS = ("nichos_destaque", "pontos_fortes", "pontos_fracos")
 NICHE_LABELS = {
     "termico": "Térmico",
@@ -152,55 +169,130 @@ class AnalogRepository:
         items = [base for base in self._bases().values() if corpo in (None, base.corpo)]
         return BaseListResponse(items=items, total=len(items))
 
-    def get_base(
+    # ------------------------------------------------------------------- busca
+    def _known_niches(self) -> set[str]:
+        return set(self._table("pares_nichos")["nicho"].astype(str))
+
+    def _search(
         self,
-        base_id: str,
+        filters: PairFilters,
         *,
-        tipo: str | None,
-        destaque: bool | None,
-        forte_em: str | None,
-        nota_minima: float | None,
-        limit: int,
-        ordenar: str = "nota",
+        corpo: str | None = None,
+        base_id: str | None = None,
+        apenas_top: bool = False,
+    ) -> pd.DataFrame:
+        """Pairs joined with ``local_*`` site columns, scored and filtered."""
+        filters.validate(self._known_niches())
+        if base_id is not None and base_id not in self._bases():
+            raise ApiError(404, "base_not_found", f"A base '{base_id}' não existe.",
+                           {"base_id": base_id})
+        frame = self._table("pares")
+        if corpo is not None:
+            frame = frame[frame["corpo"] == corpo]
+        if base_id is not None:
+            frame = frame[frame["base_id"] == base_id]
+        if apenas_top:
+            if "top_custo_beneficio" not in frame.columns:
+                raise ApiError(404, "cost_benefit_not_generated",
+                               "Os análogos foram gerados sem o catálogo de bases de apoio.",
+                               {"arquivo": "data/terra/apoio/nasa_bases_suporte.parquet"})
+            frame = frame[frame["top_custo_beneficio"].astype(bool)]
+        sites = self._table("locais")
+        renamed = {column: f"local_{column}" for column in sites.columns
+                   if column != "location_id"}
+        view = frame.merge(sites.rename(columns=renamed), on="location_id", how="left")
+        if filters.utilidade is not None:
+            view["nota_utilidade"] = view["par_id"].map(
+                utility_scores(self._table("pares_nichos"), filters.utilidade))
+            science = view["nota_utilidade"]
+        else:
+            view["nota_utilidade"] = np.nan
+            science = view["nota_geral"]
+        logistics = (view["nota_logistica"] if "nota_logistica" in view.columns
+                     else pd.Series(np.nan, index=view.index))
+        view["nota_foco"] = focus_score(science, logistics, filters.logistics_weight)
+        return view[pair_mask(view, filters, self._optional_table("rotas"))]
+
+    @staticmethod
+    def _order(view: pd.DataFrame, ordenar: str) -> pd.DataFrame:
+        column = {"nota": "rank_base", "custo_beneficio": "custo_beneficio",
+                  "foco": "nota_foco"}[ordenar]
+        if column not in view.columns:
+            column = "nota_foco"
+        ascending = column == "rank_base"
+        return view.sort_values([column, "par_id"], ascending=[ascending, True],
+                                na_position="last")
+
+    def _pair_rows(self, view: pd.DataFrame) -> list[Par]:
+        return self._pairs(view[[column for column in view.columns
+                                 if not column.startswith("local_")]])
+
+    def get_base(
+        self, base_id: str, filters: PairFilters, *, ordenar: str, limit: int, offset: int
     ) -> BaseDetalhe:
         base = self._bases().get(base_id)
         if base is None:
             raise ApiError(404, "base_not_found", f"A base '{base_id}' não existe.",
                            {"base_id": base_id})
-        frame = self._table("pares")
-        frame = frame[frame["base_id"] == base_id]
-        if tipo is not None:
-            frame = frame[frame["tipo"] == tipo]
-        if destaque is not None:
-            frame = frame[frame["destaque"] == destaque]
-        if nota_minima is not None:
-            frame = frame[frame["nota_geral"] >= nota_minima]
-        if forte_em is not None:
-            strong = frame["pontos_fortes"].map(_split).map(lambda items: forte_em in items)
-            chosen = frame["nichos_destaque"].map(_split).map(lambda items: forte_em in items)
-            frame = frame[strong | chosen]
-        if ordenar == "custo_beneficio" and "custo_beneficio" in frame.columns:
-            frame = frame.sort_values("custo_beneficio", ascending=False, na_position="last")
-        else:
-            frame = frame.sort_values("rank_base")
+        view = self._order(self._search(filters, base_id=base_id), ordenar)
         sites = self._sites()
-        pairs = [
-            ParComLocal(**pair.model_dump(), local=sites[pair.location_id])
-            for pair in self._pairs(frame.head(limit))
+        pairs = [ParComLocal(**pair.model_dump(), local=sites[pair.location_id])
+                 for pair in self._pair_rows(view.iloc[offset: offset + limit])]
+        return BaseDetalhe(base=base, pares=pairs, total=len(view))
+
+    def list_pairs(
+        self,
+        filters: PairFilters,
+        *,
+        corpo: str | None,
+        base_id: str | None,
+        apenas_top: bool,
+        limit: int,
+        offset: int,
+    ) -> CustoBeneficioResponse:
+        view = self._search(filters, corpo=corpo, base_id=base_id, apenas_top=apenas_top)
+        # A pair without nota_foco (no score or no logistics) cannot be ranked.
+        view = self._order(view.dropna(subset=["nota_foco"]), "foco")
+        page = self._pair_rows(view.iloc[offset: offset + limit])
+        sites, bases = self._sites(), self._bases()
+        routes = self._routes([pair.location_id for pair in page])
+        items = [
+            ParCustoBeneficio(**pair.model_dump(), local=sites[pair.location_id],
+                              base=bases[pair.base_id],
+                              rotas=routes.get(pair.location_id, []))
+            for pair in page
         ]
-        return BaseDetalhe(base=base, pares=pairs, total=len(frame))
+        return CustoBeneficioResponse(
+            items=items, total=len(view), limit=limit, offset=offset, foco=filters.foco,
+            peso_logistica=filters.logistics_weight, utilidade=filters.utilidade)
 
     # ------------------------------------------------------------------ locais
     def list_sites(
-        self, *, destaque: bool | None, pais: str | None, limit: int, offset: int
+        self,
+        filters: SiteFilters,
+        *,
+        base_id: str | None,
+        ordenar: str,
+        limit: int,
+        offset: int,
     ) -> LocalListResponse:
-        items = [
-            site for site in self._sites().values()
-            if destaque in (None, site.destaque)
-            and (pais is None or (site.pais or "").casefold() == pais.casefold())
-        ]
-        return LocalListResponse(items=items[offset: offset + limit], total=len(items),
-                                 limit=limit, offset=offset)
+        filters.validate()
+        frame = self._table("locais")
+        if base_id is not None:
+            if base_id not in self._bases():
+                raise ApiError(404, "base_not_found", f"A base '{base_id}' não existe.",
+                               {"base_id": base_id})
+            pairs = self._table("pares")
+            related = set(pairs.loc[pairs["base_id"] == base_id, "location_id"])
+            frame = frame[frame["location_id"].isin(related)]
+        frame = frame[site_mask(frame, filters, self._optional_table("rotas"))]
+        column = SITE_ORDER.get(ordenar)
+        if column is not None and column in frame.columns:
+            frame = frame.sort_values([column, "location_id"], ascending=[False, True],
+                                      na_position="last")
+        page = frame.iloc[offset: offset + limit]
+        items = [LocalTerra.model_validate(record) for record in frame_to_records(page)]
+        return LocalListResponse(items=items, total=len(frame), limit=limit, offset=offset)
 
     def get_site(self, location_id: str) -> LocalDetalhe:
         site = self._sites().get(location_id)
@@ -217,36 +309,26 @@ class AnalogRepository:
         return LocalDetalhe(local=site, pares=pairs,
                             rotas=self._routes([location_id]).get(location_id, []))
 
-    # ---------------------------------------------------------- custo-benefício
-    def list_cost_benefit(
-        self, *, corpo: str | None, base_id: str | None, apenas_top: bool, limit: int
-    ) -> CustoBeneficioResponse:
-        frame = self._table("pares")
-        if "custo_beneficio" not in frame.columns:
-            raise ApiError(404, "cost_benefit_not_generated",
-                           "Os análogos foram gerados sem o catálogo de bases de apoio.",
-                           {"arquivo": "data/terra/apoio/nasa_bases_suporte.parquet"})
-        if base_id is not None and base_id not in self._bases():
-            raise ApiError(404, "base_not_found", f"A base '{base_id}' não existe.",
-                           {"base_id": base_id})
-        frame = frame.dropna(subset=["custo_beneficio"])
-        if corpo is not None:
-            frame = frame[frame["corpo"] == corpo]
-        if base_id is not None:
-            frame = frame[frame["base_id"] == base_id]
-        if apenas_top:
-            frame = frame[frame["top_custo_beneficio"].astype(bool)]
-        frame = frame.sort_values(["custo_beneficio", "par_id"], ascending=[False, True])
-        page = self._pairs(frame.head(limit))
-        sites, bases = self._sites(), self._bases()
-        routes = self._routes([pair.location_id for pair in page])
-        items = [
-            ParCustoBeneficio(**pair.model_dump(), local=sites[pair.location_id],
-                              base=bases[pair.base_id],
-                              rotas=routes.get(pair.location_id, []))
-            for pair in page
-        ]
-        return CustoBeneficioResponse(items=items, total=len(frame))
+    # ------------------------------------------------------------------ opções
+    def filter_options(self) -> FiltrosResponse:
+        sites = self._table("locais")
+        routes = self._optional_table("rotas")
+        support = self._optional_table("apoios")
+        catalog = support if support is not None else routes
+        return FiltrosResponse(
+            focos=[FocoInfo(foco=key, nome=item.nome, peso_logistica=item.peso_logistica,
+                            descricao=item.descricao) for key, item in FOCOS.items()],
+            utilidades=[UtilidadeInfo(utilidade=key, nome=item.nome,
+                                      descricao=item.descricao, nichos=list(item.nichos))
+                        for key, item in UTILIDADES.items()],
+            nichos=self.list_niches().items,
+            tipos=list(TIPOS),
+            paises=sorted(sites["pais"].dropna().astype(str).unique()),
+            categorias_apoio=(sorted(catalog["categoria"].dropna().astype(str).unique())
+                              if catalog is not None else []),
+            vinculos_apoio=(sorted(catalog["vinculo"].dropna().astype(str).unique())
+                            if catalog is not None else []),
+        )
 
     def list_support(
         self, *, eua: bool | None, usado: bool | None, categoria: str | None
