@@ -1,20 +1,214 @@
-<a routerLink="/" class="back">← Voltar</a>
+<div class="pointer-events-none absolute -bottom-[42vh] -left-[62vw] h-[90vh] w-[90vw] rounded-full bg-[radial-gradient(closest-side,#DE7D2880,#DE7D2800)] blur-[40px]"></div>
 
-<div class="controls">
-  <div class="group">
-    <span class="group-label">Comparar com</span>
-    <button [class.active]="body === 'mars'" (click)="setBody('mars')">Marte</button>
-    <button [class.active]="body === 'moon'" (click)="setBody('moon')">Lua</button>
+<header class="absolute inset-x-0 top-0 z-30 flex items-start justify-between px-[37px] pt-5">
+  <a routerLink="/" aria-label="Feynman's Legacy">
+    <img src="/images/logo.svg" alt="Feynman's Legacy" class="block h-16 w-auto" />
+  </a>
+  <nav class="mr-[calc(var(--panel-w)*0.45)] flex gap-12 pt-1 max-md:mr-0 max-md:gap-5">
+    @for (item of navItems; track item.label) {
+      <a
+        [routerLink]="item.link"
+        [fragment]="item.fragment"
+        class="text-[11px] tracking-[.12em] text-cream no-underline"
+        [class]="item.label === 'MAP' ? 'font-semibold opacity-100' : 'font-normal opacity-75'"
+      >{{ item.label }}</a>
+    }
+  </nav>
+</header>
+
+<main
+  class="absolute bottom-0 left-0 top-0 z-[5] flex flex-col pb-10 pl-[52px] pt-[92px] transition-[right] duration-500 ease-out max-md:relative max-md:right-auto max-md:h-screen max-md:px-5 max-md:pb-8"
+  [class]="panelOpen ? 'right-[calc(var(--panel-w)_+_80px)]' : 'right-12'"
+>
+  <div class="relative min-h-0 flex-1">
+    <canvas #scene class="absolute left-0 top-0 block h-full w-[calc(100vw_-_52px)] cursor-grab touch-none active:cursor-grabbing max-md:w-[calc(100vw_-_20px)]"></canvas>
+
+    <p class="pointer-events-none absolute bottom-0 left-0 max-w-[240px] select-none text-[8px] font-light leading-[1.4] tracking-[.08em] opacity-60">
+      @if (view === 'both') {
+        *Double-click a body to focus on it.
+      } @else {
+        *Double-click the body to recenter it, or double-click outside it to unfocus.
+      }
+    </p>
   </div>
-  <div class="group">
-    <button [class.active]="view === 'both'" (click)="setView('both')">Ambos</button>
-    <button [class.active]="view === 'earth'" (click)="setView('earth')">Terra</button>
-    <button [class.active]="view === 'other'" (click)="setView('other')">{{ cfg[body].label }}</button>
-    <button (click)="align()">Centralizar</button>
+
+  <section class="mt-3 pt-14">
+    <div class="relative mx-1.5 h-2.5">
+      <div class="absolute inset-x-0 top-1/2 h-px bg-cream/25"></div>
+      @for (t of timeline; track t.year; let i = $index) {
+        <button
+          type="button"
+          class="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer rounded-full p-0 transition-colors"
+          [class]="i === activeYear ? 'size-[11px] bg-cream' : 'size-[9px] bg-cream/35 hover:bg-cream'"
+          [style.left.%]="(i / (timeline.length - 1)) * 100"
+          [attr.aria-label]="t.year"
+          (click)="activeYear = i"
+        >
+          @if (i === activeYear) {
+            <span
+              class="pointer-events-none absolute bottom-full mb-[3px] flex h-[50px] items-start gap-1.5 text-cream"
+              [class]="i >= timeline.length - 5 ? 'right-1/2 -mr-px flex-row-reverse text-right' : 'left-1/2 -ml-px text-left'"
+            >
+              <svg
+                class="h-[50px] w-5 shrink-0 overflow-visible"
+                [class]="i >= timeline.length - 5 ? '-scale-x-100' : ''"
+                viewBox="0 0 20 50"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path d="M1 50 V17 Q1 6 12 6 H20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <span class="flex w-[130px] flex-col gap-1">
+                <b class="text-[11px] font-medium leading-3 tracking-[.12em]">{{ t.year }}</b>
+                <small class="text-[7px] font-light leading-[1.3] opacity-80">Lorem ipsum dolor sit amet, consectetur</small>
+              </span>
+            </span>
+          }
+        </button>
+      }
+    </div>
+    <div class="relative mt-[22px] flex items-center justify-center">
+      <p class="text-[11px] tracking-[.3em]">TIMELINE</p>
+
+      <div class="absolute right-1.5 flex items-center gap-1.5 text-[9px] tracking-[.15em]">
+        <span class="mr-1 opacity-90">YEAR</span>
+        <button
+          type="button"
+          class="grid size-[22px] cursor-pointer place-items-center rounded-lg text-cream/80 transition-colors hover:text-cream disabled:cursor-default disabled:opacity-30 disabled:hover:text-cream/80"
+          [disabled]="activeYear === 0"
+          (click)="stepYear(-1)"
+          aria-label="Ano anterior"
+        >
+          <svg viewBox="0 0 10 16" class="h-[11px] w-[7px]" aria-hidden="true">
+            <path d="M8 2L2 8l6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+        <input
+          #yearInput
+          type="number"
+          inputmode="numeric"
+          [min]="minYear"
+          [max]="maxYear"
+          step="1"
+          [value]="timeline[activeYear].year"
+          (change)="setYear(yearInput.value); yearInput.value = '' + timeline[activeYear].year"
+          (keydown.enter)="yearInput.blur()"
+          aria-label="Selecionar ano"
+          class="glass h-[22px] w-[64px] rounded-lg bg-transparent text-center text-[11px] tracking-[.1em] text-cream outline-none [appearance:textfield] focus-visible:border-cream/60 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+        />
+        <button
+          type="button"
+          class="grid size-[22px] cursor-pointer place-items-center rounded-lg text-cream/80 transition-colors hover:text-cream disabled:cursor-default disabled:opacity-30 disabled:hover:text-cream/80"
+          [disabled]="activeYear === timeline.length - 1"
+          (click)="stepYear(1)"
+          aria-label="Próximo ano"
+        >
+          <svg viewBox="0 0 10 16" class="h-[11px] w-[7px]" aria-hidden="true">
+            <path d="M2 2l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <div
+    class="glass relative mt-[22px] grid h-[29px] w-[240px] grid-cols-2 self-center rounded-[11px] p-0.5"
+    role="group"
+    aria-label="Comparar com"
+  >
+    <span
+      class="glass-active pointer-events-none absolute bottom-0.5 left-0.5 top-0.5 w-[calc(50%-2px)] rounded-[9px]"
+      [class]="body === 'mars' ? 'translate-x-full' : 'translate-x-0'"
+      aria-hidden="true"
+    ></span>
+    <button
+      type="button"
+      class="relative z-10 cursor-pointer text-[11px] tracking-[.15em] transition-opacity duration-300"
+      [class]="body === 'moon' ? 'opacity-100' : 'opacity-70'"
+      [attr.aria-pressed]="body === 'moon'"
+      (click)="setBody('moon')"
+    >MOON</button>
+    <button
+      type="button"
+      class="relative z-10 cursor-pointer text-[11px] tracking-[.15em] transition-opacity duration-300"
+      [class]="body === 'mars' ? 'opacity-100' : 'opacity-70'"
+      [attr.aria-pressed]="body === 'mars'"
+      (click)="setBody('mars')"
+    >MARS</button>
   </div>
-</div>
+</main>
 
-<canvas #scene></canvas>
+<aside
+  #panel
+  class="absolute right-10 top-[var(--panel-top)] z-10 h-[min(778px,calc(100vh_-_var(--panel-top)_-_28px))] w-[calc(var(--panel-w)_+_14px)] transition-transform duration-[450ms] ease-[cubic-bezier(.4,0,.2,1)] max-md:relative max-md:right-auto max-md:top-auto max-md:mx-5 max-md:mb-10 max-md:h-[min(778px,80vh)] max-md:w-auto max-md:translate-x-0"
+  [class]="panelOpen ? '' : 'translate-x-[calc(100%_+_17px)]'"
+>
+  <div
+    #glassBody
+    class="absolute inset-0 rounded-[20px] bg-gradient-to-b from-white/[.08] to-ink/60 backdrop-blur-xl backdrop-brightness-110 backdrop-saturate-150"
+  ></div>
 
-<span #marsLabel class="label">{{ cfg[body].label }} · {{ cfg[body].target.name }} <small>(alvo)</small></span>
-<span #earthLabel class="label">Terra · {{ cfg[body].analog.name }} <small>(análogo)</small></span>
+  <svg class="pointer-events-none absolute inset-0 size-full overflow-visible" aria-hidden="true">
+    <defs>
+      <linearGradient id="panel-rim" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#FFFFFF" stop-opacity=".7" />
+        <stop offset=".28" stop-color="#FFFFFF" stop-opacity=".1" />
+        <stop offset=".62" stop-color="#FFFFFF" stop-opacity=".14" />
+        <stop offset=".82" stop-color="#FFFFFF" stop-opacity=".08" />
+        <stop offset="1" stop-color="#FFFFFF" stop-opacity=".45" />
+      </linearGradient>
+    </defs>
+    <path data-shape class="translate-y-3 fill-black/30 blur-2xl" />
+    <path data-shape fill="none" stroke="url(#panel-rim)" stroke-width="1.25" />
+  </svg>
+
+  <span class="pointer-events-none absolute left-[55%] top-0 h-px w-2/5 -translate-x-1/2 bg-gradient-to-r from-transparent via-white/80 to-transparent shadow-[0_0_8px_1px_rgb(255_255_255/0.25)]"></span>
+  <span class="pointer-events-none absolute bottom-0 left-[55%] h-px w-1/3 -translate-x-1/2 bg-gradient-to-r from-transparent via-white/50 to-transparent shadow-[0_0_8px_1px_rgb(255_255_255/0.15)]"></span>
+  <span class="pointer-events-none absolute right-0 top-1/2 h-1/4 w-px -translate-y-1/2 bg-gradient-to-b from-transparent via-white/50 to-transparent shadow-[0_0_8px_1px_rgb(255_255_255/0.15)]"></span>
+
+  <button
+    type="button"
+    class="absolute left-0 top-1/2 z-20 grid h-[120px] w-4 -translate-y-1/2 cursor-pointer place-items-center text-cream/80 transition-colors hover:text-cream max-md:hidden"
+    (click)="togglePanel()"
+    [attr.aria-label]="panelOpen ? 'Recolher painel' : 'Abrir painel'"
+  >
+    <svg viewBox="0 0 10 16" class="h-[11px] w-[7px] transition-transform duration-300" [class]="panelOpen ? '' : 'rotate-180'" aria-hidden="true">
+      <path d="M2 2l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  </button>
+
+  <div class="panel-scroll absolute inset-0 z-10 overflow-y-auto overscroll-contain rounded-[20px]">
+    <div class="relative flex min-h-full flex-col pb-7 pl-[54px] pr-10 pt-7 max-md:min-h-0 max-md:pl-6 max-md:pr-6">
+      <h2 class="text-center text-xs font-normal tracking-[.3em]">
+        SIMILARITY
+        <span class="ml-1 inline-grid size-[13px] place-items-center rounded-full border border-cream align-[1px] text-[8px] tracking-normal">i</span>
+      </h2>
+
+      <svg class="mt-2 block h-[clamp(190px,28vh,240px)] w-full flex-none" viewBox="0 0 240 200" role="img" aria-label="Similarity chart">
+        @for (ring of radar.rings; track $index) {
+          <polygon class="fill-none stroke-cream/20 stroke-[0.8]" [attr.points]="ring" />
+        }
+        @for (a of radar.axes; track $index) {
+          <line class="stroke-cream/20 stroke-[0.8]" x1="120" y1="100" [attr.x2]="a.x" [attr.y2]="a.y" />
+        }
+        <polygon class="fill-ember/40 stroke-cream stroke-[1.2] transition-all duration-500 [stroke-linejoin:round]" [attr.points]="radar.data" />
+        @for (l of radar.labels; track l.text) {
+          <text class="fill-cream text-[7.5px] opacity-80" [attr.x]="l.x" [attr.y]="l.y" [attr.dy]="l.dy" [attr.text-anchor]="l.anchor">{{ l.text }}</text>
+        }
+      </svg>
+
+      <p class="mt-3 text-[8px] tracking-[.22em]">{{ info.eyebrow }}</p>
+      <h3 class="mt-0.5 text-[clamp(26px,2.5vw,36px)] font-extrabold leading-[1.1] tracking-[.02em]">{{ info.place }}</h3>
+      <p class="mt-3 text-[clamp(38px,3.4vw,48px)] font-bold leading-none">{{ info.pct }}%</p>
+      <p class="mt-1 text-[6px] tracking-[.15em] opacity-80">AVERAGE SIMILARITY</p>
+      <p class="mt-3 text-justify text-[10px] font-light leading-[1.55]">{{ info.desc }}</p>
+
+      @for (section of info.sections; track section.title) {
+        <section class="mt-5 border-t border-cream/15 pt-3">
+          <h3 class="text-[8px] font-medium tracking-[.18em]">{{ section.title }}</h3>
+          <p class="mt-2 text-justify text-[10px] font-light leading-[1.55] opacity-85">{{ section.body }}</p>
+        </section>
+      }
+    </div>
+  </div>
+</aside>
