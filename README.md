@@ -107,6 +107,8 @@ Endpoints principais:
 | GET | `/api/v1/analogos/locais/{location_id}` | bases relacionadas a um local terrestre |
 | GET | `/api/v1/analogos/pares/{par_id}` | par completo com a nota mensal observada e prevista |
 | GET | `/api/v1/analogos/nichos` | nichos de comparação e nomes legíveis |
+| GET | `/api/v1/analogos/recomendacoes` | top K por base para um AAAAMM (observado, projeção recursiva ou sazonal; 202 enquanto calcula) |
+| GET | `/api/v1/analogos/recomendacoes/opcoes` | bases, nichos, meses e publicação |
 | GET | `/api/v1/analogos/custo-beneficio` | melhores análogos por nota × logística (EUA, apoio, rotas) |
 | GET | `/api/v1/analogos/pares` | busca com filtros por foco, utilidade, logística, região e clima |
 | GET | `/api/v1/analogos/filtros` | valores aceitos pelos filtros (para os seletores do front) |

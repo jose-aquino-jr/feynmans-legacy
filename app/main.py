@@ -18,11 +18,12 @@ from app.config import Settings, get_settings
 from app.errors import register_exception_handlers
 from app.logging_config import configure_logging
 from app.middleware import RequestContextMiddleware
-from app.routers import analogos, datasets, health, models
+from app.routers import analogos, datasets, health, models, recommendations
 from app.schemas.common import ErrorResponse
 from app.services.analogos import AnalogRepository
 from app.services.datasets import DatasetRepository
 from app.services.models import ModelRepository
+from app.services.recommendations import RecommendationService
 
 API_DESCRIPTION = """
 API **somente leitura** para consumo dos dados processados e artefatos de modelo
@@ -60,6 +61,13 @@ OPENAPI_TAGS = [
     {
         "name": "models",
         "description": "Metadados dos artefatos presentes em `models/`.",
+    },
+    {
+        "name": "recomendacoes",
+        "description": (
+            "Top K locais terrestres por base para um ano/mês: observado, projeção "
+            "LightGBM recursiva (202 enquanto calcula) ou cenário sazonal."
+        ),
     },
     {
         "name": "analogos",
@@ -140,6 +148,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     app.state.dataset_repository = DatasetRepository(active_settings)
     app.state.model_repository = ModelRepository(active_settings)
     app.state.analog_repository = AnalogRepository(active_settings)
+    app.state.recommendation_service = RecommendationService(active_settings)
 
     # O middleware adicionado por último fica mais externo: CORS por fora.
     app.add_middleware(RequestContextMiddleware)
@@ -156,6 +165,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     app.include_router(health.router)
     app.include_router(datasets.router, prefix=active_settings.api_v1_prefix)
     app.include_router(models.router, prefix=active_settings.api_v1_prefix)
+    app.include_router(recommendations.router, prefix=active_settings.api_v1_prefix)
     app.include_router(analogos.router, prefix=active_settings.api_v1_prefix)
 
     register_exception_handlers(app)
