@@ -37,6 +37,24 @@ class Settings(BaseSettings):
     data_dir: Path = PROJECT_ROOT / "data" / "tratados"
     models_dir: Path = PROJECT_ROOT / "models"
 
+    # Recomendações temporais (/analogos/recomendacoes). Caminhos da publicação.
+    recomendacoes_terra_path: Path = PROJECT_ROOT / "data" / "terra" / "terra.parquet"
+    recomendacoes_run_dir: Path = PROJECT_ROOT / "data" / "terra" / "analise_analogos"
+    recomendacoes_modelo_path: Path = (
+        PROJECT_ROOT / "data" / "terra" / "analise_analogos" / "modelos" / "previsao_mensal.pkl"
+    )
+    recomendacoes_cache_dir: Path = (
+        PROJECT_ROOT / "data" / "terra" / "analise_analogos" / "cache_projecoes"
+    )
+    recomendacoes_config_dir: Path = PROJECT_ROOT / "config"
+    recomendacoes_perfis_dir: Path = PROJECT_ROOT / "data"
+    recomendacoes_workers: int = Field(default=1, ge=1)
+    recomendacoes_fila_max: int = Field(default=8, ge=1)
+    recomendacoes_retry_segundos: int = Field(default=5, ge=1)
+    recomendacoes_anomes_max: int = Field(default=210012, ge=190001)
+    recomendacoes_k_max: int = Field(default=1_000, ge=1)
+    recomendacoes_lote_ids: int = Field(default=50_000, ge=1)
+
     default_limit: int = Field(default=100, ge=1)
     max_limit: int = Field(default=1_000, ge=1)
     max_fields: int = Field(default=100, ge=1)
@@ -54,7 +72,11 @@ class Settings(BaseSettings):
     log_level: str = "INFO"
     cache_max_entries: int = Field(default=32, ge=1)
 
-    @field_validator("data_dir", "models_dir", mode="before")
+    @field_validator(
+        "data_dir", "models_dir", "recomendacoes_terra_path", "recomendacoes_run_dir",
+        "recomendacoes_modelo_path", "recomendacoes_cache_dir", "recomendacoes_config_dir",
+        "recomendacoes_perfis_dir", mode="before",
+    )
     @classmethod
     def _resolve_path(cls, value: str | Path) -> Path:
         path = Path(value).expanduser()

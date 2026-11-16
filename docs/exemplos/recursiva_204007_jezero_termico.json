@@ -1,0 +1,298 @@
+{
+ "anomes": 204007,
+ "nicho": "termico",
+ "origem": "extrapolada",
+ "estrategia": "recursiva",
+ "horizonte_meses": 167,
+ "mes_base_cenario": null,
+ "anomes_cluster": 202608,
+ "rotulo": "Projeção exploratória",
+ "metodos": {
+  "agua_gelo__precipitacao_mm_dia": "lightgbm_h3",
+  "agua_gelo__umidade_solo_raiz_m3m3": "lightgbm_h3",
+  "biologia__ndvi": "lightgbm_h3",
+  "geologia_superficie__albedo": "lightgbm_h3",
+  "iluminacao_radiacao__radiacao_solar_superficie_wm2": "lightgbm_h3",
+  "poeira_vento_processos__poeira_superficie_ugm3": "lightgbm_h3",
+  "poeira_vento_processos__vento_superficie_ms": "lightgbm_h3",
+  "temperatura__ar_2m_c": "lightgbm_h3",
+  "temperatura__lst_amplitude_dia_noite_c": "lightgbm_h3"
+ },
+ "cobertura_minima": 0.7,
+ "k": 10,
+ "offset": 0,
+ "publicacao": {
+  "corte": 202608,
+  "horizontes_diretos": {
+   "agua_gelo__precipitacao_mm_dia": [
+    1,
+    2,
+    3
+   ],
+   "agua_gelo__umidade_solo_raiz_m3m3": [
+    1,
+    2,
+    3
+   ],
+   "biologia__ndvi": [
+    3
+   ],
+   "geologia_superficie__albedo": [
+    1,
+    2,
+    3
+   ],
+   "iluminacao_radiacao__radiacao_solar_superficie_wm2": [
+    1,
+    2,
+    3
+   ],
+   "poeira_vento_processos__poeira_superficie_ugm3": [
+    1,
+    2,
+    3
+   ],
+   "poeira_vento_processos__vento_superficie_ms": [
+    1,
+    2,
+    3
+   ],
+   "temperatura__ar_2m_c": [
+    1,
+    2,
+    3
+   ],
+   "temperatura__lst_amplitude_dia_noite_c": [
+    1,
+    2,
+    3
+   ]
+  },
+  "estrategias": [
+   "recursiva",
+   "auto",
+   "sazonal"
+  ],
+  "estrategia_padrao_futuro": "recursiva",
+  "algoritmo": "recursiva-v1/esquema-1",
+  "modelo_sha256": "65e00b95a80907ae17250fab3c2c5dda97f52ebb33c2e167d0964105524ff1a1",
+  "historico_sha256": "ef835093e6a4ead97d6265ea7c886a667258b85a2d4cc63350fd1b9c52d012bd",
+  "trajetoria": "3b129746a79a284e3c5235ed"
+ },
+ "resultados": [
+  {
+   "base_id": "MARTE_JEZERO",
+   "corpo": "marte",
+   "nome": "Cratera Jezero",
+   "latitude": 18.38,
+   "longitude": 77.58,
+   "status": "ok",
+   "criterios": [
+    {
+     "variavel": "temperatura__ar_2m_c",
+     "nome": "temperatura média do ar",
+     "unidade": "°C",
+     "alvo": -55.0,
+     "tolerancia": 84.46666717529297,
+     "peso": 1.0,
+     "tipo_alvo": "real",
+     "fonte": "Perseverance/MEDA, primeiros 250 sóis (Rodriguez-Manfredi et al. 2023, Nature Geoscience 16)"
+    },
+    {
+     "variavel": "temperatura__lst_amplitude_dia_noite_c",
+     "nome": "diferença de temperatura dia-noite",
+     "unidade": "°C",
+     "alvo": 80.0,
+     "tolerancia": 80.59999996423721,
+     "peso": 1.0,
+     "tipo_alvo": "real",
+     "fonte": "Valor de Gale (REMS) aplicado a outra cratera de baixa latitude"
+    }
+   ],
+   "criterios_ausentes": [],
+   "total_elegiveis": 82732,
+   "candidatos": [
+    {
+     "posicao": 1,
+     "location_id": "T038118",
+     "latitude": 28.25,
+     "longitude": 87.75,
+     "nota": 50.4193195104599,
+     "cobertura": 1.0,
+     "cluster": 1,
+     "valores": {
+      "temperatura__ar_2m_c": -52.473358154296875,
+      "temperatura__lst_amplitude_dia_noite_c": 2.4869256019592285
+     },
+     "notas_criterios": {
+      "temperatura__ar_2m_c": 97.00871276855469,
+      "temperatura__lst_amplitude_dia_noite_c": 3.8299262523651123
+     },
+     "criterios_sem_dado": []
+    },
+    {
+     "posicao": 2,
+     "location_id": "T021778",
+     "latitude": 51.75,
+     "longitude": -96.25,
+     "nota": 50.25818991661072,
+     "cobertura": 1.0,
+     "cluster": 2,
+     "valores": {
+      "temperatura__ar_2m_c": -54.997562408447266,
+      "temperatura__lst_amplitude_dia_noite_c": -0.1814703345298767
+     },
+     "notas_criterios": {
+      "temperatura__ar_2m_c": 99.99711608886719,
+      "temperatura__lst_amplitude_dia_noite_c": 0.519263744354248
+     },
+     "criterios_sem_dado": []
+    },
+    {
+     "posicao": 3,
+     "location_id": "T021779",
+     "latitude": 51.75,
+     "longitude": -95.75,
+     "nota": 50.25818991661072,
+     "cobertura": 1.0,
+     "cluster": 2,
+     "valores": {
+      "temperatura__ar_2m_c": -54.997562408447266,
+      "temperatura__lst_amplitude_dia_noite_c": -0.1814703345298767
+     },
+     "notas_criterios": {
+      "temperatura__ar_2m_c": 99.99711608886719,
+      "temperatura__lst_amplitude_dia_noite_c": 0.519263744354248
+     },
+     "criterios_sem_dado": []
+    },
+    {
+     "posicao": 4,
+     "location_id": "T021780",
+     "latitude": 51.75,
+     "longitude": -95.25,
+     "nota": 50.25818991661072,
+     "cobertura": 1.0,
+     "cluster": 1,
+     "valores": {
+      "temperatura__ar_2m_c": -54.997562408447266,
+      "temperatura__lst_amplitude_dia_noite_c": -0.1814703345298767
+     },
+     "notas_criterios": {
+      "temperatura__ar_2m_c": 99.99711608886719,
+      "temperatura__lst_amplitude_dia_noite_c": 0.519263744354248
+     },
+     "criterios_sem_dado": []
+    },
+    {
+     "posicao": 5,
+     "location_id": "T021781",
+     "latitude": 51.75,
+     "longitude": -94.75,
+     "nota": 50.25818991661072,
+     "cobertura": 1.0,
+     "cluster": 2,
+     "valores": {
+      "temperatura__ar_2m_c": -54.997562408447266,
+      "temperatura__lst_amplitude_dia_noite_c": -0.1814703345298767
+     },
+     "notas_criterios": {
+      "temperatura__ar_2m_c": 99.99711608886719,
+      "temperatura__lst_amplitude_dia_noite_c": 0.519263744354248
+     },
+     "criterios_sem_dado": []
+    },
+    {
+     "posicao": 6,
+     "location_id": "T008032",
+     "latitude": 66.75,
+     "longitude": -131.25,
+     "nota": 50.25382208824158,
+     "cobertura": 1.0,
+     "cluster": 1,
+     "valores": {
+      "temperatura__ar_2m_c": -55.00981140136719,
+      "temperatura__lst_amplitude_dia_noite_c": -0.1814703345298767
+     },
+     "notas_criterios": {
+      "temperatura__ar_2m_c": 99.9883804321289,
+      "temperatura__lst_amplitude_dia_noite_c": 0.519263744354248
+     },
+     "criterios_sem_dado": []
+    },
+    {
+     "posicao": 7,
+     "location_id": "T028803",
+     "latitude": 43.25,
+     "longitude": 110.25,
+     "nota": 50.251278042793274,
+     "cobertura": 1.0,
+     "cluster": 1,
+     "valores": {
+      "temperatura__ar_2m_c": -55.01118469238281,
+      "temperatura__lst_amplitude_dia_noite_c": -0.18426695466041565
+     },
+     "notas_criterios": {
+      "temperatura__ar_2m_c": 99.98675537109375,
+      "temperatura__lst_amplitude_dia_noite_c": 0.5158007144927979
+     },
+     "criterios_sem_dado": []
+    },
+    {
+     "posicao": 8,
+     "location_id": "T011853",
+     "latitude": 63.25,
+     "longitude": -133.75,
+     "nota": 50.24893927574158,
+     "cobertura": 1.0,
+     "cluster": 2,
+     "valores": {
+      "temperatura__ar_2m_c": -55.01806640625,
+      "temperatura__lst_amplitude_dia_noite_c": -0.1814703345298767
+     },
+     "notas_criterios": {
+      "temperatura__ar_2m_c": 99.9786148071289,
+      "temperatura__lst_amplitude_dia_noite_c": 0.519263744354248
+     },
+     "criterios_sem_dado": []
+    },
+    {
+     "posicao": 9,
+     "location_id": "T013894",
+     "latitude": 61.25,
+     "longitude": -126.75,
+     "nota": 50.24146628379822,
+     "cobertura": 1.0,
+     "cluster": 2,
+     "valores": {
+      "temperatura__ar_2m_c": -55.03069305419922,
+      "temperatura__lst_amplitude_dia_noite_c": -0.1814703345298767
+     },
+     "notas_criterios": {
+      "temperatura__ar_2m_c": 99.96366882324219,
+      "temperatura__lst_amplitude_dia_noite_c": 0.519263744354248
+     },
+     "criterios_sem_dado": []
+    },
+    {
+     "posicao": 10,
+     "location_id": "T016066",
+     "latitude": 58.75,
+     "longitude": -130.75,
+     "nota": 50.23520636558533,
+     "cobertura": 1.0,
+     "cluster": 1,
+     "valores": {
+      "temperatura__ar_2m_c": -54.958736419677734,
+      "temperatura__lst_amplitude_dia_noite_c": -0.1814703345298767
+     },
+     "notas_criterios": {
+      "temperatura__ar_2m_c": 99.9511489868164,
+      "temperatura__lst_amplitude_dia_noite_c": 0.519263744354248
+     },
+     "criterios_sem_dado": []
+    }
+   ]
+  }
+ ]
+}

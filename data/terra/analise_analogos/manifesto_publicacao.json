@@ -1,0 +1,134 @@
+{
+  "gerado_em": "2026-11-15T23:41:16-0300",
+  "corte": 202608,
+  "historico": {
+    "arquivo": "data\\terra\\terra.parquet",
+    "sha256": "ef835093e6a4ead97d6265ea7c886a667258b85a2d4cc63350fd1b9c52d012bd",
+    "linhas": 7886792,
+    "locais": 85726,
+    "meses": 92,
+    "primeiro_mes": 201901,
+    "ultimo_mes": 202608,
+    "chaves_duplicadas": 0,
+    "variaveis_dinamicas": [
+      "temperatura__ar_2m_c",
+      "temperatura__lst_dia_c",
+      "temperatura__lst_noite_c",
+      "iluminacao_radiacao__radiacao_solar_superficie_wm2",
+      "agua_gelo__precipitacao_mm_dia",
+      "agua_gelo__queda_neve_mm_dia",
+      "agua_gelo__umidade_solo_raiz_m3m3",
+      "agua_gelo__evaporacao_mm_dia",
+      "agua_gelo__vapor_agua_coluna_kg_m2",
+      "poeira_vento_processos__vento_superficie_ms",
+      "poeira_vento_processos__poeira_superficie_ugm3",
+      "poeira_vento_processos__deposicao_poeira_mg_m2_dia",
+      "poeira_vento_processos__aerossol_aod",
+      "geologia_superficie__albedo",
+      "biologia__ndvi",
+      "temperatura__lst_amplitude_dia_noite_c"
+    ]
+  },
+  "modelo": {
+    "arquivo": "data\\terra\\analise_analogos\\modelos\\previsao_mensal.pkl",
+    "sha256": "65e00b95a80907ae17250fab3c2c5dda97f52ebb33c2e167d0964105524ff1a1",
+    "features": [
+      "lag_0",
+      "lag_1",
+      "lag_2",
+      "lag_11",
+      "month_sin",
+      "month_cos"
+    ],
+    "lags": [
+      0,
+      1,
+      2,
+      11
+    ],
+    "horizontes": {
+      "agua_gelo__precipitacao_mm_dia": [
+        1,
+        2,
+        3
+      ],
+      "agua_gelo__umidade_solo_raiz_m3m3": [
+        1,
+        2,
+        3
+      ],
+      "biologia__ndvi": [
+        3
+      ],
+      "geologia_superficie__albedo": [
+        1,
+        2,
+        3
+      ],
+      "iluminacao_radiacao__radiacao_solar_superficie_wm2": [
+        1,
+        2,
+        3
+      ],
+      "poeira_vento_processos__poeira_superficie_ugm3": [
+        1,
+        2,
+        3
+      ],
+      "poeira_vento_processos__vento_superficie_ms": [
+        1,
+        2,
+        3
+      ],
+      "temperatura__ar_2m_c": [
+        1,
+        2,
+        3
+      ],
+      "temperatura__lst_amplitude_dia_noite_c": [
+        1,
+        2,
+        3
+      ]
+    },
+    "persistencia_explicita": []
+  },
+  "coordenadas": {
+    "locais": 85726
+  },
+  "bases": [
+    "LUA_POLO_SUL",
+    "LUA_MARE_TUBOS",
+    "MARTE_JEZERO",
+    "MARTE_GALE",
+    "MARTE_MERIDIANI",
+    "MARTE_GELO_MEDIAS_LAT",
+    "MARTE_THARSIS_TUBOS",
+    "MARTE_MEDUSAE_YARDANGS"
+  ],
+  "anomes_cluster": 202608,
+  "algoritmo": "recursiva-v1",
+  "esquema": 1,
+  "trajetoria": {
+    "chave": "3b129746a79a284e3c5235ed",
+    "pasta": "data\\terra\\analise_analogos\\cache_projecoes\\3b129746a79a284e3c5235ed",
+    "ultimo_mes_materializado": 204007
+  },
+  "versoes": {
+    "python": "3.13.15",
+    "lightgbm": "4.7.0",
+    "numpy": "2.5.4",
+    "pandas": "3.1.1",
+    "scikit-learn": "1.9.1",
+    "pyarrow": "26.0.1",
+    "fastapi": "0.163.1"
+  },
+  "medicoes": {
+    "carga_publicacao_s": 1.03,
+    "cpu": 12,
+    "destino": 204007,
+    "meses_reaproveitados": 1,
+    "meses_calculados": 166,
+    "projecao_s": 497.01
+  }
+}
