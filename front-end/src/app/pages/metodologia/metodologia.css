@@ -1,0 +1,28 @@
+:host {
+  background-color: var(--color-ink);
+  background-image:
+    radial-gradient(ellipse 80vw 78vh at -12vw 12vh, rgb(222 125 40 / 0.1), transparent 72%),
+    radial-gradient(ellipse 88vw 76vh at 102% 6vh, rgb(222 125 40 / 0.12), transparent 72%);
+  background-repeat: no-repeat;
+}
+
+.method-rise {
+  animation: method-rise 900ms cubic-bezier(0.22, 0.8, 0.3, 1) 150ms both;
+}
+
+@keyframes method-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .method-rise {
+    animation: none;
+  }
+}

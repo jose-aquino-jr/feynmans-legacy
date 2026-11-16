@@ -1,11 +1,11 @@
 import { Routes } from '@angular/router';
-import { Mapa } from './pages/mapa/mapa';
 import { Home } from './pages/home/home';
 
 export const routes: Routes = [
-  { path: 'mapa', component: Mapa },
-  { path: 'mapa', redirectTo: '' },
+  { path: '', component: Home, pathMatch: 'full' },
+  { path: 'mapa', loadComponent: () => import('./pages/mapa/mapa').then((m) => m.MapPage) },
+  { path: 'metodologia', loadComponent: () => import('./pages/metodologia/metodologia').then((m) => m.MethodologyPage) },
 
-  { path: 'home', component: Home },
-  { path: 'home', redirectTo: 'home' },
+  { path: 'home', redirectTo: '', pathMatch: 'full' },
+  { path: '**', redirectTo: '' },
 ];

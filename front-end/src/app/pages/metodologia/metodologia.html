@@ -1,0 +1,95 @@
+<header
+  class="fixed inset-x-0 top-0 z-30 flex items-start justify-between px-[37px] transition-[padding,background-color] duration-300"
+  [class]="scrolled() ? 'bg-gradient-to-b from-ink/90 via-ink/60 to-transparent py-3' : 'py-6'"
+>
+  <a routerLink="/" aria-label="Feynman's Legacy">
+    <img
+      src="/images/logo.svg"
+      alt="Feynman's Legacy"
+      class="block w-auto transition-[height] duration-300"
+      [class]="scrolled() ? 'h-14 md:h-16' : 'h-24 md:h-32'"
+    />
+  </a>
+  <nav class="flex items-center gap-12 max-md:gap-5">
+    @for (item of navItems; track item.label) {
+      <a
+        [routerLink]="item.link"
+        [fragment]="item.fragment"
+        class="text-[11px] tracking-[.12em] text-cream no-underline transition-opacity hover:opacity-70"
+        [class.font-semibold]="item.label === 'METHODOLOGY'"
+      >{{ item.label }}</a>
+    }
+  </nav>
+</header>
+
+<main class="relative">
+  <section class="relative flex min-h-[67vh] flex-col justify-end px-[37px] pb-16 pt-44 md:px-[clamp(37px,8vw,130px)]">
+    <div class="method-rise relative max-w-[850px]">
+      <p class="text-[8px] font-medium uppercase tracking-[.18em] text-cream/75">From open data to terrestrial analogues</p>
+      <h1 class="mt-3 font-display text-[clamp(34px,6vw,76px)] uppercase leading-[1.05] tracking-[.04em]">Methodology</h1>
+      <p class="mt-6 max-w-[680px] text-[clamp(11px,1.1vw,14px)] font-light leading-[1.8] text-cream/85">
+        Feynman's Legacy explores places on Earth that share selected environmental conditions with the Moon and Mars.
+        We bring several kinds of evidence together, make the criteria comparable, and use the results to guide exploration.
+      </p>
+    </div>
+  </section>
+
+  <section class="relative px-[37px] py-16 md:px-[clamp(37px,8vw,130px)] md:py-24">
+    <p class="text-[8px] font-medium uppercase tracking-[.12em]">A transparent comparison process</p>
+    <h2 class="mt-1 font-display text-[clamp(20px,1.8vw,26px)] font-normal">From source to analogue</h2>
+
+    <div class="mt-10 grid gap-5 md:grid-cols-3 md:gap-7">
+      @for (step of steps; track step.index) {
+        <article class="min-h-[230px] rounded-[18px] border border-cream/15 bg-gradient-to-b from-white/[.06] to-white/[.02] p-6 shadow-[inset_0_1px_0_rgb(255_255_255/0.1)] backdrop-blur-xl">
+          <span class="text-[8px] tracking-[.22em] text-cream/70">{{ step.index }}</span>
+          <h3 class="mt-5 text-[15px] font-semibold tracking-[.04em]">{{ step.title }}</h3>
+          <p class="mt-3 text-[10px] font-light leading-[1.65] text-cream/80">{{ step.description }}</p>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="relative px-[37px] py-12 md:px-[clamp(37px,8vw,130px)] md:py-20">
+    <div class="grid gap-10 md:grid-cols-[minmax(220px,.7fr)_minmax(0,1.3fr)] md:gap-16">
+      <div>
+        <p class="text-[8px] font-medium uppercase tracking-[.12em]">What we compare</p>
+        <h2 class="mt-1 font-display text-[clamp(20px,1.8vw,26px)] font-normal">Six dimensions</h2>
+        <p class="mt-5 max-w-[330px] text-[10px] font-light leading-[1.65] text-cream/75">
+          Each dimension describes a different part of the environment. Together they help explain why a region may be useful as an analogue.
+        </p>
+      </div>
+
+      <div class="grid gap-x-8 gap-y-0 sm:grid-cols-2">
+        @for (criterion of criteria; track criterion.name) {
+          <article class="border-b border-cream/15 py-5">
+            <h3 class="text-[11px] font-semibold tracking-[.08em]">{{ criterion.name }}</h3>
+            <p class="mt-2 text-[9px] font-light text-cream/70">{{ criterion.description }}</p>
+          </article>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="px-[37px] pb-24 pt-12 md:px-[clamp(37px,8vw,130px)] md:pb-32 md:pt-20">
+    <div class="rounded-[18px] border border-cream/15 bg-gradient-to-r from-[#DE7D2820] to-white/[.03] p-7 md:p-10">
+      <p class="text-[8px] font-medium uppercase tracking-[.12em]">How to read the result</p>
+      <h2 class="mt-2 font-display text-[clamp(20px,1.8vw,26px)] font-normal">A starting point for exploration</h2>
+      <p class="mt-4 max-w-[760px] text-[10px] font-light leading-[1.7] text-cream/80">
+        Similarity values summarize the criteria shown in the comparison panel. They help surface promising places, but should be read alongside the coverage and limitations of their source data; they are not a certification of mission readiness.
+      </p>
+      <a
+        routerLink="/mapa"
+        class="mt-7 inline-block rounded-[10px] border border-cream/25 px-6 py-3 text-[9px] tracking-[.18em] text-cream no-underline transition hover:bg-cream/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cream"
+      >EXPLORE THE MAP</a>
+    </div>
+  </section>
+</main>
+
+<footer class="bg-gradient-to-b from-ink to-[#2B1808] px-6 pb-10 pt-[clamp(40px,8vh,80px)]">
+  <div class="flex items-center justify-center gap-[clamp(28px,4vw,56px)]">
+    <img src="/images/nasa.svg" alt="NASA" class="block h-[34px] w-auto" />
+    <img src="/images/symbol.svg" alt="Feynman's Legacy" class="block h-[64px] w-auto" />
+    <img src="/images/space-apps.svg" alt="NASA Space Apps Challenge" class="block h-[34px] w-auto" />
+  </div>
+  <p class="mt-6 text-center text-[11px] tracking-[.15em]">BRASIL, 2026.</p>
+</footer>
