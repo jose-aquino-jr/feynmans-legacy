@@ -1,0 +1,303 @@
+<section aria-labelledby="titulo-recomendacoes" class="flex flex-col gap-3 text-cream">
+  <h2 id="titulo-recomendacoes" class="text-center text-xs font-normal tracking-[.3em]">
+    RECOMENDAÇÕES
+  </h2>
+
+  @if (erroOpcoes(); as erro) {
+    <p role="alert" class="text-[10px] text-ember">{{ erro }}</p>
+  } @else if (!opcoes()) {
+    <p class="text-[10px] opacity-80" aria-live="polite">Carregando bases, nichos e meses…</p>
+  } @else {
+    <form class="grid grid-cols-2 gap-x-3 gap-y-2 text-[10px]" (submit)="$event.preventDefault()">
+      <fieldset class="col-span-2 flex gap-2" aria-label="Corpo">
+        <legend class="sr-only">Corpo</legend>
+        @for (c of ['lua', 'marte']; track c) {
+          <button
+            type="button"
+            class="glass flex-1 rounded-lg py-1 tracking-[.15em]"
+            [class.opacity-100]="filtros().corpo === c"
+            [class.opacity-60]="filtros().corpo !== c"
+            [attr.aria-pressed]="filtros().corpo === c"
+            (click)="mudarCorpo($any(c))"
+          >
+            {{ c === 'lua' ? 'LUA' : 'MARTE' }}
+          </button>
+        }
+      </fieldset>
+
+      <label class="flex flex-col gap-1"
+        >Ano
+        <input
+          #ano
+          type="number"
+          class="glass rounded-lg bg-transparent px-2 py-1 text-cream"
+          [min]="anoMin()"
+          [max]="anoMax()"
+          [value]="ano_()"
+          (change)="mudarAno(ano.value)"
+        />
+      </label>
+      <label class="flex flex-col gap-1"
+        >Mês
+        <select
+          #mes
+          class="glass rounded-lg bg-ink px-2 py-1 text-cream"
+          (change)="mudarMes(mes.value)"
+        >
+          @for (nome of meses; track nome; let i = $index) {
+            <option [value]="i + 1" [selected]="mes_() === i + 1">{{ nome }}</option>
+          }
+        </select>
+      </label>
+
+      <label class="col-span-2 flex flex-col gap-1"
+        >Base
+        <select
+          #base
+          class="glass rounded-lg bg-ink px-2 py-1 text-cream"
+          (change)="mudarBase(base.value)"
+        >
+          <option value="" [selected]="!filtros().base_id">
+            Todas as bases ({{ filtros().corpo === 'lua' ? 'Lua' : 'Marte' }})
+          </option>
+          @for (b of basesDoCorpo(); track b.base_id) {
+            <option [value]="b.base_id" [selected]="filtros().base_id === b.base_id">
+              {{ b.nome }}
+            </option>
+          }
+        </select>
+      </label>
+
+      <label class="col-span-2 flex flex-col gap-1"
+        >Nicho
+        <select
+          #nicho
+          class="glass rounded-lg bg-ink px-2 py-1 text-cream"
+          (change)="mudarNicho(nicho.value)"
+          aria-describedby="ajuda-nicho"
+        >
+          @for (n of nichos(); track n) {
+            <option [value]="n" [selected]="filtros().nicho === n">{{ nomeNicho(n) }}</option>
+          }
+        </select>
+        <small id="ajuda-nicho" class="opacity-70"
+          >Todos combina todos os critérios da base; um nicho usa só os dele.</small
+        >
+      </label>
+      @if (avisoNicho(); as aviso) {
+        <p class="col-span-2 text-[9px] text-ember" role="status">{{ aviso }}</p>
+      }
+
+      <label class="flex flex-col gap-1"
+        >K por base
+        <input
+          #k
+          type="number"
+          min="1"
+          max="50"
+          class="glass rounded-lg bg-transparent px-2 py-1 text-cream"
+          [value]="filtros().k"
+          (change)="mudarK(k.value)"
+        />
+      </label>
+      <label class="flex flex-col gap-1"
+        >Cobertura mínima
+        <select
+          #cob
+          class="glass rounded-lg bg-ink px-2 py-1 text-cream"
+          (change)="mudarCobertura(cob.value)"
+          aria-describedby="ajuda-cobertura"
+        >
+          @for (c of coberturas; track c) {
+            <option [value]="c" [selected]="filtros().cobertura_minima === c">
+              {{ c * 100 }}%
+            </option>
+          }
+        </select>
+      </label>
+      <small id="ajuda-cobertura" class="col-span-2 opacity-70"
+        >Fração do peso dos critérios que precisa ter dado no local.</small
+      >
+
+      @if (futuro()) {
+        <label class="col-span-2 flex flex-col gap-1"
+          >Estado futuro da Terra
+          <select
+            #est
+            class="glass rounded-lg bg-ink px-2 py-1 text-cream"
+            (change)="mudarEstrategia(est.value)"
+          >
+            @for (estrategia of estrategias(); track estrategia) {
+              <option [value]="estrategia" [selected]="filtros().estrategia === estrategia">
+                {{
+                  estrategia === 'recursiva'
+                    ? 'Projeção LightGBM recursiva'
+                    : estrategia === 'auto'
+                      ? 'Automático (direto + fallback)'
+                      : 'Cenário sazonal'
+                }}
+              </option>
+            }
+          </select>
+        </label>
+      }
+    </form>
+
+    <div aria-live="polite" class="text-[10px]">
+      @switch (atual().tipo) {
+        @case ('carregando') {
+          <p class="opacity-80">Calculando o ranking…</p>
+        }
+        @case ('calculando') {
+          @if (atual(); as e) {
+            @if (e.tipo === 'calculando') {
+              <p class="opacity-90">
+                {{
+                  e.progresso.na_fila ? 'Na fila para projetar' : 'Projetando a Terra mês a mês'
+                }}: {{ e.progresso.meses_calculados }} de {{ e.progresso.meses_necessarios }} meses.
+                Você pode mudar os filtros enquanto isso.
+              </p>
+              <progress
+                class="w-full"
+                [value]="e.progresso.meses_calculados"
+                [max]="e.progresso.meses_necessarios"
+              ></progress>
+            }
+          }
+        }
+        @case ('falha') {
+          @if (atual(); as e) {
+            @if (e.tipo === 'falha') {
+              <p role="alert" class="text-ember">{{ e.mensagem }} ({{ e.codigo }})</p>
+              <button
+                type="button"
+                class="glass mt-1 rounded-lg px-2 py-1"
+                (click)="tentarDeNovo()"
+              >
+                Tentar de novo
+              </button>
+            }
+          }
+        }
+      }
+    </div>
+
+    @if (resposta(); as r) {
+      <div class="rounded-lg border border-cream/15 p-2 text-[9px] leading-[1.5]">
+        <p>
+          <b>{{ mesTexto(r.anomes) }}</b> · {{ rotuloOrigem(r.origem) }}
+        </p>
+        @if (r.rotulo) {
+          <p class="font-semibold text-ember">
+            {{ r.rotulo }}: corte em {{ mesTexto(r.publicacao.corte) }},
+            {{ r.horizonte_meses }} meses à frente.
+          </p>
+        } @else if (r.origem === 'prevista') {
+          <p>
+            Corte em {{ mesTexto(r.publicacao.corte) }}, {{ r.horizonte_meses }} mês(es) à frente.
+          </p>
+        }
+        @if (r.mes_base_cenario) {
+          <p>Mês-base do cenário: {{ mesTexto(r.mes_base_cenario) }}.</p>
+        }
+        @if (fallbacks(r).length) {
+          <p>Variáveis com fallback: {{ fallbacks(r).join(', ') }}.</p>
+        }
+      </div>
+
+      @for (g of r.resultados; track g.base_id) {
+        <section class="border-t border-cream/15 pt-2" [attr.aria-label]="'Ranking de ' + g.nome">
+          <h3 class="text-[10px] font-medium tracking-[.1em]">
+            {{ g.nome }} <span class="opacity-60">· {{ g.total_elegiveis }} elegíveis</span>
+          </h3>
+          @if (statusTexto(g.status); as aviso) {
+            <p class="text-[9px] text-ember">
+              {{ aviso }}
+              @if (g.criterios_ausentes.length) {
+                Sem dado: {{ g.criterios_ausentes.join(', ') }}.
+              }
+            </p>
+          }
+          <ol class="mt-1 flex max-h-56 flex-col gap-1 overflow-y-auto">
+            @for (c of g.candidatos; track c.location_id) {
+              <li>
+                <button
+                  type="button"
+                  class="w-full rounded-lg px-2 py-1 text-left text-[9px] hover:bg-white/10"
+                  [class.bg-white/15]="ativo(g, c)"
+                  [attr.aria-pressed]="ativo(g, c)"
+                  (click)="escolher(g, c)"
+                >
+                  <b>#{{ c.posicao }}</b> {{ c.location_id }} · nota {{ numero(c.nota) }} ·
+                  cobertura {{ numero(c.cobertura * 100, 0) }}% · {{ coordenadas(c) }}
+                </button>
+              </li>
+            } @empty {
+              <li class="text-[9px] opacity-70">Nenhum candidato.</li>
+            }
+          </ol>
+        </section>
+      }
+
+      @if (detalhe(); as d) {
+        <section
+          class="border-t border-cream/15 pt-2 text-[9px]"
+          aria-label="Explicação do local selecionado"
+        >
+          <h3 class="text-[10px] font-medium tracking-[.1em]">
+            {{ d.candidato.location_id }} → {{ d.grupo.nome }}
+          </h3>
+          <p>
+            {{ coordenadas(d.candidato) }} · nota {{ numero(d.candidato.nota) }} · cobertura
+            {{ numero(d.candidato.cobertura * 100, 0) }}%
+            @if (d.candidato.cluster !== null) {
+              · cluster {{ d.candidato.cluster }} ({{ mesTexto(r.anomes_cluster) }})
+            }
+          </p>
+          <table class="mt-1 w-full border-collapse">
+            <caption class="sr-only">
+              Critérios: valor na Terra, alvo, diferença, tolerância, peso e nota
+            </caption>
+            <thead>
+              <tr class="text-left opacity-70">
+                <th scope="col">Critério</th>
+                <th scope="col">Terra</th>
+                <th scope="col">Alvo</th>
+                <th scope="col">Dif.</th>
+                <th scope="col">Tol.</th>
+                <th scope="col">Peso</th>
+                <th scope="col">Nota</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (cr of d.grupo.criterios; track cr.variavel) {
+                <tr class="border-t border-cream/10">
+                  <th scope="row" class="pr-1 text-left font-normal">
+                    {{ cr.nome }}
+                    @if (cr.tipo_alvo === 'equivalente terrestre') {
+                      <span class="opacity-60">(equiv.)</span>
+                    }
+                  </th>
+                  <td>{{ numero(d.candidato.valores[cr.variavel], 2) }} {{ cr.unidade }}</td>
+                  <td>{{ numero(cr.alvo, 2) }}</td>
+                  <td>{{ numero(diferenca(cr, d.candidato), 2) }}</td>
+                  <td>{{ numero(cr.tolerancia, 2) }}</td>
+                  <td>{{ numero(cr.peso, 1) }}</td>
+                  <td>{{ numero(d.candidato.notas_criterios[cr.variavel], 0) }}</td>
+                </tr>
+              }
+            </tbody>
+          </table>
+          <details class="mt-1">
+            <summary>Método por variável</summary>
+            <ul>
+              @for (m of metodosLista(r); track m.variavel) {
+                <li>{{ m.variavel }}: {{ m.metodo }}</li>
+              }
+            </ul>
+          </details>
+        </section>
+      }
+    }
+  }
+</section>

@@ -609,6 +609,46 @@ formato `{name, lat, lon, radiusKm}` do `CONFIG` de `mapa.ts`.
 Erros: `404 analogs_not_generated` quando as tabelas não existem;
 `404 base_not_found`, `local_not_found` e `pair_not_found` para IDs inválidos.
 
+## Recomendações temporais
+
+Top K locais da Terra por base, para um ano/mês observado ou futuro. Detalhes de
+operação em [`operacao_recomendacoes.md`](operacao_recomendacoes.md) e resultados
+em [`estudo_recomendacoes_temporais.md`](estudo_recomendacoes_temporais.md).
+
+```bash
+curl -s "$BASE/api/v1/analogos/recomendacoes/opcoes"
+curl -s "$BASE/api/v1/analogos/recomendacoes?anomes=202608&nicho=Todos&k=10"
+curl -s "$BASE/api/v1/analogos/recomendacoes?anomes=204007&base_id=MARTE_JEZERO&nicho=termico&estrategia=recursiva&k=10"
+curl -s "$BASE/api/v1/analogos/recomendacoes?anomes=204007&corpo=lua&nicho=Todos&estrategia=recursiva&k=10&offset=10"
+```
+
+| Parâmetro | Padrão | Descrição |
+|---|---|---|
+| `anomes` | — | AAAAMM; do primeiro mês observado até `FL_RECOMENDACOES_ANOMES_MAX` |
+| `nicho` | `Todos` | nicho da base (`/opcoes` lista os aceitos) |
+| `base_id`, `corpo` | todas | coerentes entre si (400 `base_corpo_incoerente`) |
+| `k`, `offset` | 10, 0 | paginação **por base**; `total_elegiveis` antes da página |
+| `cobertura_minima` | 0,7 | fração do peso dos critérios com dado |
+| `estrategia` | `auto` | `recursiva` (padrão do front), `auto` (legado) ou `sazonal` |
+
+- **200**: `origem` (`observada`, `prevista`, `extrapolada`, `cenario_sazonal`),
+  `horizonte_meses`, `mes_base_cenario`, `metodos` por variável, `rotulo`
+  ("Projeção exploratória"), `publicacao` (corte, hashes, trajetória) e
+  `resultados[]` por base com `status` (`ok`, `parcial`, `sem_dados`,
+  `sem_candidatos`, `nicho_incompativel`), `criterios[]`, `criterios_ausentes[]`
+  e `candidatos[]` (posição, ID, lat/lon do local, nota, cobertura, cluster,
+  valores e nota por critério).
+- **202**: projeção em andamento; corpo `{status: "calculando", anomes,
+  repetir_em_segundos, tarefa_id, meses_calculados, meses_necessarios, na_fila}`
+  e cabeçalho `Retry-After`. Repita a mesma URL.
+- **Erros**: 400 `anomes_invalido`, `anomes_fora_do_calendario`, `nicho_invalido`,
+  `base_corpo_incoerente`; 404 `base_not_found`, `anterior_ao_historico`,
+  `mes_sem_observacao`; 500 `projecao_falhou` (com o erro); 503 `fila_cheia`,
+  `publicacao_indisponivel`.
+
+Exemplos reais: [`exemplos/observado_202608_todos.json`](exemplos/observado_202608_todos.json)
+e [`exemplos/recursiva_204007_jezero_termico.json`](exemplos/recursiva_204007_jezero_termico.json).
+
 ## CORS
 
 As origens são configuradas por `FL_CORS_ORIGINS` (lista JSON ou valores

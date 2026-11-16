@@ -46,3 +46,6 @@ dist/
 #/data/lua/raw/
 #/data/lua/processed/
 #/data/lua/outputs/
+
+## Projeções recursivas materializadas (geradas por scripts/publicar_projecoes.py ou pela API)
+data/terra/analise_analogos/cache_projecoes/
