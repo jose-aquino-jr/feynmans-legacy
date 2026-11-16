@@ -10,6 +10,7 @@ from app.config import Settings
 from app.services.analogos import AnalogRepository
 from app.services.datasets import DatasetRepository
 from app.services.models import ModelRepository
+from app.services.recommendations import RecommendationService
 
 
 def get_app_settings(request: Request) -> Settings:
@@ -25,6 +26,11 @@ def get_dataset_repository(request: Request) -> DatasetRepository:
 def get_model_repository(request: Request) -> ModelRepository:
     """Recupera o repositório de modelos (um por instância de app)."""
     return cast(ModelRepository, request.app.state.model_repository)
+
+
+def get_recommendation_service(request: Request) -> RecommendationService:
+    """Recupera o serviço de recomendações temporais (fila e caches do processo)."""
+    return cast(RecommendationService, request.app.state.recommendation_service)
 
 
 def get_analog_repository(request: Request) -> AnalogRepository:
