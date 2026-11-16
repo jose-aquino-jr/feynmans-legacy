@@ -2,34 +2,81 @@
 
 Feynman's Legacy identifies Earth sites that resemble reference locations on the Moon and Mars. The notebooks prepare the data, train the monthly forecast model, and rank Earth sites. FastAPI serves the published results, and the Angular application displays them on an interactive map.
 
-## Quick start with published data (Windows)
+## Run the app for evaluation (Windows)
 
-Use this path to open the app with the datasets and model already published on the current `main` branch. Use steps 1–4 below when preparing new data or training a new model.
+The repository includes the Earth data, reference profiles, and trained model used by the map. Follow the three steps below to open the app and run a search. The data-generation and training instructions are optional.
 
-In PowerShell, enter the repository root that contains `app/`, `src/`, and `front-end/`. The current version also contains `front-end/proxy.conf.json` and `scripts/publicar_projecoes.py`. Check that `git lfs version`, `uv --version`, `node --version`, and `npm.cmd --version` work. Use Node.js 24.15.0 or newer in the 24.x series with npm. If `uv` is missing, run `winget install --id=astral-sh.uv -e` and reopen PowerShell.
+### 1. Open the repository in PowerShell
 
-In the first terminal, from the repository root:
+Install **Git for Windows with Git LFS**, **uv** (`winget install --id=astral-sh.uv -e`), and **Node.js 24.x with npm**. The [official Node.js 24.22.1 release](https://nodejs.org/download/release/v24.22.1/) has installers for Windows x64 and ARM64. After installing, open a new PowerShell window and confirm that these commands all print a version:
 
 ```powershell
-git lfs install
-git lfs pull
-uv venv --python 3.13 .venv
-uv pip install --python .\.venv\Scripts\python.exe -r requirements.txt
-$env:PYTHONPATH = (Resolve-Path src).Path
-.\.venv\Scripts\python.exe -m uvicorn app.main:app --host 127.0.0.1 --port 8000
+git lfs version
+uv --version
+node --version
+npm.cmd --version
 ```
 
-If this checkout already has a working Python 3.13 `.venv`, skip `uv venv`. Keep the first terminal open. Check that [the recommendation options](http://127.0.0.1:8000/api/v1/analogos/recomendacoes/opcoes) return bases and months. If this fails, check the API log and make sure Git LFS downloaded the actual model file.
-
-In a second PowerShell terminal, starting from the same repository root:
+If you have not cloned the repository yet, run:
 
 ```powershell
-cd front-end
+Set-Location "$env:USERPROFILE\Downloads" -ErrorAction Stop
+git lfs install
+git clone https://github.com/jose-aquino-jr/feynmans-legacy.git
+```
+
+Open the checkout from that clone or use the path to your existing checkout. Run these commands from its root before continuing:
+
+```powershell
+Set-Location "$env:USERPROFILE\Downloads\feynmans-legacy" -ErrorAction Stop
+git rev-parse --show-toplevel
+git lfs pull
+```
+
+Update the path in `Set-Location` if you cloned elsewhere. The Git root should contain `requirements.txt` and `front-end/proxy.conf.json`. If `git lfs pull` fails, resolve the download before starting the API.
+
+### 2. Start the API
+
+Keep this terminal at the repository root:
+
+```powershell
+$env:PYTHONPATH = (Resolve-Path .\src -ErrorAction Stop).Path
+uv run --no-project --python 3.13 --with-requirements requirements.txt python -B -m uvicorn app.main:app --host 127.0.0.1 --port 8000
+```
+
+On the first run, uv may download Python and the dependencies into its cache. Keep the terminal open once Uvicorn is listening. Open [recommendation options](http://127.0.0.1:8000/api/v1/analogos/recomendacoes/opcoes) and verify that the JSON contains bases and observed months. This check also confirms the model can load.
+
+### 3. Build and open the map
+
+Open a **second PowerShell window**. Use the `front-end` directory in the same checkout as the API:
+
+```powershell
+Set-Location "$env:USERPROFILE\Downloads\feynmans-legacy\front-end" -ErrorAction Stop
 npm.cmd ci
 npm.cmd start -- --host 127.0.0.1 --port 4200
 ```
 
-Keep both terminals open and visit [the map](http://127.0.0.1:4200/mapa). For a first search, select Jezero Crater, the thermal criterion, and August 2026 in **Analysis Settings**. Use September 2026 with recursive projection to try the model. The first projection can take longer while the API prepares the requested month.
+Run the start command after `npm.cmd ci` succeeds. The development server compiles the app and forwards `/api` to port 8000. When Angular reports that it is ready, open [the map](http://127.0.0.1:4200/mapa). Keep both terminals open while navigating.
+
+1. Open **Analysis Settings**, select **Jezero Crater**, **Thermal**, and **August 2026**, then run the search. The map should list Earth sites from the observed data.
+2. Try **September 2026** with the recursive projection. The first future search shows a progress state while the model computes the requested month.
+
+For a production compilation check, run `npm.cmd run build` from `front-end/` after `npm.cmd ci`. The output is in `front-end/dist/`. To evaluate the app locally, use the development server above so API requests go through the proxy.
+
+### If the map does not open or return results
+
+| What you see | What to do |
+|---|---|
+| `requirements.txt` or `src` cannot be found | Correct the path in `Set-Location`. The API command runs from the repository root. |
+| `npm.cmd` is not recognized | Install Node.js with npm enabled, then reopen PowerShell and run `npm.cmd --version` before continuing. |
+| `WinError 10048` | The port is already in use. Check the [API options](http://127.0.0.1:8000/api/v1/analogos/recomendacoes/opcoes) or [map](http://127.0.0.1:4200/mapa), depending on the port. If the existing instance is the intended one, keep using it. Otherwise stop the earlier server in its terminal and retry. |
+| The map opens, but searches fail | Open the [options endpoint through Angular](http://127.0.0.1:4200/api/v1/analogos/recomendacoes/opcoes). If it works directly on port 8000 but fails on port 4200, confirm Angular started from the correct checkout with `front-end/proxy.conf.json`. |
+| The API options report that the model cannot load | Run `git lfs pull` from the repository root. The local pickle must match the SHA-256 in `data/terra/analise_analogos/manifesto_publicacao.json`. |
+
+## Rebuild the data and model (optional)
+
+<details>
+<summary>Notebook pipeline and development checks</summary>
 
 ## 1. Clone the repository and set up Python
 
@@ -165,6 +212,8 @@ Run the frontend checks from `front-end/` after `npm ci`:
 npm test -- --watch=false
 npm run build
 ```
+
+</details>
 
 ## Repository guide
 
