@@ -1,39 +1,107 @@
 {
-  "_descricao": "Locais terrestres padrão do software, fora dos análogos clássicos (Atacama, Dry Valleys, Devon...). Cada um é comparado com todas as bases da Lua e de Marte. Coordenadas no centro da célula de 0,5° mais próxima; a base citada é a de maior nota no ranking.",
+  "_descricao": "Locais terrestres padrão do software, fora dos análogos clássicos (Atacama, Dry Valleys, Devon...). Cada um é comparado com todas as bases da Lua e de Marte. Coordenadas no centro da célula de 0,5° mais próxima; as descrições citam as bases em que o local vai bem, sem fixar posição no ranking.",
   "locais": [
-    {"nome": "Tanezrouft — Saara argelino", "latitude": 25.75, "longitude": -4.75,
-     "descricao": "Planície de rocha e cascalho extremamente árida; melhor nota geral para os mares basálticos e tubos de lava da Lua."},
-    {"nome": "Deserto da Núbia — Sudão", "latitude": 20.75, "longitude": 33.25,
-     "descricao": "Deserto hiperárido com antigos leitos de rio e lagos secos; melhor nota geral para a cratera Jezero."},
-    {"nome": "Uzboy — Deserto de Karakum, Turcomenistão", "latitude": 40.25, "longitude": 55.25,
-     "descricao": "Antigo canal fluvial seco no deserto, parecido com o delta e o paleolago de Jezero."},
-    {"nome": "Maciço do Tibesti — Chade", "latitude": 21.25, "longitude": 16.75,
-     "descricao": "Vulcões em escudo no meio do Saara; bom análogo geral para Tharsis e Arsia Mons."},
-    {"nome": "Cordilheira de San Juan — Argentina", "latitude": -29.75, "longitude": -69.75,
-     "descricao": "Andes áridos e altos, fora da Puna clássica; melhor nota geral para Tharsis."},
-    {"nome": "Planalto de Changtang — Tibete", "latitude": 32.75, "longitude": 80.25,
-     "descricao": "Planalto acima de 4.500 m com ar rarefeito; forte em atmosfera e geologia, fraco em água e processos."},
-    {"nome": "Deserto de Gobi — Mongólia", "latitude": 42.75, "longitude": 98.75,
-     "descricao": "Deserto frio de altitude, com amplitude térmica grande; bom análogo geral para Tharsis."},
-    {"nome": "Dasht-e Kavir — Irã", "latitude": 34.75, "longitude": 55.75,
-     "descricao": "Grande deserto de sal com crostas evaporíticas; melhor nota geral para Meridiani Planum."},
-    {"nome": "Deserto de Taklamakan — China", "latitude": 39.25, "longitude": 82.25,
-     "descricao": "Mar de areia na bacia do Tarim; bom para Meridiani e para processos eólicos."},
-    {"nome": "Litoral de Nuadibu — Mauritânia", "latitude": 21.25, "longitude": -16.75,
-     "descricao": "Costa desértica com vento forte e constante; especialista em processos de vento e poeira."},
-    {"nome": "White Sands — Novo México, EUA", "latitude": 32.88, "longitude": -106.33,
-     "descricao": "Dunas de gipsita (sulfato), raras na Terra; especialista em geologia para a cratera Gale."},
-    {"nome": "Deserto de Gibson — Austrália", "latitude": -23.25, "longitude": 124.75,
-     "descricao": "Planícies vermelhas com lagos salgados; especialista em geologia e superfície para Gale."},
-    {"nome": "Deserto do Namibe — Angola", "latitude": -14.75, "longitude": 12.25,
-     "descricao": "Deserto costeiro com solo exposto; especialista em superfície e poeira para os mares lunares."},
-    {"nome": "Peary Land — Groenlândia", "latitude": 82.75, "longitude": -34.25,
-     "descricao": "Deserto polar sem gelo no extremo norte; melhor nota geral para o Polo Sul lunar."},
-    {"nome": "Terra de Francisco José — Rússia", "latitude": 80.75, "longitude": 56.75,
-     "descricao": "Arquipélago ártico com solo congelado e noite polar; bom análogo para o Polo Sul lunar."},
-    {"nome": "Península Seward — Alasca, EUA", "latitude": 65.25, "longitude": -162.25,
-     "descricao": "Permafrost com campos vulcânicos e crateras de explosão (maars); especialista em geologia para o Polo Sul lunar."},
-    {"nome": "Planalto Antártico Oriental", "latitude": -80.25, "longitude": 62.25,
-     "descricao": "Interior gelado da Antártida, longe dos Vales Secos; melhor nota geral para o gelo de latitudes médias de Marte."}
+    {
+      "nome": "Tanezrouft — Saara argelino",
+      "latitude": 25.75,
+      "longitude": -4.75,
+      "descricao": "Planície de rocha e cascalho extremamente árida; entre as melhores notas para os mares basálticos e tubos de lava da Lua."
+    },
+    {
+      "nome": "Deserto da Núbia — Sudão",
+      "latitude": 20.75,
+      "longitude": 33.25,
+      "descricao": "Deserto hiperárido com antigos leitos de rio e lagos secos; entre as melhores notas para a cratera Jezero."
+    },
+    {
+      "nome": "Uzboy — Deserto de Karakum, Turcomenistão",
+      "latitude": 40.25,
+      "longitude": 55.25,
+      "descricao": "Antigo canal fluvial seco no deserto, parecido com o delta e o paleolago de Jezero; melhor nota para Jezero."
+    },
+    {
+      "nome": "Maciço do Tibesti — Chade",
+      "latitude": 21.25,
+      "longitude": 16.75,
+      "descricao": "Vulcões em escudo no meio do Saara; bom análogo geral para Tharsis e Arsia Mons."
+    },
+    {
+      "nome": "Cordilheira de San Juan — Argentina",
+      "latitude": -29.75,
+      "longitude": -69.75,
+      "descricao": "Andes áridos e altos, fora da Puna clássica; bom análogo para Tharsis e Arsia Mons."
+    },
+    {
+      "nome": "Planalto de Changtang — Tibete",
+      "latitude": 32.75,
+      "longitude": 80.25,
+      "descricao": "Planalto acima de 4.500 m, com uma das menores pressões do ar da Terra; bom análogo para Tharsis."
+    },
+    {
+      "nome": "Deserto de Gobi — Mongólia",
+      "latitude": 42.75,
+      "longitude": 98.75,
+      "descricao": "Deserto frio de altitude, com amplitude térmica grande; bom análogo geral para Tharsis."
+    },
+    {
+      "nome": "Dasht-e Kavir — Irã",
+      "latitude": 34.75,
+      "longitude": 55.75,
+      "descricao": "Grande deserto de sal com crostas evaporíticas; bom análogo para os sulfatos de Meridiani Planum."
+    },
+    {
+      "nome": "Deserto de Taklamakan — China",
+      "latitude": 39.25,
+      "longitude": 82.25,
+      "descricao": "Mar de areia na bacia do Tarim; melhor nota para Meridiani e forte em processos eólicos."
+    },
+    {
+      "nome": "Litoral de Nuadibu — Mauritânia",
+      "latitude": 21.25,
+      "longitude": -16.75,
+      "descricao": "Costa desértica com vento forte e constante; especialista em processos de vento e poeira."
+    },
+    {
+      "nome": "White Sands — Novo México, EUA",
+      "latitude": 32.88,
+      "longitude": -106.33,
+      "descricao": "Dunas de gipsita (sulfato), raras na Terra; especialista em geologia para a cratera Gale."
+    },
+    {
+      "nome": "Deserto de Gibson — Austrália",
+      "latitude": -23.25,
+      "longitude": 124.75,
+      "descricao": "Planícies vermelhas com lagos salgados; especialista em geologia e superfície para Gale."
+    },
+    {
+      "nome": "Deserto do Namibe — Angola",
+      "latitude": -14.75,
+      "longitude": 12.25,
+      "descricao": "Deserto costeiro com solo exposto; especialista em superfície e poeira para os mares lunares."
+    },
+    {
+      "nome": "Peary Land — Groenlândia",
+      "latitude": 82.75,
+      "longitude": -34.25,
+      "descricao": "Deserto polar sem gelo no extremo norte; entre as melhores notas para o Polo Sul lunar."
+    },
+    {
+      "nome": "Terra de Francisco José — Rússia",
+      "latitude": 80.75,
+      "longitude": 56.75,
+      "descricao": "Arquipélago ártico com solo congelado e noite polar; bom análogo para o gelo de Marte e o Polo Sul lunar."
+    },
+    {
+      "nome": "Península Seward — Alasca, EUA",
+      "latitude": 65.25,
+      "longitude": -162.25,
+      "descricao": "Permafrost com campos vulcânicos e crateras de explosão (maars); análogo de gelo e geologia polar para a Lua e Marte."
+    },
+    {
+      "nome": "Planalto Antártico Oriental",
+      "latitude": -80.25,
+      "longitude": 62.25,
+      "descricao": "Interior gelado da Antártida, longe dos Vales Secos; entre as melhores notas para o gelo de latitudes médias de Marte."
+    }
   ]
 }

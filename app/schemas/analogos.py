@@ -130,6 +130,12 @@ class VariavelPar(BaseModel):
     tolerancia: float
     peso: float
     nota: float | None = Field(..., description="100 × (1 − |valor − alvo| / tolerância).")
+    tipo_alvo: str | None = Field(
+        default=None,
+        description=("real (medida ou cálculo com fonte), classificação (geologia do sítio) "
+                     "ou equivalente terrestre (sem medida comparável)."))
+    confianca: str | None = Field(default=None, description="alta, media ou baixa.")
+    fonte: str | None = Field(default=None, description="Origem do valor do alvo.")
 
 
 class Rota(BaseModel):

@@ -9,7 +9,10 @@
     "alvo": "Valor de referência da base na Lua ou em Marte.",
     "tolerancia": "Diferença que zera a nota da variável.",
     "nota": "100 × (1 − |valor − alvo| / tolerância), mínimo 0.",
-    "unidade": "Vazia = adimensional; 0/1 = presença/ausência."
+    "unidade": "Vazia = adimensional; 0/1 = presença/ausência.",
+    "tipo_alvo": "real (medida ou cálculo com fonte), classificação da equipe ou equivalente terrestre (percentil da Terra, sem medida comparável).",
+    "confianca": "alta, media ou baixa (só para alvos reais).",
+    "fonte": "Origem do alvo."
   },
   "source": "src/feynmans_legacy/analog_pairs.py",
   "metadata": {

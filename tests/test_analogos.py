@@ -62,6 +62,8 @@ def analog_dir(tmp_path: Path) -> Path:
         "nome": ["temperatura média do ar", "basalto"], "unidade": ["°C", "0/1"],
         "valor_terra": [28.2, float("nan")], "alvo": [-46.3, 1.0],
         "tolerancia": [74.8, 1.0], "peso": [1.0, 1.0], "nota": [0.7, float("nan")],
+        "tipo_alvo": ["real", "classificação"], "confianca": ["media", ""],
+        "fonte": ["MEDA", "Classificação da equipe"],
     }).to_parquet(folder / "pares_variaveis.parquet", index=False)
     pd.DataFrame({
         "location_id": ["T2", "T2"], "ordem": [1, 2],
@@ -368,6 +370,8 @@ def test_explanations_are_served(analog_client: TestClient) -> None:
     assert [row["variavel"] for row in pair["variaveis"]] == [
         "temperatura__ar_2m_c", "geologia_superficie__litologia_basalto"]
     assert pair["variaveis"][0]["unidade"] == "°C"
+    assert pair["variaveis"][0]["tipo_alvo"] == "real"
+    assert pair["variaveis"][0]["fonte"] == "MEDA"
     assert pair["variaveis"][1]["valor_terra"] is None
     assert pair["local"]["usos_recomendados"] == ["agua_recursos", "astrobiologia"]
     assert pair["base"]["explicacao"] == "Cratera Jezero: 2 análogos na Terra."

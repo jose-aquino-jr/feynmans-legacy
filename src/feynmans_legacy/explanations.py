@@ -71,8 +71,10 @@ def variable_phrase(row: Mapping[str, Any]) -> str:
         there = "presente" if float(target) >= 0.5 else "ausente"
         return f"{name} {here} aqui e {there} no alvo"
     suffix = f" {unit}" if unit else ""
+    where = ("no alvo (equivalente terrestre)"
+             if row.get("tipo_alvo") == "equivalente terrestre" else "no alvo")
     return (f"{name}: {fmt_value(float(value))}{suffix} aqui contra "
-            f"{fmt_value(float(target))}{suffix} no alvo")
+            f"{fmt_value(float(target))}{suffix} {where}")
 
 
 def _known(variables: pd.DataFrame) -> pd.DataFrame:

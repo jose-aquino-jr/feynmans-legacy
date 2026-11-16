@@ -139,3 +139,10 @@ def test_add_explanations_fills_every_table() -> None:
     assert tables["locais"]["usos_recomendados"].iloc[0] == "geologia,tubos_lava"
     assert "Mais útil para Geologia e amostras (85)" in tables["locais"]["explicacao"].iloc[0]
     assert tables["bases"]["explicacao"].iloc[0].startswith("Base: 1 análogos na Terra.")
+
+
+def test_terrestrial_equivalent_target_is_flagged() -> None:
+    row = {"nome": "poeira no ar", "unidade": "µg/m³", "valor_terra": 6.9, "alvo": 89.6,
+           "tipo_alvo": "equivalente terrestre"}
+    assert variable_phrase(row) == (
+        "poeira no ar: 6,90 µg/m³ aqui contra 89,6 µg/m³ no alvo (equivalente terrestre)")

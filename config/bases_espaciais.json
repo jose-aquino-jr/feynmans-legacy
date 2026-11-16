@@ -1,5 +1,5 @@
 {
-  "_descricao": "Ponto representativo de cada base de referência na Lua e em Marte, para o mapa 3D. Latitude planetocêntrica e longitude leste em [-180, 180]. Coordenadas aproximadas do sítio citado na descrição da base.",
+  "_descricao": "Ponto representativo de cada base de referência na Lua e em Marte, para o mapa 3D. Latitude planetocêntrica e longitude leste em [-180, 180]. Coordenadas do sítio citado na descrição da base: Shackleton 89,67°S 129,78°L; poço de Marius Hills 14,09°N 303,23°L; pouso do Perseverance em Jezero 18,38°N 77,58°L; Gale 5,4°S 137,8°L; pouso do Opportunity 1,95°S 354,47°L; pouso do Phoenix 68,22°N 234,25°L; cume de Arsia Mons 8,26°S 239,91°L; centro de Medusae Fossae 3,2°S 197,0°L (Wikipedia/NASA). São pontos representativos; regiões extensas como Meridiani e Medusae Fossae ocupam centenas de km.",
   "LUA_POLO_SUL": {
     "corpo": "lua",
     "nome": "Polo Sul lunar — borda de Shackleton",

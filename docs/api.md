@@ -580,6 +580,10 @@ Exemplo (`MARTE_GALE` ↔ White Sands):
 > estável nos próximos meses (77 → 76).
 
 A nota de cada variável é `100 × (1 − |valor − alvo| / tolerância)`, mínimo 0.
+Cada variável traz `tipo_alvo` (`real`, `classificação` ou `equivalente
+terrestre`), `confianca` e `fonte`. Os alvos reais estão em
+`config/valores_reais.csv` (veja `config/README.md`); quando o alvo é um
+equivalente terrestre, a explicação avisa com "(equivalente terrestre)".
 A tabela também está em `/api/v1/datasets/analogos/pares_variaveis/records`.
 
 ### Outras rotas

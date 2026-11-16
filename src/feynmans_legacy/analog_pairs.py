@@ -78,6 +78,7 @@ class AnalogInputs:
     names: Mapping[str, Mapping[str, str]] = field(default_factory=dict)
     support: pd.DataFrame | None = None
     logistics: LogisticsConfig = field(default_factory=LogisticsConfig)
+    target_info: Mapping[tuple[str, str], Mapping[str, str]] = field(default_factory=dict)
 
 
 def haversine_km(
@@ -271,7 +272,9 @@ def build_pairs(
                     "nota": row[f"nota_{niche}"], "cobertura": row[f"cobertura_{niche}"],
                 } for niche in niches)
                 variable_rows.extend(compare_variables(
-                    pair_id, earth.loc[str(location)], niche_criteria))
+                    pair_id, earth.loc[str(location)], niche_criteria,
+                    {key[1]: value for key, value in inputs.target_info.items()
+                     if key[0] == str(base_id)}))
             best = chosen.dropna(subset=["nota_geral"])
             value = chosen.dropna(subset=["custo_beneficio"]).sort_values(
                 "custo_beneficio", ascending=False)
@@ -310,8 +313,10 @@ def build_pairs(
 def compare_variables(
     pair_id: str, earth_row: pd.Series,
     niche_criteria: Mapping[str, Mapping[str, tuple[float, float, float]]],
+    target_info: Mapping[str, Mapping[str, str]] | None = None,
 ) -> list[dict[str, Any]]:
     """Earth value, reference target and score of every variable of one pair."""
+    target_info = target_info or {}
     rows = []
     for niche, criteria in niche_criteria.items():
         for variable, (target, tolerance, weight) in criteria.items():
@@ -325,6 +330,8 @@ def compare_variables(
                 "nome": name, "unidade": unit, "valor_terra": value,
                 "alvo": float(target), "tolerancia": float(tolerance),
                 "peso": float(weight), "nota": score,
+                **{key: target_info.get(variable, {}).get(key)
+                   for key in ("tipo_alvo", "confianca", "fonte")},
             })
     return rows
 
@@ -475,6 +482,7 @@ def load_inputs(root: Path, months: int = CLIMATE_MONTHS) -> tuple[AnalogInputs,
              if names_path.is_file() else {})
     support_path = root / SUPPORT_FILE
     logistics_path = root / "config/custo_beneficio.json"
+    target_info = load_target_info(root)
     inputs = AnalogInputs(
         earth=values,
         coordinates=pd.read_parquet(run / "coordenadas.parquet"),
@@ -488,6 +496,7 @@ def load_inputs(root: Path, months: int = CLIMATE_MONTHS) -> tuple[AnalogInputs,
         support=load_support(support_path) if support_path.is_file() else None,
         logistics=(LogisticsConfig.from_json(logistics_path) if logistics_path.is_file()
                    else LogisticsConfig()),
+        target_info=target_info,
     )
     return inputs, observed
 
@@ -578,6 +587,10 @@ SIDECARS: dict[str, dict[str, Any]] = {
             "tolerancia": "Diferença que zera a nota da variável.",
             "nota": "100 × (1 − |valor − alvo| / tolerância), mínimo 0.",
             "unidade": "Vazia = adimensional; 0/1 = presença/ausência.",
+            "tipo_alvo": "real (medida ou cálculo com fonte), classificação da equipe ou "
+                         "equivalente terrestre (percentil da Terra, sem medida comparável).",
+            "confianca": "alta, media ou baixa (só para alvos reais).",
+            "fonte": "Origem do alvo.",
         },
     },
     "series": {
@@ -608,6 +621,32 @@ def generate(root: Path, out_dir: Path,
         (out_dir / f"{name}.meta.json").write_text(
             json.dumps(sidecar, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return tables
+
+
+def load_target_info(root: Path) -> dict[tuple[str, str], dict[str, str]]:
+    """Kind, confidence and source of each base target (real, classification, proxy)."""
+    catalog_path = root / "config/criterios_referencia_proposta.csv"
+    if not catalog_path.is_file():
+        return {}
+    catalog = pd.read_csv(catalog_path, encoding="utf-8-sig")
+    real_path = root / "config/valores_reais.csv"
+    real = (pd.read_csv(real_path).set_index(["base_id", "variavel"])
+            if real_path.is_file() else pd.DataFrame())
+    info: dict[tuple[str, str], dict[str, str]] = {}
+    for row in catalog.itertuples(index=False):
+        key = (str(row.base_id), str(row.terra))
+        rule = str(row.regra_alvo)
+        if key in real.index:
+            source = real.loc[key]
+            info[key] = {"tipo_alvo": "real", "confianca": str(source["confianca"]),
+                         "fonte": str(source["fonte"])}
+        elif rule == "valor fixo":
+            info[key] = {"tipo_alvo": "classificação", "confianca": "",
+                         "fonte": "Classificação da equipe a partir da geologia do sítio"}
+        else:
+            info[key] = {"tipo_alvo": "equivalente terrestre", "confianca": "",
+                         "fonte": f"Sem medida equivalente; usa o {rule}"}
+    return info
 
 
 def monthly_values(root: Path, observed: Sequence[int], locations: Iterable[str],
