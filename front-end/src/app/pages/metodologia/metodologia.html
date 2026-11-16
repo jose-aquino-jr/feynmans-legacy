@@ -28,17 +28,17 @@
       <p class="text-[8px] font-medium uppercase tracking-[.18em] text-cream/75">From open data to terrestrial analogues</p>
       <h1 class="mt-3 font-display text-[clamp(34px,6vw,76px)] uppercase leading-[1.05] tracking-[.04em]">Methodology</h1>
       <p class="mt-6 max-w-[680px] text-[clamp(11px,1.1vw,14px)] font-light leading-[1.8] text-cream/85">
-        Feynman's Legacy explores places on Earth that share selected environmental conditions with the Moon and Mars.
-        We bring several kinds of evidence together, make the criteria comparable, and use the results to guide exploration.
+        Feynman's Legacy ranks terrestrial locations against proposed permanent bases on the Moon and Mars.
+        The method combines 34 Earth variables into 51 criteria across 21 niches, using measured reference targets and keeping data coverage visible.
       </p>
     </div>
   </section>
 
   <section class="relative px-[37px] py-16 md:px-[clamp(37px,8vw,130px)] md:py-24">
     <p class="text-[8px] font-medium uppercase tracking-[.12em]">A transparent comparison process</p>
-    <h2 class="mt-1 font-display text-[clamp(20px,1.8vw,26px)] font-normal">From source to analogue</h2>
+    <h2 class="mt-1 font-display text-[clamp(20px,1.8vw,26px)] font-normal">Six stages from source to analogue</h2>
 
-    <div class="mt-10 grid gap-5 md:grid-cols-3 md:gap-7">
+    <div class="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3 md:gap-7">
       @for (step of steps; track step.index) {
         <article class="min-h-[230px] rounded-[18px] border border-cream/15 bg-gradient-to-b from-white/[.06] to-white/[.02] p-6 shadow-[inset_0_1px_0_rgb(255_255_255/0.1)] backdrop-blur-xl">
           <span class="text-[8px] tracking-[.22em] text-cream/70">{{ step.index }}</span>
@@ -53,10 +53,18 @@
     <div class="grid gap-10 md:grid-cols-[minmax(220px,.7fr)_minmax(0,1.3fr)] md:gap-16">
       <div>
         <p class="text-[8px] font-medium uppercase tracking-[.12em]">What we compare</p>
-        <h2 class="mt-1 font-display text-[clamp(20px,1.8vw,26px)] font-normal">Six dimensions</h2>
-        <p class="mt-5 max-w-[330px] text-[10px] font-light leading-[1.65] text-cream/75">
-          Each dimension describes a different part of the environment. Together they help explain why a region may be useful as an analogue.
+        <h2 class="mt-1 font-display text-[clamp(20px,1.8vw,26px)] font-normal">Twelve map filters</h2>
+        <p class="mt-5 max-w-[360px] text-[10px] font-light leading-[1.65] text-cream/75">
+          These high-level filters help explore the map. The complete research taxonomy is broader: 21 niches, 51 criteria, and 34 terrestrial variables.
         </p>
+        <div class="mt-7 grid max-w-[360px] grid-cols-2 gap-3">
+          @for (item of keyNumbers; track item.value) {
+            <div class="rounded-xl border border-cream/10 bg-white/[.03] p-3">
+              <p class="font-display text-xl">{{ item.value }}</p>
+              <p class="mt-1 text-[7px] leading-[1.4] text-cream/65">{{ item.label }}</p>
+            </div>
+          }
+        </div>
       </div>
 
       <div class="grid gap-x-8 gap-y-0 sm:grid-cols-2">
@@ -75,7 +83,7 @@
       <p class="text-[8px] font-medium uppercase tracking-[.12em]">How to read the result</p>
       <h2 class="mt-2 font-display text-[clamp(20px,1.8vw,26px)] font-normal">A starting point for exploration</h2>
       <p class="mt-4 max-w-[760px] text-[10px] font-light leading-[1.7] text-cream/80">
-        Similarity values summarize the criteria shown in the comparison panel. They help surface promising places, but should be read alongside the coverage and limitations of their source data; they are not a certification of mission readiness.
+        Similarity is only one part of a recommendation. Coverage is renormalized over available criteria, while diversity and logistics help distinguish sites that are both comparable and practical to operate. Strengths are marked at 75 or above and weaknesses below 50. Forecasts describe the next three months; they do not certify mission readiness.
       </p>
       <a
         routerLink="/mapa"

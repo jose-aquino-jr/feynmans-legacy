@@ -20,34 +20,65 @@ export class MethodologyPage implements AfterViewInit, OnDestroy {
     { label: 'TEAM', link: '/', fragment: 'team' },
   ];
 
+  readonly keyNumbers = [
+    { value: '21', label: 'niches · 9 Moon / 12 Mars' },
+    { value: '51', label: 'comparison criteria' },
+    { value: '34', label: 'terrestrial variables' },
+    { value: '8', label: 'reference bases · 2 Moon / 6 Mars' },
+  ];
+
   readonly steps = [
     {
       index: '01',
-      title: 'Gather the evidence',
+      title: 'Build a shared taxonomy',
       description:
-        'Bring together open information about geology, climate, terrain, and soils. Source and geographic coverage matter as much as the measured value.',
+        'Organize the comparison into 21 niches: nine lunar and twelve Martian. They contain 51 criteria expressed through 34 terrestrial variables, which can serve more than one niche.',
     },
     {
       index: '02',
-      title: 'Make data comparable',
+      title: 'Set measured targets',
       description:
-        'Prepare measurements with different units and spatial scales so each criterion can be read consistently, while keeping gaps and limitations visible.',
+        'Compare eight reference bases using 77 target values drawn from mission measurements. Each value records its source, unit, quantity, confidence, and whether it is measured, classified, or a terrestrial equivalent.',
     },
     {
       index: '03',
-      title: 'Compare candidate regions',
+      title: 'Score each criterion',
       description:
-        'Evaluate terrestrial locations against selected conditions on the Moon or Mars, then inspect the strongest analogues on the interactive map.',
+        'Use tolerance = max distance from the target to Earth P1 or P99. Score = max(0, 100 − 100 × |Earth − target| / tolerance), so the closest terrestrial match scores highest.',
+    },
+    {
+      index: '04',
+      title: 'Account for data coverage',
+      description:
+        'Combine criteria with a weighted mean and renormalize weights over available data. A candidate needs at least 70% overall coverage and 50% coverage within each niche.',
+    },
+    {
+      index: '05',
+      title: 'Keep recommendations diverse',
+      description:
+        'Cluster candidate environments across 22 variables and enforce 500 km separation. Exclude water-covered cells and the classical analog sites from automatic discovery.',
+    },
+    {
+      index: '06',
+      title: 'Add logistics and forecasts',
+      description:
+        'Logistics weights accessibility, support, and routes at 0.40, 0.35, and 0.25; cost-benefit is the square root of similarity × logistics. LightGBM forecasts three months and reduced mean test error by 41% across 25 series.',
     },
   ];
 
   readonly criteria = [
-    { name: 'Geology', description: 'Rock types and geological context' },
-    { name: 'Temperature', description: 'Local thermal conditions' },
-    { name: 'Aridity', description: 'Dryness and water availability' },
-    { name: 'Relief', description: 'Surface shape and elevation change' },
-    { name: 'Altitude', description: 'Elevation above sea level' },
-    { name: 'Soil', description: 'Surface material and soil properties' },
+    { name: 'Thermal', description: 'Air and surface temperatures, thermal inertia, and day–night range.' },
+    { name: 'Lighting and radiation', description: 'Solar geometry, illumination, radiation, and shadow conditions.' },
+    { name: 'Water and ice', description: 'Water availability, ice, precipitation, and permafrost indicators.' },
+    { name: 'Water and aridity', description: 'Dryness, soil moisture, evaporation, and atmospheric water.' },
+    { name: 'Terrain', description: 'Elevation, slope, roughness, and local relief.' },
+    { name: 'Geology', description: 'Rock types, mineralogy, elemental composition, and geologic context.' },
+    { name: 'Surface and dust', description: 'Soil properties, albedo, dust concentration, and deposition.' },
+    { name: 'Wind and dust processes', description: 'Wind speed, aeolian activity, and dust transport conditions.' },
+    { name: 'Biology and habitability', description: 'Environmental conditions relevant to habitability and biological constraints.' },
+    { name: 'Subsurface', description: 'Subsurface structure, caves, pits, and resources inferred from available datasets.' },
+    { name: 'Atmosphere', description: 'Pressure, atmospheric composition proxies, and weather conditions.' },
+    { name: 'Operations', description: 'Surface conditions that affect field work, equipment, and crew procedures.' },
   ];
 
   private readonly onScroll = () => this.scrolled.set(window.scrollY > 40);
