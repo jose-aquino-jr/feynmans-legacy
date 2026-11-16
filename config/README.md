@@ -1,57 +1,31 @@
-# Nichos e perfis de referência
+# Comparison profiles and reference targets
 
-Os notebooks usam `data/terra/terra.parquet` como série mensal por
-`location_id` e `anomes` e associam `spec_analogos/estaticas.parquet` pelo ID. Os Parquets
-temáticos em `data/terra/nichos/` servem à exploração e ao ETL. Os nichos selecionam
-colunas da tabela consolidada, inclusive quando compartilham uma variável.
+The notebooks read monthly observations from `data/terra/terra.parquet`, keyed by `location_id` and `anomes`, and join the static features in `data/terra/spec_analogos/estaticas.parquet` by site ID. The thematic Parquet files in `data/terra/nichos/` support exploration and ETL. Comparison profiles select columns from the consolidated table and can share variables.
 
-| Arquivo | Papel |
+| File | Purpose |
 |---|---|
-| `nichos.json` | Corpo → nicho → variável terrestre, coluna do perfil, tolerância e peso. |
-| `criterios_referencia_proposta.csv` | Registra o alvo por base, a regra de derivação e os parâmetros de cada critério. |
-| `../data/lua/lua.parquet` | Perfis propostos de duas bases lunares para o ranking. |
-| `../data/marte/marte.parquet` | Perfis propostos de seis bases marcianas para o ranking. |
-| `../data/lua/outputs/lua.parquet` | Export científico por região lunar, acompanhado de `lua_columns.csv`. |
+| `nichos.json` | Maps each body and comparison profile to Earth variables, reference columns, tolerances, and weights. |
+| `criterios_referencia_proposta.csv` | Records each base's target, derivation rule, and criterion parameters. |
+| `../data/lua/lua.parquet` | Ranking profiles for two lunar bases. |
+| `../data/marte/marte.parquet` | Ranking profiles for six Martian bases. |
+| `../data/lua/outputs/lua.parquet` | Scientific export by lunar region, with `lua_columns.csv`. |
 
-O Notebook 01 verifica o vínculo entre os nomes das variáveis, as colunas
-numéricas da Terra, a unidade declarada no dicionário e os valores do catálogo,
-dos perfis e do JSON. A nota de cada variável usa a distância ao alvo dividida
-pela tolerância, ambos expressos na unidade da medida terrestre para o critério.
+Notebook 01 checks that the Earth columns are numeric and that the dictionary, catalog, reference profiles, and JSON agree. Each score uses the absolute distance from the target divided by the tolerance, in the units of the corresponding Earth measurement.
 
-A proposta atual usa alvos fixos e percentis da distribuição terrestre. A
-coerência de tipos, unidades declaradas e configuração permite executar o
-ranking. Para fundamentar uma correspondência científica, registre também
-grandeza, unidade de origem, conversão, escala espacial, período de agregação e
-justificativa do proxy, quando houver. Por exemplo, converter Kelvin em °C
-alinha a unidade, enquanto a temperatura de brilho da superfície e a temperatura
-do ar a 2 m continuam sendo grandezas diferentes. Relevo e declividade
-podem ser avaliados após alinhar resolução e método. Elevação em relação a
-referenciais planetários distintos exige uma definição de comparação.
+For scientific comparisons, document the physical quantity, source unit, conversion, spatial scale, aggregation period, and rationale for any proxy. Converting Kelvin to Celsius aligns the units of surface brightness temperature and air temperature at 2 m, which measure different quantities. Align resolution and method when comparing relief or slope, and define a common basis when comparing elevations measured against different planetary reference surfaces.
 
-Para integrar um novo perfil, use o dicionário científico, selecione as bases,
-documente a correspondência e atualize em conjunto o Parquet de perfil,
-`nichos.json` e o catálogo CSV. Execute os notebooks 01 → 02 → 03.
+To add a profile, consult the scientific dictionary, select the bases, document each comparison, and update the profile Parquet, `nichos.json`, and the CSV catalog together. Then run Notebooks 01, 02, and 03 in order.
 
-## Valores reais da Lua e de Marte
+## Measured Moon and Mars values
 
-`valores_reais.csv` registra, por base e variável, o valor real com unidade,
-grandeza, confiança (`alta`, `media`, `baixa`) e fonte (missão, artigo ou
-cálculo). `python scripts/aplicar_valores_reais.py` grava esses alvos em
-`data/lua/lua.parquet` e `data/marte/marte.parquet` e atualiza o catálogo
-(o valor anterior fica em `alvo_proxy`).
+`valores_reais.csv` records the value, unit, physical quantity, confidence (`alta`, `media`, `baixa`), and source for each base and variable. Running `python scripts/aplicar_valores_reais.py` writes those targets to the lunar and Martian profile files and updates the catalog, retaining the previous target in `alvo_proxy`.
 
-Como muitos valores reais estão fora do alcance da Terra (pressão de Marte ≈
-0,7 kPa, Lua ≈ 0 kPa), a tolerância desses alvos é própria de cada base
-(`<variável>__tolerancia` no Parquet): a maior distância entre o alvo e os
-percentis 1 e 99 da Terra. A nota continua `100 × (1 − |valor − alvo| /
-tolerância)`, então o lugar da Terra mais próximo do valor real pontua e os
-demais caem proporcionalmente. Sem essa coluna vale a tolerância de
-`nichos.json`.
+Some measured targets lie beyond Earth's range, such as Martian pressure near 0.7 kPa and lunar pressure near zero. Their base-specific tolerance (`<variable>__tolerancia` in Parquet) is the greater of the distances from the target to Earth's 1st and 99th percentiles. The score uses `100 × (1 − |value − target| / tolerance)`, with negative scores clipped to zero. When there is no base-specific tolerance, the configuration in `nichos.json` applies.
 
-| Tipo de alvo | Quando | Exemplos |
+| Target type | When it applies | Examples |
 |---|---|---|
-| real | há medida ou cálculo físico com fonte | pressão, temperatura, radiação, altura do Sol, NDVI, chuva, carbono orgânico, vento, pH (Phoenix) |
-| classificação | presença/ausência definida pela geologia do sítio | litologias, permafrost, tubos de lava, solo exposto, terreno plano, albedo |
-| equivalente terrestre | sem medida comparável na mesma escala | relevo, declividade, posição topográfica e elevação (MOLA/LOLA ≠ nível do mar, escala de 0,5°), poeira em µg/m³, temperatura e amplitude no polo lunar |
+| Measured | A physical measurement or calculation has a source. | Pressure, temperature, radiation, solar elevation, NDVI, rainfall, organic carbon, wind, and Phoenix pH. |
+| Classification | Site geology defines presence or absence. | Lithology, permafrost, lava tubes, bare soil, flat terrain, and albedo. |
+| Earth equivalent | Comparable measurements at the same scale are unavailable. | Relief, slope, topographic position, elevation (MOLA/LOLA and sea level use different reference surfaces), airborne dust in µg/m³, and lunar polar temperature and amplitude. |
 
-Depois de aplicar os valores reais, rode `make analogos` para regenerar os pares.
+After applying measured targets, run `make analogos` to regenerate the pairs.
