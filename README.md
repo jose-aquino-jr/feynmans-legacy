@@ -2,6 +2,35 @@
 
 Feynman's Legacy identifies Earth sites that resemble reference locations on the Moon and Mars. The notebooks prepare the data, train the monthly forecast model, and rank Earth sites. FastAPI serves the published results, and the Angular application displays them on an interactive map.
 
+## Quick start with published data (Windows)
+
+Use this path to open the app with the datasets and model already published on the current `main` branch. Use steps 1–4 below when preparing new data or training a new model.
+
+In PowerShell, enter the repository root that contains `app/`, `src/`, and `front-end/`. The current version also contains `front-end/proxy.conf.json` and `scripts/publicar_projecoes.py`. Check that `git lfs version`, `uv --version`, `node --version`, and `npm.cmd --version` work. Use Node.js 24.15.0 or newer in the 24.x series with npm. If `uv` is missing, run `winget install --id=astral-sh.uv -e` and reopen PowerShell.
+
+In the first terminal, from the repository root:
+
+```powershell
+git lfs install
+git lfs pull
+uv venv --python 3.13 .venv
+uv pip install --python .\.venv\Scripts\python.exe -r requirements.txt
+$env:PYTHONPATH = (Resolve-Path src).Path
+.\.venv\Scripts\python.exe -m uvicorn app.main:app --host 127.0.0.1 --port 8000
+```
+
+If this checkout already has a working Python 3.13 `.venv`, skip `uv venv`. Keep the first terminal open. Check that [the recommendation options](http://127.0.0.1:8000/api/v1/analogos/recomendacoes/opcoes) return bases and months. If this fails, check the API log and make sure Git LFS downloaded the actual model file.
+
+In a second PowerShell terminal, starting from the same repository root:
+
+```powershell
+cd front-end
+npm.cmd ci
+npm.cmd start -- --host 127.0.0.1 --port 4200
+```
+
+Keep both terminals open and visit [the map](http://127.0.0.1:4200/mapa). For a first search, select Jezero Crater, the thermal criterion, and August 2026 in **Analysis Settings**. Use September 2026 with recursive projection to try the model. The first projection can take longer while the API prepares the requested month.
+
 ## 1. Clone the repository and set up Python
 
 Install Git, Git LFS, Python 3.12, and Node.js with npm. The backend CI uses Python 3.12. The frontend declares its npm version in [front-end/package.json](front-end/package.json).
@@ -27,8 +56,7 @@ From the repository root:
 ```bash
 python -m pip install --upgrade pip
 python -m pip install -r requirements-dev.txt
-python -m pip install -e .
-python -m ipykernel install --user --name feynmans-legacy --display-name "Python (Feynman's Legacy)"
+python -m ipykernel install --sys-prefix --name feynmans-legacy --display-name "Python (Feynman's Legacy)"
 ```
 
 Open the repository in a Jupyter-compatible editor such as VS Code with its Python and Jupyter extensions. Select **Python (Feynman's Legacy)** as the kernel in each notebook. The development requirements include the notebook dependencies and Optuna.
@@ -76,7 +104,10 @@ By default the script seeds 12 months after the observed cutoff. Use `--meses` f
 
 ## 5. Start FastAPI and check the data
 
-Copy `.env.example` to `.env` if you need to override the defaults. The example documents the `FL_*` settings. Run the API from the repository root so relative data and model paths resolve correctly.
+Copy `.env.example` to `.env` if you need to override the defaults. The example documents the `FL_*` settings. Run the API from the repository root so relative data and model paths resolve correctly. In the API terminal, add the project source to the Python import path:
+
+- PowerShell: `$env:PYTHONPATH = (Resolve-Path src).Path`
+- Bash: `export PYTHONPATH="$PWD/src"`
 
 ```bash
 python -m uvicorn app.main:app --host 127.0.0.1 --port 8000
@@ -120,7 +151,7 @@ Open [http://localhost:4200](http://localhost:4200). Open the map, select a Moon
 
 ## Checks
 
-Run the backend checks from the repository root:
+Run the backend checks from the repository root with the same `PYTHONPATH` as the API terminal:
 
 ```bash
 python -m ruff check .
